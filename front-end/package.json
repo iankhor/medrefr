@@ -1,0 +1,31 @@
+{
+  "name": "react-material-ui-boilerplate",
+  "version": "1.0.1",
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.13.0",
+    "concurrently": "^3.1.0",
+    "react-scripts": "0.8.4",
+    "stylus": "^0.54.5"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
+    "history": "^4.5.0",
+    "material-ui": "^0.16.6",
+    "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.1",
+    "react-parallax": "^1.2.2",
+    "react-router": "4.0.0-alpha.4",
+    "react-tap-event-plugin": "^2.0.1"
+  },
+  "scripts": {
+    "start": "PORT=9000 react-scripts start",
+    "watch": "concurrently --names \"webpack, stylus\" --prefix name \"npm run start\" \"npm run styles:watch\"",
+    "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
+    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy:heroku": "git push heroku master"
+  }
+}
