@@ -31,3 +31,6 @@ npm-debug.log
 
 # Environment variables
 .env
+
+# Heroku git
+.git
