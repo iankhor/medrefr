@@ -26,6 +26,12 @@ class App extends Component {
 
           <div className="border color-blue">
               <Link to='/PageOne'>Go to Page One</Link>
+              <br />
+              <Link to='/Profile'>Go to Profile</Link>
+              <br />
+              <Link to='/ReferralDashboard'>Go to ReferralDashboard</Link>
+              <br />
+              <Link to='/MainPage'>Go to MainPage</Link>
               <br/>
               <TextField
                 hintText="Type something here"
