@@ -26,6 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy:heroku": "git push heroku master"
+    "git:addcommit": "git add . && git commit -m 'heroku commit'",
+    "deploy:heroku": "npm run git:addcommit && git push heroku master"
   }
 }

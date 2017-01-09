@@ -25,6 +25,7 @@ class App extends Component {
           </div>
 
           <div className="border color-blue">
+              <p>YOLO</p>
               <Link to='/PageOne'>Go to Page One</Link>
               <br />
               <Link to='/Profile'>Go to Profile</Link>
