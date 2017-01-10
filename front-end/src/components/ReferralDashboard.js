@@ -15,15 +15,12 @@ const style = {
 class ReferralDashboard extends Component {
     render(){
         return(
-            <App> 
-                <br/>
                 <div className="border color-purple"  style={style}>
                     <h1>Thi is the REFERRAL DASHBOARD Component</h1>
                     <h4>This DISPLAYS the various parts of the dashboard</h4>
                     <EditableReferralList />
                     <AddReferral />
                 </div> 
-            </App> 
         )
     }
 }

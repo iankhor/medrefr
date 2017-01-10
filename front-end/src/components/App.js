@@ -5,6 +5,9 @@ import { Link } from 'react-router'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+//App components
+import ReferralDashboard from './ReferralDashboard'
+
 //material-ui components
 import { AppBar,
          TextField } from 'material-ui/';
@@ -15,6 +18,24 @@ import { MuiThemeProvider,
          darkBaseTheme } from 'material-ui/styles'
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this._loadSampleReferral = this._loadSampleReferral.bind(this)
+
+    this.state = {
+      referral: {
+                  name: 'steve jobs',
+                  providerNumber: '12345'
+                }
+    }
+
+  }
+
+  _loadSampleReferral(e) {
+    console.log(e.target)
+  }
+
   render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
@@ -24,25 +45,22 @@ class App extends Component {
             <h2>Welcome to MedReFR powered by ReACT and Material UI</h2>
           </div>
 
+          {/*
           <div className="border color-blue">
               <p>YOLO</p>
               <Link to='/PageOne'>Go to Page One</Link>
-              <br />
               <Link to='/Profile'>Go to Profile</Link>
               <br />
               <Link to='/ReferralDashboard'>Go to ReferralDashboard</Link>
               <br />
               <Link to='/MainPage'>Go to MainPage</Link>
               <br/>
-              <TextField
-                hintText="Type something here"
-                floatingLabelText="This is a text field from App component"
-                fullWidth={true}
-              />
           </div>
+          */}
 
            {/* Render children here*/}
-           {this.props.children} 
+           {/*this.props.children*/} 
+           <ReferralDashboard />
         </div>
       </MuiThemeProvider>
     );
