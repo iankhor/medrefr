@@ -5,6 +5,7 @@ import JSONDebugger from '../utils/JSONDebugger'
 
 // referral components
 import EditableReferralList from './EditableReferralList'
+import AddReferral from './AddReferral'
 
 const style = {
     margin: '20px',
@@ -20,6 +21,7 @@ class ReferralDashboard extends Component {
                     <h1>Thi is the REFERRAL DASHBOARD Component</h1>
                     <h4>This DISPLAYS the various parts of the dashboard</h4>
                     <EditableReferralList />
+                    <AddReferral />
                 </div> 
             </App> 
         )
