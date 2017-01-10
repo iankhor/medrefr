@@ -8,6 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import ReferralDashboard from './ReferralDashboard'
 import sampleReferrals from './_sample-referrals.js'
 import Header from '../../shared/Header'
+import DebugTempLink from '../../../utils/DebugTempLink'
 
 //material-ui components
 import { AppBar,
@@ -38,11 +39,15 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div className="App">
+            {/* temp onscreen redirection */}
+            <DebugTempLink />
+
             <Header />
             <ReferralDashboard 
               _loadSampleReferral={this._loadSampleReferral}
               referrals={this.state.referrals}
             />
+            
         </div>
       </MuiThemeProvider>
     );

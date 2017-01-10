@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
 
 //components
 import Header from '../shared/Header'
 import BodyList from './BodyList'
 import Footer from '../shared/Footer'
+import DebugTempLink from '../../utils/DebugTempLink'
 
 
 //Material UI theme
@@ -28,6 +28,10 @@ class MainPage extends Component {
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                 <div className="Header">
                     <strong>STILL IN DEVELOPMENT</strong>
+                    
+                    {/* temp onscreen redirection */}
+                    <DebugTempLink />
+                    
                     <Header />
                     <BodyList />
                     <Footer />
