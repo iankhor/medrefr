@@ -3,14 +3,14 @@ import { Link } from 'react-router'
 
 //components
 import Header from '../shared/Header'
+import BodyList from './BodyList'
 import Footer from '../shared/Footer'
+
 
 //Material UI theme
 import { MuiThemeProvider,
          getMuiTheme,
          darkBaseTheme } from 'material-ui/styles'
-
-
 
 // example JSON data
 const exampleJSONData = {
@@ -29,7 +29,7 @@ class MainPage extends Component {
                 <div className="Header">
                     <strong>STILL IN DEVELOPMENT</strong>
                     <Header />
-                    <p>BODY</p>
+                    <BodyList />
                     <Footer />
                 </div>
             </MuiThemeProvider>
