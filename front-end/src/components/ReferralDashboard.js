@@ -3,34 +3,23 @@ import App from './App'
 import { Link } from 'react-router'
 import JSONDebugger from '../utils/JSONDebugger'
 
-// example JSON data
-const exampleJSONData = {
-    data1: 'data1',
-    data2: 'data2',
-    data3: 123
-}
+// referral components
+import EditableReferralList from './EditableReferralList'
 
-//material-ui components
-import { TextField } from 'material-ui/';
+const style = {
+    margin: '20px',
+    backgroundColor: 'blue'
+}
 
 class ReferralDashboard extends Component {
     render(){
         return(
             <App> 
                 <br/>
-                <div className="border color-purple">
-                    <p>THIS IS THE REFERRAL DASHBOARD PAGE</p>
-                    <p><Link to='/'>Go to root page</Link></p>
-                    <p>
-                        <TextField
-                            hintText="Type something here"
-                            floatingLabelText="This is a text field child from ReferralDashboard component"
-                            fullWidth={true}
-                        />
-                    </p>
-                    <p>Below is an example of the JSON debugger</p>
-                    <JSONDebugger json={exampleJSONData} />
-                
+                <div className="border color-purple"  style={style}>
+                    <p>THIS IS THE REFERRAL DASHBOARD Component</p>
+                    <h4>This DISPLAYS the various parts of the dashboard</h4>
+                    <EditableReferralList />
                 </div> 
             </App> 
         )
