@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import App from './App'
 import { Link } from 'react-router'
 import JSONDebugger from '../utils/JSONDebugger'
 
@@ -16,8 +15,6 @@ import { TextField } from 'material-ui/';
 class PageOne extends Component {
     render(){
         return(
-            <App> 
-                <br/>
                 <div className="border color-purple">
                     <p><Link to='/'>Go to root page</Link></p>
                     <p>
@@ -31,7 +28,6 @@ class PageOne extends Component {
                     <JSONDebugger json={exampleJSONData} />
                 
                 </div> 
-            </App> 
         )
     }
 }

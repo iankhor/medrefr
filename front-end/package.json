@@ -1,6 +1,7 @@
 {
-  "name": "react-material-ui-boilerplate",
+  "name": "medrefr",
   "version": "1.0.1",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer-stylus": "^0.13.0",
     "concurrently": "^3.1.0",
@@ -14,9 +15,14 @@
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
+    "react-fontawesome": "^1.5.0",
     "react-parallax": "^1.2.2",
     "react-router": "4.0.0-alpha.4",
     "react-tap-event-plugin": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iankhor/medrefr"
   },
   "scripts": {
     "start": "PORT=9000 react-scripts start",

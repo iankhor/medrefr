@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import App from './App'
 import { Link } from 'react-router'
-import JSONDebugger from '../utils/JSONDebugger'
 
 // example JSON data
 const exampleJSONData = {
     data1: 'data1',
     data2: 'data2',
-    data3: 123
+    data3: 123,
+    data4: 123
 }
 
 //material-ui components
@@ -28,9 +28,6 @@ class Profile extends Component {
                             fullWidth={true}
                         />
                     </p>
-                    <p>Below is an example of the JSON debugger</p>
-                    <JSONDebugger json={exampleJSONData} />
-                
                 </div> 
             </App> 
         )
