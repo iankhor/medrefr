@@ -16,9 +16,7 @@ const Routes = (props) => {
       <div>
         <Match exactly pattern="/" component={App} />  
         <Match exactly pattern="/MainPage" component={MainPage} />  
-        <Match exactly pattern="/Profile" component={Profile} />  
-        <Match exactly pattern="/ReferralDashboard" component={ReferralDashboard} />  
-        <Match exactly pattern="/PageOne" component={PageOne} />  
+        <Match exactly pattern="/ReferralDashboard" component={App} />  
         <Miss component={NotFound} />  
       </div>
     </BrowserRouter>
