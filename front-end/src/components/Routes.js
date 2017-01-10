@@ -1,7 +1,7 @@
 import React from 'react'
 
 //Routes
-import NotFound from './shared/NotFound'
+import NotFound from './NotFound'
 import App from './Auth/App/App';
 import Profile from './Auth/App/Profile'
 import PageOne from './PageOne'

@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+
+//components
+import Header from '../shared/Header'
+
+//Material UI theme
 import { MuiThemeProvider,
          getMuiTheme,
          darkBaseTheme } from 'material-ui/styles'
+
+
 
 // example JSON data
 const exampleJSONData = {
@@ -18,17 +25,10 @@ class MainPage extends Component {
     render(){
         return(
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-                <div className="border color-purple">
-                    <p>THIS IS THE MAIN PAGE</p>
-                    <p><Link to='/'>Go to root page</Link></p>
-                    <p>
-                        <TextField
-                            hintText="Type something here"
-                            floatingLabelText="This is a text field child from MainPage component"
-                            fullWidth={true}
-                        />
-                    </p>
-                </div> 
+                <div className="Header">
+                    <Header />
+
+                </div>
             </MuiThemeProvider>
         )
     }
