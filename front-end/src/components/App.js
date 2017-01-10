@@ -7,6 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 //App components
 import ReferralDashboard from './ReferralDashboard'
+import sampleReferrals from './_sample-referrals.js'
 
 //material-ui components
 import { AppBar,
@@ -24,16 +25,7 @@ class App extends Component {
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
 
     this.state = {
-      referrals: [{
-                  _id:            1,
-                  name:           'steve jobs',
-                  providerNumber: '11111'
-                 },
-                 {
-                  _id:            2,
-                  name:           'steve wozzie',
-                  providerNumber: '22222'
-                }]
+      referrals: sampleReferrals
     }
 
   }
