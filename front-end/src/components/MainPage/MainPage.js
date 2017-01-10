@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 //components
 import Header from '../shared/Header'
+import Footer from '../shared/Footer'
 
 //Material UI theme
 import { MuiThemeProvider,
@@ -26,8 +27,10 @@ class MainPage extends Component {
         return(
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                 <div className="Header">
+                    <strong>STILL IN DEVELOPMENT</strong>
                     <Header />
-
+                    <p>BODY</p>
+                    <Footer />
                 </div>
             </MuiThemeProvider>
         )
