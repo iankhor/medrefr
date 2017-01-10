@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import App from './App'
 import { Link } from 'react-router'
-import JSONDebugger from '../utils/JSONDebugger'
+import { MuiThemeProvider,
+         getMuiTheme,
+         darkBaseTheme } from 'material-ui/styles'
 
 // example JSON data
 const exampleJSONData = {
@@ -13,29 +14,25 @@ const exampleJSONData = {
 //material-ui components
 import { TextField } from 'material-ui/';
 
-class Profile extends Component {
+class MainPage extends Component {
     render(){
         return(
-            <App> 
-                <br/>
+            <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                 <div className="border color-purple">
-                    <p>THIS IS THE PROFILE PAGE</p>
+                    <p>THIS IS THE MAIN PAGE</p>
                     <p><Link to='/'>Go to root page</Link></p>
                     <p>
                         <TextField
                             hintText="Type something here"
-                            floatingLabelText="This is a text field child from Profile component"
+                            floatingLabelText="This is a text field child from MainPage component"
                             fullWidth={true}
                         />
                     </p>
-                    <p>Below is an example of the JSON debugger</p>
-                    <JSONDebugger json={exampleJSONData} />
-                
                 </div> 
-            </App> 
+            </MuiThemeProvider>
         )
     }
 }
 
-export default Profile
+export default MainPage
 
