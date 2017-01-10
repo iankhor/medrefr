@@ -24,10 +24,16 @@ class App extends Component {
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
 
     this.state = {
-      referral: {
-                  name: 'steve jobs',
-                  providerNumber: '12345'
-                }
+      referrals: [{
+                  _id:            1,
+                  name:           'steve jobs',
+                  providerNumber: '11111'
+                 },
+                 {
+                  _id:            2,
+                  name:           'steve wozzie',
+                  providerNumber: '22222'
+                }]
     }
 
   }
@@ -45,22 +51,10 @@ class App extends Component {
             <h2>Welcome to MedReFR powered by ReACT and Material UI</h2>
           </div>
 
-          {/*
-          <div className="border color-blue">
-              <p>YOLO</p>
-              <Link to='/PageOne'>Go to Page One</Link>
-              <Link to='/Profile'>Go to Profile</Link>
-              <br />
-              <Link to='/ReferralDashboard'>Go to ReferralDashboard</Link>
-              <br />
-              <Link to='/MainPage'>Go to MainPage</Link>
-              <br/>
-          </div>
-          */}
-
-           {/* Render children here*/}
-           {/*this.props.children*/} 
-           <ReferralDashboard />
+           <ReferralDashboard 
+              _loadSampleReferral={this._loadSampleReferral}
+              referrals={this.state.referrals}
+            />
         </div>
       </MuiThemeProvider>
     );

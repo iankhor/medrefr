@@ -18,7 +18,12 @@ class ReferralDashboard extends Component {
                 <div className="border color-purple"  style={style}>
                     <h1>Thi is the REFERRAL DASHBOARD Component</h1>
                     <h4>This DISPLAYS the various parts of the dashboard</h4>
-                    <EditableReferralList />
+                    <h4>There should be an array of referrals, use map to display</h4>
+                    
+                    <EditableReferralList 
+                        _loadSampleReferral={this.props._loadSampleReferral}
+                        referrals={this.props.referrals}
+                    />
                     <AddReferral />
                 </div> 
         )
