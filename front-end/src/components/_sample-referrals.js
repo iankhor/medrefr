@@ -27,5 +27,11 @@ module.exports = [
       _id:            5,
       name:           'patrick smith',
       providerNumber: '22222'
+      },
+
+      {
+      _id:            6,
+      name:           'neo smith',
+      providerNumber: '66'
       }
 ]
