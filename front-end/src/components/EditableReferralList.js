@@ -13,6 +13,7 @@ class EditableReferralList extends Component {
         return(
             <div className="border" style={style}> 
                 <h1>This is a EditableReferralList component</h1>
+                <h4>This DISPLAYS the list of referrals</h4>
 
                 {/* this should be a list of referrals later on */}
                 <EditableReferral />
