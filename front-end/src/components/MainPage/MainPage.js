@@ -27,6 +27,7 @@ class MainPage extends Component {
         return(
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                 <div className="Header">
+                    <strong>STILL IN DEVELOPMENT</strong>
                     <Header />
                     <p>BODY</p>
                     <Footer />
