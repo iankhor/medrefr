@@ -17,7 +17,7 @@ class ReferralDashboard extends Component {
             <App> 
                 <br/>
                 <div className="border color-purple"  style={style}>
-                    <h1>THIS IS THE REFERRAL DASHBOARD Component</h1>
+                    <h1>Thi is the REFERRAL DASHBOARD Component</h1>
                     <h4>This DISPLAYS the various parts of the dashboard</h4>
                     <EditableReferralList />
                 </div> 
