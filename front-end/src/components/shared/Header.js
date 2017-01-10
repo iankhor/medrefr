@@ -8,6 +8,7 @@ class Header extends Component {
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Welcome to MedReFR powered by ReACT and Material UI</h2>
+            <p>This is the header</p>
           </div>
         )
     }

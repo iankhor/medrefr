@@ -22,9 +22,8 @@ On your local terminal,
 1.Login to heroku by running ```heroku login```  
 2.Enter your heroku user name and password  
 3.Setup heroku remote repositry by running ```git remote add heroku https://git.heroku.com/medrefr.git```   
-4.Commit all files to git by running ```git add .``` (or relevant files) and then ```git push heroku master``` (or whichever branch)  
-5.Run ```npm run deploy:heroku```  
-6.Once the heroku build process is complete, visit the app at ```https://medrefr.herokuapp.com/```   
+4.Run ```npm run deploy:heroku```  
+5.Once the heroku build process is complete, visit the app at ```https://medrefr.herokuapp.com/```   
 
 ### Back End
 

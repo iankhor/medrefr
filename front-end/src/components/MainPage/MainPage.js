@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
 
 //components
 import Header from '../shared/Header'
+import BodyList from './BodyList'
 import Footer from '../shared/Footer'
+import DebugTempLink from '../../utils/DebugTempLink'
+
 
 //Material UI theme
 import { MuiThemeProvider,
          getMuiTheme,
          darkBaseTheme } from 'material-ui/styles'
-
-
 
 // example JSON data
 const exampleJSONData = {
@@ -28,8 +28,12 @@ class MainPage extends Component {
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                 <div className="Header">
                     <strong>STILL IN DEVELOPMENT</strong>
+                    
+                    {/* temp onscreen redirection */}
+                    <DebugTempLink />
+                    
                     <Header />
-                    <p>BODY</p>
+                    <BodyList />
                     <Footer />
                 </div>
             </MuiThemeProvider>
