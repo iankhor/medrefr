@@ -24,8 +24,10 @@ import { FormsyCheckbox,
         
 
 const style = {
-    card : {
-        marginBottom: '5px',
+    uploadButton :{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     cardActions :{
         textAlign: 'right'
@@ -91,7 +93,6 @@ class EditableReferral extends Component {
 
                 <CardText expandable={true}>
                     <Paper style={style.paperStyle}>
-                        <CardTitle title="Patient data" subtitle="" />
                         <Formsy.Form
                             onValid={this.enableButton}
                             onInvalid={this.disableButton}
@@ -99,6 +100,8 @@ class EditableReferral extends Component {
                             onInvalidSubmit={this.notifyFormError}
                         >
                         
+                        {/* patient data form below */}
+                        <CardTitle title="Patient data" subtitle="" />
                         <FormsyText
                             name="surname"
                             validations="isWords"
@@ -159,6 +162,121 @@ class EditableReferral extends Component {
                             floatingLabelText="Contact number"
                         />
 
+                        {/* doctor data form below */}
+                        <CardTitle title="Doctor data" subtitle="" />
+                        <FormsyText
+                            name="surname"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Surname"
+                            floatingLabelText="Surname"
+                        />
+
+                        <FormsyText
+                            name="givenName"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Given name"
+                            floatingLabelText="Give name"
+                        />
+
+                        <FormsyText
+                            name="clinic"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Clinic"
+                            floatingLabelText="Clinic"
+                        />
+
+                        <FormsyText
+                            name="address"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Address"
+                            floatingLabelText="Address"
+                        />
+
+                        <FormsyText
+                            name="postcode"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Postcode"
+                            floatingLabelText="Postcode"
+                        />
+
+                        <FormsyText
+                            name="contactNumber"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Contact number"
+                            floatingLabelText="Contact number"
+                        />
+
+                        {/* doctor data form below */}
+                        <CardTitle title="Referral details" subtitle="" />
+                        <FormsyText
+                            name="reasonForReferral"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Reason for referral"
+                            floatingLabelText="Reason for referral"
+                        />
+
+                        <FormsySelect
+                            name="requestedService"
+                            required
+                            floatingLabelText="Requested service"
+                            menuItems={this.selectFieldItems}
+                        >
+                            <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
+                            <MenuItem value={'medicationReview'} primaryText="Medication Review" />
+                            <MenuItem value={'dianogsticClarification'} primaryText="Diagnostic Clarifiction" />
+                            <MenuItem value={'assessmentForManagementOfBPSD'} primaryText="Assessment for Management of BPSD" />
+                        </FormsySelect>
+
+                        <FormsyToggle
+                            name="urgent"
+                            label="Urgent"
+                            style={style.switchStyle}
+                        />
+                        <div style={style.uploadButton}>
+                            <RaisedButton label="Upload" primary={true} style={style.uploadButton} />
+                            <CardText>Upload additional information (Limited to one PDF file)</CardText>
+                        </div>
+                        
+                        <CardTitle title="Triage" subtitle="" />
+                        <FormsySelect
+                            name="ruralCode"
+                            required
+                            floatingLabelText="Rural code"
+                            menuItems={this.selectFieldItems}
+                        >
+                            <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
+                            <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
+                            <MenuItem value={'RA3OuterRegional'} primaryText="RA3 Outer Regional" />
+                            <MenuItem value={'RA4Remote'} primaryText="RA4 Remote" />
+                            <MenuItem value={'RA5VeryRemote'} primaryText="RA5 Very Remote" />
+                        </FormsySelect>
+
+                        <FormsyDate
+                            name="appointmentDate"
+                            required
+                            floatingLabelText="Appointment date"
+                        />
+                        <FormsyTime
+                            name="appointmentTime"
+                            required
+                            floatingLabelText="Appointment time"
+                        />
+                        
+                        <CardText>Last Date reviewed (placeholder)</CardText>
 
                         </Formsy.Form>
                     </Paper>
