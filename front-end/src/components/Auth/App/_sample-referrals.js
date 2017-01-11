@@ -1,11 +1,25 @@
 module.exports = [
       {
-      _id:            1,
-      name:           'Cardia, Brady',
-      providerNumber: '11111',
-      gender:         'M',
-      dateOfBirth:    '26/12/1950',
-      imgProfile:     'https://openclipart.org/image/2400px/svg_to_png/225296/Red-Heart.png'
+      "referralStatus":             "accepted",
+      "patientSurname":             "Brady",
+      "patientgivenName":           "Cardia",
+      "patientGender":              "M",
+      "patientDateOfBirth":         "1950/12/26",
+      "patientAddress":             "120, Spencer Street, Melbourne",
+      "patientPostcode":            "3000",
+      "patientMedicare":            "12345678901",
+      "patientContactNumber":       "0412345678",
+      "doctorSurname":              "Arrest",
+      "doctorGivenName":            "Cardiac",
+      "doctorClinic":               "Chest Pain Clinic",
+      "doctorAddress":              "123, Fake street, Melbourne",
+      "doctorPostcode":             "3000",
+      "doctorContactNumber":        "0412345679",
+      "referralRequestedService":   "medicationReview",
+      "referralReasonForReferral":  "He is crazy",
+      "referralUrgent":             false,
+      "referralRuralCode":          "RA3OuterRegional",
+      imgProfile:                   'https://openclipart.org/image/2400px/svg_to_png/225296/Red-Heart.png'
       },
 
       {

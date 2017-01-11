@@ -79,7 +79,7 @@ class EditableReferral extends Component {
    
         this.state = {
             expanded: false,
-            canSubmit: false
+            canSubmit: true
         }
     }
 
@@ -119,7 +119,10 @@ class EditableReferral extends Component {
         return(
            <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style.card}>
                 <CardHeader
-                    title={this.props.referral.name + ' (' + this.props.referral.gender + ')'}
+                    title={this.props.referral.patientSurname +
+                            ' ,' +
+                            this.props.referral.patientgivenName +
+                            ' (' + this.props.referral.patientGender + ')'}
                     subtitle={this.props.referral.dateOfBirth}
                     avatar={this.props.referral.imgProfile}
                     actAsExpander={true}
@@ -140,6 +143,7 @@ class EditableReferral extends Component {
                             <FormsySelect
                                 name="referralStatus"
                                 floatingLabelText="Status"
+                                value={this.props.referral.referralStatus}
                             >
                                 <MenuItem value={'accepted'} primaryText="Accepted" />
                                 <MenuItem value={'assigned'} primaryText="Assigned" />
@@ -160,7 +164,7 @@ class EditableReferral extends Component {
                             required
                             hintText="Surname"
                             floatingLabelText="Surname"
-                            defaultValue={this.props.referral.surname}
+                            defaultValue={this.props.referral.patientSurname}
                         />
 
                         <FormsyText
@@ -169,15 +173,28 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             required
                             hintText="Given name"
-                            floatingLabelText="Give name"
+                            floatingLabelText="Given name"
+                            value={this.props.referral.patientgivenName}
                         />
+
+                        <FormsySelect
+                                name="patientGender"
+                                floatingLabelText="Gender"
+                                value={this.props.referral.patientGender}
+                            >
+                                <MenuItem value={'M'} primaryText="Male" />
+                                <MenuItem value={'F'} primaryText="Female" />
+                            </FormsySelect>
+
+                        
 
                         <FormsyText
                             name="patientAddress"
-                            validations="isAlphanumeric"
+                            validations="matchRegexp"
                             validationError={errorMessages.wordsError}
                             hintText="Address"
                             floatingLabelText="Address"
+                            defaultValue={this.props.referral.patientAddress}
                         />
 
                         <FormsyText
@@ -186,11 +203,13 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             hintText="Postcode"
                             floatingLabelText="Postcode"
+                            defaultValue={this.props.referral.patientPostcode}
                         />
 
                         <FormsyDate
                             name="patientDateOfBirth"
                             floatingLabelText="Date of birth"
+                            defaultDate={this.props.referral.patientDateOfBirth}
                         />
 
                         <FormsyText
@@ -199,6 +218,7 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             hintText="Medicare number"
                             floatingLabelText="Medicare number"
+                            defaultValue={this.props.referral.patientMedicare}
                         />
 
                         <FormsyText
@@ -207,6 +227,7 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             hintText="Contact number"
                             floatingLabelText="Contact number"
+                            defaultValue={this.props.referral.patientContactNumber}
                         />
 
                         {/* doctor data form below */}
@@ -218,6 +239,7 @@ class EditableReferral extends Component {
                             required
                             hintText="Surname"
                             floatingLabelText="Surname"
+                            defaultValue={this.props.referral.doctorSurname}
                         />
 
                         <FormsyText
@@ -227,6 +249,7 @@ class EditableReferral extends Component {
                             required
                             hintText="Given name"
                             floatingLabelText="Give name"
+                            defaultValue={this.props.referral.doctorGivenName}
                         />
 
                         <FormsyText
@@ -235,6 +258,7 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             hintText="Clinic"
                             floatingLabelText="Clinic"
+                            defaultValue={this.props.referral.doctorClinic}
                         />
 
                         <FormsyText
@@ -243,6 +267,7 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             hintText="Address"
                             floatingLabelText="Address"
+                            defaultValue={this.props.referral.doctorAddress}
                         />
 
                         <FormsyText
@@ -251,6 +276,7 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             hintText="Postcode"
                             floatingLabelText="Postcode"
+                            defaultValue={this.props.referral.doctorPostcode}
                         />
 
                         <FormsyText
@@ -259,6 +285,7 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             hintText="Contact number"
                             floatingLabelText="Contact number"
+                            defaultValue={this.props.referral.doctorContactNumber}
                         />
 
                         {/* referral form below */}
@@ -269,11 +296,13 @@ class EditableReferral extends Component {
                             validationError={errorMessages.wordsError}
                             hintText="Reason for referral"
                             floatingLabelText="Reason for referral"
+                            defaultValue={this.props.referral.referralReasonForReferral}
                         />
 
                         <FormsySelect
                             name="referralRequestedService"
                             floatingLabelText="Requested service"
+                            value={this.props.referral.referralRequestedService}
                         >
                             <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
                             <MenuItem value={'medicationReview'} primaryText="Medication Review" />
@@ -285,6 +314,7 @@ class EditableReferral extends Component {
                             name="referralUrgent"
                             label="Urgent"
                             style={style.switchStyle}
+                            defaultToggled={this.props.referral.referralUrgent}
                         />
                         <div style={style.uploadButton}>
                             <RaisedButton label="Upload" primary={true} style={style.uploadButton} />
@@ -296,6 +326,7 @@ class EditableReferral extends Component {
                         <FormsySelect
                             name="referralRuralCode"
                             floatingLabelText="Rural code"
+                            value={this.props.referral.referralRuralCode}
                         >
                             <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
                             <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
@@ -307,13 +338,16 @@ class EditableReferral extends Component {
                         <FormsyDate
                             name="referralAppointmentDate"
                             floatingLabelText="Appointment date"
+                            value={this.props.referral.referralAppointmentDate}
                         />
                         <FormsyTime
                             name="referralAppointmentTime"
                             floatingLabelText="Appointment time"
+                            value={this.props.referral.referralAppointmentTime}
                         />
                         
                         <CardText>Last Date reviewed (placeholder)</CardText>
+                        </Formsy.Form>
 
                         <CardActions style={style.cardActions} expandable={true}>
                             <FlatButton
@@ -324,9 +358,8 @@ class EditableReferral extends Component {
                             />
 
                             <FlatButton label="Collapse" onTouchTap={this.handleReduce} />
-                    </CardActions>
+                        </CardActions>
 
-                        </Formsy.Form>
                     </Paper>
                 </CardText>
 
