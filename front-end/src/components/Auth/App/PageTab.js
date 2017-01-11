@@ -46,7 +46,7 @@ export default class PageTab extends React.Component {
           onChangeIndex={this.handleChange}
         >
           <div>
-            <ReferralDashboard />
+            <ReferralDashboard referrals={this.props.referrals}/>
           </div>
           <div style={styles.slide}>
             <Profile />

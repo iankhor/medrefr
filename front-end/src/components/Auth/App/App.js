@@ -43,7 +43,7 @@ class App extends Component {
             {/* temp onscreen redirection */}
             <DebugTempLink />
             <Header />
-            <PageTab />
+            <PageTab referrals={this.state.referrals}/>
         </div>
       </MuiThemeProvider>
     )
