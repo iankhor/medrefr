@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={medrefrTheme}>
-        <div className="App">
+        <div>
             {/* temp onscreen redirection */}
             <DebugTempLink />
             <Header />

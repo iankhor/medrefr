@@ -10,8 +10,7 @@ import { Card,
 
 
 const style = {
-    margin: '20px',
-    backgroundColor: 'pink'
+    marginBottom: '5px',
 }
 
 class EditableReferral extends Component {
@@ -42,22 +41,17 @@ class EditableReferral extends Component {
 
     render(){
         return(
-           <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+           <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style}>
                 <CardHeader
-                    title="RANDOM NAME"
-                    subtitle="Subtitle"
-                    avatar="http://static8.comicvine.com/uploads/square_medium/11117/111171699/3921775-starlord2014001_dc11-page-001.jpg"
+                    title={this.props.referral.name}
+                    subtitle={this.props.referral.dateOfBirth}
+                    avatar={this.props.referral.imgProfile}
                     actAsExpander={true}
                     showExpandableButton={true}
-                />
-                <CardText>
-                <Toggle
-                    toggled={this.state.expanded}
-                    onToggle={this.handleToggle}
-                    labelPosition="right"
-                    label="This toggle controls the expanded state of the component."
-                />
-                </CardText>
+                >
+                    {this.props.referral.gender}
+                </CardHeader>
+
                 <CardMedia
                 expandable={true}
                 overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}

@@ -4,7 +4,8 @@ import { FloatingActionButton } from 'material-ui'
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
 const style = {
-    marginRight: 20
+    marginRight: 20,
+    textAlign: 'center'
 }
 
 class AddReferral extends Component {
