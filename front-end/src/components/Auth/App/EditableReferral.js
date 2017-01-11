@@ -35,6 +35,9 @@ const style = {
         justifyContent: 'center',
         alignItems: 'center'
     },
+    card :{
+        marginBottom : 15
+    },
     cardActions :{
         textAlign: 'right'
     },
