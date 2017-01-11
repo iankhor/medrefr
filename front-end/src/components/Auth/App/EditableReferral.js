@@ -35,7 +35,19 @@ const style = {
       margin: 'auto',
       padding: 20,
     },
+    switchStyle: {
+      marginBottom: 16,
+    },
+    submitStyle: {
+      marginTop: 32,
+    }
 }
+
+const errorMessages = {
+    wordsError: "Please only use letters",
+    numericError: "Please provide a number",
+    urlError: "Please provide a valid URL",
+  }
 
 class EditableReferral extends Component {
 
@@ -77,18 +89,77 @@ class EditableReferral extends Component {
                     {this.props.referral.gender}
                 </CardHeader>
 
-                <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} />
-
-                
                 <CardText expandable={true}>
                     <Paper style={style.paperStyle}>
+                        <CardTitle title="Patient data" subtitle="" />
                         <Formsy.Form
                             onValid={this.enableButton}
                             onInvalid={this.disableButton}
                             onValidSubmit={this.submitForm}
                             onInvalidSubmit={this.notifyFormError}
                         >
-                        FORM COMES HERE
+                        
+                        <FormsyText
+                            name="surname"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Surname"
+                            floatingLabelText="Surname"
+                        />
+
+                        <FormsyText
+                            name="givenName"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Given name"
+                            floatingLabelText="Give name"
+                        />
+
+                        <FormsyText
+                            name="address"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Address"
+                            floatingLabelText="Address"
+                        />
+
+                        <FormsyText
+                            name="address"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Address"
+                            floatingLabelText="Address"
+                        />
+
+                        <FormsyDate
+                            name="dateOfBirth"
+                            required
+                            floatingLabelText="Date of birth"
+                        />
+
+                        <FormsyText
+                            name="medicare"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Medicare number"
+                            floatingLabelText="Medicare number"
+                        />
+
+                        <FormsyText
+                            name="contactNumber"
+                            validations="isWords"
+                            validationError={errorMessages.wordsError}
+                            required
+                            hintText="Contact number"
+                            floatingLabelText="Contact number"
+                        />
+
+
                         </Formsy.Form>
                     </Paper>
                 </CardText>
