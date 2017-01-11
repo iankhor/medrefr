@@ -44,7 +44,7 @@ class EditableReferral extends Component {
         return(
            <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
                 <CardHeader
-                    title={this.props.name}
+                    title="RANDOM NAME"
                     subtitle="Subtitle"
                     avatar="http://static8.comicvine.com/uploads/square_medium/11117/111171699/3921775-starlord2014001_dc11-page-001.jpg"
                     actAsExpander={true}
