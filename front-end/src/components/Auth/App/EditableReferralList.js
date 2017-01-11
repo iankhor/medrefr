@@ -17,9 +17,10 @@ class EditableReferralList extends Component {
                 <h4>This DISPLAYS the list of referrals</h4>
                 <h4>There should be an array of referrals, use map to display</h4>
 
-                {this.props.referrals.map( (jsonObject) => 
+                {/* code below is breaking, commented off for now*/}
+               {/* {this.props.referrals.map( (jsonObject) => 
                     <EditableReferral referral={jsonObject} />
-                )}
+                )} */}
             </div>
         )
     }

@@ -47,15 +47,8 @@ class App extends Component {
         <div className="App">
             {/* temp onscreen redirection */}
             <DebugTempLink />
-
             <Header />
             <PageTab />
-
-           {/* <ReferralDashboard 
-              _loadSampleReferral={this._loadSampleReferral}
-              referrals={this.state.referrals}
-          />*/}
-            
         </div>
       </MuiThemeProvider>
     )
