@@ -7,19 +7,19 @@ class Footer extends Component {
         return(
           <div className="Footer">
             <p>This is the footer</p>
-            <FA 
+            <FA
               name="linkedin"
               border={true}
-              size="3x" 
+              size="1x"
             />
 
-            <FA 
+            <FA
               name="facebook"
               border={true}
-              size="3x" 
+              size="1x" 
             />
-            
-          </div> 
+
+          </div>
         )
     }
 }
