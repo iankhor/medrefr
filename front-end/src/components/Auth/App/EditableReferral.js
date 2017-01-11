@@ -55,10 +55,35 @@ class EditableReferral extends Component {
 
     constructor(props) {
         super(props)
+        this.enableButton = this.enableButton.bind(this)
+        this.disableButton = this.disableButton.bind(this)
+        this.submitForm = this.submitForm.bind(this)
+        this.notifyFormError = this.notifyFormError.bind(this)
+        this.handleExpandChange = this.handleExpandChange.bind(this)
+        this.handleToggle = this.handleToggle.bind(this)
+        this.handleExpand = this.handleExpand.bind(this)
+        this.handleReduce = this.handleReduce.bind(this)
    
         this.state = {
             expanded: false,
+            canSubmit: false
         }
+    }
+
+    disableButton = () => {
+        this.setState({canSubmit: false})
+    }
+
+    enableButton = () => {
+        this.setState({canSubmit: true})
+    }
+
+    submitForm = (data) => {
+        alert(JSON.stringify(data,null,4))
+    }
+
+    notifyFormError = (data) => {
+        console.error('Form error:', data)
     }
 
     handleExpandChange = (expanded) => {
@@ -122,7 +147,6 @@ class EditableReferral extends Component {
                             name="address"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Address"
                             floatingLabelText="Address"
                         />
@@ -131,14 +155,12 @@ class EditableReferral extends Component {
                             name="postcode"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Postcode"
                             floatingLabelText="Postcode"
                         />
 
                         <FormsyDate
                             name="dateOfBirth"
-                            required
                             floatingLabelText="Date of birth"
                         />
 
@@ -146,7 +168,6 @@ class EditableReferral extends Component {
                             name="medicare"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Medicare number"
                             floatingLabelText="Medicare number"
                         />
@@ -155,7 +176,6 @@ class EditableReferral extends Component {
                             name="contactNumber"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Contact number"
                             floatingLabelText="Contact number"
                         />
@@ -184,7 +204,6 @@ class EditableReferral extends Component {
                             name="clinic"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Clinic"
                             floatingLabelText="Clinic"
                         />
@@ -193,7 +212,6 @@ class EditableReferral extends Component {
                             name="address"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Address"
                             floatingLabelText="Address"
                         />
@@ -202,7 +220,6 @@ class EditableReferral extends Component {
                             name="postcode"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Postcode"
                             floatingLabelText="Postcode"
                         />
@@ -211,7 +228,6 @@ class EditableReferral extends Component {
                             name="contactNumber"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Contact number"
                             floatingLabelText="Contact number"
                         />
@@ -222,16 +238,13 @@ class EditableReferral extends Component {
                             name="reasonForReferral"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
-                            required
                             hintText="Reason for referral"
                             floatingLabelText="Reason for referral"
                         />
 
                         <FormsySelect
                             name="requestedService"
-                            required
                             floatingLabelText="Requested service"
-                            menuItems={this.selectFieldItems}
                         >
                             <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
                             <MenuItem value={'medicationReview'} primaryText="Medication Review" />
@@ -252,9 +265,7 @@ class EditableReferral extends Component {
                         <CardTitle title="Triage" subtitle="" />
                         <FormsySelect
                             name="ruralCode"
-                            required
                             floatingLabelText="Rural code"
-                            menuItems={this.selectFieldItems}
                         >
                             <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
                             <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
@@ -265,25 +276,30 @@ class EditableReferral extends Component {
 
                         <FormsyDate
                             name="appointmentDate"
-                            required
                             floatingLabelText="Appointment date"
                         />
                         <FormsyTime
                             name="appointmentTime"
-                            required
                             floatingLabelText="Appointment time"
                         />
                         
                         <CardText>Last Date reviewed (placeholder)</CardText>
 
+                        <CardActions style={style.cardActions} expandable={true}>
+                            <FlatButton
+                                style={style.submitStyle}
+                                type="submit"
+                                label="Submit"
+                                disabled={!this.state.canSubmit}
+                            />
+
+                            <FlatButton label="Collapse" onTouchTap={this.handleReduce} />
+                    </CardActions>
+
                         </Formsy.Form>
                     </Paper>
                 </CardText>
 
-                <CardActions style={style.cardActions} expandable={true}>
-                    <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-                    <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
-                </CardActions>
             </Card>
         )
     }
