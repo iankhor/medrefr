@@ -6,20 +6,20 @@ class Footer extends Component {
     render(){
         return(
           <div className="Footer">
-            <p>This is the footer</p>
-            <FA 
+            <p>Designed by .this</p>
+            <FA
               name="linkedin"
               border={true}
-              size="3x" 
+              size="1x"
             />
 
-            <FA 
+            <FA
               name="facebook"
               border={true}
-              size="3x" 
+              size="1x"
             />
-            
-          </div> 
+
+          </div>
         )
     }
 }

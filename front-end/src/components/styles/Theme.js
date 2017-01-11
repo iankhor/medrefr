@@ -6,11 +6,16 @@ import {cyan500} from 'material-ui/styles/colors'
 const medrefrTheme = getMuiTheme({
   palette: {
     primary1Color: '#42B3E5',
-    textColor: cyan500,
+    primary2Color: '#3156A3',
+    textColor: '#3156A3',
+    accent1Color: '#3156A3'
   },
-  // appBar: {
-  //   height: 50,
-  // },
+
+  // fontFamily: 'monospace',
+
+  appBar: {
+    color: '#3156A3',
+  },
 })
 
 export default medrefrTheme
