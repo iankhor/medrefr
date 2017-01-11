@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// HeroImage
 const style = {
     margin: '20px',
     backgroundColor: 'green'
@@ -7,7 +8,7 @@ const style = {
 
 const BodySectionOne = (props) => {
         return(
-            <div className="generic-center" style={style}> 
+            <div className="generic-center" style={style}>
                 <h1>This is a BodySectionOne component</h1>
             </div>
         )

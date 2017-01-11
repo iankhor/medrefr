@@ -1,7 +1,6 @@
 * {
   margin: 0;
 }
-
 h1 {
   font-size: 2em;
 }
@@ -45,7 +44,6 @@ body {
 .App-header {
   background-color: #fff;
   height: auto;
-  /*padding: 20px;*/
   color: #000;
 }
 .App-intro {

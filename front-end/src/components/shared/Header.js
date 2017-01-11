@@ -3,9 +3,6 @@ import '../../css/style.css'
 import logo from '../../../assets/img/Logo-1.png'
 import AppBarExampleComposition from './AppBar'
 
-import { MuiThemeProvider,
-         getMuiTheme,
-         darkBaseTheme } from 'material-ui/styles'
 
 class Header extends Component {
     render(){
