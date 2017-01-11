@@ -2,6 +2,7 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import AddReferral from './AddReferral'
+import Profile from './Profile'
 
 const styles = {
   headline: {
@@ -45,11 +46,10 @@ export default class PageTab extends React.Component {
           onChangeIndex={this.handleChange}
         >
           <div>
-            <h2 style={styles.headline}>Tabs with slide effect</h2>
-            Swipe to see the next slide.<br />
+            <AddReferral />
           </div>
           <div style={styles.slide}>
-            <AddReferral />
+            <Profile />
           </div>
         </SwipeableViews>
       </div>
