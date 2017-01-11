@@ -1,12 +1,11 @@
 import React from 'react'
 
 //Routes
-import NotFound from './shared/NotFound'
-import App from './App';
-import PageOne from './PageOne'
-import MainPage from './MainPage'
-import Profile from './Profile'
-import ReferralDashboard from './ReferralDashboard'
+import NotFound from './NotFound'
+import MainPage from './MainPage/MainPage'
+import Login from './Auth/Login'
+import App from './Auth/App/App'
+import ReferralDashboard from './Auth/App/ReferralDashboard'
 
 import { BrowserRouter , Match, Miss } from 'react-router'
 
@@ -14,8 +13,8 @@ const Routes = (props) => {
   return (
     <BrowserRouter>
       <div>
-        <Match exactly pattern="/" component={App} />  
-        <Match exactly pattern="/MainPage" component={MainPage} />  
+        <Match exactly pattern="/" component={MainPage} />  
+        <Match exactly pattern="/Login" component={Login} />  
         <Match exactly pattern="/ReferralDashboard" component={App} />  
         <Miss component={NotFound} />  
       </div>

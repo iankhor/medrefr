@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 
-//import onscreen debugger
-import JSONDebugger from '../utils/JSONDebugger'
-
 //Components
 import EditableReferral from './EditableReferral'
 

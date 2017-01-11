@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import logo from '../../assets/img/logo.svg'
-import '../css/style.css'
+import '../../../css/style.css'
 import { Link } from 'react-router'
-
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 //App components
 import ReferralDashboard from './ReferralDashboard'
 import sampleReferrals from './_sample-referrals.js'
-
-//material-ui components
-import { AppBar,
-         TextField } from 'material-ui/';
+import Header from '../../shared/Header'
+import DebugTempLink from '../../../utils/DebugTempLink'
+import PageTab from './PageTab'
 
 //theme related material-ui
 import { MuiThemeProvider,
@@ -23,9 +20,11 @@ class App extends Component {
     super()
 
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
+    this._handleTabChange = this._handleTabChange.bind(this)
 
     this.state = {
-      referrals: sampleReferrals
+      referrals: sampleReferrals,
+      value: 'a'
     }
 
   }
@@ -34,22 +33,30 @@ class App extends Component {
     console.log(e.target)
   }
 
+  _handleTabChange = (value) => {
+    this.setState({
+      value: value
+    })
+  }
+
   render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div className="App">
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2>Welcome to MedReFR powered by ReACT and Material UI</h2>
-          </div>
+            {/* temp onscreen redirection */}
+            <DebugTempLink />
 
-           <ReferralDashboard 
+            <Header />
+            <PageTab />
+
+           {/* <ReferralDashboard 
               _loadSampleReferral={this._loadSampleReferral}
               referrals={this.state.referrals}
-            />
+          />*/}
+            
         </div>
       </MuiThemeProvider>
-    );
+    )
   }
 }
 
