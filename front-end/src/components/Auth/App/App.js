@@ -49,10 +49,10 @@ class App extends Component {
             <Header />
             <PageTab />
 
-            <ReferralDashboard 
+           {/* <ReferralDashboard 
               _loadSampleReferral={this._loadSampleReferral}
               referrals={this.state.referrals}
-            />
+          />*/}
             
         </div>
       </MuiThemeProvider>
