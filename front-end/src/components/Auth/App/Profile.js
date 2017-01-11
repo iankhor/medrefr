@@ -6,7 +6,7 @@ import { TextField } from 'material-ui/';
 class Profile extends Component {
     render(){
         return(
-            <div className="border color-purple">
+            <div className="border">
                     <p>THIS IS THE PROFILE PAGE</p>
                     <p>
                         <TextField

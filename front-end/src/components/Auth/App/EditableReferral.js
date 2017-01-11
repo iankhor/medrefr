@@ -10,7 +10,12 @@ import { Card,
 
 
 const style = {
-    marginBottom: '5px',
+    card : {
+        marginBottom: '5px',
+    },
+    cardActions :{
+        textAlign: 'right'
+    }
 }
 
 class EditableReferral extends Component {
@@ -41,7 +46,7 @@ class EditableReferral extends Component {
 
     render(){
         return(
-           <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style}>
+           <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style.card}>
                 <CardHeader
                     title={this.props.referral.name}
                     subtitle={this.props.referral.dateOfBirth}
@@ -52,24 +57,20 @@ class EditableReferral extends Component {
                     {this.props.referral.gender}
                 </CardHeader>
 
-                <CardMedia
-                expandable={true}
-                overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-                >
-                    <img src="https://cdn.traileraddict.com/article/wp-content/uploads/2016/10/guardians-galaxy-wallpaper.jpg" />
-                </CardMedia>
-            <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} />
-            <CardText expandable={true}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-            </CardText>
-            <CardActions>
-            <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-            <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
-            </CardActions>
-      </Card>
+                <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} />
+
+                <CardText expandable={true}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                    Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                    Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                </CardText>
+
+                <CardActions style={style.cardActions} expandable={true}>
+                    <FlatButton label="Expand" onTouchTap={this.handleExpand} />
+                    <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
+                </CardActions>
+            </Card>
         )
     }
 }

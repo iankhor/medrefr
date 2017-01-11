@@ -5,7 +5,6 @@ import EditableReferral from './EditableReferral'
 
 const style = {
     margin: '10px',
-    backgroundColor: 'gray'
 }
 
 class EditableReferralList extends Component {
