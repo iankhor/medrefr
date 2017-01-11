@@ -15,6 +15,9 @@ import { MuiThemeProvider,
          getMuiTheme,
          darkBaseTheme } from 'material-ui/styles'
 
+import medrefrTheme from '../../styles/Theme'         
+
+
 class App extends Component {
   constructor() {
     super()
@@ -41,7 +44,7 @@ class App extends Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider muiTheme={medrefrTheme}>
         <div className="App">
             {/* temp onscreen redirection */}
             <DebugTempLink />
