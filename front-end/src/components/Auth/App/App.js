@@ -17,7 +17,6 @@ import { MuiThemeProvider,
 
 import medrefrTheme from '../../styles/Theme'         
 
-
 class App extends Component {
   constructor() {
     super()
