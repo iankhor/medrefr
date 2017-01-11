@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import App from './App'
 
 //material-ui components
 import { TextField } from 'material-ui/';
