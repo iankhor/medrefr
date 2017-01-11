@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Formsy from 'formsy-react'
 import { Card, 
          CardActions, 
          CardHeader, 
@@ -6,8 +7,21 @@ import { Card,
          CardTitle, 
          CardText,
          Toggle,
-         FlatButton } from 'material-ui'
+         FlatButton,
+         Paper,
+         RaisedButton,
+         MenuItem } from 'material-ui'
 
+import { FormsyCheckbox, 
+         FormsyDate, 
+         FormsyRadio, 
+         FormsyRadioGroup,
+         FormsySelect, 
+         FormsyText, 
+         FormsyTime, 
+         FormsyToggle, 
+         FormsyAutoComplete } from 'formsy-material-ui/lib'
+        
 
 const style = {
     card : {
@@ -15,7 +29,12 @@ const style = {
     },
     cardActions :{
         textAlign: 'right'
-    }
+    },
+    paperStyle: {
+      width: 300,
+      margin: 'auto',
+      padding: 20,
+    },
 }
 
 class EditableReferral extends Component {
@@ -54,16 +73,24 @@ class EditableReferral extends Component {
                     actAsExpander={true}
                     showExpandableButton={true}
                 >
+                    {/* rememebr to format gender */}
                     {this.props.referral.gender}
                 </CardHeader>
 
                 <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} />
 
+                
                 <CardText expandable={true}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                    Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                    Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                    <Paper style={style.paperStyle}>
+                        <Formsy.Form
+                            onValid={this.enableButton}
+                            onInvalid={this.disableButton}
+                            onValidSubmit={this.submitForm}
+                            onInvalidSubmit={this.notifyFormError}
+                        >
+                        FORM COMES HERE
+                        </Formsy.Form>
+                    </Paper>
                 </CardText>
 
                 <CardActions style={style.cardActions} expandable={true}>
