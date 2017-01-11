@@ -81,14 +81,12 @@ class EditableReferral extends Component {
         return(
            <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style.card}>
                 <CardHeader
-                    title={this.props.referral.name}
+                    title={this.props.referral.name + ' (' + this.props.referral.gender + ')'}
                     subtitle={this.props.referral.dateOfBirth}
                     avatar={this.props.referral.imgProfile}
                     actAsExpander={true}
                     showExpandableButton={true}
                 >
-                    {/* rememebr to format gender */}
-                    {this.props.referral.gender}
                 </CardHeader>
 
                 <CardText expandable={true}>
