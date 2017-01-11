@@ -10,7 +10,8 @@ import { Card,
          FlatButton,
          Paper,
          RaisedButton,
-         MenuItem } from 'material-ui'
+         MenuItem,
+         Chip } from 'material-ui'
 
 import { FormsyCheckbox, 
          FormsyDate, 
@@ -24,6 +25,11 @@ import { FormsyCheckbox,
         
 
 const style = {
+    referralOptions :{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
     uploadButton :{
         display: 'flex',
         justifyContent: 'center',
@@ -42,7 +48,14 @@ const style = {
     },
     submitStyle: {
       marginTop: 32,
-    }
+    },
+    chip: {
+        margin: 4,
+    },
+    wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+  },
 }
 
 const errorMessages = {
@@ -122,20 +135,36 @@ class EditableReferral extends Component {
                             onValidSubmit={this.submitForm}
                             onInvalidSubmit={this.notifyFormError}
                         >
+                        <div style={style.referralOptions}>
+                            <RaisedButton label="Edit details" primary={true} style={style.uploadButton} />
+                            <FormsySelect
+                                name="referralStatus"
+                                floatingLabelText="Status"
+                            >
+                                <MenuItem value={'accepted'} primaryText="Accepted" />
+                                <MenuItem value={'assigned'} primaryText="Assigned" />
+                                <MenuItem value={'declined'} primaryText="Declined" />
+                                <MenuItem value={'withdrawn'} primaryText="Withdrawn" />
+                                <MenuItem value={'rejected'} primaryText="Rejected" />
+                                <MenuItem value={'completed'} primaryText="Completed" />
+                                <MenuItem value={'noShow'} primaryText="No show" />
+                            </FormsySelect>
+                        </div>
                         
                         {/* patient data form below */}
                         <CardTitle title="Patient data" subtitle="" />
                         <FormsyText
-                            name="surname"
+                            name="patientSurname"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
                             required
                             hintText="Surname"
                             floatingLabelText="Surname"
+                            defaultValue={this.props.referral.surname}
                         />
 
                         <FormsyText
-                            name="givenName"
+                            name="patientgivenName"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
                             required
@@ -144,37 +173,37 @@ class EditableReferral extends Component {
                         />
 
                         <FormsyText
-                            name="address"
-                            validations="isWords"
+                            name="patientAddress"
+                            validations="isAlphanumeric"
                             validationError={errorMessages.wordsError}
                             hintText="Address"
                             floatingLabelText="Address"
                         />
 
                         <FormsyText
-                            name="postcode"
-                            validations="isWords"
+                            name="patientPostcode"
+                            validations="isInt"
                             validationError={errorMessages.wordsError}
                             hintText="Postcode"
                             floatingLabelText="Postcode"
                         />
 
                         <FormsyDate
-                            name="dateOfBirth"
+                            name="patientDateOfBirth"
                             floatingLabelText="Date of birth"
                         />
 
                         <FormsyText
-                            name="medicare"
-                            validations="isWords"
+                            name="patientMedicare"
+                            validations="isAlphanumeric"
                             validationError={errorMessages.wordsError}
                             hintText="Medicare number"
                             floatingLabelText="Medicare number"
                         />
 
                         <FormsyText
-                            name="contactNumber"
-                            validations="isWords"
+                            name="patientContactNumber"
+                            validations="isInt"
                             validationError={errorMessages.wordsError}
                             hintText="Contact number"
                             floatingLabelText="Contact number"
@@ -183,7 +212,7 @@ class EditableReferral extends Component {
                         {/* doctor data form below */}
                         <CardTitle title="Doctor data" subtitle="" />
                         <FormsyText
-                            name="surname"
+                            name="doctorSurname"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
                             required
@@ -192,7 +221,7 @@ class EditableReferral extends Component {
                         />
 
                         <FormsyText
-                            name="givenName"
+                            name="doctorGivenName"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
                             required
@@ -201,7 +230,7 @@ class EditableReferral extends Component {
                         />
 
                         <FormsyText
-                            name="clinic"
+                            name="doctorClinic"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
                             hintText="Clinic"
@@ -209,33 +238,33 @@ class EditableReferral extends Component {
                         />
 
                         <FormsyText
-                            name="address"
-                            validations="isWords"
+                            name="doctorAddress"
+                            validations="isAlphanumeric"
                             validationError={errorMessages.wordsError}
                             hintText="Address"
                             floatingLabelText="Address"
                         />
 
                         <FormsyText
-                            name="postcode"
-                            validations="isWords"
+                            name="doctorPostcode"
+                            validations="isInt"
                             validationError={errorMessages.wordsError}
                             hintText="Postcode"
                             floatingLabelText="Postcode"
                         />
 
                         <FormsyText
-                            name="contactNumber"
-                            validations="isWords"
+                            name="doctorContactNumber"
+                            validations="isInt"
                             validationError={errorMessages.wordsError}
                             hintText="Contact number"
                             floatingLabelText="Contact number"
                         />
 
-                        {/* doctor data form below */}
+                        {/* referral form below */}
                         <CardTitle title="Referral details" subtitle="" />
                         <FormsyText
-                            name="reasonForReferral"
+                            name="referralReasonForReferral"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
                             hintText="Reason for referral"
@@ -243,7 +272,7 @@ class EditableReferral extends Component {
                         />
 
                         <FormsySelect
-                            name="requestedService"
+                            name="referralRequestedService"
                             floatingLabelText="Requested service"
                         >
                             <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
@@ -253,7 +282,7 @@ class EditableReferral extends Component {
                         </FormsySelect>
 
                         <FormsyToggle
-                            name="urgent"
+                            name="referralUrgent"
                             label="Urgent"
                             style={style.switchStyle}
                         />
@@ -262,9 +291,10 @@ class EditableReferral extends Component {
                             <CardText>Upload additional information (Limited to one PDF file)</CardText>
                         </div>
                         
+                         {/* triage below */}
                         <CardTitle title="Triage" subtitle="" />
                         <FormsySelect
-                            name="ruralCode"
+                            name="referralRuralCode"
                             floatingLabelText="Rural code"
                         >
                             <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
@@ -275,11 +305,11 @@ class EditableReferral extends Component {
                         </FormsySelect>
 
                         <FormsyDate
-                            name="appointmentDate"
+                            name="referralAppointmentDate"
                             floatingLabelText="Appointment date"
                         />
                         <FormsyTime
-                            name="appointmentTime"
+                            name="referralAppointmentTime"
                             floatingLabelText="Appointment time"
                         />
                         
