@@ -24,6 +24,21 @@ On your local terminal,
 3.Setup heroku remote repositry by running ```git remote add heroku https://git.heroku.com/medrefr.git```   
 4.Run ```npm run deploy:heroku```  
 5.Once the heroku build process is complete, visit the app at ```https://medrefr.herokuapp.com/```   
+6.Add a ```static.json``` file in the root folder with the following configuration  
+```
+{
+  "root": "build/",
+  "clean_urls": false,
+  "routes": {
+                "/**": "index.html"
+            },
+  "headers": {
+    "/**": {
+      "Strict-Transport-Security": "max-age=7776000"
+    }
+  }
+}
+```
 
 ### Back End
 
