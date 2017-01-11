@@ -4,19 +4,15 @@ import React, { Component } from 'react'
 import EditableReferral from './EditableReferral'
 
 const style = {
-    margin: '20px',
-    backgroundColor: 'gray'
+    margin: '10px',
 }
 
 class EditableReferralList extends Component {
 
     render(){
+        console.log(this.props.referrals)
         return(
-            <div className="border" style={style}> 
-                <h1>This is a EditableReferralList component</h1>
-                <h4>This DISPLAYS the list of referrals</h4>
-                <h4>There should be an array of referrals, use map to display</h4>
-
+            <div style={style}> 
                 {this.props.referrals.map( (jsonObject) => 
                     <EditableReferral referral={jsonObject} />
                 )}

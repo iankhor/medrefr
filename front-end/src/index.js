@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter , Match, Miss } from 'react-router'
 
 // Routes
 import Routes from './components/Routes'

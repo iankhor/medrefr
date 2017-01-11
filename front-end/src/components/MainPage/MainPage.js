@@ -11,6 +11,7 @@ import DebugTempLink from '../../utils/DebugTempLink'
 import { MuiThemeProvider,
          getMuiTheme,
          darkBaseTheme } from 'material-ui/styles'
+import medrefrTheme from '../styles/Theme'
 
 // example JSON data
 const exampleJSONData = {
@@ -25,13 +26,13 @@ import { TextField } from 'material-ui/';
 class MainPage extends Component {
     render(){
         return(
-            <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+            <MuiThemeProvider muiTheme={medrefrTheme}>
                 <div className="Header">
                     <strong>STILL IN DEVELOPMENT</strong>
-                    
+
                     {/* temp onscreen redirection */}
                     <DebugTempLink />
-                    
+
                     <Header />
                     <BodyList />
                     <Footer />

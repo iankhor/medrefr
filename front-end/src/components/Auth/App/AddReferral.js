@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
+import { FloatingActionButton } from 'material-ui'
+
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 const style = {
-    margin: '20px',
-    backgroundColor: 'green'
+    marginRight: 20,
+    textAlign: 'center'
 }
 
 class AddReferral extends Component {
     render(){
         return(
-            <div className="border" style={style}> 
-                <h1>This is a AddReferral component</h1>
-                <h4>This DISPLAYS an empty referral form or being masked by a + button</h4>
+            <div style={style}> 
+                <FloatingActionButton style={style}>
+                    <ContentAdd />
+                </FloatingActionButton>
             </div>
         )
     }

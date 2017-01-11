@@ -1,9 +1,12 @@
+* {
+  margin: 0;
+}
 h1 {
   font-size: 2em;
 }
 body {
   font-family: 'Roboto';
-  background-color: #808080;
+  background-color: #fff;
 }
 .color-blue {
   background-color: #ffa500;
@@ -40,8 +43,7 @@ body {
 }
 .App-header {
   background-color: #fff;
-  height: 150px;
-  padding: 20px;
+  height: auto;
   color: #000;
 }
 .App-intro {

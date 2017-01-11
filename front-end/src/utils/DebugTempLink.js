@@ -10,7 +10,7 @@ class DebugTempLink extends Component {
                     <ul>   
                         <li><Link to="/">Root</Link></li>
                         <li><Link to="/Login">Login or Sign up</Link></li>
-                        <li><Link to="/ReferralDashboard">Referral Dashboard</Link></li>
+                        <li><Link to="/ReferralDashboardTemp">Referral Dashboard</Link></li>
                         <li><Link to="/NotFound">Not found</Link></li>
                     </ul>      
                 </div>
