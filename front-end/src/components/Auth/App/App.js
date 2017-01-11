@@ -38,15 +38,23 @@ class App extends Component {
     super()
 
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
+    this._handleTabChange = this._handleTabChange.bind(this)
 
     this.state = {
-      referrals: sampleReferrals
+      referrals: sampleReferrals,
+      value: 'a'
     }
 
   }
 
   _loadSampleReferral(e) {
     console.log(e.target)
+  }
+
+  _handleTabChange = (value) => {
+    this.setState({
+      value: value
+    })
   }
 
   render() {
@@ -59,30 +67,30 @@ class App extends Component {
             <Header />
 
             <Tabs
-        value={this.state.value}
-        onChange={this.handleChange}
-      >
-        <Tab label="Tab A" value="a" >
-          <div>
-            <h2 style={styles.headline}>Controllable Tab A</h2>
-            <p>
-              Tabs are also controllable if you want to programmatically pass them their values.
-              This allows for more functionality in Tabs such as not
-              having any Tab selected or assigning them different values.
-            </p>
-          </div>
-        </Tab>
-        <Tab label="Tab B" value="b">
-          <div>
-            <h2 style={styles.headline}>Controllable Tab B</h2>
-            <p>
-              This is another example of a controllable tab. Remember, if you
-              use controllable Tabs, you need to give all of your tabs values or else
-              you wont be able to select them.
-            </p>
-          </div>
-        </Tab>
-      </Tabs>
+              value={this.state.value}
+              onChange={this._handleChange}
+            >
+              <Tab label="Tab A" value="a" >
+                <div>
+                  <h2 style={styles.tabComponent.headline}>Controllable Tab A</h2>
+                  <p>
+                    Tabs are also controllable if you want to programmatically pass them their values.
+                    This allows for more functionality in Tabs such as not
+                    having any Tab selected or assigning them different values.
+                  </p>
+                </div>
+              </Tab>
+              <Tab label="Tab B" value="b">
+                <div>
+                  <h2 style={styles.tabComponent.headline}>Controllable Tab B</h2>
+                  <p>
+                    This is another example of a controllable tab. Remember, if you
+                    use controllable Tabs, you need to give all of your tabs values or else
+                    you wont be able to select them.
+                  </p>
+                </div>
+              </Tab>
+          </Tabs>
 
             <ReferralDashboard 
               _loadSampleReferral={this._loadSampleReferral}
@@ -91,7 +99,7 @@ class App extends Component {
             
         </div>
       </MuiThemeProvider>
-    );
+    )
   }
 }
 
