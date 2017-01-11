@@ -33,7 +33,7 @@ const style = {
         textAlign: 'right'
     },
     paperStyle: {
-      width: 300,
+    //   width: 300,
       margin: 'auto',
       padding: 20,
     },
@@ -130,12 +130,12 @@ class EditableReferral extends Component {
                         />
 
                         <FormsyText
-                            name="address"
+                            name="postcode"
                             validations="isWords"
                             validationError={errorMessages.wordsError}
                             required
-                            hintText="Address"
-                            floatingLabelText="Address"
+                            hintText="Postcode"
+                            floatingLabelText="Postcode"
                         />
 
                         <FormsyDate
