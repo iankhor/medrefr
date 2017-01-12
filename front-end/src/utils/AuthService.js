@@ -1,10 +1,16 @@
 import Auth0Lock from 'auth0-lock'
 import { browserHistory } from 'react-router'
+import Logo from './../../assets/img/Logo-1.png'
 
 export default class AuthService {
   constructor(clientId, domain) {
     // Configure Auth0
     this.lock = new Auth0Lock(clientId, domain, {
+      theme: {
+        logo: Logo,
+        primaryColor: "#b81b1c",
+        displayName: "test"
+      },
       auth: {
         redirectUrl: 'http://localhost:9000/Login',
         responseType: 'token'

@@ -9,6 +9,7 @@
     "stylus": "^0.54.5"
   },
   "dependencies": {
+    "auth0-js": "^8.0.4",
     "auth0-lock": "^10.9.2",
     "axios": "^0.15.3",
     "formsy-material-ui": "^0.5.3",
