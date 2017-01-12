@@ -59,8 +59,8 @@ class AppBarExampleComposition extends Component {
           style={{margin: 20}}
         /> */}
         <AppBar
-          title="MedRefer"
-          // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+          title={this.props.title}
+          iconElementLeft={<div></div>}
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
       </div>
