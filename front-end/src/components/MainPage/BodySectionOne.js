@@ -3,7 +3,7 @@ import { Parallax } from 'react-parallax';
 
 const style = {
     margin: '0',
-    height: '200px',
+    height: '100vh',
 
     h1: {
       margin: 'auto'
