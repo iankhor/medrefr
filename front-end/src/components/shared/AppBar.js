@@ -60,7 +60,7 @@ class AppBarExampleComposition extends Component {
         /> */}
         <AppBar
           title="MedRefer"
-          iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+          // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
       </div>
