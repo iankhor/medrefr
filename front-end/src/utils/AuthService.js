@@ -1,56 +1,76 @@
-import Auth0Lock from 'auth0-lock'
-import { browserHistory } from 'react-router'
-import Logo from './../../assets/img/Logo-1.png'
+import { EventEmitter } from 'events'
+import { isTokenExpired } from './jwtHelper'
+import Auth0 from 'auth0-js'
 
-export default class AuthService {
+export default class AuthService extends EventEmitter {
   constructor(clientId, domain) {
+    super()
     // Configure Auth0
-    this.lock = new Auth0Lock(clientId, domain, {
-      theme: {
-        logo: Logo,
-        primaryColor: "#b81b1c",
-        displayName: "test"
-      },
-      auth: {
-        redirectUrl: 'http://localhost:9000/Login',
-        responseType: 'token'
-      }
-    })
-    // Add callback for lock `authenticated` event
-    this.lock.on('authenticated', this._doAuthentication.bind(this))
-    // binds login functions to keep this context
+    this.auth0 = new Auth0({
+      clientID: clientId,
+      domain: domain,
+      responseType: 'token',
+      callbackURL: `${window.location.origin}/login`
+    });
+
     this.login = this.login.bind(this)
+    this.signup = this.signup.bind(this)
   }
 
-  _doAuthentication(authResult) {
-    // Saves the user token
-    this.setToken(authResult.idToken)
-    // navigate to the home route
-    browserHistory.replace('/')
+  login(params, onError){
+    this.auth0.login(params, onError)
   }
 
-  login() {
-    // Call the show method to display the widget.
-    this.lock.show()
+  signup(params, onError){
+    this.auth0.signup(params, onError)
   }
 
-  loggedIn() {
+  parseHash(hash){
+    const authResult = this.auth0.parseHash(hash)
+    if (authResult && authResult.idToken) {
+      this.setToken(authResult.idToken)
+      this.auth0.getProfile(authResult.idToken, (error, profile) => {
+        if (error) {
+          console.log('Error loading the Profile', error)
+        } else {
+          this.setProfile(profile)
+        }
+      })
+    }
+  }
+
+  loggedIn(){
     // Checks if there is a saved token and it's still valid
-    return !!this.getToken()
+    const token = this.getToken()
+    return !!token && !isTokenExpired(token)
   }
 
-  setToken(idToken) {
-    // Saves user token to local storage
+  setProfile(profile){
+    // Saves profile data to localStorage
+    localStorage.setItem('profile', JSON.stringify(profile))
+    // Triggers profile_updated event to update the UI
+    this.emit('profile_updated', profile)
+  }
+
+  getProfile(){
+    // Retrieves the profile data from localStorage
+    const profile = localStorage.getItem('profile')
+    return profile ? JSON.parse(localStorage.profile) : {}
+  }
+
+  setToken(idToken){
+    // Saves user token to localStorage
     localStorage.setItem('id_token', idToken)
   }
 
-  getToken() {
-    // Retrieves the user token from local storage
+  getToken(){
+    // Retrieves the user token from localStorage
     return localStorage.getItem('id_token')
   }
 
-  logout() {
-    // Clear user token and profile data from local storage
+  logout(){
+    // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
+    localStorage.removeItem('profile');
   }
 }

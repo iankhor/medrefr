@@ -1,63 +1,138 @@
 // export default Login
 
 import React, { Component } from 'react'
+import JSONDebugger from './../../utils/JSONDebugger'
 
 import DebugTempLink from '../../utils/DebugTempLink'
 import AuthService from './../../utils/AuthService'
 import RaisedButton from 'material-ui/RaisedButton'
 
-import {Redirect} from 'react-router'
+import Formsy from 'formsy-react'
+import { FormsyText } from 'formsy-material-ui/lib'
 
-                           
+import { Redirect } from 'react-router'
 
 //Material UI theme
 import { MuiThemeProvider,
-         getMuiTheme,
-         darkBaseTheme } from 'material-ui/styles'
+         getMuiTheme } from 'material-ui/styles'
 
 import medrefrTheme from './../styles/Theme'
 
 const style = {
-  margin: 12,
+    referralOptions :{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    uploadButton :{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    card :{
+        marginBottom : 15
+    },
+    cardActions :{
+        textAlign: 'right'
+    },
+    paperStyle: {
+    //   width: 300,
+      margin: 'auto',
+      padding: 20,
+    },
+    switchStyle: {
+      marginBottom: 16,
+    },
+    submitStyle: {
+      marginTop: 32,
+    },
+    chip: {
+        margin: 4,
+    },
+    wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+  },
+}
+
+const errorMessages = {
+    wordsError: "Please only use letters",
+    numericError: "Please provide a number",
+    urlError: "Please provide a valid URL",
 }
 
 class Login extends Component {
-    constructor(){
-        super()
-        // this.authenticate = this.logIn.bind(this)
-        // this.isAuthenticate = this.isAuthenticate.bind(this)
-        // this.logOut = this.logOut.bind(this)
+    constructor(props) {
+      super(props)
+      this.enableButton = this.enableButton.bind(this)
+      this.disableButton = this.disableButton.bind(this)
+      this.submitForm = this.submitForm.bind(this)
+      this.notifyFormError = this.notifyFormError.bind(this)
 
-        const auth = new AuthService('LdW1iARd0K080BlzpEI0vh6eitHuUceL',
-                                    'iankhor.au.auth0.com')
-        
-        this.state = {
-            isLoggedin: auth.loggedIn()
-        }
+      this.state = {
+          canSubmit: true,
+          debugjSON: null
+      }   
     }
 
-    logIn = () => {
-        const auth = new AuthService('LdW1iARd0K080BlzpEI0vh6eitHuUceL',
-                                    'iankhor.au.auth0.com')
-        auth.login()
-    }
+      disableButton = () => {
+        this.setState({canSubmit: false})
+      }
 
-    logOut = () => {
-        const auth = new AuthService('LdW1iARd0K080BlzpEI0vh6eitHuUceL',
-                                    'iankhor.au.auth0.com')
-        auth.logout()
-    }
+      enableButton = () => {
+        this.setState({canSubmit: true})
+      }
 
+      submitForm = (data) => {
+        // alert(JSON.stringify(data,null,4))
+        this.setState( { debugjSON: data })
+      }
+
+      notifyFormError = (data) => {
+        console.error('Form error:', data)
+      }
 
     render(){
         return(
             <MuiThemeProvider muiTheme={medrefrTheme}>
             <div className="generic-center"> 
+                <DebugTempLink />
                 {/* temp onscreen redirection */}
-                <DebugTempLink authenticated={this.isAuthenticate}/>
                 <h1>This is a Login page</h1>
-                <RaisedButton label="Sign in" primary={true} style={style} onClick={this.logIn}/>
-                <RaisedButton label="Logout" primary={true} style={style} onClick={this.logOut}/>
+                <Formsy.Form
+                    onValid={this.enableButton}
+                    onInvalid={this.disableButton}
+                    onValidSubmit={this.submitForm}
+                    onInvalidSubmit={this.notifyFormError}
+                >
+
+                <FormsyText
+                            name="email"
+                            required
+                            hintText="email"
+                            floatingLabelText="Email"
+                />
+                <br />
+                <FormsyText
+                            name="password"
+                            type="password"
+                            required
+                            hintText="password"
+                            floatingLabelText="password"
+                />
+                <br />
+
+                <RaisedButton
+                    style={style.submitStyle}
+                    type="submit"
+                    label="Submit"
+                    disabled={!this.state.canSubmit}
+                />
+
+                </Formsy.Form>
+                
+                <JSONDebugger json={this.state.debugjSON} />
+
             </div>
             </MuiThemeProvider>
 
