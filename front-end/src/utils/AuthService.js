@@ -11,7 +11,28 @@ export default class AuthService extends EventEmitter {
       auth: {
         redirectUrl: `${window.location.origin}/`,
         responseType: 'token'
-      }
+      },
+      languageDictionary: {
+        emailInputPlaceholder: "something@youremail.com",
+        title: "MedRefr"
+      },
+      additionalSignUpFields: [{
+    name: "address",
+    placeholder: "enter your address",
+    // The following properties are optional
+    icon: "https://example.com/assests/address_icon.png",
+    prefill: "street 123",
+    validator: function(address) {
+      return {
+         valid: address.length >= 10,
+         hint: "Must have 10 or more chars" // optional
+      };
+    }
+  },
+  {
+    name: "full_name",
+    placeholder: "Enter your full name"
+  }]
     })
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', this._doAuthentication.bind(this))

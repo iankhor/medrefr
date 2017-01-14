@@ -2,8 +2,7 @@ import React from 'react'
 
 import AuthService from './../utils/AuthService'
 const auth = new AuthService(process.env.REACT_APP_AUTH_KEY,
-                             toString(process.env.RAECT_APP_AUTH_DOMAIN)
-)
+                             toString(process.env.RAECT_APP_AUTH_DOMAIN))
 // onEnter callback to validate authentication in private routes
 const requireAuth = (nextState, replace) => {
   if (!auth.loggedIn()) {
