@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import AuthService from './AuthService'
 
 class DebugTempLink extends Component {
 

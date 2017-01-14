@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import DebugTempLink from '../../utils/DebugTempLink'
 
-class Auth extends Component {
+class Auth_ extends Component {
     render(){
         return(
             <div className="generic-center"> 
@@ -15,5 +15,5 @@ class Auth extends Component {
     }
 }
 
-export default Auth
+export default Auth_
 

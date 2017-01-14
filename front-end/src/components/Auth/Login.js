@@ -1,10 +1,7 @@
-// export default Login
-
-import React, { Component } from 'react'
+import React, { Component, PropTypes as T } from 'react'
 import JSONDebugger from './../../utils/JSONDebugger'
 
 import DebugTempLink from '../../utils/DebugTempLink'
-import AuthService from './../../utils/AuthService'
 import RaisedButton from 'material-ui/RaisedButton'
 
 import Formsy from 'formsy-react'
@@ -17,6 +14,11 @@ import { MuiThemeProvider,
          getMuiTheme } from 'material-ui/styles'
 
 import medrefrTheme from './../styles/Theme'
+
+import AuthService from './../../utils/AuthService'
+
+const auth = new AuthService(process.env.REACT_APP_AUTH_KEY,
+                             'iankhor.au.auth0.com')
 
 const style = {
     referralOptions :{
@@ -73,26 +75,31 @@ class Login extends Component {
           canSubmit: true,
           debugjSON: null
       }   
+      
     }
 
-      disableButton = () => {
-        this.setState({canSubmit: false})
-      }
 
-      enableButton = () => {
-        this.setState({canSubmit: true})
-      }
 
-      submitForm = (data) => {
-        // alert(JSON.stringify(data,null,4))
-        this.setState( { debugjSON: data })
-      }
+    disableButton = () => {
+    this.setState({canSubmit: false})
+    }
 
-      notifyFormError = (data) => {
-        console.error('Form error:', data)
-      }
+    enableButton = () => {
+    this.setState({canSubmit: true})
+    }
+
+    submitForm = (data) => {
+    // alert(JSON.stringify(data,null,4))
+    this.setState( { debugjSON: data })
+    }
+
+    notifyFormError = (data) => {
+    console.error('Form error:', data)
+    }
+
 
     render(){
+        
         return(
             <MuiThemeProvider muiTheme={medrefrTheme}>
             <div className="generic-center"> 
@@ -130,8 +137,15 @@ class Login extends Component {
                 />
 
                 </Formsy.Form>
-                
+
                 <JSONDebugger json={this.state.debugjSON} />
+
+                <RaisedButton
+                    style={style.submitStyle}
+                    label="Login"
+                    onClick={auth.login.bind(this)}
+                />
+
 
             </div>
             </MuiThemeProvider>
