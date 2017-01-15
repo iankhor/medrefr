@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 //axios
 // import { signIn } from './../../utils/axiosHelper'
 import { signIn } from './../../api/Auth'
+import { removeToken } from './../../api/jwt'
 
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
@@ -69,6 +70,7 @@ class Login extends Component {
       this.disableButton = this.disableButton.bind(this)
       this.submitForm = this.submitForm.bind(this)
       this.notifyFormError = this.notifyFormError.bind(this)
+      this.signOut = this.signOut.bind(this)
 
       this.state = {
           canSubmit: true,
@@ -99,6 +101,10 @@ class Login extends Component {
 
     notifyFormError = (data) => {
     console.error('Form error:', data)
+    }
+
+    signOut() {
+        removeToken()
     }
 
 
@@ -142,7 +148,14 @@ class Login extends Component {
 
                 </Formsy.Form>
 
+
                 <JSONDebugger json={this.state.debugjSON} />
+
+                <RaisedButton
+                style={style.submitStyle}
+                label="DELETE TOKEN aka LOGOUT"
+                onClick={this.signOut}
+            />
 
             </div>
             </MuiThemeProvider>
