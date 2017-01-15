@@ -38,6 +38,6 @@ export function signUp(req){
         }
         
         )
-        // console.log('axios', req)
     )
 }
+

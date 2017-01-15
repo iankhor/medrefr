@@ -5,7 +5,8 @@ import DebugTempLink from '../../utils/DebugTempLink'
 import RaisedButton from 'material-ui/RaisedButton'
 
 //axios
-import { signIn } from './../../utils/axiosHelper'
+// import { signIn } from './../../utils/axiosHelper'
+import { signIn } from './../../api/Auth'
 
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
