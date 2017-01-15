@@ -29,7 +29,7 @@ function makeTokenForUser(user) {
 }
 
 //dummy function written to test against axios at frontend
-router.get('/test', function(req, res){
+router.get('/axiostest', function(req, res){
     res.json( TestJson() )
 })
 

@@ -1,6 +1,9 @@
 import React, { Component, PropTypes as T } from 'react'
 import JSONDebugger from './../../../utils/JSONDebugger'
 
+//import axios helper files
+import getTest from './../../../utils/axiosHelper'
+
 import DebugTempLink from '../../../utils/DebugTempLink'
 
 import RaisedButton from 'material-ui/RaisedButton'
@@ -57,11 +60,27 @@ const errorMessages = {
 class AxiosTest extends Component {
     constructor(props) {
       super(props)
+
+      this.getRequest = this.getRequest.bind(this)
+
       this.state = {
           canSubmit: true,
-          debugjSON: null
+          debugJSON: null
       }   
       
+    }
+
+    getRequest(){
+        getTest()
+        .then( (TestObj) => {
+            const message = TestObj.data
+
+            console.log(message)
+            this.setState( { debugJSON: message})
+        })
+
+
+        // console.log(this.state.debugJSON)
     }
 
 
@@ -74,12 +93,13 @@ class AxiosTest extends Component {
                 {/* temp onscreen redirection */}
                 <h1>This is a Axios Test Page</h1>
 
-                <JSONDebugger json={this.state.debugjSON} />
 
                 <RaisedButton
                     label="Get Request"
+                    onClick={this.getRequest}
                 />
 
+                <JSONDebugger json={this.state.debugJSON} />
 
             </div>
             </MuiThemeProvider>
