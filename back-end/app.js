@@ -7,20 +7,15 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
-//user authentication 
+const cors = require('cors');
 const passport = require('passport');
-const session = require('express-session');
+const passportJWT = require('passport-jwt');
 
-//models
 const User = require('./models/User');
 
-//routes
 const index = require('./routes/index');
-const users = require('./routes/users');
-const referral = require('./routes/referral_test')
-const referrals = require('./routes/referrals')
 const auth = require('./routes/auth');
+const countersRouter = require('./routes/counters');
 
 const app = express();
 
@@ -33,36 +28,59 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
-
-//for user authentication
-app.use(session({ secret: process.env.SESSION_SECRET }));
+app.use(cors({
+  origin: '*'
+}));
 
 // Passport + User
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+// Passport + JWT
+passport.use(new passportJWT.Strategy(
+  {
+    jwtFromRequest: passportJWT.ExtractJwt.fromAuthHeader(),
+    secretOrKey: process.env.TOKEN_SECRET
+  },
+  (payload, done) => {
+    /*done(null, {
+      _id: payload.sub
+    })*/
+    User.findById(payload.sub, done);
+  }
+));
 // Express + Passport
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use('/', index);
-app.use('/users', users);
-app.use('/referral_test', referral)
-app.use('/referrals', referrals)
 app.use('/auth', auth);
+app.use('/counters', countersRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 // error handler
 app.use(function(err, req, res, next) {
   console.error(err)
+
   const status = err.status || 500
   res.status(status).json({
     status,
     message: err.message
   })
+  // set locals, only providing error in development
+  //res.locals.message = err.message;
+  //res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-
+  // render the error page
+  //res.status(err.status || 500);
+  //res.render('error');
 });
 
 module.exports = app;
