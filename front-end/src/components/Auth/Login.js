@@ -72,7 +72,8 @@ class Login extends Component {
 
       this.state = {
           canSubmit: true,
-          debugjSON: null
+          debugjSON: null,
+          token: null
       }   
       
     }
@@ -91,8 +92,9 @@ class Login extends Component {
         // alert(JSON.stringify(data,null,4))
         this.setState( { debugjSON: data })
         const reqBody = (data)
-        console.log('login form body', reqBody)
-        signIn(reqBody)
+        // console.log('login form body', reqBody)
+        // signIn(reqBody)
+        this.setState( { token: signIn(reqBody) })
     }
 
     notifyFormError = (data) => {

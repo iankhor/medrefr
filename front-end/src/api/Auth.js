@@ -21,4 +21,9 @@ export function signIn( { email, password } ){
         writeToken(token)
         return decodeJWT(token)
     })
+    .catch( (e) => {
+        console.log('error object',e)
+        console.log('error message',e.message)
+        console.log('error status',e.response.status)
+    })
 }
