@@ -6,18 +6,9 @@ const requireAuthorizedUser = require('../middleware/requireAuthorizedUser');
 
 const router = express.Router();
 
-// Test json
-function TestJson(){
-    return {
-        message: "yes I've got your message"
-    }
-}
-
-
 function whitelistUser({ email }) {
     return { email };
 }
-
 
 function makeTokenForUser(user) {
     return jwt.sign({
@@ -27,11 +18,6 @@ function makeTokenForUser(user) {
         expiresIn: '5 days'
     });
 }
-
-//dummy function written to test against axios at frontend
-router.get('/axiostest', function(req, res){
-    res.json( TestJson() )
-})
 
 // Sign in
 router.post('/signin',
