@@ -24,3 +24,20 @@ export function signIn(req){
     )
 }
 
+export function signUp(req){
+    return(
+        axios.post(
+            'http://localhost:4000/auth/register',
+            req
+        )
+        .then( (res) => {
+            console.log(res)
+        })
+        .catch( (e) => {
+            console.log(e)
+        }
+        
+        )
+        // console.log('axios', req)
+    )
+}
