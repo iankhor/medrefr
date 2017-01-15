@@ -4,6 +4,9 @@ import JSONDebugger from './../../utils/JSONDebugger'
 import DebugTempLink from '../../utils/DebugTempLink'
 import RaisedButton from 'material-ui/RaisedButton'
 
+//axios
+import { signIn } from './../../utils/axiosHelper'
+
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
 
@@ -84,8 +87,11 @@ class Login extends Component {
     }
 
     submitForm = (data) => {
-    // alert(JSON.stringify(data,null,4))
-    this.setState( { debugjSON: data })
+        // alert(JSON.stringify(data,null,4))
+        this.setState( { debugjSON: data })
+        const reqBody = (data)
+        console.log('login form body', reqBody)
+        signIn(reqBody)
     }
 
     notifyFormError = (data) => {

@@ -6,21 +6,21 @@ export function getTest(){
     )
 }
 
-export function signIn(email,password){
+export function signIn(req){
     return(
         axios.post(
-            'http://localhost:4000/auth/axiostest',
-            {
-                email: email,
-                password: password
-            }
+            'http://localhost:4000/auth/signin',
+            req
         )
         .then( (res) => {
             console.log(res)
         })
         .catch( (e) => {
             console.log(e)
-        })
+        }
+        
+        )
+        // console.log('axios', req)
     )
 }
 
