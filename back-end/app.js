@@ -15,7 +15,6 @@ const User = require('./models/User');
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
-const countersRouter = require('./routes/counters');
 
 const app = express();
 
@@ -28,7 +27,6 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
   origin: '*'
@@ -56,7 +54,6 @@ app.use(passport.initialize());
 
 app.use('/', index);
 app.use('/auth', auth);
-app.use('/counters', countersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
