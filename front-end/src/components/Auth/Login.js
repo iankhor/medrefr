@@ -15,11 +15,6 @@ import { MuiThemeProvider,
 
 import medrefrTheme from './../styles/Theme'
 
-import AuthService from './../../utils/AuthService'
-
-const auth = new AuthService(process.env.REACT_APP_AUTH_KEY,
-                             'iankhor.au.auth0.com')
-
 const style = {
     referralOptions :{
         display: 'flex',
@@ -139,13 +134,6 @@ class Login extends Component {
                 </Formsy.Form>
 
                 <JSONDebugger json={this.state.debugjSON} />
-
-                <RaisedButton
-                    style={style.submitStyle}
-                    label="Login"
-                    onClick={auth.login.bind(this)}
-                />
-
 
             </div>
             </MuiThemeProvider>

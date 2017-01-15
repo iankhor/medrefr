@@ -2,7 +2,7 @@ import React, { Component, PropTypes as T } from 'react'
 import JSONDebugger from './../../../utils/JSONDebugger'
 
 //import axios helper files
-import getTest from './../../../utils/axiosHelper'
+import { getTest } from './../../../utils/axiosHelper'
 
 import DebugTempLink from '../../../utils/DebugTempLink'
 
