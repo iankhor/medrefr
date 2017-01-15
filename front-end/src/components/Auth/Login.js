@@ -81,8 +81,6 @@ class Login extends Component {
       
     }
 
-
-
     disableButton = () => {
     this.setState({canSubmit: false})
     }
@@ -96,8 +94,12 @@ class Login extends Component {
         this.setState( { debugjSON: data })
         const reqBody = (data)
         // console.log('login form body', reqBody)
-        signIn(reqBody)
-        this.setState( { token: readToken() })
+        console.log(signIn(reqBody))
+
+        this.setState( { 
+            token: readToken(),
+            isAuthenticated: true
+         })
     }
 
     notifyFormError = (data) => {
@@ -109,8 +111,7 @@ class Login extends Component {
         this.setState( { token: null })
     }
 
-
-    render(){
+      render(){
         
         return(
             <MuiThemeProvider muiTheme={medrefrTheme}>
@@ -161,13 +162,7 @@ class Login extends Component {
 
                 <br />
                 <h2>token = {this.state.token}</h2>
-
-                <RaisedButton
-                style={style.submitStyle}
-                label="isAuthenticated"
-                onClick={this.signOut}
-                />
-                <h2>isAuthenticated ? {this.state.isAuthenticated.toString()}</h2>
+                <h2>isAuthenticated ? {String((this.state.isAuthenticated))}</h2>
             </div>
             </MuiThemeProvider>
 

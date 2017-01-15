@@ -1,6 +1,6 @@
 import axios from 'axios'
 import decodeJWT from 'jwt-decode'
-import { writeToken } from './jwt'
+import { writeToken, readToken } from './jwt'
 
 export function signIn( { email, password } ){
     const signInLink = process.env.REACT_APP_API_URL + process.env.REACT_APP_API_AUTH_SIGNIN
@@ -19,7 +19,7 @@ export function signIn( { email, password } ){
         const token = signInPromise.data.token
         console.log('token', token)
         writeToken(token)
-        return decodeJWT(token)
+        return Promise.resolve(decodeJWT(token))
     })
     .catch( (error) => {
         if (error.response) {
@@ -36,21 +36,14 @@ export function signIn( { email, password } ){
     })
 }
 
-export function isAuthenticated(token) {
+export function isAuthenticated() {
     const verifyLink = process.env.REACT_APP_API_URL + process.env.REACT_APP_API_AUTH_VERIFY
-    const config = {
-        headers: {
-            'Authorization' : 'JWT ' + token
-        }
-    }
-
-    console.log('verifyLink', verifyLink)
-    console.log('config', config)
-
-    // axios.get(
-    //     verifyLink,
-    //     requestBody,
-    // )
+    const config = { headers: { 'Authorization' : 'JWT ' + readToken() }}
+    axios.get(verifyLink, config)
+    .then( (res) => {
+        // console.log('1',returnedEmail)
+        return res.data.email
+    })
 
 
 }
