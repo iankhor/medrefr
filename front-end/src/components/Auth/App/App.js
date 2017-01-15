@@ -21,7 +21,8 @@ class App extends Component {
 
     this.state = {
       referrals: sampleReferrals,
-      value: 'a'
+      value: 'a',
+      isAuthenticated: false
     }
 
   }

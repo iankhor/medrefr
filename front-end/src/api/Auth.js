@@ -35,3 +35,22 @@ export function signIn( { email, password } ){
             console.log(error.config)
     })
 }
+
+export function isAuthenticated(token) {
+    const verifyLink = process.env.REACT_APP_API_URL + process.env.REACT_APP_API_AUTH_VERIFY
+    const config = {
+        headers: {
+            'Authorization' : 'JWT ' + token
+        }
+    }
+
+    console.log('verifyLink', verifyLink)
+    console.log('config', config)
+
+    // axios.get(
+    //     verifyLink,
+    //     requestBody,
+    // )
+
+
+}

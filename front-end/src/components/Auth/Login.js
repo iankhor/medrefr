@@ -6,8 +6,8 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 //axios
 // import { signIn } from './../../utils/axiosHelper'
-import { signIn } from './../../api/Auth'
-import { removeToken } from './../../api/jwt'
+import { signIn, isAuthenticated } from './../../api/Auth'
+import { removeToken, readToken } from './../../api/jwt'
 
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
@@ -75,6 +75,7 @@ class Login extends Component {
       this.state = {
           canSubmit: true,
           debugjSON: null,
+          isAuthenticated: false,
           token: null
       }   
       
@@ -95,8 +96,8 @@ class Login extends Component {
         this.setState( { debugjSON: data })
         const reqBody = (data)
         // console.log('login form body', reqBody)
-        // signIn(reqBody)
-        this.setState( { token: signIn(reqBody) })
+        signIn(reqBody)
+        this.setState( { token: readToken() })
     }
 
     notifyFormError = (data) => {
@@ -105,6 +106,7 @@ class Login extends Component {
 
     signOut() {
         removeToken()
+        this.setState( { token: null })
     }
 
 
@@ -155,8 +157,17 @@ class Login extends Component {
                 style={style.submitStyle}
                 label="DELETE TOKEN aka LOGOUT"
                 onClick={this.signOut}
-            />
+                />
 
+                <br />
+                <h2>token = {this.state.token}</h2>
+
+                <RaisedButton
+                style={style.submitStyle}
+                label="isAuthenticated"
+                onClick={this.signOut}
+                />
+                <h2>isAuthenticated ? {this.state.isAuthenticated.toString()}</h2>
             </div>
             </MuiThemeProvider>
 
