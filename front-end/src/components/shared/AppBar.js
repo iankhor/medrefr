@@ -7,6 +7,8 @@ import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import LoginButton from './LoginButton';
+import SignUp from './SignUp';
 
 class Login extends Component {
   static muiName = 'FlatButton';
@@ -58,11 +60,17 @@ class AppBarExampleComposition extends Component {
           labelPosition="right"
           style={{margin: 20}}
         /> */}
-        <AppBar
-          title={this.props.title}
-          iconElementLeft={<div></div>}
-          iconElementRight={this.state.logged ? <Logged /> : <Login />}
-        />
+          <AppBar
+            title={this.props.title}
+            iconElementLeft={
+              <span>
+                <LoginButton />
+                <SignUp />
+              </span>
+            }
+            iconElementRight={this.state.logged ? <Logged /> : <Login />}
+
+          />
       </div>
     );
   }

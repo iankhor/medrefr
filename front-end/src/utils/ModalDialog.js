@@ -11,6 +11,7 @@ import ReferralForm from '../components/Auth/App/ReferralForm'
 export default class ModalDialog extends React.Component {
   state = {
     open: false,
+    valid: false
   };
 
   handleOpen = () => {
@@ -31,7 +32,7 @@ export default class ModalDialog extends React.Component {
       <FlatButton
         label="Submit"
         primary={true}
-        disabled={true}
+        disabled={!this.props.valid}
         onTouchTap={this.handleClose}
       />,
     ];
@@ -47,8 +48,7 @@ export default class ModalDialog extends React.Component {
           autoDetectWindowHeight={false}
           autoScrollBodyContent={true}
         >
-          {/* {this.props.children} */}
-          <ReferralForm />
+          {this.props.children}
         </Dialog>
       </div>
     );

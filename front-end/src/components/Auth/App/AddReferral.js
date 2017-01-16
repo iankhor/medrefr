@@ -3,7 +3,8 @@ import { FloatingActionButton } from 'material-ui'
 import EditableReferral from './EditableReferral'
 
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import ModalDialog from '../../../utils/ModalDialog'
+import ModalDialog from '../../../utils/ModalDialog';
+import ReferralForm from './ReferralForm';
 
 const style = {
     marginRight: 20,
@@ -15,7 +16,9 @@ class AddReferral extends Component {
         return(
             <div style={style}>
 
-                    <ModalDialog label="New Referral" children="hey. I'm a child" title="Enter Details" />
+                    <ModalDialog label="New Referral" title="Enter Details">
+                      <ReferralForm />
+                    </ModalDialog>
 
 
             </div>
