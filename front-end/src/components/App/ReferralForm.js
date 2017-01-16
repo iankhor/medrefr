@@ -87,12 +87,6 @@ class ReferralForm extends Component {
   enableEdit = () => {
       this.setState( { isFormDisabled: this.state.formDisabledStatus ? false : true  })
       this.setState( { formDisabledStatus: this.state.isFormDisabled ? 0 : 1  })
-      
-    //   this.setState( { canSubmit: this.state.submitStatus ? false : true  })
-    //   this.setState( { submitStatus: this.state.canSubmit ? 0 : 1  })
-
-
-
       this.setState( { isEditButttonDisabled: this.state.editButttonStatus ? false : true  })
       this.setState( { editButttonStatus: this.state.isEditButttonDisabled ? 0 : 1  })
   }
