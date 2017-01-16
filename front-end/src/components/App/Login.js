@@ -1,4 +1,4 @@
-import React, { Component, PropTypes as T } from 'react'
+import React, { Component } from 'react'
 import JSONDebugger from './../../utils/JSONDebugger'
 
 import DebugTempLink from '../../utils/DebugTempLink'
@@ -6,17 +6,15 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 //axios
 // import { signIn } from './../../utils/axiosHelper'
-import { signIn, isAuthenticated } from './../../api/Auth'
+import { signIn } from './../../api/Auth'
 import { removeToken, readToken } from './../../api/jwt'
 
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
 
-import { Redirect } from 'react-router'
 
 //Material UI theme
-import { MuiThemeProvider,
-         getMuiTheme } from 'material-ui/styles'
+import { MuiThemeProvider } from 'material-ui/styles'
 
 import medrefrTheme from './../styles/Theme'
 
@@ -55,12 +53,6 @@ const style = {
         display: 'flex',
         flexWrap: 'wrap',
   },
-}
-
-const errorMessages = {
-    wordsError: "Please only use letters",
-    numericError: "Please provide a number",
-    urlError: "Please provide a valid URL",
 }
 
 class Login extends Component {

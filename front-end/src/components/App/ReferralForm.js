@@ -6,11 +6,8 @@ import { FormsyDate,
          FormsyTime,
          FormsyToggle } from 'formsy-material-ui/lib'
 
-import { FlatButton,
-         Paper,
-         RaisedButton,
-         MenuItem,
-         Chip } from 'material-ui'
+import { RaisedButton,
+         MenuItem     } from 'material-ui'
 
 
 const errorMessages = {
@@ -101,7 +98,6 @@ class TemplateComponent extends Component {
             <FormsySelect
                 name="referralStatus"
                 floatingLabelText="Status"
-                // value={this.props.referral.referralStatus}
             >
                 <MenuItem value={'accepted'} primaryText="Accepted" />
                 <MenuItem value={'assigned'} primaryText="Assigned" />
@@ -122,7 +118,6 @@ class TemplateComponent extends Component {
             required
             hintText="Surname"
             floatingLabelText="Surname"
-            // defaultValue={this.props.referral.patientSurname}
         />
 
         <FormsyText
@@ -132,17 +127,15 @@ class TemplateComponent extends Component {
             required
             hintText="Given name"
             floatingLabelText="Given name"
-            // value={this.props.referral.patientgivenName}
         />
 
         <FormsySelect
                 name="patientGender"
                 floatingLabelText="Gender"
-                // value={this.props.referral.patientGender}
-            >
+        >
                 <MenuItem value={'M'} primaryText="Male" />
                 <MenuItem value={'F'} primaryText="Female" />
-            </FormsySelect>
+        </FormsySelect>
 
 
 
@@ -152,7 +145,6 @@ class TemplateComponent extends Component {
             validationError={errorMessages.wordsError}
             hintText="Address"
             floatingLabelText="Address"
-            // defaultValue={this.props.referral.patientAddress}
         />
 
         <FormsyText
@@ -161,13 +153,11 @@ class TemplateComponent extends Component {
             validationError={errorMessages.wordsError}
             hintText="Postcode"
             floatingLabelText="Postcode"
-            // defaultValue={this.props.referral.patientPostcode}
         />
 
         <FormsyDate
             name="patientDateOfBirth"
             floatingLabelText="Date of birth"
-            // defaultDate={this.props.referral.patientDateOfBirth}
         />
 
         <FormsyText
@@ -176,7 +166,6 @@ class TemplateComponent extends Component {
             validationError={errorMessages.wordsError}
             hintText="Medicare number"
             floatingLabelText="Medicare number"
-            // defaultValue={this.props.referral.patientMedicare}
         />
 
         <FormsyText
@@ -185,7 +174,6 @@ class TemplateComponent extends Component {
             validationError={errorMessages.wordsError}
             hintText="Contact number"
             floatingLabelText="Contact number"
-            // defaultValue={this.props.referral.patientContactNumber}
         />
 
         {/* doctor data form below */}
@@ -197,7 +185,6 @@ class TemplateComponent extends Component {
             required
             hintText="Surname"
             floatingLabelText="Surname"
-            // defaultValue={this.props.referral.doctorSurname}
         />
 
         <FormsyText
@@ -207,7 +194,6 @@ class TemplateComponent extends Component {
             required
             hintText="Given name"
             floatingLabelText="Give name"
-            // defaultValue={this.props.referral.doctorGivenName}
         />
 
         <FormsyText
@@ -216,7 +202,6 @@ class TemplateComponent extends Component {
             validationError={errorMessages.wordsError}
             hintText="Clinic"
             floatingLabelText="Clinic"
-            // defaultValue={this.props.referral.doctorClinic}
         />
 
         <FormsyText
@@ -225,7 +210,6 @@ class TemplateComponent extends Component {
             validationError={errorMessages.wordsError}
             hintText="Address"
             floatingLabelText="Address"
-            // defaultValue={this.props.referral.doctorAddress}
         />
 
         <FormsyText

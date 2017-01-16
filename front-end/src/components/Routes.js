@@ -5,7 +5,6 @@ import NotFound from './NotFound'
 import MainPage from './MainPage/MainPage'
 import Login from './App/Login'
 import App from './App/App'
-import AxiosTest from './App/AxiosTest'
 import SignUp from './App/SignUp'
 
 import { BrowserRouter , Match, Miss } from 'react-router'

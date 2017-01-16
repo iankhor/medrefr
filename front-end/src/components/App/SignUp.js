@@ -1,4 +1,4 @@
-import React, { Component, PropTypes as T } from 'react'
+import React, { Component } from 'react'
 import JSONDebugger from './../../utils/JSONDebugger'
 
 import DebugTempLink from '../../utils/DebugTempLink'
@@ -10,11 +10,8 @@ import { signUp } from './../../utils/axiosHelper'
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
 
-import { Redirect } from 'react-router'
-
 //Material UI theme
-import { MuiThemeProvider,
-         getMuiTheme } from 'material-ui/styles'
+import { MuiThemeProvider } from 'material-ui/styles'
 
 import medrefrTheme from './../styles/Theme'
 
@@ -53,12 +50,6 @@ const style = {
         display: 'flex',
         flexWrap: 'wrap',
   },
-}
-
-const errorMessages = {
-    wordsError: "Please only use letters",
-    numericError: "Please provide a number",
-    urlError: "Please provide a valid URL",
 }
 
 class SignUp extends Component {

@@ -3,25 +3,18 @@ import Formsy from 'formsy-react'
 import { Card, 
          CardActions, 
          CardHeader, 
-         CardMedia, 
          CardTitle, 
          CardText,
-         Toggle,
          FlatButton,
          Paper,
          RaisedButton,
-         MenuItem,
-         Chip } from 'material-ui'
+         MenuItem } from 'material-ui'
 
-import { FormsyCheckbox, 
-         FormsyDate, 
-         FormsyRadio, 
-         FormsyRadioGroup,
+import { FormsyDate, 
          FormsySelect, 
          FormsyText, 
          FormsyTime, 
-         FormsyToggle, 
-         FormsyAutoComplete } from 'formsy-material-ui/lib'
+         FormsyToggle } from 'formsy-material-ui/lib'
         
 
 const style = {
