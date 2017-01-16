@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { FloatingActionButton } from 'material-ui'
-import EditableReferral from './EditableReferral'
 
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import ModalDialog from '../../../utils/ModalDialog'
+import ModalDialog from './ModalDialog'
 
 const style = {
     marginRight: 20,

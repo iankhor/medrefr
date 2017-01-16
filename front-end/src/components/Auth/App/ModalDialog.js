@@ -2,8 +2,8 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import EditableReferral from '../components/Auth/App/EditableReferral'
-import ReferralForm from '../components/Auth/App/ReferralForm'
+import EditableReferral from './EditableReferral'
+import ReferralForm from './ReferralForm'
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.

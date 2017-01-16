@@ -1,20 +1,16 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import { FormsyCheckbox,
-         FormsyDate,
-         FormsyRadio,
-         FormsyRadioGroup,
+import { FormsyDate,
          FormsySelect,
          FormsyText,
          FormsyTime,
-         FormsyToggle,
-         FormsyAutoComplete } from 'formsy-material-ui/lib'
-import { Toggle,
-        FlatButton,
-        Paper,
-        RaisedButton,
-        MenuItem,
-        Chip } from 'material-ui'
+         FormsyToggle } from 'formsy-material-ui/lib'
+
+import { FlatButton,
+         Paper,
+         RaisedButton,
+         MenuItem,
+         Chip } from 'material-ui'
 
 
 const errorMessages = {
