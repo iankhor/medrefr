@@ -268,7 +268,6 @@ class ReferralForm extends Component {
         <FormsySelect
             name="referralRuralCode"
             floatingLabelText="Rural code"
-            // value={this.props.referral.referralRuralCode}
         >
             <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
             <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
@@ -280,15 +279,24 @@ class ReferralForm extends Component {
         <FormsyDate
             name="referralAppointmentDate"
             floatingLabelText="Appointment date"
-            // value={this.props.referral.referralAppointmentDate}
         />
         <FormsyTime
             name="referralAppointmentTime"
             floatingLabelText="Appointment time"
-            // value={this.props.referral.referralAppointmentTime}
         />
 
+        
+
         <p>Last Date reviewed (placeholder)</p>
+
+        <RaisedButton 
+            label="Update" 
+            primary={true} 
+            style={style.uploadButton}
+            type="submit"
+            onClick={this.submitForm}
+        />
+
         </Formsy.Form>
 
 
