@@ -135,6 +135,7 @@ class ReferralForm extends Component {
                         name="referralStatus"
                         floatingLabelText="Status"
                         disabled={this.state.isFormDisabled}
+                        value={ this.props.referralStatus || null}
                     >
                         <MenuItem value={'accepted'} primaryText="Accepted" />
                         <MenuItem value={'assigned'} primaryText="Assigned" />
@@ -155,6 +156,7 @@ class ReferralForm extends Component {
                     hintText="Surname"
                     floatingLabelText="Surname"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.patienSurname || null }
                 />
 
                 <FormsyText
@@ -165,12 +167,14 @@ class ReferralForm extends Component {
                     hintText="Given name"
                     floatingLabelText="Given name"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.patientgivenName || null }
                 />
 
                 <FormsySelect
                         name="patientGender"
                         floatingLabelText="Gender"
                         disabled={this.state.isFormDisabled}
+                        value={this.props.patientGender || null }
                 >
                         <MenuItem value={'M'} primaryText="Male" />
                         <MenuItem value={'F'} primaryText="Female" />
@@ -185,6 +189,7 @@ class ReferralForm extends Component {
                     hintText="Address"
                     floatingLabelText="Address"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.patientAddress || null }
                 />
 
                 <FormsyText
@@ -194,12 +199,14 @@ class ReferralForm extends Component {
                     hintText="Postcode"
                     floatingLabelText="Postcode"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.patientPostcode || null }
                 />
 
                 <FormsyDate
                     name="patientDateOfBirth"
                     floatingLabelText="Date of birth"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.patientDateOfBirth || null }
                 />
 
                 <FormsyText
@@ -209,6 +216,7 @@ class ReferralForm extends Component {
                     hintText="Medicare number"
                     floatingLabelText="Medicare number"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.patientMedicare || null }
                 />
 
                 <FormsyText
@@ -218,6 +226,7 @@ class ReferralForm extends Component {
                     hintText="Contact number"
                     floatingLabelText="Contact number"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.patientContactNumber || null }
                 />
 
                 {/* doctor data form below */}
@@ -230,6 +239,7 @@ class ReferralForm extends Component {
                     hintText="Surname"
                     floatingLabelText="Surname"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.doctorSurname || null }
                 />
 
                 <FormsyText
@@ -240,6 +250,7 @@ class ReferralForm extends Component {
                     hintText="Given name"
                     floatingLabelText="Give name"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.doctorGivenName || null }
                 />
 
                 <FormsyText
@@ -249,6 +260,7 @@ class ReferralForm extends Component {
                     hintText="Clinic"
                     floatingLabelText="Clinic"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.doctorClinic || null }
                 />
 
                 <FormsyText
@@ -258,6 +270,7 @@ class ReferralForm extends Component {
                     hintText="Address"
                     floatingLabelText="Address"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.doctorAddress || null }
                 />
 
                 <FormsyText
@@ -267,6 +280,7 @@ class ReferralForm extends Component {
                     hintText="Postcode"
                     floatingLabelText="Postcode"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.doctorPostcode || null }
                 />
 
                 <FormsyText
@@ -276,6 +290,7 @@ class ReferralForm extends Component {
                     hintText="Contact number"
                     floatingLabelText="Contact number"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.doctorContactNumber || null }
                 />
 
                
@@ -288,12 +303,14 @@ class ReferralForm extends Component {
                     hintText="Reason for referral"
                     floatingLabelText="Reason for referral"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.referralReasonForReferral || null }
                 />
 
                 <FormsySelect
                     name="referralRequestedService"
                     floatingLabelText="Requested service"
                     disabled={this.state.isFormDisabled}
+                    value={this.props.referralRequestedService || null }
                 >
                     <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
                     <MenuItem value={'medicationReview'} primaryText="Medication Review" />
@@ -306,6 +323,7 @@ class ReferralForm extends Component {
                     label="Urgent"
                     style={style.switchStyle}
                     disabled={this.state.isFormDisabled}
+                    defaultToggled={this.props.referralUrgent}
                 />
                 <div style={style.uploadButton}>
                     <RaisedButton 
@@ -323,6 +341,7 @@ class ReferralForm extends Component {
                     name="referralRuralCode"
                     floatingLabelText="Rural code"
                     disabled={this.state.isFormDisabled}
+                    value={this.props.referralRuralCode || null }
                 >
                     <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
                     <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
@@ -335,11 +354,13 @@ class ReferralForm extends Component {
                     name="referralAppointmentDate"
                     floatingLabelText="Appointment date"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.referralAppointmentDate || null }
                 />
                 <FormsyTime
                     name="referralAppointmentTime"
                     floatingLabelText="Appointment time"
                     disabled={this.state.isFormDisabled}
+                    defaultValue={this.props.referralAppointmentTime || null }
                 />
 
                 <p>Last Date reviewed (placeholder)</p>
