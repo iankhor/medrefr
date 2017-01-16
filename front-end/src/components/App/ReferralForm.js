@@ -65,7 +65,8 @@ class ReferralForm extends Component {
       this.notifyFormError = this.notifyFormError.bind(this)
 
       this.state = {
-          canSubmit: true
+          canSubmit: true,
+          isFormDisabled: true
       }
   }
 
@@ -100,6 +101,7 @@ class ReferralForm extends Component {
                     <FormsySelect
                         name="referralStatus"
                         floatingLabelText="Status"
+                        disabled={this.state.isFormDisabled}
                     >
                         <MenuItem value={'accepted'} primaryText="Accepted" />
                         <MenuItem value={'assigned'} primaryText="Assigned" />
@@ -120,6 +122,7 @@ class ReferralForm extends Component {
                     required
                     hintText="Surname"
                     floatingLabelText="Surname"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -129,11 +132,13 @@ class ReferralForm extends Component {
                     required
                     hintText="Given name"
                     floatingLabelText="Given name"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsySelect
                         name="patientGender"
                         floatingLabelText="Gender"
+                        disabled={this.state.isFormDisabled}
                 >
                         <MenuItem value={'M'} primaryText="Male" />
                         <MenuItem value={'F'} primaryText="Female" />
@@ -147,6 +152,7 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Address"
                     floatingLabelText="Address"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -155,11 +161,13 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Postcode"
                     floatingLabelText="Postcode"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyDate
                     name="patientDateOfBirth"
                     floatingLabelText="Date of birth"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -168,6 +176,7 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Medicare number"
                     floatingLabelText="Medicare number"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -176,6 +185,7 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Contact number"
                     floatingLabelText="Contact number"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 {/* doctor data form below */}
@@ -187,6 +197,7 @@ class ReferralForm extends Component {
                     required
                     hintText="Surname"
                     floatingLabelText="Surname"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -196,6 +207,7 @@ class ReferralForm extends Component {
                     required
                     hintText="Given name"
                     floatingLabelText="Give name"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -204,6 +216,7 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Clinic"
                     floatingLabelText="Clinic"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -212,6 +225,7 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Address"
                     floatingLabelText="Address"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -220,6 +234,7 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Postcode"
                     floatingLabelText="Postcode"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsyText
@@ -228,6 +243,7 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Contact number"
                     floatingLabelText="Contact number"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 {/* referral form below */}
@@ -238,11 +254,13 @@ class ReferralForm extends Component {
                     validationError={errorMessages.wordsError}
                     hintText="Reason for referral"
                     floatingLabelText="Reason for referral"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <FormsySelect
                     name="referralRequestedService"
                     floatingLabelText="Requested service"
+                    disabled={this.state.isFormDisabled}
                 >
                     <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
                     <MenuItem value={'medicationReview'} primaryText="Medication Review" />
@@ -254,9 +272,15 @@ class ReferralForm extends Component {
                     name="referralUrgent"
                     label="Urgent"
                     style={style.switchStyle}
+                    disabled={this.state.isFormDisabled}
                 />
                 <div style={style.uploadButton}>
-                    <RaisedButton label="Upload" primary={true} style={style.uploadButton} />
+                    <RaisedButton 
+                        label="Upload" 
+                        primary={true} 
+                        style={style.uploadButton} 
+                        disabled={this.state.isFormDisabled}
+                    />
                     <p>Upload additional information (Limited to one PDF file)</p>
                 </div>
 
@@ -265,6 +289,7 @@ class ReferralForm extends Component {
                 <FormsySelect
                     name="referralRuralCode"
                     floatingLabelText="Rural code"
+                    disabled={this.state.isFormDisabled}
                 >
                     <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
                     <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
@@ -276,20 +301,22 @@ class ReferralForm extends Component {
                 <FormsyDate
                     name="referralAppointmentDate"
                     floatingLabelText="Appointment date"
+                    disabled={this.state.isFormDisabled}
                 />
                 <FormsyTime
                     name="referralAppointmentTime"
                     floatingLabelText="Appointment time"
+                    disabled={this.state.isFormDisabled}
                 />
 
                 <p>Last Date reviewed (placeholder)</p>
                     
-                        <RaisedButton
-                        style={style.submitStyle}
-                        type="submit"
-                        label="Submit"
-                        disabled={!this.state.canSubmit}
-                        />
+                <RaisedButton
+                style={style.submitStyle}
+                type="submit"
+                label="Submit"
+                disabled={!this.state.canSubmit}
+                />
           </Formsy.Form>
 
         </Container>
