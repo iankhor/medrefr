@@ -205,7 +205,7 @@ class EditableReferral extends Component {
                         <FormsyDate
                             name="patientDateOfBirth"
                             floatingLabelText="Date of birth"
-                            defaultDate={this.props.referral.patientDateOfBirth}
+                            // defaultDate={this.props.referral.patientDateOfBirth}
                         />
 
                         <FormsyText

@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   _loadSampleReferral(e) {
-    console.log(e.target)
+    this.setState( {referrals: sampleReferrals })
   }
 
   _handleTabChange = (value) => {
@@ -44,6 +44,7 @@ class App extends Component {
             {/* temp onscreen redirection */}
             <DebugTempLink />
             <Header />
+            <button>Hello</button>
             <PageTab referrals={this.state.referrals}/>
         </div>
       </MuiThemeProvider>

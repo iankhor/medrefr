@@ -10,12 +10,19 @@ const style = {
 class EditableReferralList extends Component {
 
     render(){
-        console.log(this.props.referrals)
+        // console.log('referrals', !this.props.referrals)
+        const referrals = this.props.referrals
         return(
-            <div style={style}> 
-                {this.props.referrals.map( (jsonObject) => 
-                    <EditableReferral referral={jsonObject} />
-                )}
+            <div style={style}>
+                {(!!referrals) ? 
+                    (
+                        referrals.map( (jsonObject) => <EditableReferral referral={jsonObject} /> )
+                    ) 
+                    : 
+                    ( 
+                        <p> No referrals now </p>
+                    )
+                }
             </div>
         )
     }
@@ -23,3 +30,4 @@ class EditableReferralList extends Component {
 
 export default EditableReferralList
 
+                    
