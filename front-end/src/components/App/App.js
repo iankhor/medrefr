@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import '../../../css/style.css'
+import './../../css/style.css'
 
 //App components
 import sampleReferrals from './_sample-referrals.js'
-import Header from '../../shared/Header'
-import DebugTempLink from '../../../utils/DebugTempLink'
+import Header from '../shared/Header'
+import DebugTempLink from '../../utils/DebugTempLink'
 import PageTab from './PageTab'
 
 //theme related material-ui
 import { MuiThemeProvider } from 'material-ui/styles'
 
-import medrefrTheme from '../../styles/Theme'         
+import medrefrTheme from './../styles/Theme'         
 
 class App extends Component {
   constructor() {

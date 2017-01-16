@@ -1,13 +1,11 @@
 import React, { Component, PropTypes as T } from 'react'
-import JSONDebugger from './../../../utils/JSONDebugger'
+import JSONDebugger from './../../utils/JSONDebugger'
 
-import DebugTempLink from '../../../utils/DebugTempLink'
+import DebugTempLink from '../../utils/DebugTempLink'
 import RaisedButton from 'material-ui/RaisedButton'
 
 //axios
-// import { signIn } from './../../utils/axiosHelper'
-import { signIn, isAuthenticated } from './../../../api/Auth'
-import { removeToken, readToken } from './../../../api/jwt'
+import { signUp } from './../../utils/axiosHelper'
 
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
@@ -18,7 +16,7 @@ import { Redirect } from 'react-router'
 import { MuiThemeProvider,
          getMuiTheme } from 'material-ui/styles'
 
-import medrefrTheme from './../../styles/Theme'
+import medrefrTheme from './../styles/Theme'
 
 const style = {
     referralOptions :{
@@ -63,23 +61,22 @@ const errorMessages = {
     urlError: "Please provide a valid URL",
 }
 
-class Login extends Component {
+class SignUp extends Component {
     constructor(props) {
       super(props)
       this.enableButton = this.enableButton.bind(this)
       this.disableButton = this.disableButton.bind(this)
       this.submitForm = this.submitForm.bind(this)
       this.notifyFormError = this.notifyFormError.bind(this)
-      this.signOut = this.signOut.bind(this)
 
       this.state = {
           canSubmit: true,
-          debugjSON: null,
-          isAuthenticated: false,
-          token: null
+          debugjSON: null
       }   
       
     }
+
+
 
     disableButton = () => {
     this.setState({canSubmit: false})
@@ -90,35 +87,25 @@ class Login extends Component {
     }
 
     submitForm = (data) => {
-        // alert(JSON.stringify(data,null,4))
         this.setState( { debugjSON: data })
         const reqBody = (data)
-        // console.log('login form body', reqBody)
-        console.log(signIn(reqBody))
-
-        this.setState( { 
-            token: readToken(),
-            isAuthenticated: true
-         })
+        console.log('SignUp form body', reqBody)
+        signUp(reqBody)
     }
 
     notifyFormError = (data) => {
     console.error('Form error:', data)
     }
 
-    signOut() {
-        removeToken()
-        this.setState( { token: null })
-    }
 
-      render(){
+    render(){
         
         return(
             <MuiThemeProvider muiTheme={medrefrTheme}>
             <div className="generic-center"> 
                 <DebugTempLink />
                 {/* temp onscreen redirection */}
-                <h1>This is a Login page</h1>
+                <h1>This is a SignUp page</h1>
                 <Formsy.Form
                     onValid={this.enableButton}
                     onInvalid={this.disableButton}
@@ -145,24 +132,14 @@ class Login extends Component {
                 <RaisedButton
                     style={style.submitStyle}
                     type="submit"
-                    label="Submit"
+                    label="SignUp"
                     disabled={!this.state.canSubmit}
                 />
 
                 </Formsy.Form>
 
-
                 <JSONDebugger json={this.state.debugjSON} />
 
-                <RaisedButton
-                style={style.submitStyle}
-                label="DELETE TOKEN aka LOGOUT"
-                onClick={this.signOut}
-                />
-
-                <br />
-                <h2>token = {this.state.token}</h2>
-                <h2>isAuthenticated ? {String((this.state.isAuthenticated))}</h2>
             </div>
             </MuiThemeProvider>
 
@@ -170,4 +147,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default SignUp

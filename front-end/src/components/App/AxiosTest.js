@@ -1,10 +1,10 @@
 import React, { Component, PropTypes as T } from 'react'
-import JSONDebugger from './../../../utils/JSONDebugger'
+import JSONDebugger from './../../utils/JSONDebugger'
 
 //import axios helper files
-import { getTest } from './../../../utils/axiosHelper'
+import { getTest } from './../../utils/axiosHelper'
 
-import DebugTempLink from '../../../utils/DebugTempLink'
+import DebugTempLink from '../../utils/DebugTempLink'
 
 import RaisedButton from 'material-ui/RaisedButton'
 
@@ -12,7 +12,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { MuiThemeProvider,
          getMuiTheme } from 'material-ui/styles'
 
-import medrefrTheme from './../../styles/Theme'
+import medrefrTheme from './../styles/Theme'
 
 const style = {
     referralOptions :{
