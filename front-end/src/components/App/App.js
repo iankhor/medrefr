@@ -20,17 +20,19 @@ class App extends Component {
     this._handleTabChange = this._handleTabChange.bind(this)
 
     this.state = {
-      referrals: sampleReferrals,
+      referrals: null,
       value: 'a',
-      isAuthenticated: false
+      isAuthenticated: false,
+      loadReferralsToggle: 0
     }
 
   }
 
-  _loadSampleReferral(e) {
-    this.setState( {referrals: sampleReferrals })
-  }
-
+  _loadSampleReferral() {
+    const toggle = this.state.loadReferralsToggle ? 0 : 1
+    this.setState({ loadReferralsToggle: this.state.loadReferralsToggle ? 0 : 1 })
+    this.setState({ referrals: this.state.loadReferralsToggle ? null : sampleReferrals })
+}
   _handleTabChange = (value) => {
     this.setState({
       value: value
@@ -44,7 +46,10 @@ class App extends Component {
             {/* temp onscreen redirection */}
             <DebugTempLink />
             <Header />
-            <button>Hello</button>
+
+            {/* temp temp load static data button */}
+            <button onClick={this._loadSampleReferral}>{this.state.loadReferralsToggle ? 'Clear data' : 'Load data'}</button>
+
             <PageTab referrals={this.state.referrals}/>
         </div>
       </MuiThemeProvider>
