@@ -63,10 +63,12 @@ class ReferralForm extends Component {
       this.disableButton = this.disableButton.bind(this)
       this.submitForm = this.submitForm.bind(this)
       this.notifyFormError = this.notifyFormError.bind(this)
+      this.enableButton = this.enableButton.bind(this)
 
       this.state = {
           canSubmit: true,
-          isFormDisabled: true
+          isFormDisabled: true,
+          formDisabledStatus : 1
       }
   }
 
@@ -76,6 +78,11 @@ class ReferralForm extends Component {
 
   enableButton = () => {
       this.setState({canSubmit: true})
+  }
+
+  enableEdit = () => {
+      this.setState( { isFormDisabled: this.state.formDisabledStatus ? false : true  })
+      this.setState( { formDisabledStatus: this.state.isFormDisabled ? 0 : 1  })
   }
 
   submitForm = (data) => {
@@ -97,7 +104,13 @@ class ReferralForm extends Component {
             >
 
                 <div style={style.referralOptions}>
-                    <RaisedButton label="Edit details" primary={true} style={style.uploadButton} />
+                    <RaisedButton 
+                        label="Edit details" 
+                        primary={true} 
+                        style={style.uploadButton} 
+                        onClick={this.enableEdit}
+                    />
+
                     <FormsySelect
                         name="referralStatus"
                         floatingLabelText="Status"
