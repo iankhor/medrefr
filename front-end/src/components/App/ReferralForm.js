@@ -20,7 +20,7 @@ const errorMessages = {
   const style = {
       referralOptions :{
           display: 'flex',
-          justifyContent: 'space-between',
+        //   justifyContent: 'space-between',
           alignItems: 'center',
       },
       uploadButton :{
@@ -66,9 +66,13 @@ class ReferralForm extends Component {
       this.enableButton = this.enableButton.bind(this)
 
       this.state = {
-          canSubmit: true,
+          canSubmit: false,
+          submitStatus: 0,
           isFormDisabled: true,
-          formDisabledStatus : 1
+          formDisabledStatus : 1,
+          isEditButttonDisabled : false,
+          editButttonStatus : 0
+
       }
   }
 
@@ -83,9 +87,23 @@ class ReferralForm extends Component {
   enableEdit = () => {
       this.setState( { isFormDisabled: this.state.formDisabledStatus ? false : true  })
       this.setState( { formDisabledStatus: this.state.isFormDisabled ? 0 : 1  })
+      
+    //   this.setState( { canSubmit: this.state.submitStatus ? false : true  })
+    //   this.setState( { submitStatus: this.state.canSubmit ? 0 : 1  })
+
+
+
+      this.setState( { isEditButttonDisabled: this.state.editButttonStatus ? false : true  })
+      this.setState( { editButttonStatus: this.state.isEditButttonDisabled ? 0 : 1  })
   }
 
   submitForm = (data) => {
+      this.setState( { isFormDisabled: this.state.formDisabledStatus ? false : true  })
+      this.setState( { formDisabledStatus: this.state.isFormDisabled ? 0 : 1  })
+      this.setState( { isEditButttonDisabled: this.state.editButttonStatus ? false : true  })
+      this.setState( { editButttonStatus: this.state.isEditButttonDisabled ? 0 : 1  })
+      this.setState( { canSubmit: false } )
+
       console.log(JSON.stringify(data,null,2))
   }
 
@@ -109,8 +127,16 @@ class ReferralForm extends Component {
                         primary={true} 
                         style={style.uploadButton} 
                         onClick={this.enableEdit}
+                        disabled={this.state.isEditButttonDisabled}
                     />
 
+                     <RaisedButton
+                        type="submit"
+                        label="Submit"
+                        disabled={!this.state.canSubmit}
+                    />
+                </div>
+                <h1>Referral status</h1>
                     <FormsySelect
                         name="referralStatus"
                         floatingLabelText="Status"
@@ -124,7 +150,6 @@ class ReferralForm extends Component {
                         <MenuItem value={'completed'} primaryText="Completed" />
                         <MenuItem value={'noShow'} primaryText="No show" />
                     </FormsySelect>
-                </div>
 
                 {/* patient data form below */}
                 <h1>Patient Data</h1>
@@ -259,6 +284,7 @@ class ReferralForm extends Component {
                     disabled={this.state.isFormDisabled}
                 />
 
+               
                 {/* referral form below */}
                 <h1>Referral Details</h1>
                 <FormsyText
@@ -324,12 +350,6 @@ class ReferralForm extends Component {
 
                 <p>Last Date reviewed (placeholder)</p>
                     
-                <RaisedButton
-                style={style.submitStyle}
-                type="submit"
-                label="Submit"
-                disabled={!this.state.canSubmit}
-                />
           </Formsy.Form>
 
         </Container>
