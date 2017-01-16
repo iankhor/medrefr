@@ -10,10 +10,7 @@ class AddReferral extends Component {
     render(){
         return(
             <div style={style}>
-
-                    <ModalDialog label="New Referral" children="hey. I'm a child" title="Enter Details" />
-
-
+                <ModalDialog label="New Referral" children="hey. I'm a child" title="Enter Details" />
             </div>
         )
     }

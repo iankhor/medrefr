@@ -53,7 +53,7 @@ const errorMessages = {
     },
   }
 
-class TemplateComponent extends Component {
+class ReferralForm extends Component {
   constructor(props) {
       super(props)
       this.enableButton = this.enableButton.bind(this)
@@ -297,4 +297,4 @@ class TemplateComponent extends Component {
 }
 
 
-export default TemplateComponent
+export default ReferralForm
