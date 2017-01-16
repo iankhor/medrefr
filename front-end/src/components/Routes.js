@@ -3,9 +3,10 @@ import React from 'react'
 //Routes
 import NotFound from './NotFound'
 import MainPage from './MainPage/MainPage'
-import Login from './App/Login'
+// import Login from './App/Login'
 import App from './App/App'
-import SignUp from './App/SignUp'
+// import SignUp from './App/SignUp'
+import ReferralForm from './App/ReferralForm'
 
 import { BrowserRouter , Match, Miss } from 'react-router'
 
@@ -15,9 +16,8 @@ const Routes = (props) => {
     <BrowserRouter>
       <div>
         <Match exactly pattern="/" component={MainPage} />  
-        <Match exactly pattern="/Login" component={Login} />  
         <Match exactly pattern="/ReferralDashboardTemp" component={App} />  
-        <Match exactly pattern="/SignUp" component={SignUp} />  
+        <Match exactly pattern="/ReferralForm" component={ReferralForm} />  
         <Miss component={NotFound} />  
       </div>
     </BrowserRouter>

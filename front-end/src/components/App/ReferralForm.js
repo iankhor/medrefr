@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Container from './Container'
 import Formsy from 'formsy-react'
 import { FormsyDate,
          FormsySelect,
@@ -50,8 +51,10 @@ const errorMessages = {
       wrapper: {
           display: 'flex',
           flexWrap: 'wrap',
-    },
+        }
   }
+
+
 
 class ReferralForm extends Component {
   constructor(props) {
@@ -75,231 +78,221 @@ class ReferralForm extends Component {
   }
 
   submitForm = (data) => {
-      alert(JSON.stringify(data,null,4))
+      console.log(JSON.stringify(data,null,2))
   }
 
   notifyFormError = (data) => {
       console.error('Form error:', data)
   }
 
-
-
   render(){
       return(
-
-        <Formsy.Form
-            onValid={this.enableButton}
-            onInvalid={this.disableButton}
-            onValidSubmit={this.submitForm}
-            onInvalidSubmit={this.notifyFormError}
-        >
-        <div style={style.referralOptions}>
-            <RaisedButton label="Edit details" primary={true} style={style.uploadButton} />
-            <FormsySelect
-                name="referralStatus"
-                floatingLabelText="Status"
+          <Container>
+            <Formsy.Form
+                onValid={this.enableButton}
+                onInvalid={this.disableButton}
+                onValidSubmit={this.submitForm}
+                onInvalidSubmit={this.notifyFormError}
             >
-                <MenuItem value={'accepted'} primaryText="Accepted" />
-                <MenuItem value={'assigned'} primaryText="Assigned" />
-                <MenuItem value={'declined'} primaryText="Declined" />
-                <MenuItem value={'withdrawn'} primaryText="Withdrawn" />
-                <MenuItem value={'rejected'} primaryText="Rejected" />
-                <MenuItem value={'completed'} primaryText="Completed" />
-                <MenuItem value={'noShow'} primaryText="No show" />
-            </FormsySelect>
-        </div>
 
-        {/* patient data form below */}
-        <h1>Patient Data</h1>
-        <FormsyText
-            name="patientSurname"
-            validations="isWords"
-            validationError={errorMessages.wordsError}
-            required
-            hintText="Surname"
-            floatingLabelText="Surname"
-        />
+                <div style={style.referralOptions}>
+                    <RaisedButton label="Edit details" primary={true} style={style.uploadButton} />
+                    <FormsySelect
+                        name="referralStatus"
+                        floatingLabelText="Status"
+                    >
+                        <MenuItem value={'accepted'} primaryText="Accepted" />
+                        <MenuItem value={'assigned'} primaryText="Assigned" />
+                        <MenuItem value={'declined'} primaryText="Declined" />
+                        <MenuItem value={'withdrawn'} primaryText="Withdrawn" />
+                        <MenuItem value={'rejected'} primaryText="Rejected" />
+                        <MenuItem value={'completed'} primaryText="Completed" />
+                        <MenuItem value={'noShow'} primaryText="No show" />
+                    </FormsySelect>
+                </div>
 
-        <FormsyText
-            name="patientgivenName"
-            validations="isWords"
-            validationError={errorMessages.wordsError}
-            required
-            hintText="Given name"
-            floatingLabelText="Given name"
-        />
+                {/* patient data form below */}
+                <h1>Patient Data</h1>
+                <FormsyText
+                    name="patientSurname"
+                    validations="isWords"
+                    validationError={errorMessages.wordsError}
+                    required
+                    hintText="Surname"
+                    floatingLabelText="Surname"
+                />
 
-        <FormsySelect
-                name="patientGender"
-                floatingLabelText="Gender"
-        >
-                <MenuItem value={'M'} primaryText="Male" />
-                <MenuItem value={'F'} primaryText="Female" />
-        </FormsySelect>
+                <FormsyText
+                    name="patientgivenName"
+                    validations="isWords"
+                    validationError={errorMessages.wordsError}
+                    required
+                    hintText="Given name"
+                    floatingLabelText="Given name"
+                />
 
-
-
-        <FormsyText
-            name="patientAddress"
-            validations="matchRegexp"
-            validationError={errorMessages.wordsError}
-            hintText="Address"
-            floatingLabelText="Address"
-        />
-
-        <FormsyText
-            name="patientPostcode"
-            validations="isInt"
-            validationError={errorMessages.wordsError}
-            hintText="Postcode"
-            floatingLabelText="Postcode"
-        />
-
-        <FormsyDate
-            name="patientDateOfBirth"
-            floatingLabelText="Date of birth"
-        />
-
-        <FormsyText
-            name="patientMedicare"
-            validations="isAlphanumeric"
-            validationError={errorMessages.wordsError}
-            hintText="Medicare number"
-            floatingLabelText="Medicare number"
-        />
-
-        <FormsyText
-            name="patientContactNumber"
-            validations="isInt"
-            validationError={errorMessages.wordsError}
-            hintText="Contact number"
-            floatingLabelText="Contact number"
-        />
-
-        {/* doctor data form below */}
-        <h1>Doctor Data</h1>
-        <FormsyText
-            name="doctorSurname"
-            validations="isWords"
-            validationError={errorMessages.wordsError}
-            required
-            hintText="Surname"
-            floatingLabelText="Surname"
-        />
-
-        <FormsyText
-            name="doctorGivenName"
-            validations="isWords"
-            validationError={errorMessages.wordsError}
-            required
-            hintText="Given name"
-            floatingLabelText="Give name"
-        />
-
-        <FormsyText
-            name="doctorClinic"
-            validations="isWords"
-            validationError={errorMessages.wordsError}
-            hintText="Clinic"
-            floatingLabelText="Clinic"
-        />
-
-        <FormsyText
-            name="doctorAddress"
-            validations="isAlphanumeric"
-            validationError={errorMessages.wordsError}
-            hintText="Address"
-            floatingLabelText="Address"
-        />
-
-        <FormsyText
-            name="doctorPostcode"
-            validations="isInt"
-            validationError={errorMessages.wordsError}
-            hintText="Postcode"
-            floatingLabelText="Postcode"
-            // defaultValue={this.props.referral.doctorPostcode}
-        />
-
-        <FormsyText
-            name="doctorContactNumber"
-            validations="isInt"
-            validationError={errorMessages.wordsError}
-            hintText="Contact number"
-            floatingLabelText="Contact number"
-            // defaultValue={this.props.referral.doctorContactNumber}
-        />
-
-        {/* referral form below */}
-        <h1>Referral Details</h1>
-        <FormsyText
-            name="referralReasonForReferral"
-            validations="isWords"
-            validationError={errorMessages.wordsError}
-            hintText="Reason for referral"
-            floatingLabelText="Reason for referral"
-            // defaultValue={this.props.referral.referralReasonForReferral}
-        />
-
-        <FormsySelect
-            name="referralRequestedService"
-            floatingLabelText="Requested service"
-            // value={this.props.referral.referralRequestedService}
-        >
-            <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
-            <MenuItem value={'medicationReview'} primaryText="Medication Review" />
-            <MenuItem value={'dianogsticClarification'} primaryText="Diagnostic Clarifiction" />
-            <MenuItem value={'assessmentForManagementOfBPSD'} primaryText="Assessment for Management of BPSD" />
-        </FormsySelect>
-
-        <FormsyToggle
-            name="referralUrgent"
-            label="Urgent"
-            style={style.switchStyle}
-            // defaultToggled={this.props.referral.referralUrgent}
-        />
-        <div style={style.uploadButton}>
-            <RaisedButton label="Upload" primary={true} style={style.uploadButton} />
-            <p>Upload additional information (Limited to one PDF file)</p>
-        </div>
-
-         {/* triage below */}
-        <h1>Triage</h1>
-        <FormsySelect
-            name="referralRuralCode"
-            floatingLabelText="Rural code"
-        >
-            <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
-            <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
-            <MenuItem value={'RA3OuterRegional'} primaryText="RA3 Outer Regional" />
-            <MenuItem value={'RA4Remote'} primaryText="RA4 Remote" />
-            <MenuItem value={'RA5VeryRemote'} primaryText="RA5 Very Remote" />
-        </FormsySelect>
-
-        <FormsyDate
-            name="referralAppointmentDate"
-            floatingLabelText="Appointment date"
-        />
-        <FormsyTime
-            name="referralAppointmentTime"
-            floatingLabelText="Appointment time"
-        />
-
-        
-
-        <p>Last Date reviewed (placeholder)</p>
-
-        <RaisedButton 
-            label="Update" 
-            primary={true} 
-            style={style.uploadButton}
-            type="submit"
-            onClick={this.submitForm}
-        />
-
-        </Formsy.Form>
+                <FormsySelect
+                        name="patientGender"
+                        floatingLabelText="Gender"
+                >
+                        <MenuItem value={'M'} primaryText="Male" />
+                        <MenuItem value={'F'} primaryText="Female" />
+                </FormsySelect>
 
 
+
+                <FormsyText
+                    name="patientAddress"
+                    validations="matchRegexp"
+                    validationError={errorMessages.wordsError}
+                    hintText="Address"
+                    floatingLabelText="Address"
+                />
+
+                <FormsyText
+                    name="patientPostcode"
+                    validations="isInt"
+                    validationError={errorMessages.wordsError}
+                    hintText="Postcode"
+                    floatingLabelText="Postcode"
+                />
+
+                <FormsyDate
+                    name="patientDateOfBirth"
+                    floatingLabelText="Date of birth"
+                />
+
+                <FormsyText
+                    name="patientMedicare"
+                    validations="isAlphanumeric"
+                    validationError={errorMessages.wordsError}
+                    hintText="Medicare number"
+                    floatingLabelText="Medicare number"
+                />
+
+                <FormsyText
+                    name="patientContactNumber"
+                    validations="isInt"
+                    validationError={errorMessages.wordsError}
+                    hintText="Contact number"
+                    floatingLabelText="Contact number"
+                />
+
+                {/* doctor data form below */}
+                <h1>Doctor Data</h1>
+                <FormsyText
+                    name="doctorSurname"
+                    validations="isWords"
+                    validationError={errorMessages.wordsError}
+                    required
+                    hintText="Surname"
+                    floatingLabelText="Surname"
+                />
+
+                <FormsyText
+                    name="doctorGivenName"
+                    validations="isWords"
+                    validationError={errorMessages.wordsError}
+                    required
+                    hintText="Given name"
+                    floatingLabelText="Give name"
+                />
+
+                <FormsyText
+                    name="doctorClinic"
+                    validations="isWords"
+                    validationError={errorMessages.wordsError}
+                    hintText="Clinic"
+                    floatingLabelText="Clinic"
+                />
+
+                <FormsyText
+                    name="doctorAddress"
+                    validations="isAlphanumeric"
+                    validationError={errorMessages.wordsError}
+                    hintText="Address"
+                    floatingLabelText="Address"
+                />
+
+                <FormsyText
+                    name="doctorPostcode"
+                    validations="isInt"
+                    validationError={errorMessages.wordsError}
+                    hintText="Postcode"
+                    floatingLabelText="Postcode"
+                />
+
+                <FormsyText
+                    name="doctorContactNumber"
+                    validations="isInt"
+                    validationError={errorMessages.wordsError}
+                    hintText="Contact number"
+                    floatingLabelText="Contact number"
+                />
+
+                {/* referral form below */}
+                <h1>Referral Details</h1>
+                <FormsyText
+                    name="referralReasonForReferral"
+                    validations="isWords"
+                    validationError={errorMessages.wordsError}
+                    hintText="Reason for referral"
+                    floatingLabelText="Reason for referral"
+                />
+
+                <FormsySelect
+                    name="referralRequestedService"
+                    floatingLabelText="Requested service"
+                >
+                    <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
+                    <MenuItem value={'medicationReview'} primaryText="Medication Review" />
+                    <MenuItem value={'dianogsticClarification'} primaryText="Diagnostic Clarifiction" />
+                    <MenuItem value={'assessmentForManagementOfBPSD'} primaryText="Assessment for Management of BPSD" />
+                </FormsySelect>
+
+                <FormsyToggle
+                    name="referralUrgent"
+                    label="Urgent"
+                    style={style.switchStyle}
+                />
+                <div style={style.uploadButton}>
+                    <RaisedButton label="Upload" primary={true} style={style.uploadButton} />
+                    <p>Upload additional information (Limited to one PDF file)</p>
+                </div>
+
+                {/* triage below */}
+                <h1>Triage</h1>
+                <FormsySelect
+                    name="referralRuralCode"
+                    floatingLabelText="Rural code"
+                >
+                    <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
+                    <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
+                    <MenuItem value={'RA3OuterRegional'} primaryText="RA3 Outer Regional" />
+                    <MenuItem value={'RA4Remote'} primaryText="RA4 Remote" />
+                    <MenuItem value={'RA5VeryRemote'} primaryText="RA5 Very Remote" />
+                </FormsySelect>
+
+                <FormsyDate
+                    name="referralAppointmentDate"
+                    floatingLabelText="Appointment date"
+                />
+                <FormsyTime
+                    name="referralAppointmentTime"
+                    floatingLabelText="Appointment time"
+                />
+
+                <p>Last Date reviewed (placeholder)</p>
+                    
+                        <RaisedButton
+                        style={style.submitStyle}
+                        type="submit"
+                        label="Submit"
+                        disabled={!this.state.canSubmit}
+                        />
+          </Formsy.Form>
+
+        </Container>
       )
   }
 }
