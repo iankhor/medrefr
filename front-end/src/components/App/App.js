@@ -45,8 +45,6 @@ class App extends Component {
     //update referral state 
     const referrals = {...this.state.referrals}
 
-    //update referral
-    const timestamp = Date.now()
     referrals[key] = referral
 
     //set state
