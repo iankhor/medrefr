@@ -109,8 +109,6 @@ class ReferralCard extends Component {
         const avatar = ( this.props.action === "new" ) ? "" :
                        this.props.referral.imgProfile
 
-
-
         return(
            <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style.card}>
                 <CardHeader
@@ -125,6 +123,7 @@ class ReferralCard extends Component {
                 <CardText expandable={true}>
                     <Paper style={style.paperStyle}>
                         <ReferralForm 
+                            index={this.props.index}
                             referral={this.props.referral} 
                             _updateReferral={this.props._updateReferral}
                             _addReferral={this.props._addReferral}

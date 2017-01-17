@@ -19,12 +19,11 @@ class App extends Component {
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
     this._handleTabChange = this._handleTabChange.bind(this)
     this._addReferral = this._addReferral.bind(this)
+    this._updateReferral = this._updateReferral.bind(this)
 
     this.state = {
       referrals: {},
       value: 'a',
-      isAuthenticated: false,
-      loadReferralsToggle: 0
     }
 
   }
@@ -32,6 +31,7 @@ class App extends Component {
   _addReferral(referral) {
     //update referral state 
     const referrals = {...this.state.referrals}
+    console.log('addreferral',referral)
 
     //add in new referral
     const timestamp = Date.now()
@@ -44,17 +44,18 @@ class App extends Component {
     _updateReferral(key, referral) {
     //update referral state 
     const referrals = {...this.state.referrals}
+    // console.log(key)
+    // console.log(this.state.referrals)
+    // console.log(JSON.stringify(referral,null,2))
 
     referrals[key] = referral
 
-    //set state
+    // //set state
     this.setState( { referrals } )
   }
 
   _loadSampleReferral() {
-    const toggle = this.state.loadReferralsToggle ? 0 : 1
-    this.setState({ loadReferralsToggle: this.state.loadReferralsToggle ? 0 : 1 })
-    this.setState({ referrals: this.state.loadReferralsToggle ? null : sampleReferrals })
+    this.setState({ referrals: sampleReferrals })
 }
   _handleTabChange = (value) => {
     this.setState({

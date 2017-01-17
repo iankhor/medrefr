@@ -85,12 +85,11 @@ class ReferralForm extends Component {
                 referralAppointmentPeriod:    data.referralAppointmentPeriod,
             }
         
-        console.log(JSON.stringify(referral,null,2))
+        // console.log(JSON.stringify(referral,null,2))
         // console.log('adding a referral')
-        // console.log(referral)
 
         this.props.action === 'update' ? 
-        this.props._updateReferral(referral) : this.props._addReferral(referral)
+        this.props._updateReferral(this.props.index, referral) : this.props._addReferral(referral)
 
     }
 
