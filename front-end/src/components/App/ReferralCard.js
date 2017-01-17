@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
-// import ReferralForm from './ReferralForm'
+import ReferralForm from './ReferralForm'
 
 import { Card, 
-         CardActions, 
          CardHeader, 
-         CardTitle, 
          CardText,
-         FlatButton,
-         Paper,
-         RaisedButton,
-         MenuItem } from 'material-ui'
+         Paper } from 'material-ui'
       
 
 const style = {
@@ -48,12 +43,6 @@ const style = {
         flexWrap: 'wrap',
   },
 }
-
-const errorMessages = {
-    wordsError: "Please only use letters",
-    numericError: "Please provide a number",
-    urlError: "Please provide a valid URL",
-  }
 
 class ReferralCard extends Component {
 
@@ -123,7 +112,7 @@ class ReferralCard extends Component {
 
                 <CardText expandable={true}>
                     <Paper style={style.paperStyle}>
-                        {/*<ReferralForm referral={this.props.referral}/>*/}
+                        <ReferralForm referral={this.props.referral}/>
                         <p> Referral items here</p>
                     </Paper>
                 </CardText>

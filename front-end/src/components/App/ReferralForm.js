@@ -89,7 +89,6 @@ class AddReferral extends Component {
     render(){
         return(
             <div style={style}>
-                <button onClick={this._createReferral}>Add referral</button>
 
                 <Formsy.Form
                     ref={ (input) => this.referralForm = input }
