@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Dialog from 'material-ui/Dialog';
 import Formsy from 'formsy-react'
 import { FormsyDate,
          FormsySelect,
@@ -47,11 +46,10 @@ import { RaisedButton,
         }
   }
 
-class AddReferral extends Component {
+class ReferralForm extends Component {
     constructor(){
         super()
         this._createReferral = this._createReferral.bind(this)
-
     }
 
     _createReferral(data) {
@@ -104,7 +102,7 @@ class AddReferral extends Component {
 
                         <RaisedButton
                             type="submit"
-                            label={this.props.action}
+                            label={this.props.action === 'update' ? 'Update' : 'Submit new referral'}
                         />
 
                     </div>
@@ -282,5 +280,5 @@ class AddReferral extends Component {
     }
 }
 
-export default AddReferral
+export default ReferralForm
 
