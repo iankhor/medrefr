@@ -60,7 +60,9 @@ class ReferralForm extends Component {
                 patientSurname:             data.patientSurname,
                 patientgivenName:           data.patientgivenName,
                 patientGender:              data.patientGender,
-                patientDateOfBirth:         data.patientDateOfBirth,
+                patientBirthDay:            data.patientBirthDay,
+                patientBirthMonth:          data.patientBirthMonth,
+                patientBirthYear:           data.patientBirthYear,
                 patientAddress:             data.patientAddress,
                 patientPostcode:            data.patientPostcode,
                 patientMedicare:            data.patientMedicare,
@@ -75,8 +77,12 @@ class ReferralForm extends Component {
                 referralReasonForReferral:  data.referralReasonForReferral,
                 referralUrgent:             data.referralUrgent,
                 referralRuralCode:          data.referralRuralCode, 
-                referralAppointmentDate:    data.referralAppointmentDate,
-                referralAppointmentTime:    data.referralAppointmentTime
+                referralAppointmentDay:     data.referralAppointmentDay,
+                referralAppointmentMonth:   data.referralAppointmentMonth,
+                referralAppointmentYear:    data.patientBirthYear,
+                referralAppointmentHour:    data.referralAppointmentHour,
+                referralAppointmentMinute:    data.referralAppointmentMinute,
+                referralAppointmentPeriod:    data.referralAppointmentPeriod,
             }
         
         console.log(JSON.stringify(referral,null,2))
@@ -168,11 +174,25 @@ class ReferralForm extends Component {
                         defaultValue={this.props.action === 'update' ? this.props.referral.patientPostcode : null}
                     />
 
+                    <FormsyText
+                        name="patientBirthDay"
+                        hintText="DOB Day"
+                        floatingLabelText="DOB Day"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientBirthDay : null}
+                    />
 
-                    <FormsyDate
-                        name="patientDateOfBirth"
-                        floatingLabelText="Date of birth"
-                        defaultDate={this.props.action === 'update' ? new Date(Date.parse(this.props.referral.patientDateOfBirth)) : null}
+                    <FormsyText
+                        name="patientBirthMonth"
+                        hintText="DOB Month"
+                        floatingLabelText="DOB Month"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientBirthMonth : null}
+                    />
+
+                    <FormsyText
+                        name="patientBirthYear"
+                        hintText="DOB Year"
+                        floatingLabelText="DOB Year"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientBirthYear : null}
                     />
 
                     <FormsyText
@@ -181,6 +201,8 @@ class ReferralForm extends Component {
                         floatingLabelText="Medicare number"
                         defaultValue={this.props.action === 'update' ? this.props.referral.patientMedicare : null}
                     />
+
+                    
 
                     <FormsyText
                         name="patientContactNumber"
@@ -282,18 +304,51 @@ class ReferralForm extends Component {
                         <MenuItem value={'RA5VeryRemote'} primaryText="RA5 Very Remote" />
                     </FormsySelect>
 
-                    
-                    <FormsyDate
-                        name="referralAppointmentDate"
-                        floatingLabelText="Appointment date"
-                        value={this.props.action === 'update' ? new Date(Date.parse(this.props.referral.referralAppointmentDate)) : null}
+                    <FormsyText
+                        name="referralAppointmentDay"
+                        hintText="Appointment Day"
+                        floatingLabelText="Appointment Day"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.referralAppointmentDay : null}
                     />
 
-                    <FormsyTime
-                        name="referralAppointmentTime"
-                        floatingLabelText="Appointment time"
-                        value={this.props.action === 'update' ? new Date(Date.parse(this.props.referral.referralAppointmentTime)) : null}
+                    <FormsyText
+                        name="referralAppointmentMonth"
+                        hintText="Appointment Month"
+                        floatingLabelText="Appointment Month"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.referralAppointmentMonth : null}
                     />
+
+                    <FormsyText
+                        name="referralAppointmentYear"
+                        hintText="Appointment Year"
+                        floatingLabelText="Appointment Year"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.referralAppointmentYear : null}
+                    />
+
+                    <FormsyText
+                        name="referralAppointmentHour"
+                        hintText="Appointment Hour"
+                        floatingLabelText="Appointment Month"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.referralAppointmentHour : null}
+                    />
+
+                    <FormsyText
+                        name="referralAppointmentMinute"
+                        hintText="Appointment Minute"
+                        floatingLabelText="Appointment Year"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.referralAppointmentMinute : null}
+                    />
+
+                    <FormsySelect
+                        name="referralAppointmentPeriod"
+                        floatingLabelText="Period"
+                        value={this.props.action === 'update' ? this.props.referral.referralAppointmentPeriod : null}
+                    >
+                        <MenuItem value={'AM'} primaryText="AM" />
+                        <MenuItem value={'PM'} primaryText="PM" />
+                    </FormsySelect>
+
+
 
                     <p>Last Date reviewed (placeholder)</p>
                         
