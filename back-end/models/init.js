@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // Initialization
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URI)
 const { connection: db } = mongoose;
 // Same as: const db = mongoose.connection;
 

@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "PORT=4000 node ./bin/www",
+    "start": "node ./bin/www",
     "deploy:heroku": "git add . && git commit -m 'heroku commit' && git push heroku master --force"
   },
   "dependencies": {
