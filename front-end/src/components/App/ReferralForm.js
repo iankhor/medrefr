@@ -75,6 +75,8 @@ class ReferralForm extends Component {
                 referralReasonForReferral:  data.referralReasonForReferral,
                 referralUrgent:             data.referralUrgent,
                 referralRuralCode:          data.referralRuralCode, 
+                referralAppointmentDate:    data.referralAppointmentDate,
+                referralAppointmentTime:    data.referralAppointmentTime
             }
         
         console.log(JSON.stringify(referral,null,2))
@@ -114,6 +116,7 @@ class ReferralForm extends Component {
                     <FormsySelect
                         name="referralStatus"
                         floatingLabelText="Status"
+                        value={this.props.action === 'update' ? this.props.referral.referralStatus : null}
                     >
                         <MenuItem value={'accepted'} primaryText="Accepted" />
                         <MenuItem value={'assigned'} primaryText="Assigned" />
@@ -130,17 +133,20 @@ class ReferralForm extends Component {
                         name="patientSurname"
                         hintText="Surname"
                         floatingLabelText="Surname"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientSurname : null}
                     />
 
                     <FormsyText
                         name="patientgivenName"
                         hintText="Given name"
                         floatingLabelText="Given name"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientgivenName : null}
                     />
 
                     <FormsySelect
                             name="patientGender"
                             floatingLabelText="Gender"
+                            value={this.props.action === 'update' ? this.props.referral.patientGender : null}
                     >
                             <MenuItem value={'M'} primaryText="Male" />
                             <MenuItem value={'F'} primaryText="Female" />
@@ -152,29 +158,35 @@ class ReferralForm extends Component {
                         name="patientAddress"
                         hintText="Address"
                         floatingLabelText="Address"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientAddress : null}
                     />
 
                     <FormsyText
                         name="patientPostcode"
                         hintText="Postcode"
                         floatingLabelText="Postcode"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientPostcode : null}
                     />
+
 
                     <FormsyDate
                         name="patientDateOfBirth"
                         floatingLabelText="Date of birth"
+                        defaultDate={this.props.action === 'update' ? new Date(Date.parse(this.props.referral.patientDateOfBirth)) : null}
                     />
 
                     <FormsyText
                         name="patientMedicare"
                         hintText="Medicare number"
                         floatingLabelText="Medicare number"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientMedicare : null}
                     />
 
                     <FormsyText
                         name="patientContactNumber"
                         hintText="Contact number"
                         floatingLabelText="Contact number"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.patientContactNumber : null}
                     />
 
                     {/* doctor data form below */}
@@ -183,36 +195,42 @@ class ReferralForm extends Component {
                         name="doctorSurname"
                         hintText="Surname"
                         floatingLabelText="Surname"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.doctorSurname : null}
                     />
 
                     <FormsyText
                         name="doctorGivenName"
                         hintText="Given name"
                         floatingLabelText="Give name"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.doctorGivenName : null}
                     />
 
                     <FormsyText
                         name="doctorClinic"
                         hintText="Clinic"
                         floatingLabelText="Clinic"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.doctorClinic : null}
                     />
 
                     <FormsyText
                         name="doctorAddress"
                         hintText="Address"
                         floatingLabelText="Address"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.doctorAddress : null}
                     />
 
                     <FormsyText
                         name="doctorPostcode"
                         hintText="Postcode"
                         floatingLabelText="Postcode"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.doctorPostcode : null}
                     />
 
                     <FormsyText
                         name="doctorContactNumber"
                         hintText="Contact number"
                         floatingLabelText="Contact number"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.doctorContactNumber : null}
                     />
 
                 
@@ -222,11 +240,13 @@ class ReferralForm extends Component {
                         name="referralReasonForReferral"
                         hintText="Reason for referral"
                         floatingLabelText="Reason for referral"
+                        defaultValue={this.props.action === 'update' ? this.props.referral.referralReasonForReferral : null}
                     />
 
                     <FormsySelect
                         name="referralRequestedService"
                         floatingLabelText="Requested service"
+                        value={this.props.action === 'update' ? this.props.referral.referralRequestedService : null}
                     >
                         <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
                         <MenuItem value={'medicationReview'} primaryText="Medication Review" />
@@ -253,6 +273,7 @@ class ReferralForm extends Component {
                     <FormsySelect
                         name="referralRuralCode"
                         floatingLabelText="Rural code"
+                        value={this.props.action === 'update' ? this.props.referral.referralRuralCode : null}
                     >
                         <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
                         <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
@@ -261,13 +282,17 @@ class ReferralForm extends Component {
                         <MenuItem value={'RA5VeryRemote'} primaryText="RA5 Very Remote" />
                     </FormsySelect>
 
+                    
                     <FormsyDate
                         name="referralAppointmentDate"
                         floatingLabelText="Appointment date"
+                        value={this.props.action === 'update' ? new Date(Date.parse(this.props.referral.referralAppointmentDate)) : null}
                     />
+
                     <FormsyTime
                         name="referralAppointmentTime"
                         floatingLabelText="Appointment time"
+                        value={this.props.action === 'update' ? new Date(Date.parse(this.props.referral.referralAppointmentTime)) : null}
                     />
 
                     <p>Last Date reviewed (placeholder)</p>
