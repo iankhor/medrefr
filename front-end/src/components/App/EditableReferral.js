@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReferralForm from './ReferralForm'
+// import ReferralForm from './ReferralForm'
 
 import Formsy from 'formsy-react'
 import { Card, 
@@ -130,7 +130,8 @@ class EditableReferral extends Component {
 
                 <CardText expandable={true}>
                     <Paper style={style.paperStyle}>
-                        <ReferralForm referral={this.props.referral}/>
+                        {/*<ReferralForm referral={this.props.referral}/>*/}
+                        <p> Referral items here</p>
                     </Paper>
                 </CardText>
 
