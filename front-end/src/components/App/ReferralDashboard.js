@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 // referral components
 import AddReferral from './AddReferral'
 import ReferralCard from './ReferralCard'
+import ReferralForm from './ReferralForm'
 
 const style = {
     margin: '20px',
@@ -30,8 +31,13 @@ class ReferralDashboard extends Component {
     render(){
         return(
                 <div style={style}>
-                    {/*<AddReferral _addReferral={ this.props._addReferral } />*/}
-                    {/*<EditableReferralList _loadSampleReferral={this.props._loadSampleReferral} referrals={this.props.referrals} /> */}
+                    <ReferralForm 
+                        referral={{}}
+                        _updateReferral={this.props._updateReferral}
+                        _addReferral={this.props._addReferral}
+                        action="new"
+                    />
+
                     {Object.keys(this.props.referrals).map(this._renderReferrals)}
                 </div> 
         )
