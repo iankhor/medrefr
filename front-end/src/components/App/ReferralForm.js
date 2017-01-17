@@ -49,10 +49,10 @@ import { RaisedButton,
 class ReferralForm extends Component {
     constructor(){
         super()
-        this._createReferral = this._createReferral.bind(this)
+        this._processReferral = this._processReferral.bind(this)
     }
 
-    _createReferral(data) {
+    _processReferral(data, action) {
         // event.preventDefault()
         const referral = 
             {
@@ -80,7 +80,9 @@ class ReferralForm extends Component {
         console.log(JSON.stringify(referral,null,2))
         // console.log('adding a referral')
         // console.log(referral)
-        this.props._addReferral(referral)
+
+        this.props.action === 'update' ? 
+        this.props._updateReferral(referral) : this.props._addReferral(referral)
 
     }
 
@@ -90,7 +92,7 @@ class ReferralForm extends Component {
 
                 <Formsy.Form
                     ref={ (input) => this.referralForm = input }
-                    onValidSubmit={ (data) => this._createReferral(data) }
+                    onValidSubmit={ (data) => this._processReferral(data, this.props.action) }
                 >
 
                     <div style={style.referralOptions}>

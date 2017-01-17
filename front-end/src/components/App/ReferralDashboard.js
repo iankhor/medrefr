@@ -20,7 +20,8 @@ class ReferralDashboard extends Component {
             <ReferralCard 
                 key={key} 
                 referral={referral}
-                updateReferral={this.props._updateReferral}
+                _updateReferral={this.props._updateReferral}
+                _addReferral={this.props._addReferral}
                 action="update"
             />
         )
