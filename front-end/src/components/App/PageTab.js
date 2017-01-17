@@ -48,7 +48,7 @@ export default class PageTab extends React.Component {
           <div>
             <ReferralDashboard 
               referrals={this.props.referrals} 
-              _addReferrals={this.props._addReferrals} 
+              _addReferral={this.props._addReferral} 
             />
           </div>
           <div style={styles.slide}>
