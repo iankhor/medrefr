@@ -17,7 +17,12 @@ class ReferralDashboard extends Component {
     _renderReferrals(key){
         const referral = this.props.referrals[key]
         return(
-            <ReferralCard key={key} referral={referral}/>
+            <ReferralCard 
+                key={key} 
+                referral={referral}
+                updateReferral={this.props._updateReferral}
+                action="update"
+            />
         )
     }
 

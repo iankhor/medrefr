@@ -41,6 +41,18 @@ class App extends Component {
     this.setState( { referrals } )
   }
 
+    _updateReferral(key, referral) {
+    //update referral state 
+    const referrals = {...this.state.referrals}
+
+    //update referral
+    const timestamp = Date.now()
+    referrals[key] = referral
+
+    //set state
+    this.setState( { referrals } )
+  }
+
   _loadSampleReferral() {
     const toggle = this.state.loadReferralsToggle ? 0 : 1
     this.setState({ loadReferralsToggle: this.state.loadReferralsToggle ? 0 : 1 })
@@ -66,6 +78,7 @@ class App extends Component {
             <PageTab 
               referrals={this.state.referrals}
               _addReferral={this._addReferral}
+              _updateReferral={this._updateReferral}
             />
         </div>
       </MuiThemeProvider>

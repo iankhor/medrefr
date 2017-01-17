@@ -112,8 +112,11 @@ class ReferralCard extends Component {
 
                 <CardText expandable={true}>
                     <Paper style={style.paperStyle}>
-                        <ReferralForm referral={this.props.referral}/>
-                        <p> Referral items here</p>
+                        <ReferralForm 
+                            referral={this.props.referral} 
+                            _updateReferral={this.props._updateReferral}
+                            action={this.props.action}
+                        />
                     </Paper>
                 </CardText>
 

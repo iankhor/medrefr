@@ -104,7 +104,7 @@ class AddReferral extends Component {
 
                         <RaisedButton
                             type="submit"
-                            label="Submit"
+                            label={this.props.action}
                         />
 
                     </div>
