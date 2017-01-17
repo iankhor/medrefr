@@ -12,11 +12,9 @@ class ReferralDashboard extends Component {
     render(){
         return(
                 <div style={style}>
-                    <AddReferral />
-                    <EditableReferralList 
-                        _loadSampleReferral={this.props._loadSampleReferral}
-                        referrals={this.props.referrals}
-                    />
+                    <AddReferral _addReferral={ this.props._addReferral } />
+                   
+                    {/*<EditableReferralList _loadSampleReferral={this.props._loadSampleReferral} referrals={this.props.referrals} /> */}
                 </div> 
         )
     }

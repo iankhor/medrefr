@@ -18,6 +18,7 @@ class App extends Component {
 
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
     this._handleTabChange = this._handleTabChange.bind(this)
+    this._addReferral = this._addReferral.bind(this)
 
     this.state = {
       referrals: {},
@@ -62,7 +63,10 @@ class App extends Component {
             {/* temp temp load static data button */}
             <button onClick={this._loadSampleReferral}>{this.state.loadReferralsToggle ? 'Clear data' : 'Load data'}</button>
 
-            <PageTab referrals={this.state.referrals}/>
+            <PageTab 
+              referrals={this.state.referrals}
+              _addReferral={this._addReferral}
+            />
         </div>
       </MuiThemeProvider>
     )
