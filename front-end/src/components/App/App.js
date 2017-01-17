@@ -20,12 +20,24 @@ class App extends Component {
     this._handleTabChange = this._handleTabChange.bind(this)
 
     this.state = {
-      referrals: null,
+      referrals: {},
       value: 'a',
       isAuthenticated: false,
       loadReferralsToggle: 0
     }
 
+  }
+
+  _addReferral(referral) {
+    //update referral state 
+    const referrals = {...this.state.referrals}
+
+    //add in new referral
+    const timestamp = Date.now()
+    referrals[`referral-${timestamp}`] = referral
+
+    //set state
+    this.setState( { referrals } )
   }
 
   _loadSampleReferral() {

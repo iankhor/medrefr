@@ -17,42 +17,42 @@ const errorMessages = {
     urlError: "Please provide a valid URL"
   }
 
-  const style = {
-      referralOptions :{
-          display: 'flex',
-        //   justifyContent: 'space-between',
-          alignItems: 'center',
-      },
-      uploadButton :{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-      },
-      card :{
-          marginBottom : 15
-      },
-      cardActions :{
-          textAlign: 'right'
-      },
-      paperStyle: {
-      //   width: 300,
-        margin: 'auto',
-        padding: 20,
-      },
-      switchStyle: {
-        marginBottom: 16,
-      },
-      submitStyle: {
-        marginTop: 32,
-      },
-      chip: {
-          margin: 4,
-      },
-      wrapper: {
-          display: 'flex',
-          flexWrap: 'wrap',
-        }
-  }
+const style = {
+    referralOptions :{
+        display: 'flex',
+    //   justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    uploadButton :{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    card :{
+        marginBottom : 15
+    },
+    cardActions :{
+        textAlign: 'right'
+    },
+    paperStyle: {
+    //   width: 300,
+    margin: 'auto',
+    padding: 20,
+    },
+    switchStyle: {
+    marginBottom: 16,
+    },
+    submitStyle: {
+    marginTop: 32,
+    },
+    chip: {
+        margin: 4,
+    },
+    wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    }
+}
 
 
 
@@ -107,7 +107,7 @@ class ReferralForm extends Component {
 
   render(){
 
-    //   console.log('referral status',this.props.referral.referralStatus)
+      console.log('referral status',this.props.referral || null ) 
 
       return(
             <Formsy.Form
@@ -116,255 +116,8 @@ class ReferralForm extends Component {
                 onValidSubmit={this.submitForm}
                 onInvalidSubmit={this.notifyFormError}
             >
+            <p> muahaha</p>
 
-                <div style={style.referralOptions}>
-                    <RaisedButton 
-                        label="Edit details" 
-                        primary={true} 
-                        style={style.uploadButton} 
-                        onClick={this.enableEdit}
-                        disabled={this.state.isEditButttonDisabled}
-                    />
-
-                     <RaisedButton
-                        type="submit"
-                        label="Submit"
-                        disabled={!this.state.canSubmit}
-                    />
-                </div>
-                <h1>Referral status</h1>
-                    <FormsySelect
-                        name="referralStatus"
-                        floatingLabelText="Status"
-                        disabled={this.state.isFormDisabled}
-                        value={ this.props.referral.referralStatus || null}
-                    >
-                        <MenuItem value={'accepted'} primaryText="Accepted" />
-                        <MenuItem value={'assigned'} primaryText="Assigned" />
-                        <MenuItem value={'declined'} primaryText="Declined" />
-                        <MenuItem value={'withdrawn'} primaryText="Withdrawn" />
-                        <MenuItem value={'rejected'} primaryText="Rejected" />
-                        <MenuItem value={'completed'} primaryText="Completed" />
-                        <MenuItem value={'noShow'} primaryText="No show" />
-                    </FormsySelect>
-
-                {/* patient data form below */}
-                <h1>Patient Data</h1>
-                <FormsyText
-                    name="patientSurname"
-                    validations="isWords"
-                    validationError={errorMessages.wordsError}
-                    required
-                    hintText="Surname"
-                    floatingLabelText="Surname"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.patientSurname || null }
-                />
-
-                <FormsyText
-                    name="patientgivenName"
-                    validations="isWords"
-                    validationError={errorMessages.wordsError}
-                    required
-                    hintText="Given name"
-                    floatingLabelText="Given name"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.patientgivenName || null }
-                />
-
-                <FormsySelect
-                        name="patientGender"
-                        floatingLabelText="Gender"
-                        disabled={this.state.isFormDisabled}
-                        value={this.props.referral.patientGender || null }
-                >
-                        <MenuItem value={'M'} primaryText="Male" />
-                        <MenuItem value={'F'} primaryText="Female" />
-                </FormsySelect>
-
-
-
-                <FormsyText
-                    name="patientAddress"
-                    validationError={errorMessages.wordsError}
-                    hintText="Address"
-                    floatingLabelText="Address"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.patientAddress || null }
-                />
-
-                <FormsyText
-                    name="patientPostcode"
-                    validations="isInt"
-                    validationError={errorMessages.wordsError}
-                    hintText="Postcode"
-                    floatingLabelText="Postcode"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.patientPostcode || null }
-                />
-
-                <FormsyDate
-                    name="patientDateOfBirth"
-                    floatingLabelText="Date of birth"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.patientDateOfBirth || null }
-                />
-
-                <FormsyText
-                    name="patientMedicare"
-                    validations="isAlphanumeric"
-                    validationError={errorMessages.wordsError}
-                    hintText="Medicare number"
-                    floatingLabelText="Medicare number"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.patientMedicare || null }
-                />
-
-                <FormsyText
-                    name="patientContactNumber"
-                    validations="isInt"
-                    validationError={errorMessages.wordsError}
-                    hintText="Contact number"
-                    floatingLabelText="Contact number"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.patientContactNumber || null }
-                />
-
-                {/* doctor data form below */}
-                <h1>Doctor Data</h1>
-                <FormsyText
-                    name="doctorSurname"
-                    validations="isWords"
-                    validationError={errorMessages.wordsError}
-                    required
-                    hintText="Surname"
-                    floatingLabelText="Surname"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.doctorSurname || null }
-                />
-
-                <FormsyText
-                    name="doctorGivenName"
-                    validations="isWords"
-                    validationError={errorMessages.wordsError}
-                    required
-                    hintText="Given name"
-                    floatingLabelText="Give name"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.doctorGivenName || null }
-                />
-
-                <FormsyText
-                    name="doctorClinic"
-                    validations="isWords"
-                    validationError={errorMessages.wordsError}
-                    hintText="Clinic"
-                    floatingLabelText="Clinic"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.doctorClinic || null }
-                />
-
-                <FormsyText
-                    name="doctorAddress"
-                    validations="isAlphanumeric"
-                    validationError={errorMessages.wordsError}
-                    hintText="Address"
-                    floatingLabelText="Address"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.doctorAddress || null }
-                />
-
-                <FormsyText
-                    name="doctorPostcode"
-                    validations="isInt"
-                    validationError={errorMessages.wordsError}
-                    hintText="Postcode"
-                    floatingLabelText="Postcode"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.doctorPostcode || null }
-                />
-
-                <FormsyText
-                    name="doctorContactNumber"
-                    validations="isInt"
-                    validationError={errorMessages.wordsError}
-                    hintText="Contact number"
-                    floatingLabelText="Contact number"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.doctorContactNumber || null }
-                />
-
-               
-                {/* referral form below */}
-                <h1>Referral Details</h1>
-                <FormsyText
-                    name="referralReasonForReferral"
-                    validations="isWords"
-                    validationError={errorMessages.wordsError}
-                    hintText="Reason for referral"
-                    floatingLabelText="Reason for referral"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.referralReasonForReferral || null }
-                />
-
-                <FormsySelect
-                    name="referralRequestedService"
-                    floatingLabelText="Requested service"
-                    disabled={this.state.isFormDisabled}
-                    value={this.props.referral.referralRequestedService || null }
-                >
-                    <MenuItem value={'mentalHealthAssessment'} primaryText="Mental Health Assessment" />
-                    <MenuItem value={'medicationReview'} primaryText="Medication Review" />
-                    <MenuItem value={'dianogsticClarification'} primaryText="Diagnostic Clarifiction" />
-                    <MenuItem value={'assessmentForManagementOfBPSD'} primaryText="Assessment for Management of BPSD" />
-                </FormsySelect>
-
-                <FormsyToggle
-                    name="referralUrgent"
-                    label="Urgent"
-                    style={style.switchStyle}
-                    disabled={this.state.isFormDisabled}
-                    defaultToggled={this.props.referral.referralUrgent}
-                />
-                <div style={style.uploadButton}>
-                    <RaisedButton 
-                        label="Upload" 
-                        primary={true} 
-                        style={style.uploadButton} 
-                        disabled={this.state.isFormDisabled}
-                    />
-                    <p>Upload additional information (Limited to one PDF file)</p>
-                </div>
-
-                {/* triage below */}
-                <h1>Triage</h1>
-                <FormsySelect
-                    name="referralRuralCode"
-                    floatingLabelText="Rural code"
-                    disabled={this.state.isFormDisabled}
-                    value={this.props.referral.referralRuralCode || null }
-                >
-                    <MenuItem value={'RA1MajorCities'} primaryText="RA1 MajorCities" />
-                    <MenuItem value={'RA2InnerRegional'} primaryText="RA2 Inner Regional" />
-                    <MenuItem value={'RA3OuterRegional'} primaryText="RA3 Outer Regional" />
-                    <MenuItem value={'RA4Remote'} primaryText="RA4 Remote" />
-                    <MenuItem value={'RA5VeryRemote'} primaryText="RA5 Very Remote" />
-                </FormsySelect>
-
-                <FormsyDate
-                    name="referralAppointmentDate"
-                    floatingLabelText="Appointment date"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.referralAppointmentDate || null }
-                />
-                <FormsyTime
-                    name="referralAppointmentTime"
-                    floatingLabelText="Appointment time"
-                    disabled={this.state.isFormDisabled}
-                    defaultValue={this.props.referral.referralAppointmentTime || null }
-                />
-
-                <p>Last Date reviewed (placeholder)</p>
                     
           </Formsy.Form>
       )
