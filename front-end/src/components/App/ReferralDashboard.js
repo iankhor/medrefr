@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 // referral components
-import AddReferral from './AddReferral'
 import ReferralCard from './ReferralCard'
 import ReferralForm from './ReferralForm'
 
@@ -31,8 +30,7 @@ class ReferralDashboard extends Component {
     render(){
         return(
                 <div style={style}>
-                    <ReferralForm 
-                        referral={{}}
+                    <ReferralCard 
                         _updateReferral={this.props._updateReferral}
                         _addReferral={this.props._addReferral}
                         action="new"

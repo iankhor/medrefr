@@ -96,15 +96,27 @@ class ReferralCard extends Component {
     }
 
     render(){
+
+        const patientName = ( this.props.action === "new" ) ? "Expand to add new referral" :
+                            this.props.referral.patientSurname + ' ,' +
+                            this.props.referral.patientgivenName + 
+                            ' (' + this.props.referral.patientGender + ')' 
+
+
+        const dateOfBirth = ( this.props.action === "new" ) ? "" :
+                            this.props.referral.dateOfBirth
+
+        const avatar = ( this.props.action === "new" ) ? "" :
+                       this.props.referral.imgProfile
+
+
+
         return(
            <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style.card}>
                 <CardHeader
-                    title={this.props.referral.patientSurname +
-                            ' ,' +
-                            this.props.referral.patientgivenName +
-                            ' (' + this.props.referral.patientGender + ')'}
-                    subtitle={this.props.referral.dateOfBirth}
-                    avatar={this.props.referral.imgProfile}
+                    title={patientName}
+                    subtitle={dateOfBirth}
+                    avatar={avatar}
                     actAsExpander={true}
                     showExpandableButton={true}
                 >

@@ -7,7 +7,6 @@ import MainPage from './MainPage/MainPage'
 import App from './App/App'
 // import SignUp from './App/SignUp'
 // import ReferralForm from './App/ReferralForm'
-import AddReferral from './App/AddReferral'
 
 import { BrowserRouter , Match, Miss } from 'react-router'
 
@@ -18,7 +17,6 @@ const Routes = (props) => {
       <div>
         <Match exactly pattern="/" component={MainPage} />  
         <Match exactly pattern="/ReferralDashboardTemp" component={App} />  
-        <Match exactly pattern="/AddReferral" component={AddReferral} />  
         <Miss component={NotFound} />  
       </div>
     </BrowserRouter>
