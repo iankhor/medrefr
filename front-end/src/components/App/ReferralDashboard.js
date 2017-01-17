@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 // referral components
 import ReferralCard from './ReferralCard'
-import ReferralForm from './ReferralForm'
 
 const style = {
     margin: '20px',
