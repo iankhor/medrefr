@@ -95,6 +95,20 @@ class AddReferral extends Component {
                     ref={ (input) => this.referralForm = input }
                     onValidSubmit={ (data) => this._createReferral(data) }
                 >
+
+                    <div style={style.referralOptions}>
+                        <RaisedButton 
+                            label="Edit details" 
+                            primary={true} 
+                            style={style.uploadButton} 
+                        />
+
+                        <RaisedButton
+                            type="submit"
+                            label="Submit"
+                        />
+
+                    </div>
                 
 
                     <h1>Referral status</h1>
@@ -259,10 +273,6 @@ class AddReferral extends Component {
 
                     <p>Last Date reviewed (placeholder)</p>
                         
-                        <RaisedButton
-                            type="submit"
-                            label="Submit"
-                        />
                     </Formsy.Form>
 
 
