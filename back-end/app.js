@@ -19,7 +19,7 @@ const auth = require('./routes/auth');
 const app = express();
 
 //init mongo connection
-const dbConnect = require('./models/init');
+const dbConnect = require('./models/init')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

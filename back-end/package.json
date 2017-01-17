@@ -3,6 +3,7 @@
   "description": "MedReFR api",
   "version": "0.1.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
     "deploy:heroku": "git add . && git commit -m 'heroku commit' && git push heroku master --force"
@@ -12,11 +13,11 @@
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.1",
     "debug": "~2.2.0",
-    "dotenv": "^2.0.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
     "express-session": "^1.14.2",
     "jsonwebtoken": "^7.2.1",
+    "mongodb": "^2.2.21",
     "mongoose": "^4.7.6",
     "morgan": "~1.7.0",
     "node-fetch": "^1.6.3",
@@ -25,5 +26,8 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
   }
 }
