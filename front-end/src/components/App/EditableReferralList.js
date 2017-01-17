@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 //Components
-import EditableReferral from './EditableReferral'
+import ReferralCard from './ReferralCard'
 
 const style = {
     margin: '10px',
@@ -16,7 +16,7 @@ class EditableReferralList extends Component {
             <div style={style}>
                 {(!!referrals) ? 
                     (
-                        referrals.map( (jsonObject) => <EditableReferral referral={jsonObject} /> )
+                        referrals.map( (jsonObject) => <ReferralCard referral={jsonObject} /> )
                     ) 
                     : 
                     ( 

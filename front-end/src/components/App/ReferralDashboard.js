@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 // referral components
 import EditableReferralList from './EditableReferralList'
 import AddReferral from './AddReferral'
+import ReferralCard from './ReferralCard'
 
 const style = {
     margin: '20px',
@@ -17,7 +18,7 @@ class ReferralDashboard extends Component {
     _renderReferrals(key){
         const referral = this.props.referrals[key]
         return(
-            <p> Test </p>
+            <ReferralCard referral={referral}/>
         )
     }
 

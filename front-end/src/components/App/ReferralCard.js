@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 // import ReferralForm from './ReferralForm'
 
-import Formsy from 'formsy-react'
 import { Card, 
          CardActions, 
          CardHeader, 
@@ -11,13 +10,7 @@ import { Card,
          Paper,
          RaisedButton,
          MenuItem } from 'material-ui'
-
-import { FormsyDate, 
-         FormsySelect, 
-         FormsyText, 
-         FormsyTime, 
-         FormsyToggle } from 'formsy-material-ui/lib'
-        
+      
 
 const style = {
     referralOptions :{
@@ -62,7 +55,7 @@ const errorMessages = {
     urlError: "Please provide a valid URL",
   }
 
-class EditableReferral extends Component {
+class ReferralCard extends Component {
 
     constructor(props) {
         super(props)
@@ -140,5 +133,5 @@ class EditableReferral extends Component {
     }
 }
 
-export default EditableReferral
+export default ReferralCard
 
