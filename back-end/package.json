@@ -1,9 +1,11 @@
 {
-  "name": "counter-api",
-  "version": "0.0.0",
+  "name": "medrefr-api",
+  "description": "MedReFR api",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "PORT=4000 NODE_ENV=development node ./bin/www"
+    "start": "PORT=4000 node ./bin/www",
+    "deploy:heroku": "git add . && git commit -m 'heroku commit' && git push heroku master --force"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
