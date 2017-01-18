@@ -11,7 +11,9 @@ const cors = require('cors');
 const passport = require('passport');
 const passportJWT = require('passport-jwt');
 
+//models
 const User = require('./models/User');
+const Referral = require('./models/Referral');
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
