@@ -2,17 +2,23 @@ import React, { Component } from 'react'
 
 
 // body components
-import BodySectionOne from './BodySectionOne'
-import BodySectionTwo from './BodySectionTwo'
-import BodySectionThree from './BodySectionThree'
+import Hero from './Hero'
+import AboutPage from './AboutPage'
+import Emergency from './Emergency'
+import ParallaxTwo from './ParallaxTwo'
+import ParallaxThree from './ParallaxThree'
+import Contact from './Contact'
 
 
 const BodyList = (props) => {
         return(
             <div className="generic-center" >
-                <BodySectionOne />
-                <BodySectionTwo />
-                <BodySectionThree />
+                <Hero />
+                <AboutPage />
+                <ParallaxTwo />
+                <Emergency />
+                <ParallaxThree />
+                <Contact />
             </div>
         )
 }

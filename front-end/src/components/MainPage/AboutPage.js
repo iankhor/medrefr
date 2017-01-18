@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 
 const style = {
     margin: 0,
-    backgroundColor: '#FFF',
+    // backgroundColor: '#FFF',
     padding: '6em',
-    lineHeight: '1.5em'
+    lineHeight: '1.5em',
+    textAlign: 'center'
+
 }
 
-const BodySectionTwo = (props) => {
+const AboutPage = (props) => {
   return(
     <div className="generic-center" style={style}>
         <h1>About</h1>
@@ -32,5 +34,5 @@ const BodySectionTwo = (props) => {
   )
 }
 
-export default BodySectionTwo
+export default AboutPage
 
