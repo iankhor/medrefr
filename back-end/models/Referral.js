@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const referralSchema = new mongoose.Schema){
-            referralStatus:             { type: String, default: "Pending" }             
+const referralSchema = new mongoose.Schema({
+            referralStatus:             { type: String, default: "Pending" },             
             patientSurname:             String,               
             patientgivenName:           String,            
             patientGender:              String,               
@@ -28,8 +28,8 @@ const referralSchema = new mongoose.Schema){
             referralAppointmentHour:    Number, 
             referralAppointmentMinute:  Number, 
             referralAppointmentPeriod:  Number, 
-            role:                       String 
-            createdAt:                  {type: Date, default: Date.now} 
+            role:                       String,
+            createdAt:                  { type: Date, default: Date.now} 
 
 })
 
