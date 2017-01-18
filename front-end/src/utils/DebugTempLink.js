@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 class DebugTempLink extends Component {
+
     render(){
         return(
             <div className="generic-center"> 
@@ -12,7 +13,7 @@ class DebugTempLink extends Component {
                         <li><Link to="/Login">Login or Sign up</Link></li>
                         <li><Link to="/ReferralDashboardTemp">Referral Dashboard</Link></li>
                         <li><Link to="/NotFound">Not found</Link></li>
-                    </ul>      
+                    </ul>
                 </div>
             </div>
         )
