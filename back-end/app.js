@@ -17,6 +17,7 @@ const Referral = require('./models/Referral');
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const referral = require('./routes/referral');
 
 const app = express();
 
@@ -60,6 +61,7 @@ app.use(passport.initialize());
 
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/referral', referral);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
