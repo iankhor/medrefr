@@ -20,15 +20,12 @@ router.get('/', function(req, res, next) {
     }) 
 })
 
-// Index: read all
-router.post('/', function(req, res, next) {
-    console.log( sampleReferral )
-    // console.log(typeof { 
-    //         patientSurname:             "surname",               
-    //         patientgivenName:           "giveName", 
-    //     })
+// Index: create one referral
+router.post('/create', function(req, res, next) {
+    //to test post request with sample data
+    // console.log( sampleReferral )
 
-    Referral.create( sampleReferral.referral1 )
+    Referral.create( req.body )
     .then( referral => {
         res.json(referral) 
     })
