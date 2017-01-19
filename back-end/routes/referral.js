@@ -5,8 +5,8 @@ const Referral = require('../models/Referral');
 
 const router = express.Router();
 
-// Index: read all
-router.get('/', function(req, res, next) {
+// get all referrrals
+router.get('/all', function(req, res, next) {
     Referral.find()
     .then( referrals => {
         // res.json(referrals)
@@ -18,6 +18,22 @@ router.get('/', function(req, res, next) {
             message: "Error : Unable to get all referrals"
         })
     }) 
+})
+
+// get that one referral by id
+router.get('/:id', function(req, res, next) {
+    const { id } = req.params
+
+    Referral.findById(id)
+    .then( (referral) => {
+        res.status(200).json(referral)
+    })
+    .catch( () => {
+        res.status(500).json({
+            message: "Error : Unable to get referral"
+        })
+    })
+
 })
 
 // Index: create one referral
