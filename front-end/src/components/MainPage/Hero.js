@@ -4,9 +4,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 
 const style = {
-    margin: '100',
-    marginRight: '150',
-    marginTop: '150',
+    margin: '100px',
+    marginRight: '150px',
+    marginTop: '150px',
     marginLeft: '30vw',
     height: '100vh',
     lineHeight: '3em',
