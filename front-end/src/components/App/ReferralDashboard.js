@@ -6,7 +6,10 @@ import { RaisedButton } from 'material-ui'
 
 const style = {
      addReferralButton :{
-          textAlign: 'center'
+         textAlign: 'center'
+      },
+      dashboard : {
+          margin: '20px'
       }
 }
 
@@ -47,7 +50,6 @@ class ReferralDashboard extends Component {
                 _updateReferral={this.props._updateReferral}
                 _addReferral={this.props._addReferral}
                 action="new"
-                _toggleShowNewReferralForm={this._toggleShowNewReferralForm}
             />
         )
     }
@@ -55,14 +57,16 @@ class ReferralDashboard extends Component {
     render(){
          console.log('before toggle', this.state.showNewReferralForm)
         return(
-                <div style={style}>
+                <div style={style.dashboard}>
                     <br />
-                    <RaisedButton 
-                            label="Edit details" 
-                            primary={true} 
-                            style={style.addReferralButton}
-                            onClick={this._toggleShowNewReferralForm}
-                    />
+                    <div style={style.addReferralButton}>
+                        <RaisedButton 
+                                label="Add new referral" 
+                                primary={true} 
+                                
+                                onClick={this._toggleShowNewReferralForm}
+                        />
+                    </div>
                     <br />
                     {this.state.showNewReferralForm ? this._renderNewReferralForm() : null }
 
