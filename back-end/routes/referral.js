@@ -1,3 +1,5 @@
+const sampleReferral = require('./_sample-referrals.js')
+
 const express = require('express');
 const Referral = require('../models/Referral');
 
@@ -12,9 +14,8 @@ router.get('/', function(req, res, next) {
 
 // Index: read all
 router.post('/', function(req, res, next) {
-    res.json({
-        message: "adding"
-    })
+    res.json(sampleReferral.referral1)
+
 });
 
 module.exports = router;
