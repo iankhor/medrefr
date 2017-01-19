@@ -11,22 +11,32 @@ router.get('/', function(req, res, next) {
     .then( referrals => {
         // res.json(referrals)
         console.log(referrals.length)
-        referrals.length ? res.json({ message: "No content"}) : res.status(204).json({ message: "No content"})
+        referrals.length ? res.json({ referrals }) : res.status(204).json({ message: "No content"})
     })
     .catch( () => {
         res.status(500).json({
-            message: "Error : Internal server error"
+            message: "Error : Unable to get all referrals"
         })
     }) 
 })
 
 // Index: read all
 router.post('/', function(req, res, next) {
-    res.json(sampleReferral.referral1)
+    console.log( sampleReferral )
+    // console.log(typeof { 
+    //         patientSurname:             "surname",               
+    //         patientgivenName:           "giveName", 
+    //     })
 
-    //     Counter.create({
-    //     count: 0
-    // })
+    Referral.create( sampleReferral.referral1 )
+    .then( referral => {
+        res.json(referral) 
+    })
+    .catch( () => {
+        res.status(500).json({
+            message: "Error : Unable to create referral in db"
+        })
+    })
 
 })
 

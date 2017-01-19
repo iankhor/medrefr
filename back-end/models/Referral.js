@@ -21,13 +21,13 @@ const referralSchema = new mongoose.Schema({
             referralAppointmentDay:     Number,      
             referralAppointmentMonth:   Number, 
             referralAppointmentYear:    Number,     
-            referralRequestedService:   Number,    
+            referralRequestedService:   String,    
             referralReasonForReferral:  String,   
             referralUrgent:             { type: Boolean, default: false }, 
             referralRuralCode:          String,  
             referralAppointmentHour:    Number, 
             referralAppointmentMinute:  Number, 
-            referralAppointmentPeriod:  Number, 
+            referralAppointmentPeriod:  String, 
             role:                       String,
             createdAt:                  { type: Date, default: Date.now} 
 
