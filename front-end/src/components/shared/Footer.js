@@ -21,7 +21,7 @@ class Footer extends Component {
               size="2x"
             />
             <br />
-            <p>Beautifully designed with ❤️ by .this</p>
+            <p>Designed and built with ♥ by .thIS</p>
           </div>
         )
     }

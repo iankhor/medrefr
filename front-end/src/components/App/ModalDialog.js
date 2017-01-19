@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import ReferralForm from './ReferralForm'
+
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.
  */
 export default class ModalDialog extends React.Component {
+  static propTypes={
+    onOpen: PropTypes.func
+  }
+
   state = {
     open: false,
   };
 
   handleOpen = () => {
     this.setState({open: true});
+    this.props.onOpen();
   };
 
   handleClose = () => {
@@ -46,8 +51,8 @@ export default class ModalDialog extends React.Component {
           autoDetectWindowHeight={false}
           autoScrollBodyContent={true}
         >
-          {/* {this.props.children} */}
-          <ReferralForm />
+          {this.props.children}
+
         </Dialog>
       </div>
     );
