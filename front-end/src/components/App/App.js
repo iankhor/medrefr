@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../../css/style.css'
-import axios from 'axios'
+import { CreateReferral } from './../../api/ReferralDB'
 
 //App components
 import sampleReferrals from './_sample-referrals.js'
@@ -16,7 +16,6 @@ import medrefrTheme from './../styles/Theme'
 class App extends Component {
   constructor() {
     super()
-
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
     this._handleTabChange = this._handleTabChange.bind(this)
     this._addReferral = this._addReferral.bind(this)
@@ -42,17 +41,8 @@ class App extends Component {
     this.setState( { referrals } )
 
     //send to db
-    console.log('sending referral to backend')
-    const createReferralLink = 'http://localhost:4000/referral/create'
-
-    axios.post( createReferralLink, referral)
-    .then( createReferralPromise => {
-      console.log(createReferralPromise.data)
-    })
-    .catch( (error) => {
-      error.response ? console.log(error.response.data) : console.log('Error', error.message)
-    })
-
+    CreateReferral(referral)
+    
 
   }
 
@@ -67,8 +57,6 @@ class App extends Component {
 
     // //set state
     this.setState( { referrals } )
-
-
 
   }
 
