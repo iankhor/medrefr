@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 const style = {
     margin: '100',
     marginRight: '150',
-    marginTop: '200',
+    marginTop: '150',
     marginLeft: '30vw',
     height: '100vh',
     lineHeight: '3em',
@@ -27,8 +27,9 @@ const Hero = (props) => {
                 <br />
                 <h2>Get telepsychiatry from the comfort of your own home</h2>
                 <br />
-                <RaisedButton label="Emergency" primary={true} style={buttonstyle}/>
-                <RaisedButton label="Contact Us" secondary={true} style={buttonstyle}/>
+
+                <RaisedButton label="Contact Us" primary={true} style={buttonstyle} href="#contact" />
+                <RaisedButton label="Emergency" secondary={true} style={buttonstyle} href="#emergency" />
             </div>
           </Parallax>
         )

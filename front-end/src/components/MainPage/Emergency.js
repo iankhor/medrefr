@@ -9,6 +9,7 @@ const style = {
 
 const Emergency = (props) => {
         return(
+          <section id="emergency">
             <div className="generic-center" style={style} >
                 <h1>Emergencies</h1>
                 <br />
@@ -22,6 +23,7 @@ const Emergency = (props) => {
                   drive you, please head to your nearest local hospital emergency
                   department.</p>
             </div>
+          </section>
         )
 }
 
