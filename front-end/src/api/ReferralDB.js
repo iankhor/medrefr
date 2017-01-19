@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export function CreateReferral(referral){
     console.log('sending referral to backend')
-    const createReferralLink = 'http://localhost:4000/referral/create'
+    const createReferralLink = process.env.REACT_APP_API_URL + '/referral/create'
 
     axios.post( createReferralLink, referral)
     .then( createReferralPromise => {
@@ -15,7 +15,7 @@ export function CreateReferral(referral){
 
 export function GetAllReferral(){
     console.log('getting referral from backend')
-    const getAllReferralLink = 'http://localhost:4000/referral/all'
+    const getAllReferralLink = process.env.REACT_APP_API_URL + '/referral/all'
 
     axios.get(getAllReferralLink)
     .then( allReferrals => {
