@@ -43,7 +43,7 @@ class App extends Component {
         // console.log('type of : ', typeof allReferrals.data)
         let AllReferrals = allReferrals.data
         console.log(AllReferrals)
-        this.setState( { referrals: AllReferrals.referrals})
+        this.setState( { referrals: AllReferrals.referrals || {} })
 
     })
     .catch( (error) => {
