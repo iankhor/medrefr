@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './../../css/style.css'
+import axios from 'axios'
 
 //App components
 import sampleReferrals from './_sample-referrals.js'
@@ -39,6 +40,20 @@ class App extends Component {
 
     //set state
     this.setState( { referrals } )
+
+    //send to db
+    console.log('sending referral to backend')
+    const createReferralLink = 'http://localhost:4000/referral/create'
+
+    axios.post( createReferralLink, referral)
+    .then( createReferralPromise => {
+      console.log(createReferralPromise.data)
+    })
+    .catch( (error) => {
+      error.response ? console.log(error.response.data) : console.log('Error', error.message)
+    })
+
+
   }
 
     _updateReferral(key, referral) {
@@ -52,6 +67,9 @@ class App extends Component {
 
     // //set state
     this.setState( { referrals } )
+
+
+
   }
 
   _loadSampleReferral() {
