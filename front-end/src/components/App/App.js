@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './../../css/style.css'
+import axios from 'axios'
+
+import { CreateReferral,
+         GetAllReferral } from './../../api/ReferralDB'
 
 //App components
 import sampleReferrals from './_sample-referrals.js'
@@ -15,7 +19,6 @@ import medrefrTheme from './../styles/Theme'
 class App extends Component {
   constructor() {
     super()
-
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
     this._handleTabChange = this._handleTabChange.bind(this)
     this._addReferral = this._addReferral.bind(this)
@@ -25,13 +28,35 @@ class App extends Component {
       referrals: {},
       value: 'a',
     }
+  }
+
+  componentWillMount(){
+    // commented off temporarily
+    // let AllReferrals = GetAllReferral()
+
+    //// Commented Code below works if its inside App.js
+    console.log('getting referral from backend')
+    const getAllReferralLink = 'http://localhost:4000/referral/all'
+
+    axios.get(getAllReferralLink)
+    .then( allReferrals => {
+        // console.log('type of : ', typeof allReferrals.data)
+        let AllReferrals = allReferrals.data
+        console.log(AllReferrals)
+        this.setState( { referrals: AllReferrals.referrals || {} })
+
+    })
+    .catch( (error) => {
+      error.response ? console.log(error.response.data) : console.log('Error', error.message)
+    })
+
 
   }
 
   _addReferral(referral) {
     //update referral state 
     const referrals = {...this.state.referrals}
-    console.log('addreferral',referral)
+    // console.log('addreferral',referral)
 
     //add in new referral
     const timestamp = Date.now()
@@ -39,6 +64,11 @@ class App extends Component {
 
     //set state
     this.setState( { referrals } )
+
+    //send to db
+    CreateReferral(referral)
+    
+
   }
 
     _updateReferral(key, referral) {
@@ -52,6 +82,7 @@ class App extends Component {
 
     // //set state
     this.setState( { referrals } )
+
   }
 
   _loadSampleReferral() {

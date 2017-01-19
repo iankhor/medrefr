@@ -9,6 +9,7 @@ const style = {
 
 const Contact = (props) => {
         return(
+          <section id="contact">
             <div className="generic-center" style={style} >
                 <h1>Contact</h1>
                 <br />
@@ -20,6 +21,7 @@ const Contact = (props) => {
                 <br />
                 <p>Conduit Health Pty. Ltd. (ABN: 69 217 406 133)</p>
             </div>
+          </section>
         )
 }
 
