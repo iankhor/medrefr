@@ -36,7 +36,7 @@ class App extends Component {
 
     //// Commented Code below works if its inside App.js
     console.log('getting referral from backend')
-    const getAllReferralLink = 'http://localhost:4000/referral/all'
+    const getAllReferralLink = process.env.REACT_APP_API_URL + '/referral/all'
 
     axios.get(getAllReferralLink)
     .then( allReferrals => {
