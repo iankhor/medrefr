@@ -19,6 +19,48 @@ Solution
   * Speciliast : signs up to be on the panel
   * Triage officer : assigns referrals to appropriate specialists
 
+User stories
+============
+GP
+--
+1. As a GP, I am able to sign up to via CH's webpage in a the role of a psychiatrist, so that I can submit referrals for my patients
+2. As a GP, when i sign up there is a CAPTCHA verification, so that I have an implicit reassurance that no fake accounts can be created.
+3. As a GP, I am able to submit a referral through an e-form, so that I could allow my patient to seek specialist treatment from a psychiatrist.
+4. As a GP, I know that my referral submission is encrypted post submission, so that my patient's privacy is protected.
+5. As a GP, I am able to edit my submitted referral, so that I can provide accurate patient details for triage.
+6. As a GP, I am able to edit my user profile once being approved, so that my details are always up to date.
+7. As a GP, I am able to search for a patient's eligibility for the referral program using a patient's postcode.
+8. As as admin, I am able to filter all referrals based on the criteria (completed, non-completed), so i know how many outstanding referrals there are.
+
+Psychiatrist/specialist
+----------
+1. As a psychiatrist/specialist, I am able to sign up to via CH's webpage in a the role of a psychiatrist/specialist, so that I can be on the CH's specialist panel.
+2. As a psychiatrist/specialist, when i sign up there is a CAPTCHA verification, so that I have an implicit reassurance that no fake accounts can be created.
+3. As a psychiatrist/specialist, I am able to see a full list of assigned referrals, so that I can click into a referral and read its details.
+4. As a psychiatrist/specialist, I am able to click into a specific referral and read the details of the referral, so that i can accept and decline an assigned referral.
+5. As a psychiatrist/specialist, I know the referral i am reading is encrypted, so that the patient's privacy is protected.
+6. As a psychiatrist/specialist, I am able to edit my user profile once being approved, so that my details are always up to date.
+7. As as psychiatrist/specialist, I am able to filter all referrals based on the criteria (completed, non-completed), so that I can quickly know how many referrals i need to attend to.
+
+Triage officer (TO)
+--------------
+1. As an triage officer, I am able to see a whole list of received referrals, so that I can perform triage duties.
+2. As an triage officer, I am able to choose whether to allow an approved psychiatrist to appear on the biopage, so that GP/ patients would be able to see who is on the specialist panel.
+3. As an triage officer, I can approve the a new psychiatrist/specialist who just signed up, so that they will be on the list of approved specialist to be assigned to referrals.
+4. As an triage officer, I am able to assign a referral to an approved list of psychiatrist, so that I can allow patients to see a suitable psychiatrist.
+5. As an triage officer, I am able to assign referrals to a panel of psychiatrist, so that my patients could seek treatment.
+6. As an triage officer, I am able to see basic high level analytics like total referrals, total referrals per GP/provider, no shows, and accepted/declined referrals, so that i can make future business decisions.
+7. As an triage officer, I am able to see analytics such as total no shows, accepted/declined in relation to a specific referral, so that i can make future business decisions.
+8. As an triage officer, I am able to record when a patient is a no show, so that this information can be used for billing or reporting purposes
+9. As an triage officer, I am able to record the appointment time so that I am able to keep track of appointments and make any necessary follow up.
+10. As as triage officer, I am able to filter all referrals based on the criteria (completed, non-completed), so that i can quickly perform my triage duties.
+
+Patients
+--------
+1. As a patient, I am able to see the 'emergencies' and 'contact us' details on the main page (or near landing page section) without the need to search the page for it, so that I can quickly get assistance when accessing the webpage.
+
+
+
 
 
 
