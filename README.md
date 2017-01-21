@@ -1,4 +1,28 @@
-### Project brief
+Business
+========
+* healthcare provider
+* receives referrals from GPs for rural patients
+* provides psychiatric consultations remotely
+
+Problem
+=======
+* manual business process
+* receives referrals via fax from GPs
+* uses MS Excel to assign patient to specialists
+
+Solution
+========
+* single Platform
+* users : GPs, specialists, psychiatrist
+* high level workflow: 
+  * GP : submits a referrals
+  * Speciliast : signs up to be on the panel
+  * Triage officer : assigns referrals to appropriate specialists
+
+
+
+
+
 Referral Platform for a Melbourne Medical Startup
 
 Assumed global packages installed : ```nodemon```
