@@ -59,6 +59,10 @@ Patients
 --------
 1. As a patient, I am able to see the 'emergencies' and 'contact us' details on the main page (or near landing page section) without the need to search the page for it, so that I can quickly get assistance when accessing the webpage.
 
+Concept, Design and build
+=========================
+
+![Concept](https://github.com/iankhor/files/blob/master/MedReFR/01.%20Wireframe%20-%20Concept.jpg)
 
 
 
