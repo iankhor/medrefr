@@ -160,6 +160,7 @@ Colons can be used to align columns.
 
 
 *User*  
+
 | key | type, default value  |
 |:----| ------------------|
 |email | String |
