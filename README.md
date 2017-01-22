@@ -150,15 +150,6 @@ Back-end: MongoDB schema design
 ===================================
 /[ .. some explanation of the db design ... \]  
 
-Colons can be used to align columns.
-
-| key        | type, default value |
-| ------------- |:-------------:| 
-| email | String | 
-| password | String | 
-| createdAt | Date, Date.now | 
-
-
 *User*  
 
 | key | type, default value  |
@@ -169,6 +160,7 @@ Colons can be used to align columns.
 
 
 *Profile*  
+
 key | type, default value  
 --- | ----  
 surname| String
@@ -185,6 +177,7 @@ userID| ObjectID
 createdAt| Date, Date.now
 
 *Referral Schema*
+
 key | type, default value  
 --- | ----  
 referralStatus | String, "Pending" 
