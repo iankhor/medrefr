@@ -15,6 +15,9 @@ Overview
     * [Comparison](#concept-design-build-comparison)
 * [Work flow](#work-flow)
 * [Technology stack](#technology-stack)
+* [Front-end: React component hierarchy diagram](#front-end-react-component-hierarchy-diagram)
+* [Back-end: MongoDB schema design](#back-end-mongodb-schema-design)
+* [Notable package, services and tools used](#notable-packages-services-tools-used)
 * [Style guide](#style-guide)
   * [Color](#color)
   * [Font type](#font-type)
@@ -23,9 +26,6 @@ Overview
   * [Pre-requisites](#pre-requisites)
   * [Setup procedure](#setup-procedure)
   * [Deployment(optional)](#deployment-optional)
-* [Front-end: React component hierarchy diagram](#front-end-react-component-hierarchy-diagram)
-* [Back-end: MongoDB schema design](#back-end-mongodb-schema-design)
-* [Notable package, services and tools used](#notable-packages-services-tools-used)
 * [Project management in Trello](#project-management-in-trello)
 * [Outstanding issues / bugs](#outstanding-isses-bugs)
 * [Final web app link](#final-web-app-link)
@@ -126,15 +126,44 @@ Concept, Design Build comparison
 ================================
 ![Comparison](https://github.com/iankhor/files/blob/master/MedReFR/05%20.%20Wireferame%20-%20Concept%20Design%20Build%20comparison.jpg)
 
-Technology stack
-========
-Front-end: React.js  
-Back-end: MongoDB, Express.js, Node.js  
 
 Workflow
 ========
 \[ ... TO BE ADDED ... \]  
 
+Technology stack
+========
+Front-end: 
+* React.js  
+
+Back-end: 
+* MongoDB
+* Express.js
+* Node.js  
+
+### Front-end: React component hierarchy diagram
+===============================================
+/[ .. some explanation of the design ... \]   
+/[ .. insert picture of diagram ... \]  
+
+
+### Back-end: MongoDB schema design
+===================================
+/[ .. some explanation of the db design ... \]  
+/[ .. insert picture of schema plans ... \]  
+
+
+### Notable packages, services, tools used
+===========================================
+* [auth0](https://auth0.com)
+* [react-router v4](https://github.com/ReactTraining/react-router/tree/v4)
+* [axios](https://github.com/mzabriskie/axios)
+* [react-parallax](https://github.com/RRutsche/react-parallax)
+* [material-ui](https://github.com/callemall/material-ui)
+* [formsy-material-ui](https://github.com/mbrookes/formsy-material-ui)
+* [heroku](https://www.heroku.com)
+* [sketch](https://www.sketchapp.com)
+* [trello](https://trello.com)
 Style Guide
 ===========
 \[... colors/font theme to be used were ...\]  
@@ -235,29 +264,6 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 10. Run the script `npm run deploy:heroku`. This should take about 1-2 minutes to build and setup on heroku.    
 11. Once the build process has completed, visit `https://medrefr.herokuapp.com/`
 
-### Front-end: React component hierarchy diagram
-===============================================
-/[ .. some explanation of the design ... \]   
-/[ .. insert picture of diagram ... \]  
-
-
-### Back-end: MongoDB schema design
-===================================
-/[ .. some explanation of the db design ... \]  
-/[ .. insert picture of schema plans ... \]  
-
-
-### Notable packages, services, tools used
-===========================================
-* [auth0](https://auth0.com)
-* [react-router v4](https://github.com/ReactTraining/react-router/tree/v4)
-* [axios](https://github.com/mzabriskie/axios)
-* [react-parallax](https://github.com/RRutsche/react-parallax)
-* [material-ui](https://github.com/callemall/material-ui)
-* [formsy-material-ui](https://github.com/mbrookes/formsy-material-ui)
-* [heroku](https://www.heroku.com)
-* [sketch](https://www.sketchapp.com)
-* [trello](https://trello.com)
 
 ### Project management in Trello
 ================================
