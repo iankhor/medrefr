@@ -151,16 +151,16 @@ Back-end: MongoDB schema design
 /[ .. some explanation of the db design ... \]  
 
 *User*
-key | type, default value
---- | ----
+key | type, default value  
+--- | ----  
 email | String
 password | String 
 createdAt| Date, Date.now
 
 
-*Profile*
-key | type, default value
---- | ----
+*Profile*  
+key | type, default value  
+--- | ----  
 surname| String
 givenName| String
 dateOfBirthDay| Number
@@ -175,8 +175,8 @@ userID| ObjectID
 createdAt| Date, Date.now
 
 *Referral Schema*
-key | type, default value
---- | ----
+key | type, default value  
+--- | ----  
 referralStatus | String, "Pending" 
 patientSurname| String               
 patientgivenName| String            
