@@ -144,8 +144,7 @@ Back-end:
 Front-end: React component hierarchy diagram
 ===============================================
 /[ .. some explanation of the design ... \]   
-/[ .. insert picture of diagram ... \]  
-
+![Component Hierarchy Diagram](https://github.com/iankhor/files/blob/master/MedReFR/12.%20Component%20Hierarchy%20DiagramV1.3.jpg)
 
 Back-end: MongoDB schema design
 ===================================
