@@ -151,16 +151,23 @@ Deployment (optional)
 The following steps assumes you have an [Heroku](http://www.heroku.com) account set up.  
 Ensure you are logged into heroku by running `heroku login` in your root directory.
 
-**Back-end**  
-3. Create an app for the back-end called `medrefr-api` in heroku.
-1. ...  
+**Back-end (complete this first before to minimise the errors)**  
+1. In Heroku, create an app for the front-end called `medrefr-api` (or an app name that is available)  
+2. Note the git URL down. For example : `https://git.heroku.com/medrefr-api.git`  
+3. Add/update the **config variables** for `MONGODB_URI` with the link to your mongo database.  
+4. Lastly, save the setting from step 1 to 3 in your heroku app.  
+5. On your local machine, go into your back-end folder. `cd back-end`    
+6. Initialiase a git repositry. `git init`  
+7. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr-api.git`    
+8. Run the script `npm run deploy:heroku`. This should take about 1-2 minutes to build and setup on heroku.    
+9. Once the build process has completed, visit `https://medrefr-api.herokuapp.com/`  
 
 **Front-end**  
 1. In Heroku, create an app for the front-end called `medrefr` (or an app name that is available)  
 2. Note the git URL down. For example : `https://git.heroku.com/medrefr.git`  
 3. Add/update the **config variables** for `REACT_APP_API_URL` with a value of `https://medrefr-api.herokuapp.com` (or the name of the api server of your choice)  
-4. Under **buildpacks**, add this buildpack link `https://github.com/mars/create-react-app-buildpack.git` 
-5. Lastly, save the setting from step 1 to 4 in your heroku app.
+4. Under **buildpacks**, add this buildpack link `https://github.com/mars/create-react-app-buildpack.git`   
+5. Lastly, save the setting from step 1 to 4 in your heroku app.  
 6. On your local machine, go into your front-end folder. `cd front-end`    
 7. Initialiase a git repositry. `git init`  
 8. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr.git`    
