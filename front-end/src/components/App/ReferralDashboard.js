@@ -14,8 +14,8 @@ const style = {
 }
 
 class ReferralDashboard extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this._renderReferrals = this._renderReferrals.bind(this)
         this._renderNewReferralForm = this._renderNewReferralForm.bind(this)
         this._toggleShowNewReferralForm = this._toggleShowNewReferralForm.bind(this)
@@ -42,6 +42,7 @@ class ReferralDashboard extends Component {
 
     _toggleShowNewReferralForm(){
         this.setState( { showNewReferralForm : !this.state.showNewReferralForm })
+        console.log('new form toggle', this.state.showNewReferralForm)
     }
 
     _renderNewReferralForm(){
@@ -49,6 +50,7 @@ class ReferralDashboard extends Component {
             <ReferralCard 
                 _updateReferral={this.props._updateReferral}
                 _addReferral={this.props._addReferral}
+                _toggleShowNewReferralForm={this._toggleShowNewReferralForm}
                 action="new"
             />
         )
@@ -63,7 +65,6 @@ class ReferralDashboard extends Component {
                         <RaisedButton 
                                 label="Add new referral" 
                                 primary={true} 
-                                
                                 onClick={this._toggleShowNewReferralForm}
                         />
                     </div>

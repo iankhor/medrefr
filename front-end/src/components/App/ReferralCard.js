@@ -127,6 +127,7 @@ class ReferralCard extends Component {
                             referral={this.props.referral} 
                             _updateReferral={this.props._updateReferral}
                             _addReferral={this.props._addReferral}
+                            _toggleShowNewReferralForm={this.props._toggleShowNewReferralForm}
                             action={this.props.action}
                         />
                     </Paper>
