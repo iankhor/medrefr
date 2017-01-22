@@ -189,7 +189,7 @@ Deployment (optional)
 ---------------------
 \[ ... This is done at your own risk etc etc disclaimer ... \]  
 The following steps assumes you have an [Heroku](http://www.heroku.com) account set up.  
-Ensure you are logged into heroku by running `heroku login` in your root directory.
+Ensure you are logged into heroku by running `heroku login` in both your front-end and back-end folders.
 
 **Back-end (complete this first before to minimise the errors)**  
 1. In Heroku, create an app for the front-end called `medrefr-api` (or an app name that is available)  
