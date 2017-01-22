@@ -5,7 +5,7 @@ Overview
 * [Solution](#solution)
 * [User stories](#user-stories)
    * [GP](#gp)
-   * [Psychiatrist/specialist](#Psychiatristspecialist)
+   * [Psychiatrist/specialist](#psychiatristspecialist)
    * [Triage officer (TO)](#triage-officer-(TO))
    * [Patients](#patients)
 * [Concept, Design & Build](#concept-design-build)
