@@ -96,10 +96,10 @@ Style Guide
 
 Color
 -----
-1. Primary: RGB(49, 86, 63) / #315685 ![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201)
-2. Secondary 1: RGB(66, 179, 229)/ #42B3E5![Secondary 1](https://github.com/iankhor/files/blob/master/MedReFR/07.%20Styleguide%20-%20Secondary%20color%201)
-3. Secondary 2! RGB(32, 32, 32)/ #202020[Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202)
-4. Font: RGB(144,144,144) / #909090 ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201)
+1. ![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201) Primary: RGB(49, 86, 63) / #315685 
+2. ![Secondary 1](https://github.com/iankhor/files/blob/master/MedReFR/07.%20Styleguide%20-%20Secondary%20color%201) Secondary 1: RGB(66, 179, 229)/ #42B3E5
+3. ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202) Secondary 2! RGB(32, 32, 32)/ #202020 
+4. ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201) Font: RGB(144,144,144) / #909090 
 
 Font type
 ----
