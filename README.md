@@ -92,6 +92,18 @@ Concept, Design Build comparison
 
 Style Guide
 ===========
+... colors/font theme to be used were
+
+Color
+-----
+![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201)
+![Secondary 1](https://github.com/iankhor/files/blob/master/MedReFR/07.%20Styleguide%20-%20Secondary%20color%201)
+![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202)
+![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201)
+
+Font type
+----
+![Font type](https://github.com/iankhor/files/blob/master/MedReFR/11.%20Styleguide%20-%20Font.png)
 
 
 Referral Platform for a Melbourne Medical Startup
