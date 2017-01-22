@@ -107,7 +107,7 @@ Color
 
 Font type
 ----
-\[... insert text here bla bla bla ...\]
+\[... insert text here bla bla bla ...\]  
 ![Font type](https://github.com/iankhor/files/blob/master/MedReFR/11.%20Styleguide%20-%20Font.png)
 
 Code Style
@@ -128,7 +128,7 @@ Setup procedure
 ---------------
 Clone a copy of this repositry in your local machine. `git clone https://github.com/iankhor/medrefr.git`
 
-Front-end
+Front-end  
 1. Go into the front-end folder. `cd front-end`  
 2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`  
 3. In the *.env* file, ensure the variable is *REACT_APP_API_URL=http://localhost:4000* (or you can alter this based your personal preference)  
@@ -136,7 +136,7 @@ Front-end
 5. Start the front-end server by running `npm run watch`  
 6. On your web browser, go to `localhost:9000`  
 
-Back-end
+Back-end  
 1. Go into the back-end folder. `cd back-end`  
 2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`  
 3. Start your local mongo database by running `mongod --dbpath ~/__YOUR_MONGODB_PATH___` (or your own mongo database link)  
