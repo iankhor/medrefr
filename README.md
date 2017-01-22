@@ -182,7 +182,7 @@ Clone a copy of this repositry in your local machine. `git clone https://github.
 3. Start your local mongo database by running `mongod --dbpath ~/__YOUR_MONGODB_PATH___` (or your own mongo database link)  
 4. In the *.env* file, ensure the variable is `MONGODB_URI=mongodb://localhost/__YOUR_MONGODB_NAME___` (or you can alter this based your personal preference)  
 5. Install npm packages by runinng `npm install`  
-6. Start the back-end server by running `npm run watch`  
+6. Start the back-end server by running `nodemon`  
 7. On your web browser, go to `localhost:4000` to see if the MedReFR welcome screen appears.  
 
 Deployment (optional)
