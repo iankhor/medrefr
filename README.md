@@ -22,6 +22,8 @@ Overview
 * [Back-end: MongoDB schema design](#back-end-mongodb-schema-design)
 * [Notable package, services and tools used](#notable-packages-services-tools-used)
 * [Project management in Trello](#project-management-in-trello)
+* [Outstanding issues / bugs](#outstanding-isses-bugs)
+* [Final web app link](#final-web-app-link)
 
 
 Project brief
@@ -247,7 +249,15 @@ Ensure you are logged into heroku by running `heroku login` in your root directo
 * [sketch](https://www.sketchapp.com)
 * [trello](https://trello.com)
 
-### Project management in trello
+### Project management in Trello
 ================================
 /[ .. bla bla used trello for PM /]  
 /[ .. insert link to trello ... /]  
+
+### Outstanding issues / bugs
+================================
+/[ ... highlight outstanding issues ... /]  
+
+### Final web app link
+================================
+[MedReFR](https://medrefr.herokuapp.com)
