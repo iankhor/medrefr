@@ -185,7 +185,7 @@ Ensure you are logged into heroku by running `heroku login` in your root directo
     }
   }
 }
-```
+```  
 10. Run the script `npm run deploy:heroku`. This should take about 1-2 minutes to build and setup on heroku.    
 11. Once the build process has completed, visit `https://medrefr.herokuapp.com/`
 
