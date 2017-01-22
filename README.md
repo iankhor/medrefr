@@ -14,6 +14,7 @@ Overview
     * [Build](#build)
     * [Comparison](#concept-design-build-comparison)
 * [Work flow](#work-flow)
+* [Technology stack](#technology-stack)
 * [Style guide](#style-guide)
   * [Color](#color)
   * [Font type](#font-type)
@@ -124,6 +125,11 @@ Build (MVP)
 Concept, Design Build comparison
 ================================
 ![Comparison](https://github.com/iankhor/files/blob/master/MedReFR/05%20.%20Wireferame%20-%20Concept%20Design%20Build%20comparison.jpg)
+
+Technology stack
+========
+Front-end: React.js
+Back-end: MongoDB, Express.js, Node.js
 
 Workflow
 ========
