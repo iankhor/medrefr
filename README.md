@@ -18,8 +18,10 @@ Overview
   * [Pre-requisites](#pre-requisites)
   * [Setup procedure](#setup-procedure)
   * [Deployment(optional)](#deployment-optional)
-* [.. place holder ..]
-
+* [Front-end: React component hierarchy diagram](#front-end-react-component-hierarchy-diagram)
+* [Back-end: MongoDB schema design](#back-end-mongodb-schema-design)
+* [Notable package, services and tools used](#notable-packages-services-tools-used)
+* [Project management in Trello](#project-management-in-trello)
 
 
 Project brief
@@ -119,15 +121,15 @@ Concept, Design Build comparison
 
 Workflow
 ========
-\[ ... TO BE ADDED ... \]
+\[ ... TO BE ADDED ... \]  
 
 Style Guide
 ===========
-\[... colors/font theme to be used were ...\]
+\[... colors/font theme to be used were ...\]  
 
 CSS frawework
 -------------
-\[ talk about Material UI decision]
+\[ talk about Material UI decision]  
 
 
 Color
@@ -139,13 +141,13 @@ Color
 
 Font type
 ----
-\[... insert text here bla bla bla ...\]  
+\[... insert text here bla bla bla ...\]    
 ![Font type](https://github.com/iankhor/files/blob/master/MedReFR/11.%20Styleguide%20-%20Font.png)
 
 Code Style
 ----------
 1. Custom methods (non-lifecycle methods) in each React class must begin with an underscore ie : ```_thisMethod(a , b)``` 
-2. \[ insert more code style \]
+2. \[ insert more code style \]  
 
 Installation / Setup / Deployment
 =====
@@ -179,7 +181,7 @@ Clone a copy of this repositry in your local machine. `git clone https://github.
 
 Deployment (optional)
 ---------------------
-\[ ... This is done at your own risk etc etc disclaimer ... \]
+\[ ... This is done at your own risk etc etc disclaimer ... \]  
 The following steps assumes you have an [Heroku](http://www.heroku.com) account set up.  
 Ensure you are logged into heroku by running `heroku login` in your root directory.
 
@@ -223,20 +225,21 @@ Ensure you are logged into heroku by running `heroku login` in your root directo
 
 ### Front-end: React component hierarchy diagram
 ===============================================
-/[ .. some explanation of the design ... \]
-/[ .. insert picture of diagram ... \]
+/[ .. some explanation of the design ... \]   
+/[ .. insert picture of diagram ... \]  
 
 
 ### Back-end: MongoDB schema design
 ===================================
-/[ .. some explanation of the db design ... \]
-/[ .. insert picture of schema plans ... \]
+/[ .. some explanation of the db design ... \]  
+/[ .. insert picture of schema plans ... \]  
 
 
 ### Notable packages, services, tools used
 ===========================================
 * [auth0](https://auth0.com)
 * [react-router v4](https://github.com/ReactTraining/react-router/tree/v4)
+* [axios](https://github.com/mzabriskie/axios)
 * [react-parallax](https://github.com/RRutsche/react-parallax)
 * [material-ui](https://github.com/callemall/material-ui)
 * [formsy-material-ui](https://github.com/mbrookes/formsy-material-ui)
@@ -246,5 +249,5 @@ Ensure you are logged into heroku by running `heroku login` in your root directo
 
 ### Project management in trello
 ================================
-/[ .. bla bla used trello for PM /]
-/[ .. insert link to trello ... /]
+/[ .. bla bla used trello for PM /]  
+/[ .. insert link to trello ... /]  
