@@ -149,7 +149,66 @@ Front-end: React component hierarchy diagram
 Back-end: MongoDB schema design
 ===================================
 /[ .. some explanation of the db design ... \]  
-/[ .. insert picture of schema plans ... \]  
+
+*User*
+key | type, default value
+--- | ----
+email | String
+password | String 
+createdAt| Date, Date.now
+
+
+*Profile*
+key | type, default value
+--- | ----
+surname| String
+givenName| String
+dateOfBirthDay| Number
+dateOfBirthMonth| Number
+dateOfBirthYear| Number
+providerNumber| String
+contactNumber| Number
+primaryPlaceOfPractice| String
+role| String
+subSpecialty| String
+userID| ObjectID
+createdAt| Date, Date.now
+
+*Referral Schema*
+key | type, default value
+--- | ----
+referralStatus | String, "Pending" 
+patientSurname| String               
+patientgivenName| String            
+patientGender| String               
+patientBirthDay| Number              
+patientBirthMonth| Number           
+patientBirthYear| Number            
+patientAddress| String              
+patientPostcode| Number             
+patientMedicare| Number     
+patientContactNumber| Number        
+doctorSurname| String               
+doctorGivenName| String             
+doctorClinic| String                
+doctorAddress| String
+doctorPostcode| Number              
+doctorContactNumber| Number         
+referralAppointmentDay| Number      
+referralAppointmentMonth| Number 
+referralAppointmentYear| Number     
+referralRequestedService| String    
+referralReasonForReferral| String   
+referralUrgent|Boolean false
+referralRuralCode| String  
+referralAppointmentHour| Number 
+referralAppointmentMinute| Number 
+referralAppointmentPeriod| String 
+role| String
+createdAt| Date, Date.now
+assignedUserID| ObjectID
+
+
 
 
 Notable packages, services, tools used
