@@ -128,8 +128,8 @@ Concept, Design Build comparison
 
 Technology stack
 ========
-Front-end: React.js
-Back-end: MongoDB, Express.js, Node.js
+Front-end: React.js  
+Back-end: MongoDB, Express.js, Node.js  
 
 Workflow
 ========
