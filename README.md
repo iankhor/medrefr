@@ -140,7 +140,7 @@ Clone a copy of this repositry in your local machine. `git clone https://github.
 1. Go into the back-end folder. `cd back-end`  
 2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`  
 3. Start your local mongo database by running `mongod --dbpath ~/__YOUR_MONGODB_PATH___` (or your own mongo database link)  
-4. In the *.env* file, ensure the variable is *MONGODB_URI=mongodb://localhost/__YOUR_MONGODB_NAME___* (or you can alter this based your personal preference)  
+4. In the *.env* file, ensure the variable is `MONGODB_URI=mongodb://localhost/__YOUR_MONGODB_NAME___` (or you can alter this based your personal preference)  
 5. Install npm packages by runinng `npm install`  
 6. Start the back-end server by running `npm run watch`  
 7. On your web browser, go to `localhost:4000` to see if the MedReFR welcome screen appears.  
@@ -148,12 +148,41 @@ Clone a copy of this repositry in your local machine. `git clone https://github.
 Deployment (optional)
 ---------------------
 \[ ... This is done at your own risk etc etc disclaimer ... \]
+The following steps assumes you have an [Heroku](http://www.heroku.com) account set up.  
+Ensure you are logged into heroku by running `heroku login` in your root directory.
 
-**Front-end**
+**Back-end**  
+3. Create an app for the back-end called `medrefr-api` in heroku.
 1. ...  
 
-**Back-end**
-1. ...  
+**Front-end**  
+1. In Heroku, create an app for the front-end called `medrefr` (or an app name that is available)  
+2. Note the git URL down. For example : `https://git.heroku.com/medrefr.git`  
+3. Add/update the **config variables** for `REACT_APP_API_URL` with a value of `https://medrefr-api.herokuapp.com` (or the name of the api server of your choice)  
+4. Under **buildpacks**, add this buildpack link `https://github.com/mars/create-react-app-buildpack.git` 
+5. Lastly, save the setting from step 1 to 4 in your heroku app.
+6. On your local machine, go into your front-end folder. `cd front-end`    
+7. Initialiase a git repositry. `git init`  
+8. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr.git`    
+9. Add a new file called `static.json` to configure a single page application with heroku. 
+```
+{
+  "root": "build/",
+  "clean_urls": false,
+  "routes": {
+                "/**": "index.html"
+            },
+  "headers": {
+    "/**": {
+      "Strict-Transport-Security": "max-age=7776000"
+    }
+  }
+}
+```
+10. Run the script `npm run deploy:heroku`. This should take about 1-2 minutes to build and setup on heroku.    
+11. Once the build process has completed, visit `https://medrefr.herokuapp.com/`
+
+
 
 
 Referral Platform for a Melbourne Medical Startup
