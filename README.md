@@ -1,11 +1,38 @@
-Business
+Overview
 ========
+* [Project brief](#project-brief)
+* [Business problem](#business-problem)
+* [Solution](#solution)
+* [User stories](#user-stories)
+* [Concept, Design & Build](#concept-design-build)
+    * [Concept](#concept)
+    * [Design](#design)
+    * [Build](#build)
+    * [Comparison](#concept-design-build-comparison)
+* [Work flow](#work-flow)
+* [Style guide](#style-guide)
+  * [Color](#color)
+  * [Font type](#font-type)
+  * [Code style](#code-style)
+* [Installation, Setup, Deployment](#installation--setup--deployment)
+  * [Pre-requisites](#pre-requisites)
+  * [Setup procedure](#setup-procedure)
+  * [Deployment(optional)](#deployment-optional)
+* [.. place holder ..]
+
+
+
+Project brief
+=============
+\[ ... insert 150 charcter summary \]
+\[ ... team members : ian & sharon (include github profile link) \]
+
+
+Business problem
+=======
 * healthcare provider
 * receives referrals from GPs for rural patients
 * provides psychiatric consultations remotely
-
-Problem
-=======
 * manual business process
 * receives referrals via fax from GPs
 * uses MS Excel to assign patient to specialists
