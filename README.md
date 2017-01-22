@@ -121,8 +121,8 @@ Installation / Setup / Deployment
 Pre-requisites
 --------------
 The following packages are assumed to be installed globally in your local machine
-1. Nodemon ![Nodemon](https://github.com/remy/nodemon)
-2. Mongo ![Mongo](https://github.com/mongodb/mongo)
+1. [Nodemon](https://github.com/remy/nodemon)
+2. [Mongo](https://github.com/mongodb/mongo)
 
 Setup procedure
 ---------------
