@@ -141,19 +141,19 @@ Back-end:
 * Express.js
 * Node.js  
 
-### Front-end: React component hierarchy diagram
+Front-end: React component hierarchy diagram
 ===============================================
 /[ .. some explanation of the design ... \]   
 /[ .. insert picture of diagram ... \]  
 
 
-### Back-end: MongoDB schema design
+Back-end: MongoDB schema design
 ===================================
 /[ .. some explanation of the db design ... \]  
 /[ .. insert picture of schema plans ... \]  
 
 
-### Notable packages, services, tools used
+Notable packages, services, tools used
 ===========================================
 * [auth0](https://auth0.com)
 * [react-router v4](https://github.com/ReactTraining/react-router/tree/v4)
@@ -164,6 +164,7 @@ Back-end:
 * [heroku](https://www.heroku.com)
 * [sketch](https://www.sketchapp.com)
 * [trello](https://trello.com)
+
 Style Guide
 ===========
 \[... colors/font theme to be used were ...\]  
@@ -171,7 +172,6 @@ Style Guide
 CSS frawework
 -------------
 \[ talk about Material UI decision]  
-
 
 Color
 -----
@@ -191,7 +191,7 @@ Code Style
 2. \[ insert more code style \]  
 
 Installation / Setup / Deployment
-=====
+=================================
 
 Pre-requisites
 --------------
