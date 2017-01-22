@@ -129,30 +129,30 @@ Setup procedure
 Clone a copy of this repositry in your local machine. `git clone https://github.com/iankhor/medrefr.git`
 
 Front-end
-1. Go into the front-end folder. `cd front-end`
-2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`
-3. In the *.env* file, ensure the variable is *REACT_APP_API_URL=http://localhost:4000* (or you can alter this based your personal preference)
-4. Install npm packages by runinng `npm install`
-5. Start the front-end server by running `npm run watch`
-6. On your web browser, go to `localhost:9000`
+1. Go into the front-end folder. `cd front-end`  
+2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`  
+3. In the *.env* file, ensure the variable is *REACT_APP_API_URL=http://localhost:4000* (or you can alter this based your personal preference)  
+4. Install npm packages by runinng `npm install`  
+5. Start the front-end server by running `npm run watch`  
+6. On your web browser, go to `localhost:9000`  
 
 Back-end
-1. Go into the back-end folder. `cd back-end`
-2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`
-3. Start your local mongo database by running `mongod --dbpath ~/__YOUR_MONGODB_PATH___` (or your own mongo database link)
-4. In the *.env* file, ensure the variable is *MONGODB_URI=mongodb://localhost/__YOUR_MONGODB_NAME___* (or you can alter this based your personal preference)
-5. Install npm packages by runinng `npm install`
-6. Start the back-end server by running `npm run watch`
-7. On your web browser, go to `localhost:4000` to see if the MedReFR welcome screen appears.
+1. Go into the back-end folder. `cd back-end`  
+2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`  
+3. Start your local mongo database by running `mongod --dbpath ~/__YOUR_MONGODB_PATH___` (or your own mongo database link)  
+4. In the *.env* file, ensure the variable is *MONGODB_URI=mongodb://localhost/__YOUR_MONGODB_NAME___* (or you can alter this based your personal preference)  
+5. Install npm packages by runinng `npm install`  
+6. Start the back-end server by running `npm run watch`  
+7. On your web browser, go to `localhost:4000` to see if the MedReFR welcome screen appears.  
 
 Deployment (optional)
 \[ ... This is done at your own risk etc etc disclaimer ... \]
 
 Front-end
-1. ...
+1. ...  
 
 Back-end
-1. ...
+1. ...  
 
 
 Referral Platform for a Melbourne Medical Startup
