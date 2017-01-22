@@ -260,4 +260,4 @@ Ensure you are logged into heroku by running `heroku login` in your root directo
 
 ### Final web app link
 ================================
-[MedReFR](https://medrefr.herokuapp.com)
+[MedReFR (Click here)](https://medrefr.herokuapp.com)
