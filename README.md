@@ -125,6 +125,11 @@ Style Guide
 ===========
 \[... colors/font theme to be used were ...\]
 
+CSS frawework
+-------------
+\[ talk about Material UI decision]
+
+
 Color
 -----
 1. ![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201) Primary: RGB(49, 86, 63) / #315685 
@@ -216,53 +221,30 @@ Ensure you are logged into heroku by running `heroku login` in your root directo
 10. Run the script `npm run deploy:heroku`. This should take about 1-2 minutes to build and setup on heroku.    
 11. Once the build process has completed, visit `https://medrefr.herokuapp.com/`
 
+### Front-end: React component hierarchy diagram
+===============================================
+/[ .. some explanation of the design ... \]
+/[ .. insert picture of diagram ... \]
 
-Draft below (do not read)
-========================
 
-Referral Platform for a Melbourne Medical Startup
+### Back-end: MongoDB schema design
+===================================
+/[ .. some explanation of the db design ... \]
+/[ .. insert picture of schema plans ... \]
 
-Assumed global packages installed : ```nodemon```
 
-1.Run ```npm i``` and ```cp .env.example .env``` on both front-end and back-end folders   
-2.Update environment variables for both front-end and back-end in ```.env``` [insert more detailed instructions]
-3.run the following :
-```cd front-end``` then ```npm run watch```  
-```cd back-end``` then ```nodemon```    
-3.Go to your browser and visit the following address on localhost
-```localhost:9000``` (front end) and ```localhost:4000``` (back end)
+### Notable packages, services, tools used
+===========================================
+* [auth0](https://auth0.com)
+* [react-router v4](https://github.com/ReactTraining/react-router/tree/v4)
+* [react-parallax](https://github.com/RRutsche/react-parallax)
+* [material-ui](https://github.com/callemall/material-ui)
+* [formsy-material-ui](https://github.com/mbrookes/formsy-material-ui)
+* [heroku](https://www.heroku.com)
+* [sketch](https://www.sketchapp.com)
+* [trello](https://trello.com)
 
-### Front End
-
-#### Front End Deployment Setup
-The steps below assumes all collaborators are added to the heroku app settings.
-
-In heroku setting, ensure the build pack from is added to the app ```https://github.com/mars/create-react-app-buildpack.git```
-
-On your local terminal,   
-1.Login to heroku by running ```heroku login```  
-2.Enter your heroku user name and password  
-3.Setup heroku remote repositry by running ```git remote add heroku https://git.heroku.com/medrefr.git```   
-4.Run ```npm run deploy:heroku```  
-5.Once the heroku build process is complete, visit the app at ```https://medrefr.herokuapp.com/```   
-6.Add a ```static.json``` file in the root folder with the following configuration  
-```
-{
-  "root": "build/",
-  "clean_urls": false,
-  "routes": {
-                "/**": "index.html"
-            },
-  "headers": {
-    "/**": {
-      "Strict-Transport-Security": "max-age=7776000"
-    }
-  }
-}
-```
-
-### Back End
-
-#### Back End Deployment Setup
-
-### Project management
+### Project management in trello
+================================
+/[ .. bla bla used trello for PM /]
+/[ .. insert link to trello ... /]
