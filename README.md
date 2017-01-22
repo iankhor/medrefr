@@ -150,19 +150,12 @@ Back-end: MongoDB schema design
 ===================================
 /[ .. some explanation of the db design ... \]  
 
-*User*  
-
-| key | type, default value  |
-|:----| ------------------|
-|email | String |
-|password | String |
-|createdAt| Date, Date.now |
-
-
 *Profile*  
 
 key | type, default value  
 --- | ----  
+|email | String |
+|password | String |
 surname| String
 givenName| String
 dateOfBirthDay| Number
