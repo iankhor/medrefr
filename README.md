@@ -151,11 +151,11 @@ Back-end: MongoDB schema design
 /[ .. some explanation of the db design ... \]  
 
 *User*  
-| key | type, default value  |
+| key | type, default value  |  
 |:----| ------------------|  
-|email | String |
-|password | String 
-|createdAt| Date, Date.now |
+|email | String |  
+|password | String |   
+|createdAt| Date, Date.now |  
 
 
 *Profile*  
