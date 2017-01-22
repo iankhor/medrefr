@@ -90,20 +90,69 @@ Concept, Design Build comparison
 ================================
 ![Comparison](https://github.com/iankhor/files/blob/master/MedReFR/05%20.%20Wireferame%20-%20Concept%20Design%20Build%20comparison.jpg)
 
+Workflow
+========
+\[ ... TO BE ADDED ... \]
+
 Style Guide
 ===========
-... colors/font theme to be used were
+\[... colors/font theme to be used were ...\]
 
 Color
 -----
 1. ![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201) Primary: RGB(49, 86, 63) / #315685 
 2. ![Secondary 1](https://github.com/iankhor/files/blob/master/MedReFR/07.%20Styleguide%20-%20Secondary%20color%201) Secondary 1: RGB(66, 179, 229)/ #42B3E5
-3. ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202) Secondary 2! RGB(32, 32, 32)/ #202020 
+3. ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202) Secondary 2: RGB(32, 32, 32)/ #202020 
 4. ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201) Font: RGB(144,144,144) / #909090 
 
 Font type
 ----
+\[... insert text here bla bla bla ...\]
 ![Font type](https://github.com/iankhor/files/blob/master/MedReFR/11.%20Styleguide%20-%20Font.png)
+
+Code Style
+----------
+1. Custom methods (non-lifecycle methods) in each React class must begin with an underscore ie : ```_thisMethod(a , b)``` 
+2. \[ insert more code style \]
+
+Installation / Setup / Deployment
+=====
+
+Pre-requisites
+--------------
+The following packages are assumed to be installed globally in your local machine
+1. Nodemon ![Nodemon](https://github.com/remy/nodemon)
+2. Mongo ![Mongo](https://github.com/mongodb/mongo)
+
+Setup procedure
+---------------
+Clone a copy of this repositry in your local machine. `git clone https://github.com/iankhor/medrefr.git`
+
+Front-end
+1. Go into the front-end folder. `cd front-end`
+2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`
+3. In the *.env* file, ensure the variable is *REACT_APP_API_URL=http://localhost:4000* (or you can alter this based your personal preference)
+4. Install npm packages by runinng `npm install`
+5. Start the front-end server by running `npm run watch`
+6. On your web browser, go to `localhost:9000`
+
+Back-end
+1. Go into the back-end folder. `cd back-end`
+2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`
+3. Start your local mongo database by running `mongod --dbpath ~/__YOUR_MONGODB_PATH___` (or your own mongo database link)
+4. In the *.env* file, ensure the variable is *MONGODB_URI=mongodb://localhost/__YOUR_MONGODB_NAME___* (or you can alter this based your personal preference)
+5. Install npm packages by runinng `npm install`
+6. Start the back-end server by running `npm run watch`
+7. On your web browser, go to `localhost:4000` to see if the MedReFR welcome screen appears.
+
+Deployment (optional)
+\[ ... This is done at your own risk etc etc disclaimer ... \]
+
+Front-end
+1. ...
+
+Back-end
+1. ...
 
 
 Referral Platform for a Melbourne Medical Startup
