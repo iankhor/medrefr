@@ -160,11 +160,11 @@ Colons can be used to align columns.
 
 
 *User*  
-| key | type, default value  |  
-|:----| ------------------|  
-|email | String |  
-|password | String |   
-|createdAt| Date, Date.now |  
+| key | type, default value  |
+|:----| ------------------|
+|email | String |
+|password | String |
+|createdAt| Date, Date.now |
 
 
 *Profile*  
