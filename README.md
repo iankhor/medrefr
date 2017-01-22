@@ -62,11 +62,36 @@ Patients
 Concept, Design and build
 =========================
 
+...insert intro paragraph
+
+Concept
+-------
+... insert intro para ...
+... mobile first design ...
+... hand drawn bla bla ... initial ideation of how the look and feel of the app should be ...
+... low fidelity ...
 ![Concept](https://github.com/iankhor/files/blob/master/MedReFR/01.%20Wireframe%20-%20Concept.jpg)
 
+Design
+------
+... design concept using sketch ... high fidelity design of hand drawn concepts
+... further improvements as well during design stage ...
+... decided on material UI ...
+![Concept](https://github.com/iankhor/files/blob/master/MedReFR/03%20.%20Wireferame%20-%20Sketch.png)
 
+Build (MVP)
+-----
+... initial MVP with React ...
+... to see it in action in a browser and mobile ...
+... helped in further iterating the design ...
+![Build](https://github.com/iankhor/files/blob/master/MedReFR/04%20.%20Wireferame%20-%20React%20MVP.png)
 
+Concept, Design Build comparison
+================================
+![Comparison](https://github.com/iankhor/files/blob/master/MedReFR/05%20.%20Wireferame%20-%20Concept%20Design%20Build%20comparison.jpg)
 
+Style Guide
+===========
 
 
 Referral Platform for a Melbourne Medical Startup
