@@ -15,6 +15,7 @@ Overview
     * [Comparison](#concept-design-build-comparison)
 * [Work flow](#work-flow)
 * [Technology stack](#technology-stack)
+* [Front-end: Referral lifecycle diagram](#referral-lifecycle-diagram)
 * [Front-end: React component hierarchy diagram](#front-end-react-component-hierarchy-diagram)
 * [Back-end: MongoDB schema design](#back-end-mongodb-schema-design)
 * [Notable package, services and tools used](#notable-packages-services-tools-used)
@@ -140,6 +141,12 @@ Back-end:
 * MongoDB
 * Express.js
 * Node.js  
+
+Front-end: Referral lifecycle diagram
+=====================================
+/[ .. text to explain the referral status matrix and lifecycle diagram/]
+![Referral Status Matrix](https://github.com/iankhor/files/blob/master/MedReFR/14.%20Referral%20status%20matrix.png)
+![Referral Lifecycle Diagram](https://github.com/iankhor/files/blob/master/MedReFR/13.%20Referral%20lifecycle%20diagram.jpg)
 
 Front-end: React component hierarchy diagram
 ===============================================
