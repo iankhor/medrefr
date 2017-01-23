@@ -110,7 +110,11 @@ class ReferralCard extends Component {
                        this.props.referral.imgProfile
 
         return(
-           <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style.card}>
+           <Card 
+                expanded={this.props.action === "new" ? true : this.state.expanded} 
+                onExpandChange={this.handleExpandChange} 
+                style={style.card}>
+
                 <CardHeader
                     title={patientName}
                     subtitle={dateOfBirth}
