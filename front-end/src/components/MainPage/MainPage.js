@@ -8,20 +8,8 @@ import DebugTempLink from '../../utils/DebugTempLink'
 
 
 //Material UI theme
-import { MuiThemeProvider,
-         getMuiTheme,
-         darkBaseTheme } from 'material-ui/styles'
+import { MuiThemeProvider } from 'material-ui/styles'
 import medrefrTheme from '../styles/Theme'
-
-// example JSON data
-const exampleJSONData = {
-    data1: 'data1',
-    data2: 'data2',
-    data3: 123
-}
-
-//material-ui components
-import { TextField } from 'material-ui/';
 
 class MainPage extends Component {
     render(){

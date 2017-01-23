@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Formsy from 'formsy-react'
 import {  FormsySelect,
          FormsyText } from 'formsy-material-ui/lib'
-import { RaisedButton,
-        MenuItem } from 'material-ui'
+         
+import { MenuItem } from 'material-ui'
 
 
 const errorMessages = {

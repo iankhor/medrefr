@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import { FormsyDate,
-         FormsySelect,
+import { FormsySelect,
          FormsyText,
-         FormsyTime,
          FormsyToggle } from 'formsy-material-ui/lib'
 
 import { RaisedButton,

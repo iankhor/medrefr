@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../../css/style.css'
-import logo from '../../../assets/img/Logo-1.png'
 import ToolBar from './ToolBar'
 
 // const style = {
