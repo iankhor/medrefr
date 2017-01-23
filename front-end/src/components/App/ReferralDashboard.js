@@ -36,6 +36,7 @@ class ReferralDashboard extends Component {
                 _updateReferral={this.props._updateReferral}
                 _addReferral={this.props._addReferral}
                 action="update"
+                role={this.props.profile.role}
             />
         )
     }
@@ -52,6 +53,7 @@ class ReferralDashboard extends Component {
                 _addReferral={this.props._addReferral}
                 _toggleShowNewReferralForm={this._toggleShowNewReferralForm}
                 action="new"
+                role={this.props.profile.role}
             />
         )
     }

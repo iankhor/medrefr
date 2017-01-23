@@ -53,18 +53,7 @@ class ReferralForm extends Component {
     constructor(){
         super()
         this._processReferral = this._processReferral.bind(this)
-        this._renderStatusMenu = this._renderStatusMenu.bind(this)
-    }
-
-    _renderStatusMenu(){
-        return(
-            <div>
-                <MenuItem value={'accepted'} primaryText="Accepted" />
-                <MenuItem value={'assigned'} primaryText="Assigned" />
-                <MenuItem value={'declined'} primaryText="Declined" />
-                <MenuItem value={'withdrawn'} primaryText="Withdrawn" />
-            </div>
-        )
+        this._renderStatusList = this._renderStatusList.bind(this)
     }
 
     _processReferral(data, action) {
@@ -117,6 +106,30 @@ class ReferralForm extends Component {
 
     }
 
+    _renderStatusList() {
+        console.log('statusList role', this.props.role)
+        switch (this.props.role) {
+            case 'triage':
+                console.log('this is triage')
+                return <TriageStatusList />
+                break
+
+            case 'gp':
+                console.log('this is gp')
+                return <GPStatusList />
+                break
+
+            case 'psychiatrist':
+                console.log('this is psychiatrist')
+                return <PsychiatristStatusList />
+                break
+            
+            default:
+                console.log('defaulting to triage')
+                return <TriageStatusList />
+        }
+    }
+
     render(){
         return(
             <div style={style}>
@@ -142,10 +155,7 @@ class ReferralForm extends Component {
                 
 
                     <h1>Referral status</h1>
-                    <TriageStatusList 
-                        value={this.props.referral.referralStatus} 
-                        action={this.props.action}
-                    /> 
+                    {this._renderStatusList()}
 
                     {/* patient data form below */}
                     <h1>Patient Data</h1>
