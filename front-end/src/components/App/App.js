@@ -131,6 +131,7 @@ class App extends Component {
             <button onClick={this._loadSampleProfilePsychiatrist}>Load sample profile Psychiatrist</button>
 
             <PageTab 
+              profile={this.state.profile}
               referrals={this.state.referrals}
               _addReferral={this._addReferral}
               _updateReferral={this._updateReferral}
