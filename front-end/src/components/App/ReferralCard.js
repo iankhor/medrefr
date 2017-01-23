@@ -136,7 +136,6 @@ class ReferralCard extends Component {
                         />
                     </Paper>
                 </CardText>
-
             </Card>
         )
     }

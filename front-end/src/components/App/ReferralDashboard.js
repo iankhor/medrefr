@@ -57,20 +57,19 @@ class ReferralDashboard extends Component {
     }
 
     render(){
-         console.log('before toggle', this.state.showNewReferralForm)
+        //  console.log('before toggle', this.state.showNewReferralForm)
         return(
                 <div style={style.dashboard}>
                     <br />
-                    <div style={style.addReferralButton}>
                         <RaisedButton 
                                 label="Add new referral" 
                                 primary={true} 
                                 onClick={this._toggleShowNewReferralForm}
+                                style={style.addReferralButton}
                         />
-                    </div>
                     <br />
-                    {this.state.showNewReferralForm ? this._renderNewReferralForm() : null }
 
+                    {this.state.showNewReferralForm ? this._renderNewReferralForm() : null }
                     {Object.keys(this.props.referrals).map(this._renderReferrals)}
                 </div> 
         )

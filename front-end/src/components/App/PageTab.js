@@ -45,17 +45,16 @@ export default class PageTab extends React.Component {
           index={this.state.slideIndex}
           onChangeIndex={this.handleChange}
         >
-          <div>
-            <ReferralDashboard 
-              referrals={this.props.referrals} 
-              _addReferral={this.props._addReferral} 
-              _updateReferral={this.props._updateReferral} 
 
-            />
-          </div>
-          <div style={styles.slide}>
-            <Profile />
-          </div>
+          <ReferralDashboard 
+            referrals={this.props.referrals} 
+            _addReferral={this.props._addReferral} 
+            _updateReferral={this.props._updateReferral} 
+
+          />
+
+          <Profile />
+          
         </SwipeableViews>
       </div>
     );
