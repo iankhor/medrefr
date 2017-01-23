@@ -15,7 +15,7 @@ Overview
     * [Comparison](#concept-design-build-comparison)
 * [Work flow](#work-flow)
 * [Technology stack](#technology-stack)
-* [Front-end: Referral lifecycle diagram](#referral-lifecycle-diagram)
+* [Front-end: Referral lifecycle diagram](#front-end-referral-lifecycle-diagram)
 * [Front-end: React component hierarchy diagram](#front-end-react-component-hierarchy-diagram)
 * [Back-end: MongoDB schema design](#back-end-mongodb-schema-design)
 * [Notable package, services and tools used](#notable-packages-services-tools-used)
