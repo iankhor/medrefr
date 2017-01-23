@@ -61,7 +61,7 @@ class App extends Component {
   _addReferral(referral) {
     //update referral state 
     const referrals = {...this.state.referrals}
-    // console.log('addreferral',referral)
+    console.log('addreferral',referral)
 
     //add in new referral
     const timestamp = Date.now()

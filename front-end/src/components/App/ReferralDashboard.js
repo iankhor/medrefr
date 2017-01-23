@@ -61,12 +61,13 @@ class ReferralDashboard extends Component {
         return(
                 <div style={style.dashboard}>
                     <br />
-                        <RaisedButton 
-                                label="Add new referral" 
-                                primary={true} 
-                                onClick={this._toggleShowNewReferralForm}
-                                style={style.addReferralButton}
-                        />
+                        <div style={style.addReferralButton}>
+                            <RaisedButton 
+                                    label="Add new referral" 
+                                    primary={true} 
+                                    onClick={this._toggleShowNewReferralForm}
+                            />
+                        </div>
                     <br />
 
                     {this.state.showNewReferralForm ? this._renderNewReferralForm() : null }

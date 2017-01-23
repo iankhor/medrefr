@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { TriageStatusList,
+         GPStatusList,
+         PsychiatristStatusList }  from './StatusList'
 import Formsy from 'formsy-react'
 import { FormsySelect,
          FormsyText,
@@ -7,47 +10,61 @@ import { FormsySelect,
 import { RaisedButton,
          MenuItem     } from 'material-ui'
 
-  const style = {
-      referralOptions :{
-          display: 'flex',
-        //   justifyContent: 'space-between',
-          alignItems: 'center',
-      },
-      uploadButton :{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-      },
-      card :{
-          marginBottom : 15
-      },
-      cardActions :{
-          textAlign: 'right'
-      },
-      paperStyle: {
-      //   width: 300,
-        margin: 'auto',
-        padding: 20,
-      },
-      switchStyle: {
-        marginBottom: 16,
-      },
-      submitStyle: {
-        marginTop: 32,
-      },
-      chip: {
-          margin: 4,
-      },
-      wrapper: {
-          display: 'flex',
-          flexWrap: 'wrap',
-        }
-  }
+const menuList = [ 'oneOne', 'twoTwo' , 'three' ,'four']
+
+const style = {
+    referralOptions :{
+        display: 'flex',
+    //   justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    uploadButton :{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    card :{
+        marginBottom : 15
+    },
+    cardActions :{
+        textAlign: 'right'
+    },
+    paperStyle: {
+    //   width: 300,
+    margin: 'auto',
+    padding: 20,
+    },
+    switchStyle: {
+    marginBottom: 16,
+    },
+    submitStyle: {
+    marginTop: 32,
+    },
+    chip: {
+        margin: 4,
+    },
+    wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    }
+}
 
 class ReferralForm extends Component {
     constructor(){
         super()
         this._processReferral = this._processReferral.bind(this)
+        this._renderStatusMenu = this._renderStatusMenu.bind(this)
+    }
+
+    _renderStatusMenu(){
+        return(
+            <div>
+                <MenuItem value={'accepted'} primaryText="Accepted" />
+                <MenuItem value={'assigned'} primaryText="Assigned" />
+                <MenuItem value={'declined'} primaryText="Declined" />
+                <MenuItem value={'withdrawn'} primaryText="Withdrawn" />
+            </div>
+        )
     }
 
     _processReferral(data, action) {
@@ -125,19 +142,10 @@ class ReferralForm extends Component {
                 
 
                     <h1>Referral status</h1>
-                    <FormsySelect
-                        name="referralStatus"
-                        floatingLabelText="Status"
-                        value={this.props.action === 'update' ? this.props.referral.referralStatus : null}
-                    >
-                        <MenuItem value={'accepted'} primaryText="Accepted" />
-                        <MenuItem value={'assigned'} primaryText="Assigned" />
-                        <MenuItem value={'declined'} primaryText="Declined" />
-                        <MenuItem value={'withdrawn'} primaryText="Withdrawn" />
-                        <MenuItem value={'rejected'} primaryText="Rejected" />
-                        <MenuItem value={'completed'} primaryText="Completed" />
-                        <MenuItem value={'noShow'} primaryText="No show" />
-                    </FormsySelect>
+                    <TriageStatusList 
+                        value={this.props.referral.referralStatus} 
+                        action={this.props.action}
+                    /> 
 
                     {/* patient data form below */}
                     <h1>Patient Data</h1>
