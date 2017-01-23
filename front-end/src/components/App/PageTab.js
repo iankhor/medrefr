@@ -4,18 +4,6 @@ import SwipeableViews from 'react-swipeable-views';
 import ReferralDashboard from './ReferralDashboard'
 import Profile from './Profile'
 
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
-  },
-  slide: {
-    padding: 10,
-  },
-};
-
 export default class PageTab extends React.Component {
 
   constructor(props) {
@@ -54,7 +42,7 @@ export default class PageTab extends React.Component {
           />
 
           <Profile />
-          
+
         </SwipeableViews>
       </div>
     );
