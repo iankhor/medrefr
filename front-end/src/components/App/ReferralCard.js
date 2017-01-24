@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReferralForm from './ReferralForm'
+import getStatusIcon from './StatusIcon'
 
 import { Card, 
          CardHeader, 
@@ -106,8 +107,8 @@ class ReferralCard extends Component {
         const dateOfBirth = ( this.props.action === "new" ) ? "" :
                             this.props.referral.dateOfBirth
 
-        const avatar = ( this.props.action === "new" ) ? "" :
-                       this.props.referral.imgProfile
+        const avatar = ( this.props.action === "new" ) ?  
+                       getStatusIcon('pending') : this.props.referral.imgProfile
 
         return(
            <Card 

@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import Formsy from 'formsy-react'
+import getStatusIcon from './StatusIcon'
+
 import { TriageStatusList,
          GPStatusList,
          PsychiatristStatusList }  from './StatusList'
-import Formsy from 'formsy-react'
+
 import { FormsySelect,
          FormsyText,
          FormsyToggle } from 'formsy-material-ui/lib'
