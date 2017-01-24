@@ -1,11 +1,6 @@
 import React , { Component} from 'react'
-import Formsy from 'formsy-react'
-import { FormsySelect,
-         FormsyText,
-         FormsyToggle } from 'formsy-material-ui/lib'
-
-import { RaisedButton,
-         MenuItem     } from 'material-ui'
+import { FormsySelect } from 'formsy-material-ui/lib'
+import { MenuItem } from 'material-ui'
 
 class TriageStatusList extends Component {
     render(){

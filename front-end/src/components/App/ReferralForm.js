@@ -10,8 +10,6 @@ import { FormsySelect,
 import { RaisedButton,
          MenuItem     } from 'material-ui'
 
-const menuList = [ 'oneOne', 'twoTwo' , 'three' ,'four']
-
 const style = {
     referralOptions :{
         display: 'flex',
@@ -112,17 +110,14 @@ class ReferralForm extends Component {
             case 'triage':
                 console.log('this is triage')
                 return <TriageStatusList />
-                break
 
             case 'gp':
                 console.log('this is gp')
                 return <GPStatusList />
-                break
 
             case 'psychiatrist':
                 console.log('this is psychiatrist')
                 return <PsychiatristStatusList />
-                break
             
             default:
                 console.log('defaulting to triage')
