@@ -19,6 +19,9 @@ const index = require('./routes/index');
 const auth = require('./routes/auth');
 const referral = require('./routes/referral');
 
+const StaffProfile = require('./models/StaffProfile');
+const staffProfiles = require('./routes/staff-profiles');
+
 const app = express();
 
 //init mongo connection
@@ -32,6 +35,7 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
+//accept json as content type
 app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -62,6 +66,7 @@ app.use(passport.initialize());
 app.use('/', index);
 app.use('/auth', auth);
 app.use('/referral', referral);
+app.use('/staff-profiles', staffProfiles);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
