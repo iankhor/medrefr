@@ -108,7 +108,7 @@ class ReferralCard extends Component {
                             this.props.referral.dateOfBirth
 
         const avatar = ( this.props.action === "new" ) ?  
-                       getStatusIcon('pending') : this.props.referral.imgProfile
+                       getStatusIcon('pending') : getStatusIcon(this.props.referral.referralStatus) 
 
         return(
            <Card 
