@@ -28,7 +28,7 @@ Overview
   * [Setup procedure](#setup-procedure)
   * [Deployment(optional)](#deployment-optional)
 * [Project management in Trello](#project-management-in-trello)
-* [Outstanding issues / bugs](#outstanding-isses-bugs)
+* [Outstanding issues / bugs](#outstanding-issues-bugs)
 * [Final web app link](#final-web-app-link)
 
 
