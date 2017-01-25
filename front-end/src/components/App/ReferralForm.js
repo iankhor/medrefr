@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import getStatusIcon from './StatusIcon'
+// import getStatusIcon from './StatusIcon'
 
 import { TriageStatusList,
          GPStatusList,
@@ -15,9 +15,7 @@ import { RaisedButton,
 
 const style = {
     referralOptions :{
-        display: 'flex',
-    //   justifyContent: 'space-between',
-        alignItems: 'center',
+        textAlign: 'center'
     },
     uploadButton :{
         display: 'flex',
@@ -96,13 +94,6 @@ class ReferralForm extends Component {
                 referralAppointmentPeriod:    data.referralAppointmentPeriod,
             }
         
-        // console.log(JSON.stringify(referral,null,2))
-        // console.log('adding a referral')
-
-        // this.props.action === 'update' ? 
-        // this.props._updateReferral(this.props.index, referral) : 
-        // ( this.props._addReferral(referral), this.props._toggleShowNewReferralForm() )
-
         if (this.props.action === 'update'){
             this.props._updateReferral(this.props.index, referral)
         } 
@@ -146,7 +137,6 @@ class ReferralForm extends Component {
                 <RaisedButton 
                     label="Cancel" 
                     primary={true} 
-                    style={style.uploadButton} 
                     onClick={this.props._toggleShowNewReferralForm}
                 />
             )
@@ -157,7 +147,6 @@ class ReferralForm extends Component {
                 <RaisedButton 
                     label="Edit" 
                     primary={true} 
-                    style={style.uploadButton} 
                     onClick={this._toggleIsEditable}
                 />
             )
