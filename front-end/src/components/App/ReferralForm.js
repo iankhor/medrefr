@@ -153,7 +153,14 @@ class ReferralForm extends Component {
         }
         else
         {
-
+            return(
+                <RaisedButton 
+                    label="Edit" 
+                    primary={true} 
+                    style={style.uploadButton} 
+                    onClick={this._toggleIsEditable}
+                />
+            )
         }
     }
 
@@ -168,20 +175,12 @@ class ReferralForm extends Component {
 
                     <div style={style.referralOptions}>
                         {this._renderEditCancelButton()}
-                        <RaisedButton 
-                            label="Edit" 
-                            primary={true} 
-                            style={style.uploadButton} 
-                            onClick={this._toggleIsEditable}
-                        />
 
                         <RaisedButton
                             type="submit"
                             label={this.props.action === 'update' ? 'Update' : 'Submit'}
                         />
-
                     </div>
-                
 
                     <h1>Referral status</h1>
                     {this._renderStatusList()}
