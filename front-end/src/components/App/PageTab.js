@@ -2,7 +2,7 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import ReferralDashboard from './ReferralDashboard'
-import Profile from './Profile'
+import AllProfiles from './AllProfiles'
 
 const styles = {
   headline: {
@@ -46,15 +46,15 @@ export default class PageTab extends React.Component {
           onChangeIndex={this.handleChange}
         >
           <div>
-            <ReferralDashboard 
-              referrals={this.props.referrals} 
-              _addReferral={this.props._addReferral} 
-              _updateReferral={this.props._updateReferral} 
+            <ReferralDashboard
+              referrals={this.props.referrals}
+              _addReferral={this.props._addReferral}
+              _updateReferral={this.props._updateReferral}
 
             />
           </div>
           <div style={styles.slide}>
-            <Profile />
+            <AllProfiles />
           </div>
         </SwipeableViews>
       </div>

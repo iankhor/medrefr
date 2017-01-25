@@ -14,7 +14,7 @@ import PageTab from './PageTab'
 //theme related material-ui
 import { MuiThemeProvider } from 'material-ui/styles'
 
-import medrefrTheme from './../styles/Theme'         
+import medrefrTheme from './../styles/Theme'
 
 class App extends Component {
   constructor() {
@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   _addReferral(referral) {
-    //update referral state 
+    //update referral state
     const referrals = {...this.state.referrals}
     // console.log('addreferral',referral)
 
@@ -67,12 +67,12 @@ class App extends Component {
 
     //send to db
     CreateReferral(referral)
-    
+
 
   }
 
     _updateReferral(key, referral) {
-    //update referral state 
+    //update referral state
     const referrals = {...this.state.referrals}
     // console.log(key)
     // console.log(this.state.referrals)
@@ -105,7 +105,7 @@ class App extends Component {
             {/* temp temp load static data button */}
             <button onClick={this._loadSampleReferral}>{this.state.loadReferralsToggle ? 'Clear data' : 'Load data'}</button>
 
-            <PageTab 
+            <PageTab
               referrals={this.state.referrals}
               _addReferral={this._addReferral}
               _updateReferral={this._updateReferral}
