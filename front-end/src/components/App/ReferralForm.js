@@ -56,6 +56,7 @@ class ReferralForm extends Component {
         this._processReferral = this._processReferral.bind(this)
         this._renderStatusList = this._renderStatusList.bind(this)
         this._toggleIsEditable = this._toggleIsEditable.bind(this)
+        this._renderEditCancelButton = this._renderEditCancelButton.bind(this)
 
         this.state = {
             isEditable: false
@@ -138,6 +139,24 @@ class ReferralForm extends Component {
         }
     }
 
+    _renderEditCancelButton(){
+
+        if (this.props.action === 'new'){
+            return(
+                <RaisedButton 
+                    label="Cancel" 
+                    primary={true} 
+                    style={style.uploadButton} 
+                    onClick={this.props._toggleShowNewReferralForm}
+                />
+            )
+        }
+        else
+        {
+
+        }
+    }
+
     render(){
         return(
             <div style={style}>
@@ -148,8 +167,9 @@ class ReferralForm extends Component {
                 >
 
                     <div style={style.referralOptions}>
+                        {this._renderEditCancelButton()}
                         <RaisedButton 
-                            label="Edit details" 
+                            label="Edit" 
                             primary={true} 
                             style={style.uploadButton} 
                             onClick={this._toggleIsEditable}
@@ -173,6 +193,7 @@ class ReferralForm extends Component {
                         hintText="Surname"
                         floatingLabelText="Surname"
                         defaultValue={this.props.action === 'update' ? this.props.referral.patientSurname : null}
+                        disabled={this.props.action==='update' ? this.state.isEditable : false}
                     />
 
                     <FormsyText
