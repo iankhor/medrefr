@@ -2,7 +2,6 @@ import React from 'react'
 
 class Profile extends React.Component {
 
-
   render() {
   const profile = this.props.profile
 

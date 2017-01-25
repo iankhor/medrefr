@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const style = {
     margin: 0,
@@ -6,7 +6,6 @@ const style = {
     padding: '6em',
     lineHeight: '1.5em',
     textAlign: 'center'
-
 }
 
 const AboutPage = (props) => {

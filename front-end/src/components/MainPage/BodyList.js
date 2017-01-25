@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-
+import React from 'react'
 
 // body components
 import Hero from './Hero'

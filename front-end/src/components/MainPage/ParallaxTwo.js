@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Parallax } from 'react-parallax';
 
 const style = {
     height: 300
-
-
 }
 
 const ParallaxTwo = (props) => {
