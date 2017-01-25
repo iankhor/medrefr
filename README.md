@@ -360,7 +360,7 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 
 ### Outstanding issues / bugs
 ================================
-/[ ... highlight outstanding issues ... /]  
+See [issues](https://github.com/iankhor/medrefr/issues) for existing issues / bugs
 
 [Return to overview](#overview)
 
