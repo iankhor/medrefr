@@ -36,6 +36,24 @@ router.get('/:id', function(req, res, next) {
 
 })
 
+router.patch('/:id', function(req, res, next) {
+    const { id } = req.params
+    const { body } = req
+    console.log('body:',req.body)
+
+    Referral.findByIdAndUpdate(id, body , {new: true})
+    .then( referral => {
+        res.json(referral) 
+        console.log(referral)
+    })
+    .catch( () => {
+        res.status(500).json({
+            message: "Error : Unable to create referral in db"
+        })
+    })
+
+})
+
 // Index: create one referral
 router.post('/create', function(req, res, next) {
     //to test post request with sample data
