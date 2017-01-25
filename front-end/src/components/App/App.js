@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './../../css/style.css'
 // import axios from 'axios'
 
-import { CreateReferral,
-         GetAllReferral } from './../../api/ReferralDB'
+import { createReferral,
+         fetchAllReferral,
+         updateReferral } from './../../api/ReferralDB'
 
 //App components
 import sampleReferrals from './_sample-referrals.js'
@@ -36,7 +37,7 @@ class App extends Component {
   }
 
   componentWillMount(){
-    let AllReferralsPromise = GetAllReferral()
+    let AllReferralsPromise = fetchAllReferral()
     AllReferralsPromise
     .then( allReferralsData => {
       // console.log('allReferralsData',allReferralsData)
@@ -57,22 +58,26 @@ class App extends Component {
     this.setState( { referrals } )
 
     //send to db
-    CreateReferral(referral)
+    createReferral(referral)
     
 
   }
 
     _updateReferral(key, referral) {
-    //update referral state 
     const referrals = {...this.state.referrals}
-    // console.log(key)
-    // console.log(this.state.referrals)
-    // console.log(JSON.stringify(referral,null,2))
+    //update referral state 
 
-    referrals[key] = referral
+    const currentReferral = referrals[key]
+    const updatedReferral = currentReferral
+    
+    Object.keys(referral).map( (index) => updatedReferral[index] = referral[index] )
 
     // //set state
+    console.log('updating - updatedReferral:',updatedReferral)
     this.setState( { referrals } )
+
+    // update db
+    updateReferral(updatedReferral)
 
   }
 

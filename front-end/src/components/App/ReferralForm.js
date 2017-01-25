@@ -114,19 +114,31 @@ class ReferralForm extends Component {
         switch (this.props.role) {
             case 'triage':
                 console.log('this is triage')
-                return <TriageStatusList />
+                return <TriageStatusList 
+                            action={this.props.action} 
+                            referralStatus={this.props.referral.referralStatus}
+                       />
 
             case 'gp':
                 console.log('this is gp')
-                return <GPStatusList />
+                return <GPStatusList 
+                            action={this.props.action} 
+                            referralStatus={this.props.referral.referralStatus}
+                       />
 
             case 'psychiatrist':
                 console.log('this is psychiatrist')
-                return <PsychiatristStatusList />
+                return <PsychiatristStatusList 
+                            action={this.props.action} 
+                            referralStatus={this.props.referral.referralStatus}
+                       />
             
             default:
                 console.log('defaulting to triage')
-                return <TriageStatusList />
+                return <TriageStatusList 
+                            action={this.props.action} 
+                            referralStatus={this.props.referral.referralStatus}
+                       />
         }
     }
 
