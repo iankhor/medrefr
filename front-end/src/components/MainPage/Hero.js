@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Parallax } from 'react-parallax';
 import RaisedButton from 'material-ui/RaisedButton';
-
 
 const style = {
     margin: '100px',
