@@ -51,10 +51,15 @@ const style = {
 }
 
 class ReferralForm extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this._processReferral = this._processReferral.bind(this)
         this._renderStatusList = this._renderStatusList.bind(this)
+        this._toggleIsEditable = this._toggleIsEditable.bind(this)
+
+        this.state = {
+            isEditable: false
+        }
     }
 
     _processReferral(data, action) {
@@ -107,6 +112,11 @@ class ReferralForm extends Component {
 
     }
 
+    _toggleIsEditable() {
+        this.setState({ isEditable: !this.state.isEditable })
+        console.log('isEditable : ', this.state.isEditable)
+    }
+
     _renderStatusList() {
         console.log('statusList role', this.props.role)
         switch (this.props.role) {
@@ -142,11 +152,12 @@ class ReferralForm extends Component {
                             label="Edit details" 
                             primary={true} 
                             style={style.uploadButton} 
+                            onClick={this._toggleIsEditable}
                         />
 
                         <RaisedButton
                             type="submit"
-                            label={this.props.action === 'update' ? 'Update' : 'Submit new referral'}
+                            label={this.props.action === 'update' ? 'Update' : 'Submit'}
                         />
 
                     </div>
