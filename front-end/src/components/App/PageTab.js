@@ -3,18 +3,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import ReferralDashboard from './ReferralDashboard'
 import Profile from './Profile'
-
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
-  },
-  slide: {
-    padding: 10,
-  },
-};
+import JSONDebugger from './../../utils/JSONDebugger'
 
 export default class PageTab extends React.Component {
 
@@ -45,18 +34,19 @@ export default class PageTab extends React.Component {
           index={this.state.slideIndex}
           onChangeIndex={this.handleChange}
         >
-          <div>
-            <ReferralDashboard 
-              referrals={this.props.referrals} 
-              _addReferral={this.props._addReferral} 
-              _updateReferral={this.props._updateReferral} 
 
-            />
-          </div>
-          <div style={styles.slide}>
-            <Profile />
-          </div>
+          <ReferralDashboard 
+            profile={this.props.profile}
+            referrals={this.props.referrals} 
+            _addReferral={this.props._addReferral} 
+            _updateReferral={this.props._updateReferral} 
+
+          />
+
+          <Profile />
+
         </SwipeableViews>
+        <JSONDebugger json={this.props.profile}/>
       </div>
     );
   }

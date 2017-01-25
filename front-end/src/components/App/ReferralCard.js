@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReferralForm from './ReferralForm'
+import getStatusIcon from './StatusIcon'
 
 import { Card, 
          CardHeader, 
@@ -106,11 +107,15 @@ class ReferralCard extends Component {
         const dateOfBirth = ( this.props.action === "new" ) ? "" :
                             this.props.referral.dateOfBirth
 
-        const avatar = ( this.props.action === "new" ) ? "" :
-                       this.props.referral.imgProfile
+        const avatar = ( this.props.action === "new" ) ?  
+                       getStatusIcon('pending') : getStatusIcon(this.props.referral.referralStatus) 
 
         return(
-           <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={style.card}>
+           <Card 
+                expanded={this.props.action === "new" ? true : this.state.expanded} 
+                onExpandChange={this.handleExpandChange} 
+                style={style.card}>
+
                 <CardHeader
                     title={patientName}
                     subtitle={dateOfBirth}
@@ -129,10 +134,10 @@ class ReferralCard extends Component {
                             _addReferral={this.props._addReferral}
                             _toggleShowNewReferralForm={this.props._toggleShowNewReferralForm}
                             action={this.props.action}
+                            role={this.props.role}
                         />
                     </Paper>
                 </CardText>
-
             </Card>
         )
     }

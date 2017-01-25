@@ -2,12 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
 
-const errorMessages = {
-    wordsError: "Please only use letters",
-    numericError: "Please provide a number",
-    urlError: "Please provide a valid URL"
-  }
-
   const style = {
       referralOptions :{
           display: 'flex',

@@ -1,55 +1,60 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import { FormsyDate,
-         FormsySelect,
+import getStatusIcon from './StatusIcon'
+
+import { TriageStatusList,
+         GPStatusList,
+         PsychiatristStatusList }  from './StatusList'
+
+import { FormsySelect,
          FormsyText,
-         FormsyTime,
          FormsyToggle } from 'formsy-material-ui/lib'
 
 import { RaisedButton,
          MenuItem     } from 'material-ui'
 
-  const style = {
-      referralOptions :{
-          display: 'flex',
-        //   justifyContent: 'space-between',
-          alignItems: 'center',
-      },
-      uploadButton :{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-      },
-      card :{
-          marginBottom : 15
-      },
-      cardActions :{
-          textAlign: 'right'
-      },
-      paperStyle: {
-      //   width: 300,
-        margin: 'auto',
-        padding: 20,
-      },
-      switchStyle: {
-        marginBottom: 16,
-      },
-      submitStyle: {
-        marginTop: 32,
-      },
-      chip: {
-          margin: 4,
-      },
-      wrapper: {
-          display: 'flex',
-          flexWrap: 'wrap',
-        }
-  }
+const style = {
+    referralOptions :{
+        display: 'flex',
+    //   justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    uploadButton :{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    card :{
+        marginBottom : 15
+    },
+    cardActions :{
+        textAlign: 'right'
+    },
+    paperStyle: {
+    //   width: 300,
+    margin: 'auto',
+    padding: 20,
+    },
+    switchStyle: {
+    marginBottom: 16,
+    },
+    submitStyle: {
+    marginTop: 32,
+    },
+    chip: {
+        margin: 4,
+    },
+    wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    }
+}
 
 class ReferralForm extends Component {
     constructor(){
         super()
         this._processReferral = this._processReferral.bind(this)
+        this._renderStatusList = this._renderStatusList.bind(this)
     }
 
     _processReferral(data, action) {
@@ -102,6 +107,27 @@ class ReferralForm extends Component {
 
     }
 
+    _renderStatusList() {
+        console.log('statusList role', this.props.role)
+        switch (this.props.role) {
+            case 'triage':
+                console.log('this is triage')
+                return <TriageStatusList />
+
+            case 'gp':
+                console.log('this is gp')
+                return <GPStatusList />
+
+            case 'psychiatrist':
+                console.log('this is psychiatrist')
+                return <PsychiatristStatusList />
+            
+            default:
+                console.log('defaulting to triage')
+                return <TriageStatusList />
+        }
+    }
+
     render(){
         return(
             <div style={style}>
@@ -127,19 +153,7 @@ class ReferralForm extends Component {
                 
 
                     <h1>Referral status</h1>
-                    <FormsySelect
-                        name="referralStatus"
-                        floatingLabelText="Status"
-                        value={this.props.action === 'update' ? this.props.referral.referralStatus : null}
-                    >
-                        <MenuItem value={'accepted'} primaryText="Accepted" />
-                        <MenuItem value={'assigned'} primaryText="Assigned" />
-                        <MenuItem value={'declined'} primaryText="Declined" />
-                        <MenuItem value={'withdrawn'} primaryText="Withdrawn" />
-                        <MenuItem value={'rejected'} primaryText="Rejected" />
-                        <MenuItem value={'completed'} primaryText="Completed" />
-                        <MenuItem value={'noShow'} primaryText="No show" />
-                    </FormsySelect>
+                    {this._renderStatusList()}
 
                     {/* patient data form below */}
                     <h1>Patient Data</h1>

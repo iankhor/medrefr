@@ -13,8 +13,9 @@ Overview
     * [Design](#design)
     * [Build](#build)
     * [Comparison](#concept-design-build-comparison)
-* [Work flow](#work-flow)
 * [Technology stack](#technology-stack)
+* [UX: User flow diagram](#ux-user-flow-diagram)
+* [UX: Referral lifecycle diagram](#ux-referral-lifecycle-diagram)
 * [Front-end: React component hierarchy diagram](#front-end-react-component-hierarchy-diagram)
 * [Back-end: MongoDB schema design](#back-end-mongodb-schema-design)
 * [Notable package, services and tools used](#notable-packages-services-tools-used)
@@ -36,6 +37,7 @@ Project brief
 \[ ... insert 150 charcter summary \]
 \[ ... team members : ian & sharon (include github profile link) \]
 
+[Return to overview](#overview)
 
 Business problem
 =======
@@ -46,6 +48,8 @@ Business problem
 * receives referrals via fax from GPs
 * uses MS Excel to assign patient to specialists
 
+[Return to overview](#overview)
+
 Solution
 ========
 * single Platform
@@ -54,6 +58,8 @@ Solution
   * GP : submits a referrals
   * Speciliast : signs up to be on the panel
   * Triage officer : assigns referrals to appropriate specialists
+
+[Return to overview](#overview)
 
 User stories
 ============
@@ -95,6 +101,8 @@ Patients
 --------
 1. As a patient, I am able to see the 'emergencies' and 'contact us' details on the main page (or near landing page section) without the need to search the page for it, so that I can quickly get assistance when accessing the webpage.
 
+[Return to overview](#overview)
+
 Concept, Design and build
 =========================
 
@@ -126,10 +134,7 @@ Concept, Design Build comparison
 ================================
 ![Comparison](https://github.com/iankhor/files/blob/master/MedReFR/05%20.%20Wireferame%20-%20Concept%20Design%20Build%20comparison.jpg)
 
-
-Workflow
-========
-\[ ... TO BE ADDED ... \]  
+[Return to overview](#overview)
 
 Technology stack
 ========
@@ -141,10 +146,29 @@ Back-end:
 * Express.js
 * Node.js  
 
+[Return to overview](#overview)
+
+UX: User flow diagram
+=====================================
+/[ .. text to explain user flow diagram/]
+![User flow diagram](https://github.com/iankhor/files/blob/master/MedReFR/15.%20MedReFR%20UX%20-%20User%20Flow%20V1.0.jpg)
+
+[Return to overview](#overview)
+
+UX: Referral lifecycle diagram
+=====================================
+/[ .. text to explain the referral status matrix and lifecycle diagram/]
+![Referral Status Matrix](https://github.com/iankhor/files/blob/master/MedReFR/14.%20Referral%20status%20matrix.png)
+![Referral Lifecycle Diagram](https://github.com/iankhor/files/blob/master/MedReFR/13.%20Referral%20lifecycle%20diagram.jpg)
+
+[Return to overview](#overview)
+
 Front-end: React component hierarchy diagram
 ===============================================
 /[ .. some explanation of the design ... \]   
 ![Component Hierarchy Diagram](https://github.com/iankhor/files/blob/master/MedReFR/12.%20Component%20Hierarchy%20DiagramV1.3.jpg)
+
+[Return to overview](#overview)
 
 Back-end: MongoDB schema design
 ===================================
@@ -204,8 +228,7 @@ role| String
 createdAt| Date, Date.now
 assignedUserID| ObjectID
 
-
-
+[Return to overview](#overview)
 
 Notable packages, services, tools used
 ===========================================
@@ -219,6 +242,8 @@ Notable packages, services, tools used
 * [sketch](https://www.sketchapp.com)
 * [trello](https://trello.com)
 
+[Return to overview](#overview)
+
 Style Guide
 ===========
 \[... colors/font theme to be used were ...\]  
@@ -229,10 +254,13 @@ CSS frawework
 
 Color
 -----
-1. ![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201) Primary: RGB(49, 86, 63) / #315685 
-2. ![Secondary 1](https://github.com/iankhor/files/blob/master/MedReFR/07.%20Styleguide%20-%20Secondary%20color%201) Secondary 1: RGB(66, 179, 229)/ #42B3E5
-3. ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202) Secondary 2: RGB(32, 32, 32)/ #202020 
-4. ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201) Font: RGB(144,144,144) / #909090 
+
+Item | Color | RGB | HEX  
+---: | -----:| ---:| ---
+Primary 1 | ![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201.png) | (49, 86, 63) | #315685   
+Secondary 1 | ![Secondary 1](https://github.com/iankhor/files/blob/master/MedReFR/07.%20Styleguide%20-%20Secondary%20color%201.png) | (66, 179, 229) | #42B3E5
+Secondary 2 | ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202%20copy.png) | (32, 32, 32) | #202020 
+Font | ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201%20copy.png) | (144,144,144) | #909090 
 
 Font type
 ----
@@ -243,6 +271,8 @@ Code Style
 ----------
 1. Custom methods (non-lifecycle methods) in each React class must begin with an underscore ie : ```_thisMethod(a , b)``` 
 2. \[ insert more code style \]  
+
+[Return to overview](#overview)
 
 Installation / Setup / Deployment
 =================================
@@ -319,15 +349,23 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 11. Once the build process has completed, visit `https://medrefr.herokuapp.com/`
 
 
+[Return to overview](#overview)
+
 ### Project management in Trello
 ================================
 /[ .. bla bla used trello for PM /]  
 /[ .. insert link to trello ... /]  
 
+[Return to overview](#overview)
+
 ### Outstanding issues / bugs
 ================================
 /[ ... highlight outstanding issues ... /]  
 
+[Return to overview](#overview)
+
 ### Final web app link
 ================================
 [MedReFR (Click here)](https://medrefr.herokuapp.com)
+
+[Return to overview](#overview)
