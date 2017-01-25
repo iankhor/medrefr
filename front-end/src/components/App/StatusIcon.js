@@ -25,9 +25,6 @@ export default function getStatusIcon(status) {
       case 'noShow':
         return noshow
       
-      case 'noShow':
-        return noshow
-      
       case 'declined':
         return declined
       

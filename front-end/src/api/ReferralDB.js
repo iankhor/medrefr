@@ -17,13 +17,14 @@ export function GetAllReferral(){
     console.log('getting referral from backend')
     const getAllReferralLink = process.env.REACT_APP_API_URL + '/referral/all'
 
-    axios.get(getAllReferralLink)
+    let ReferralPromise = axios.get(getAllReferralLink)
     .then( allReferrals => {
-        // console.log('type of : ', typeof allReferrals.data)
+        // console.log('type of : ', allReferrals.data)
         return allReferrals.data
-
     })
     .catch( (error) => {
       error.response ? console.log(error.response.data) : console.log('Error', error.message)
     })
+
+    return ReferralPromise
 }

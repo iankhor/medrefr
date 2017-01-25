@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../../css/style.css'
-import axios from 'axios'
+// import axios from 'axios'
 
 import { CreateReferral,
          GetAllReferral } from './../../api/ReferralDB'
@@ -36,26 +36,12 @@ class App extends Component {
   }
 
   componentWillMount(){
-    // commented off temporarily
-    // let AllReferrals = GetAllReferral()
-
-    //// Commented Code below works if its inside App.js
-    console.log('getting referral from backend')
-    const getAllReferralLink = process.env.REACT_APP_API_URL + '/referral/all'
-
-    axios.get(getAllReferralLink)
-    .then( allReferrals => {
-        // console.log('type of : ', typeof allReferrals.data)
-        let AllReferrals = allReferrals.data
-        console.log(AllReferrals)
-        this.setState( { referrals: AllReferrals.referrals || {} })
-
+    let AllReferralsPromise = GetAllReferral()
+    AllReferralsPromise
+    .then( allReferralsData => {
+      // console.log('allReferralsData',allReferralsData)
+      this.setState( { referrals: allReferralsData.referrals } )
     })
-    .catch( (error) => {
-      error.response ? console.log(error.response.data) : console.log('Error', error.message)
-    })
-
-
   }
 
   _addReferral(referral) {
