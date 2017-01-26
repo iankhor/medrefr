@@ -112,8 +112,6 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={medrefrTheme}>
         <div>
-            {/* temp onscreen redirection */}
-            <DebugTempLink />
             <Header />
 
             {/* temp temp load static data button */}
