@@ -13,7 +13,7 @@ const style = {
 export default class ToolbarExamplesSimple extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: 3,
@@ -26,12 +26,22 @@ export default class ToolbarExamplesSimple extends React.Component {
   noAccount = (event) => this.setState({loginMode: false});
   yesAccount = (event) => this.setState({loginMode: true});
 
+  _setIsLoggedIn = (state) => { 
+    this.setState( { isLoggedIn: state } ) 
+    console.log('Toolbar isLoggedin : ', this.state.isLoggedIn)
+  }
+
+  _handleSignOut = () => {
+    auth.logout() 
+    this.setState( { isLoggedIn: false } ) 
+  }
+
   _renderSignOutButton = () => {
       return(
         <RaisedButton
             type="button"
             label="Signout"
-            onClick={ auth.logout }
+            onClick={ this._handleSignOut }
         />
       )
   }
@@ -46,7 +56,7 @@ export default class ToolbarExamplesSimple extends React.Component {
           >
             {
               this.state.loginMode ?
-              <LoginForm onNoAccount={this.noAccount} /> :
+              <LoginForm onNoAccount={this.noAccount} _setIsLoggedIn={this._setIsLoggedIn} /> :
               <SignUpForm onYesAccount={this.yesAccount}  onChangeValid={() => {}} />
             }
           </ModalDialog>
@@ -66,11 +76,7 @@ export default class ToolbarExamplesSimple extends React.Component {
         </ToolbarGroup>
 
         <ToolbarGroup>
-
-          
           {this.state.isLoggedIn ? this._renderSignOutButton() : this._renderLoginSignInModal()}
-
-
         </ToolbarGroup>
 
       </Toolbar>
