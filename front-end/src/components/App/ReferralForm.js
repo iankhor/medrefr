@@ -134,10 +134,10 @@ class ReferralForm extends Component {
                        />
             
             default:
-                console.log('defaulting to triage')
+                console.log('defaulting to triage & pending')
                 return <TriageStatusList 
                             action={this.props.action} 
-                            referralStatus={this.props.referral.referralStatus}
+                            referralStatus={'pending'}
                        />
         }
     }

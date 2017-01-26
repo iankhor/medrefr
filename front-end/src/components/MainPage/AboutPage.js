@@ -13,9 +13,9 @@ const AboutPage = (props) => {
     <div className="generic-center" style={style}>
         <h1>About</h1>
         <br />
-        <p>Conduit Health is a Telepsychiatry and Telehealth service founded in 2014.</p>
+        <p><strong>MedReFR</strong> is a Telepsychiatry and Telehealth service founded in 2014.</p>
         <br />
-        <p>Conduit Health aims to deliver specialist health care in an effective,
+        <p><strong>MedReFR</strong> aims to deliver specialist health care in an effective,
           convenient and readily accessible way for the general population,
           whilst providing additional support for primary care physicians. </p>
         <br />

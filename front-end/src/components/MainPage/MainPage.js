@@ -16,11 +16,6 @@ class MainPage extends Component {
         return(
             <MuiThemeProvider muiTheme={medrefrTheme}>
                 <div className="Header">
-                    <strong>STILL IN DEVELOPMENT</strong>
-
-                    {/* temp onscreen redirection */}
-                    <DebugTempLink />
-
                     <Header />
                     <BodyList />
                     <Footer />

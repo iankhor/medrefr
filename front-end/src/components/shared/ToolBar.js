@@ -1,19 +1,22 @@
-import React from 'react';
+import React , { Component, PropTypes }from 'react';
 import ModalDialog from '../App/ModalDialog';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
-import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
-import { RaisedButton } from 'material-ui'
 import auth from './../../api/initAuth'
+import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
+import { IconButton,
+         IconMenu,
+         MenuItem } from 'material-ui'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 
 const style = {
   margin: 16,
 }
 
-export default class ToolbarExamplesSimple extends React.Component {
+export default class MainToolbar extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: 3,
@@ -26,13 +29,28 @@ export default class ToolbarExamplesSimple extends React.Component {
   noAccount = (event) => this.setState({loginMode: false});
   yesAccount = (event) => this.setState({loginMode: true});
 
+  _setIsLoggedIn = (state) => { 
+    this.setState( { isLoggedIn: state } ) 
+    console.log('Toolbar isLoggedin : ', this.state.isLoggedIn)
+  }
+
+  _handleSignOut = () => {
+    auth.logout() 
+    this.setState( { isLoggedIn: false } ) 
+    this.context.router.transitionTo('/')
+  }
+
   _renderSignOutButton = () => {
       return(
-        <RaisedButton
-            type="button"
-            label="Signout"
-            onClick={ auth.logout }
-        />
+          <IconMenu
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          >
+          <MenuItem primaryText="Home" onTouchTap={ () => {this.context.router.transitionTo('/')} } />
+          <MenuItem primaryText="Referral Dashboard" onTouchTap={ () => {this.context.router.transitionTo('/ReferralDashBoard')} }/>
+          <MenuItem primaryText="Sign out" onTouchTap={ this._handleSignOut }/>
+        </IconMenu>
       )
   }
 
@@ -46,7 +64,7 @@ export default class ToolbarExamplesSimple extends React.Component {
           >
             {
               this.state.loginMode ?
-              <LoginForm onNoAccount={this.noAccount} /> :
+              <LoginForm onNoAccount={this.noAccount} _setIsLoggedIn={this._setIsLoggedIn} /> :
               <SignUpForm onYesAccount={this.yesAccount}  onChangeValid={() => {}} />
             }
           </ModalDialog>
@@ -66,14 +84,15 @@ export default class ToolbarExamplesSimple extends React.Component {
         </ToolbarGroup>
 
         <ToolbarGroup>
-
-          
           {this.state.isLoggedIn ? this._renderSignOutButton() : this._renderLoginSignInModal()}
-
-
         </ToolbarGroup>
 
       </Toolbar>
     );
   }
+
+}
+
+MainToolbar.contextTypes = {
+    router: PropTypes.object
 }

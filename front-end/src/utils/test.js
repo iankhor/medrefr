@@ -1,1 +1,0 @@
-import getTest from './axiosHelper'

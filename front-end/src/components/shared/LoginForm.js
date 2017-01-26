@@ -61,8 +61,8 @@ class LoginForm extends Component {
   login = (data) => { 
     const { email, password } = data
     auth.login(email, password)
-    console.log('transitiong to /ReferralDashBoard')
-    this.context.router.transitionTo('/ReferralDashBoard')
+    this.props._setIsLoggedIn(true)
+    // this.context.router.transitionTo('/ReferralDashBoard')
   }
 
 

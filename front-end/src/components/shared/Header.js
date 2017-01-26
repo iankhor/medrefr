@@ -12,7 +12,7 @@ class Header extends Component {
         return(
           <div className="App-header" >
             {/* <img src={logo} className="App-logo" alt="logo" /> */}
-            <ToolBar title="MedRefr"/>
+            <ToolBar title="MedReFR"/>
             {/* <h2>Welcome to MedRefer powered by React and Material UI</h2>
             <p>Telehealth for Psychiatry</p> */}
           </div>
