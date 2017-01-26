@@ -2,9 +2,7 @@ import React, { Component, PropTypes , PropTypes as T  } from 'react'
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
 import { RaisedButton } from 'material-ui'
-import AuthService from './../../api/AuthService'
-
-const auth = new AuthService(process.env.REACT_APP_AUTH_CLIENT_ID, process.env.REACT_APP_AUTH_DOMAIN_ADDRESS)
+import auth from './../../api/initAuth'
 
 const style = {
     referralOptions :{
@@ -44,12 +42,6 @@ const style = {
 }
 
 class LoginForm extends Component {
-
-  static propTypes={
-    onNoAccount: PropTypes.func.isRequired,
-    // auth: T.instanceOf(AuthService)
-  }
-
   constructor(props) {
       super(props)
       this.enableButton = this.enableButton.bind(this)
@@ -70,7 +62,6 @@ class LoginForm extends Component {
     const { email, password } = data
     // console.log('auth',auth)
     auth.login(email, password)
-
   }
 
 

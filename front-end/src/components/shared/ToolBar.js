@@ -3,14 +3,23 @@ import ModalDialog from '../App/ModalDialog';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
+import auth from './../../api/initAuth'
+
+
+const style = {
+  margin: 16,
+}
+
 
 export default class ToolbarExamplesSimple extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       value: 3,
       loginMode: true,
+      isLoggedIn: auth.loggedIn()
     };
   }
 
@@ -19,10 +28,7 @@ export default class ToolbarExamplesSimple extends React.Component {
   yesAccount = (event) => this.setState({loginMode: true});
 
   render() {
-
-    const style = {
-      margin: 16,
-    }
+    console.log('isLoggedIn',this.state.isLoggedIn)
 
     const { loginMode } = this.state
     // const loginMode = this.state.loginMode
@@ -41,8 +47,8 @@ export default class ToolbarExamplesSimple extends React.Component {
             onOpen={this.yesAccount}>
             {
               loginMode ?
-              <LoginForm onNoAccount={this.noAccount} /> :
-              <SignUpForm onYesAccount={this.yesAccount} onChangeValid={() => {}} />
+              <LoginForm onNoAccount={this.noAccount} auth={this.auth} /> :
+              <SignUpForm onYesAccount={this.yesAccount} auth={this.auth} onChangeValid={() => {}} />
             }
           </ModalDialog>
         </ToolbarGroup>
