@@ -1,4 +1,4 @@
-import React, { Component, PropTypes , PropTypes as T  } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
 import { RaisedButton } from 'material-ui'
@@ -109,7 +109,7 @@ class LoginForm extends Component {
 }
 
 LoginForm.contextTypes = {
-    router: React.PropTypes.object
+    router: PropTypes.object
 }
 
 export default LoginForm

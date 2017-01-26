@@ -6,11 +6,9 @@ import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
 import { RaisedButton } from 'material-ui'
 import auth from './../../api/initAuth'
 
-
 const style = {
   margin: 16,
 }
-
 
 export default class ToolbarExamplesSimple extends React.Component {
 

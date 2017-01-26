@@ -1,6 +1,5 @@
 import { EventEmitter } from 'events'
 import { isTokenExpired } from './jwtHelper'
-import { router } from 'react-router'
 import auth0 from 'auth0-js'
 
 export default class AuthService extends EventEmitter {
