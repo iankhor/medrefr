@@ -2,9 +2,12 @@ import React from 'react';
 import ModalDialog from '../App/ModalDialog';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
-import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
-import { RaisedButton } from 'material-ui'
 import auth from './../../api/initAuth'
+import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
+import { IconButton,
+         IconMenu,
+         MenuItem } from 'material-ui'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 
 const style = {
   margin: 16,
@@ -36,13 +39,19 @@ export default class ToolbarExamplesSimple extends React.Component {
     this.setState( { isLoggedIn: false } ) 
   }
 
+  _handleChange = (event, index, value) => this.setState({value});
+
   _renderSignOutButton = () => {
       return(
-        <RaisedButton
-            type="button"
-            label="Signout"
-            onClick={ this._handleSignOut }
-        />
+          <IconMenu
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          >
+          <MenuItem primaryText="Home" />
+          <MenuItem primaryText="Referral Dashboard" />
+          <MenuItem primaryText="Sign out" onClick={ this._handleSignOut }/>
+        </IconMenu>
       )
   }
 
