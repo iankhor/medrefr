@@ -38,6 +38,23 @@ export default class ToolbarExamplesSimple extends React.Component {
       )
   }
 
+  _renderLoginSignInModal = () => {
+      return(
+        <ModalDialog
+            label="Log In / Sign Up"
+            title={this.state.loginMode ? "Log In" : "Sign Up"}
+            onOpen={this.yesAccount}
+            isLoggedIn={this.state.isLoggedIn}
+          >
+            {
+              this.state.loginMode ?
+              <LoginForm onNoAccount={this.noAccount} /> :
+              <SignUpForm onYesAccount={this.yesAccount}  onChangeValid={() => {}} />
+            }
+          </ModalDialog>
+      )
+  }
+
   render() {
     console.log('isLoggedIn',this.state.isLoggedIn)
 
@@ -52,20 +69,9 @@ export default class ToolbarExamplesSimple extends React.Component {
 
         <ToolbarGroup>
 
-          <ModalDialog
-            label="Log In / Sign Up"
-            title={loginMode ? "Log In" : "Sign Up"}
-            onOpen={this.yesAccount}
-            isLoggedIn={this.state.isLoggedIn}
-          >
-            {
-              loginMode ?
-              <LoginForm onNoAccount={this.noAccount} /> :
-              <SignUpForm onYesAccount={this.yesAccount}  onChangeValid={() => {}} />
-            }
-          </ModalDialog>
+          
+          {this.state.isLoggedIn ? this._renderSignOutButton() : this._renderLoginSignInModal()}
 
-          {this.state.isLoggedIn ? this._renderSignOutButton() : null}
 
         </ToolbarGroup>
 
