@@ -7,7 +7,9 @@ class Profile extends React.Component {
 
     return(
       <div>
-        Surname: {profile.Surname}
+        <p>
+          Surname: {profile.Surname}
+        </p>
       </div>
     )
   }
