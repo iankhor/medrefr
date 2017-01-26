@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { Component, PropTypes }from 'react';
 import ModalDialog from '../App/ModalDialog';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
@@ -13,7 +13,7 @@ const style = {
   margin: 16,
 }
 
-export default class ToolbarExamplesSimple extends React.Component {
+export default class MainToolbar extends Component {
 
   constructor(props) {
     super(props)
@@ -37,9 +37,8 @@ export default class ToolbarExamplesSimple extends React.Component {
   _handleSignOut = () => {
     auth.logout() 
     this.setState( { isLoggedIn: false } ) 
+    this.context.router.transitionTo('/')
   }
-
-  _handleChange = (event, index, value) => this.setState({value});
 
   _renderSignOutButton = () => {
       return(
@@ -48,9 +47,9 @@ export default class ToolbarExamplesSimple extends React.Component {
             anchorOrigin={{horizontal: 'left', vertical: 'top'}}
             targetOrigin={{horizontal: 'left', vertical: 'top'}}
           >
-          <MenuItem primaryText="Home" />
-          <MenuItem primaryText="Referral Dashboard" />
-          <MenuItem primaryText="Sign out" onClick={ this._handleSignOut }/>
+          <MenuItem primaryText="Home" onTouchTap={ () => {this.context.router.transitionTo('/')} } />
+          <MenuItem primaryText="Referral Dashboard" onTouchTap={ () => {this.context.router.transitionTo('/ReferralDashBoard')} }/>
+          <MenuItem primaryText="Sign out" onTouchTap={ this._handleSignOut }/>
         </IconMenu>
       )
   }
@@ -91,4 +90,9 @@ export default class ToolbarExamplesSimple extends React.Component {
       </Toolbar>
     );
   }
+
+}
+
+MainToolbar.contextTypes = {
+    router: PropTypes.object
 }
