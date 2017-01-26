@@ -43,7 +43,7 @@ class ReferralDashboard extends Component {
 
     _toggleShowNewReferralForm(){
         this.setState( { showNewReferralForm : !this.state.showNewReferralForm })
-        console.log('new form toggle', this.state.showNewReferralForm)
+        // console.log('new form toggle', this.state.showNewReferralForm)
     }
 
     _renderNewReferralForm(){

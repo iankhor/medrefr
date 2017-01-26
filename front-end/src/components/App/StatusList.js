@@ -4,11 +4,13 @@ import { MenuItem } from 'material-ui'
 
 class TriageStatusList extends Component {
     render(){
+        console.log('statuslist action',this.props.action)
+        console.log('statuslist status',this.props.referralStatus)
         return(
           <FormsySelect
               name="referralStatus"
               floatingLabelText="Status"
-              value={this.props.action === 'update' ? this.props.value : null}
+              value={this.props.action === 'update' ? this.props.referralStatus : null}
           >
                     <MenuItem value={'accepted'} primaryText="Accepted" />
                     <MenuItem value={'assigned'} primaryText="Assigned" />

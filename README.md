@@ -28,7 +28,7 @@ Overview
   * [Setup procedure](#setup-procedure)
   * [Deployment(optional)](#deployment-optional)
 * [Project management in Trello](#project-management-in-trello)
-* [Outstanding issues / bugs](#outstanding-isses-bugs)
+* [Outstanding issues](#outstanding-issues)
 * [Final web app link](#final-web-app-link)
 
 
@@ -358,9 +358,9 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 
 [Return to overview](#overview)
 
-### Outstanding issues / bugs
+### Outstanding issues
 ================================
-/[ ... highlight outstanding issues ... /]  
+See [issues](https://github.com/iankhor/medrefr/issues) for existing issues / bugs
 
 [Return to overview](#overview)
 

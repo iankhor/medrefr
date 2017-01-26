@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import getStatusIcon from './StatusIcon'
+// import getStatusIcon from './StatusIcon'
 
 import { TriageStatusList,
          GPStatusList,
@@ -15,9 +15,7 @@ import { RaisedButton,
 
 const style = {
     referralOptions :{
-        display: 'flex',
-    //   justifyContent: 'space-between',
-        alignItems: 'center',
+        textAlign: 'center'
     },
     uploadButton :{
         display: 'flex',
@@ -56,6 +54,7 @@ class ReferralForm extends Component {
         this._processReferral = this._processReferral.bind(this)
         this._renderStatusList = this._renderStatusList.bind(this)
         this._toggleIsEditable = this._toggleIsEditable.bind(this)
+        this._renderEditCancelButton = this._renderEditCancelButton.bind(this)
 
         this.state = {
             isEditable: false
@@ -95,13 +94,6 @@ class ReferralForm extends Component {
                 referralAppointmentPeriod:    data.referralAppointmentPeriod,
             }
         
-        // console.log(JSON.stringify(referral,null,2))
-        // console.log('adding a referral')
-
-        // this.props.action === 'update' ? 
-        // this.props._updateReferral(this.props.index, referral) : 
-        // ( this.props._addReferral(referral), this.props._toggleShowNewReferralForm() )
-
         if (this.props.action === 'update'){
             this.props._updateReferral(this.props.index, referral)
         } 
@@ -122,19 +114,54 @@ class ReferralForm extends Component {
         switch (this.props.role) {
             case 'triage':
                 console.log('this is triage')
-                return <TriageStatusList />
+                return <TriageStatusList 
+                            action={this.props.action} 
+                            referralStatus={this.props.referral.referralStatus}
+                       />
 
             case 'gp':
                 console.log('this is gp')
-                return <GPStatusList />
+                return <GPStatusList 
+                            action={this.props.action} 
+                            referralStatus={this.props.referral.referralStatus}
+                       />
 
             case 'psychiatrist':
                 console.log('this is psychiatrist')
-                return <PsychiatristStatusList />
+                return <PsychiatristStatusList 
+                            action={this.props.action} 
+                            referralStatus={this.props.referral.referralStatus}
+                       />
             
             default:
                 console.log('defaulting to triage')
-                return <TriageStatusList />
+                return <TriageStatusList 
+                            action={this.props.action} 
+                            referralStatus={this.props.referral.referralStatus}
+                       />
+        }
+    }
+
+    _renderEditCancelButton(){
+
+        if (this.props.action === 'new'){
+            return(
+                <RaisedButton 
+                    label="Cancel" 
+                    primary={true} 
+                    onClick={this.props._toggleShowNewReferralForm}
+                />
+            )
+        }
+        else
+        {
+            return(
+                <RaisedButton 
+                    label="Edit" 
+                    primary={true} 
+                    onClick={this._toggleIsEditable}
+                />
+            )
         }
     }
 
@@ -148,20 +175,13 @@ class ReferralForm extends Component {
                 >
 
                     <div style={style.referralOptions}>
-                        <RaisedButton 
-                            label="Edit details" 
-                            primary={true} 
-                            style={style.uploadButton} 
-                            onClick={this._toggleIsEditable}
-                        />
+                        {this._renderEditCancelButton()}
 
                         <RaisedButton
                             type="submit"
                             label={this.props.action === 'update' ? 'Update' : 'Submit'}
                         />
-
                     </div>
-                
 
                     <h1>Referral status</h1>
                     {this._renderStatusList()}
@@ -173,6 +193,7 @@ class ReferralForm extends Component {
                         hintText="Surname"
                         floatingLabelText="Surname"
                         defaultValue={this.props.action === 'update' ? this.props.referral.patientSurname : null}
+                        disabled={this.props.action==='update' ? this.state.isEditable : false}
                     />
 
                     <FormsyText
