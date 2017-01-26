@@ -60,8 +60,9 @@ class LoginForm extends Component {
 
   login = (data) => { 
     const { email, password } = data
-    // console.log('auth',auth)
     auth.login(email, password)
+    console.log('transitiong to /ReferralDashBoard')
+    this.context.router.transitionTo('/ReferralDashBoard')
   }
 
 
@@ -105,6 +106,10 @@ class LoginForm extends Component {
         <p>Don't have an account? Sign up <a onClick={this.props.onNoAccount} href="#">here</a></p>
       </div>
   )};
+}
+
+LoginForm.contextTypes = {
+    router: React.PropTypes.object
 }
 
 export default LoginForm

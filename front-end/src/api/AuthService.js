@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events'
 import { isTokenExpired } from './jwtHelper'
-import { browserHistory } from 'react-router'
+import { router } from 'react-router'
 import auth0 from 'auth0-js'
 
 export default class AuthService extends EventEmitter {
@@ -59,7 +59,8 @@ export default class AuthService extends EventEmitter {
     this.auth0.parseHash({ hash }, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setToken(authResult.accessToken, authResult.idToken)
-        browserHistory.replace('/home')
+        console.log('AuthService parseHash : code to transition to /')
+        // browserHistory.replace('/home')
         this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
           if (error) {
             console.log('Error loading the Profile', error)
