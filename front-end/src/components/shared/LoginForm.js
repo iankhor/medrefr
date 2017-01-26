@@ -1,6 +1,9 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes , PropTypes as T  } from 'react'
 import Formsy from 'formsy-react'
 import { FormsyText } from 'formsy-material-ui/lib'
+import { RaisedButton } from 'material-ui'
+import AuthService from './../../api/AuthService'
+
 
   const style = {
       referralOptions :{
@@ -42,7 +45,8 @@ import { FormsyText } from 'formsy-material-ui/lib'
 class LoginForm extends Component {
 
   static propTypes={
-    onNoAccount: PropTypes.func.isRequired
+    onNoAccount: PropTypes.func.isRequired,
+    auth: T.instanceOf(AuthService)
   }
 
   constructor(props) {
@@ -57,21 +61,10 @@ class LoginForm extends Component {
       }
   }
 
-  disableButton = () => {
-      this.setState({canSubmit: false})
-  }
-
-  enableButton = () => {
-      this.setState({canSubmit: true})
-  }
-
-  submitForm = (data) => {
-      alert(JSON.stringify(data,null,4))
-  }
-
-  notifyFormError = (data) => {
-      console.error('Form error:', data)
-  }
+  disableButton = () => { this.setState({canSubmit: false}) }
+  enableButton = () => { this.setState({canSubmit: true}) }
+  submitForm = (data) => { alert(JSON.stringify(data,null,4)) }
+  notifyFormError = (data) => { console.error('Form error:', data) }
 
 
   render(){
@@ -102,12 +95,12 @@ class LoginForm extends Component {
         />
         <br />
 
-        {/* <RaisedButton
+         <RaisedButton
             style={style.submitStyle}
             type="submit"
             label="Submit"
             disabled={!this.state.canSubmit}
-        /> */}
+        />
 
         </Formsy.Form>
         <br />
