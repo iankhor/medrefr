@@ -4,56 +4,57 @@ import { FormsyText } from 'formsy-material-ui/lib'
 import { RaisedButton } from 'material-ui'
 import AuthService from './../../api/AuthService'
 
+const auth = new AuthService(process.env.REACT_APP_AUTH_CLIENT_ID, process.env.REACT_APP_AUTH_DOMAIN_ADDRESS)
 
-  const style = {
-      referralOptions :{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-      },
-      uploadButton :{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-      },
-      card :{
-          marginBottom : 15
-      },
-      cardActions :{
-          textAlign: 'right'
-      },
-      paperStyle: {
-      //   width: 300,
-        margin: 'auto',
-        padding: 20,
-      },
-      switchStyle: {
-        marginBottom: 16,
-      },
-      submitStyle: {
-        marginTop: 32,
-      },
-      chip: {
-          margin: 4,
-      },
-      wrapper: {
-          display: 'flex',
-          flexWrap: 'wrap',
+const style = {
+    referralOptions :{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
-  }
+    uploadButton :{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    card :{
+        marginBottom : 15
+    },
+    cardActions :{
+        textAlign: 'right'
+    },
+    paperStyle: {
+    //   width: 300,
+    margin: 'auto',
+    padding: 20,
+    },
+    switchStyle: {
+    marginBottom: 16,
+    },
+    submitStyle: {
+    marginTop: 32,
+    },
+    chip: {
+        margin: 4,
+    },
+    wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+}
 
 class LoginForm extends Component {
 
   static propTypes={
     onNoAccount: PropTypes.func.isRequired,
-    auth: T.instanceOf(AuthService)
+    // auth: T.instanceOf(AuthService)
   }
 
   constructor(props) {
       super(props)
       this.enableButton = this.enableButton.bind(this)
       this.disableButton = this.disableButton.bind(this)
-      this.submitForm = this.submitForm.bind(this)
+      this.login = this.login.bind(this)
       this.notifyFormError = this.notifyFormError.bind(this)
 
       this.state = {
@@ -63,8 +64,14 @@ class LoginForm extends Component {
 
   disableButton = () => { this.setState({canSubmit: false}) }
   enableButton = () => { this.setState({canSubmit: true}) }
-  submitForm = (data) => { alert(JSON.stringify(data,null,4)) }
   notifyFormError = (data) => { console.error('Form error:', data) }
+
+  login = (data) => { 
+    const { email, password } = data
+    // console.log('auth',auth)
+    auth.login(email, password)
+
+  }
 
 
   render(){
@@ -73,7 +80,7 @@ class LoginForm extends Component {
         <Formsy.Form
             onValid={this.enableButton}
             onInvalid={this.disableButton}
-            onValidSubmit={this.submitForm}
+            onValidSubmit={this.login}
             onInvalidSubmit={this.notifyFormError}
             style={style}
         >

@@ -31,7 +31,8 @@ export default class AuthService extends EventEmitter {
       }
       if (authResult && authResult.idToken && authResult.accessToken) {
         this.setToken(authResult.accessToken, authResult.idToken)
-        browserHistory.replace('/home')
+        console.log('code to redirect to main page')
+        // browserHistory.replace('/home')
       }
     })
   }
