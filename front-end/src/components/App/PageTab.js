@@ -2,6 +2,7 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import ReferralDashboard from './ReferralDashboard'
+
 import Profile from './Profile'
 import JSONDebugger from './../../utils/JSONDebugger'
 
@@ -35,15 +36,16 @@ export default class PageTab extends React.Component {
           onChangeIndex={this.handleChange}
         >
 
-          <ReferralDashboard 
+          <ReferralDashboard
             profile={this.props.profile}
-            referrals={this.props.referrals} 
-            _addReferral={this.props._addReferral} 
-            _updateReferral={this.props._updateReferral} 
+            referrals={this.props.referrals}
+            _addReferral={this.props._addReferral}
+            _updateReferral={this.props._updateReferral}
 
           />
 
           <Profile />
+
 
         </SwipeableViews>
         <JSONDebugger json={this.props.profile}/>
