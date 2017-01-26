@@ -15,7 +15,7 @@ export function createReferral(referral){
 
 export function updateReferral(referral){
     console.log('backend: sending updated referral to backend')
-    const updateReferralLink = process.env.REACT_APP_API_URL + '/referral/update' + '/' + referral._id
+    const updateReferralLink = process.env.REACT_APP_API_URL + '/referral/update/' + referral._id
     console.log("backend:",  updateReferralLink)
     console.log("backend:", referral)
 
