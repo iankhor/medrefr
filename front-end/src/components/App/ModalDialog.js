@@ -24,6 +24,7 @@ export default class ModalDialog extends React.Component {
   handleClose = () => {
     this.setState({open: false});
   };
+  
 
   render() {
     const actions = [

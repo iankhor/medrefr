@@ -3,6 +3,7 @@ import ModalDialog from '../App/ModalDialog';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
+import { RaisedButton } from 'material-ui'
 import auth from './../../api/initAuth'
 
 
@@ -27,6 +28,16 @@ export default class ToolbarExamplesSimple extends React.Component {
   noAccount = (event) => this.setState({loginMode: false});
   yesAccount = (event) => this.setState({loginMode: true});
 
+  _renderSignOutButton = () => {
+      return(
+        <RaisedButton
+            type="button"
+            label="Signout"
+            onClick={ auth.logout }
+        />
+      )
+  }
+
   render() {
     console.log('isLoggedIn',this.state.isLoggedIn)
 
@@ -44,14 +55,20 @@ export default class ToolbarExamplesSimple extends React.Component {
           <ModalDialog
             label="Log In / Sign Up"
             title={loginMode ? "Log In" : "Sign Up"}
-            onOpen={this.yesAccount}>
+            onOpen={this.yesAccount}
+            isLoggedIn={this.state.isLoggedIn}
+          >
             {
               loginMode ?
-              <LoginForm onNoAccount={this.noAccount} auth={this.auth} /> :
-              <SignUpForm onYesAccount={this.yesAccount} auth={this.auth} onChangeValid={() => {}} />
+              <LoginForm onNoAccount={this.noAccount} /> :
+              <SignUpForm onYesAccount={this.yesAccount}  onChangeValid={() => {}} />
             }
           </ModalDialog>
+
+          {this.state.isLoggedIn ? this._renderSignOutButton() : null}
+
         </ToolbarGroup>
+
       </Toolbar>
     );
   }

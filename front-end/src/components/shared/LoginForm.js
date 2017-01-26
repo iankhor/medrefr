@@ -78,18 +78,18 @@ class LoginForm extends Component {
 
         {/* Log In */}
         <FormsyText
-                    name="email"
-                    required
-                    hintText="Email"
-                    floatingLabelText="Email"
+            name="email"
+            required
+            hintText="Email"
+            floatingLabelText="Email"
         />
         <br />
         <FormsyText
-                    name="password"
-                    type="password"
-                    required
-                    hintText="Password"
-                    floatingLabelText="Password"
+            name="password"
+            type="password"
+            required
+            hintText="Password"
+            floatingLabelText="Password"
         />
         <br />
 
