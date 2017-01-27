@@ -59,8 +59,9 @@ Solution
 * users : GPs, specialists, psychiatrist
 * high level workflow:
   * GP : submits a referrals
-  * Speciliast : signs up to be on the panel
   * Triage officer : assigns referrals to appropriate specialists
+  * Specialist : signs up to be on the panel and can accept or decline referred patient
+
 
 [Return to overview](#overview)
 
@@ -109,28 +110,30 @@ Patients
 Concept, Design and build
 =========================
 
-...insert intro paragraph
+To kick off the project, we had an in-person meeting with the key stakeholders to determine
+the requirements and expectations for the project. After agreeing on the scope with the client,
+and gathering information on their current business processes, we proceeded to create a low fidelity sketch of the e-referral platform.
 
 Concept
 -------
-... insert intro para ...
-... mobile first design ...
-... hand drawn bla bla ... initial ideation of how the look and feel of the app should be ...
-... low fidelity ...
+Our initial session involved drawing low fidelity sketches on a whiteboard and concentrating on mobile first design.
+Using a whiteboard allowed us to quickly turn our discussion and ideas into a visual representation and show the key elements, such as
+* A button to create a new referrals
+* A list to display existing referrals, and what information to include (key patient details, status icon)
+* Information divided into different sections for clarity (e.g. patient details, referring doctor details)
+
 ![Concept](https://github.com/iankhor/files/blob/master/MedReFR/01.%20Wireframe%20-%20Concept.jpg)
 
 Design
 ------
-... design concept using sketch ... high fidelity design of hand drawn concepts
-... further improvements as well during design stage ...
-... decided on material UI ...
+Next we used Sketch to create high fidelity designs of our hand drawn concepts and further refine the user interface. This task was made simpler given that Material design elements are available to be used in Sketch, and helped cement our decision to use Material UI.
+
 ![Concept](https://github.com/iankhor/files/blob/master/MedReFR/03%20.%20Wireferame%20-%20Sketch.png)
 
 Build (MVP)
 -----
-... initial MVP with React ...
-... to see it in action in a browser and mobile ...
-... helped in further iterating the design ...
+We then began to build an MVP in React. Using Material UI with React helped to further iterate the design, as we discovered the features and limitations of the tools.
+
 ![Build](https://github.com/iankhor/files/blob/master/MedReFR/04%20.%20Wireferame%20-%20React%20MVP.png)
 
 Concept, Design Build comparison
@@ -249,20 +252,16 @@ Notable packages, services, tools used
 
 Style Guide
 ===========
-\[... colors/font theme to be used were ...\]  
-Colours selected for our app were based on the customer's existing website.
-From this, we continued the theme with complementary shades of blue, to convey a
-professional and unobtrusive experience.
-
 CSS framework
 -------------
-\[ talk about Material UI decision]
 The decision was made to use Material UI due to the rich features it offers (such as modals, cards, toggling) and our belief that it would enhance the user experience. Material UI allowed us to integrate the design with our React components.
 The look and feel of Material also fits in with our design aesthestic, being clean, minimal and flat.
 
-
 Colour
 -----
+Colours selected for our app were based on the customer's existing website.
+From this, we continued the theme with complementary shades of blue, to convey a
+professional and unobtrusive experience.
 
 Item | Colour | RGB | HEX  
 ---: | -----:| ---:| ---
@@ -280,9 +279,10 @@ to read and looks neat and professional without being too bland or serious.
 
 Graphics
 --------
-Images were created using a combination of Sketch and Photoshop by chief design officer Sharon.
+Images were custom designed and created in house using a combination of Sketch and Photoshop.
 A minimal, flat and casual style was employed so that the user is not made to feel
 intimidated or overwhelmed.
+![Hero Image](https://github.com/iankhor/medrefr/blob/shazza/front-end/src/components/MainPage/heroimage.png)
 
 Code Style
 ----------
