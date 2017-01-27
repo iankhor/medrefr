@@ -34,7 +34,10 @@ Overview
 
 Project brief
 =============
-\[ ... insert 150 charcter summary \]
+* Design, build, deploy and present an application built for a real world customer
+* Meet with the business owner or organisation manager to find out what challenges they face
+* Find a problem that can be solved with an application
+
 \[ ... team members : ian & sharon (include github profile link) \]
 
 [Return to overview](#overview)
@@ -54,7 +57,7 @@ Solution
 ========
 * single Platform
 * users : GPs, specialists, psychiatrist
-* high level workflow: 
+* high level workflow:
   * GP : submits a referrals
   * Speciliast : signs up to be on the panel
   * Triage officer : assigns referrals to appropriate specialists
@@ -138,10 +141,10 @@ Concept, Design Build comparison
 
 Technology stack
 ========
-Front-end: 
+Front-end:
 * React.js  
 
-Back-end: 
+Back-end:
 * MongoDB
 * Express.js
 * Node.js  
@@ -197,7 +200,7 @@ createdAt| Date, Date.now
 
 key | type, default value  
 --- | ----  
-referralStatus | String, "Pending" 
+referralStatus | String, "Pending"
 patientSurname| String               
 patientgivenName| String            
 patientGender| String               
@@ -215,15 +218,15 @@ doctorAddress| String
 doctorPostcode| Number              
 doctorContactNumber| Number         
 referralAppointmentDay| Number      
-referralAppointmentMonth| Number 
+referralAppointmentMonth| Number
 referralAppointmentYear| Number     
 referralRequestedService| String    
 referralReasonForReferral| String   
 referralUrgent|Boolean false
 referralRuralCode| String  
-referralAppointmentHour| Number 
-referralAppointmentMinute| Number 
-referralAppointmentPeriod| String 
+referralAppointmentHour| Number
+referralAppointmentMinute| Number
+referralAppointmentPeriod| String
 role| String
 createdAt| Date, Date.now
 assignedUserID| ObjectID
@@ -247,29 +250,43 @@ Notable packages, services, tools used
 Style Guide
 ===========
 \[... colors/font theme to be used were ...\]  
+Colours selected for our app were based on the customer's existing website.
+From this, we continued the theme with complementary shades of blue, to convey a
+professional and unobtrusive experience.
 
-CSS frawework
+CSS framework
 -------------
-\[ talk about Material UI decision]  
+\[ talk about Material UI decision]
+The decision was made to use Material UI due to the rich features it offers (such as modals, cards, toggling) and our belief that it would enhance the user experience. Material UI allowed us to integrate the design with our React components.
+The look and feel of Material also fits in with our design aesthestic, being clean, minimal and flat.
 
-Color
+
+Colour
 -----
 
-Item | Color | RGB | HEX  
+Item | Colour | RGB | HEX  
 ---: | -----:| ---:| ---
 Primary 1 | ![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201.png) | (49, 86, 63) | #315685   
 Secondary 1 | ![Secondary 1](https://github.com/iankhor/files/blob/master/MedReFR/07.%20Styleguide%20-%20Secondary%20color%201.png) | (66, 179, 229) | #42B3E5
-Secondary 2 | ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202%20copy.png) | (32, 32, 32) | #202020 
-Font | ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201%20copy.png) | (144,144,144) | #909090 
+Secondary 2 | ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202%20copy.png) | (32, 32, 32) | #202020
+Font | ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201%20copy.png) | (144,144,144) | #909090
 
 Font type
 ----
-\[... insert text here bla bla bla ...\]    
+Google Font Roboto was used for our app. This was in keeping with the existing
+Material theme but also was the perfect choice for a medical app as it is easy
+to read and looks neat and professional without being too bland or serious.
 ![Font type](https://github.com/iankhor/files/blob/master/MedReFR/11.%20Styleguide%20-%20Font.png)
+
+Graphics
+--------
+Images were created using a combination of Sketch and Photoshop by chief design officer Sharon.
+A minimal, flat and casual style was employed so that the user is not made to feel
+intimidated or overwhelmed.
 
 Code Style
 ----------
-1. Custom methods (non-lifecycle methods) in each React class must begin with an underscore ie : ```_thisMethod(a , b)``` 
+1. Custom methods (non-lifecycle methods) in each React class must begin with an underscore ie : ```_thisMethod(a , b)```
 2. \[ insert more code style \]  
 
 [Return to overview](#overview)
@@ -285,7 +302,7 @@ The following packages are assumed to be installed globally in your local machin
 
 Setup procedure
 ---------------
-Clone a copy of this repositry in your local machine. `git clone https://github.com/iankhor/medrefr.git`
+Clone a copy of this repository in your local machine. `git clone https://github.com/iankhor/medrefr.git`
 
 **Front-end**  
 1. Go into the front-end folder. `cd front-end`  
@@ -300,7 +317,7 @@ Clone a copy of this repositry in your local machine. `git clone https://github.
 2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`  
 3. Start your local mongo database by running `mongod --dbpath ~/__YOUR_MONGODB_PATH___` (or your own mongo database link)  
 4. In the *.env* file, ensure the variable is `MONGODB_URI=mongodb://localhost/__YOUR_MONGODB_NAME___` (or you can alter this based your personal preference)  
-5. Install npm packages by runinng `npm install`  
+5. Install npm packages by running `npm install`  
 6. Start the back-end server by running `nodemon`  
 7. On your web browser, go to `localhost:4000` to see if the MedReFR welcome screen appears.  
 
@@ -330,7 +347,7 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 6. On your local machine, go into your front-end folder. `cd front-end`    
 7. Initialiase a git repositry. `git init`  
 8. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr.git`    
-9. Add a new file called `static.json` to configure a single page application with heroku. 
+9. Add a new file called `static.json` to configure a single page application with heroku.
 ```
 {
   "root": "build/",
