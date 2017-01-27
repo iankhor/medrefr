@@ -34,7 +34,10 @@ Overview
 
 Project brief
 =============
-\[ ... insert 150 charcter summary \]
+* Design, build, deploy and present an application built for a real world customer
+* Meet with the business owner or organisation manager to find out what challenges they face
+* Find a problem that can be solved with an application
+
 \[ ... team members : ian & sharon (include github profile link) \]
 
 [Return to overview](#overview)
@@ -54,10 +57,11 @@ Solution
 ========
 * single Platform
 * users : GPs, specialists, psychiatrist
-* high level workflow: 
+* high level workflow:
   * GP : submits a referrals
-  * Speciliast : signs up to be on the panel
   * Triage officer : assigns referrals to appropriate specialists
+  * Specialist : signs up to be on the panel and can accept or decline referred patient
+
 
 [Return to overview](#overview)
 
@@ -106,28 +110,30 @@ Patients
 Concept, Design and build
 =========================
 
-...insert intro paragraph
+To kick off the project, we had an in-person meeting with the key stakeholders to determine
+the requirements and expectations for the project. After agreeing on the scope with the client,
+and gathering information on their current business processes, we proceeded to create a low fidelity sketch of the e-referral platform.
 
 Concept
 -------
-... insert intro para ...
-... mobile first design ...
-... hand drawn bla bla ... initial ideation of how the look and feel of the app should be ...
-... low fidelity ...
+Our initial session involved drawing low fidelity sketches on a whiteboard and concentrating on mobile first design.
+Using a whiteboard allowed us to quickly turn our discussion and ideas into a visual representation and show the key elements, such as
+* A button to create a new referrals
+* A list to display existing referrals, and what information to include (key patient details, status icon)
+* Information divided into different sections for clarity (e.g. patient details, referring doctor details)
+
 ![Concept](https://github.com/iankhor/files/blob/master/MedReFR/01.%20Wireframe%20-%20Concept.jpg)
 
 Design
 ------
-... design concept using sketch ... high fidelity design of hand drawn concepts
-... further improvements as well during design stage ...
-... decided on material UI ...
+Next we used Sketch to create high fidelity designs of our hand drawn concepts and further refine the user interface. This task was made simpler given that Material design elements are available to be used in Sketch, and helped cement our decision to use Material UI.
+
 ![Concept](https://github.com/iankhor/files/blob/master/MedReFR/03%20.%20Wireferame%20-%20Sketch.png)
 
 Build (MVP)
 -----
-... initial MVP with React ...
-... to see it in action in a browser and mobile ...
-... helped in further iterating the design ...
+We then began to build an MVP in React. Using Material UI with React helped to further iterate the design, as we discovered the features and limitations of the tools.
+
 ![Build](https://github.com/iankhor/files/blob/master/MedReFR/04%20.%20Wireferame%20-%20React%20MVP.png)
 
 Concept, Design Build comparison
@@ -138,10 +144,10 @@ Concept, Design Build comparison
 
 Technology stack
 ========
-Front-end: 
+Front-end:
 * React.js  
 
-Back-end: 
+Back-end:
 * MongoDB
 * Express.js
 * Node.js  
@@ -197,7 +203,7 @@ createdAt| Date, Date.now
 
 key | type, default value  
 --- | ----  
-referralStatus | String, "Pending" 
+referralStatus | String, "Pending"
 patientSurname| String               
 patientgivenName| String            
 patientGender| String               
@@ -215,15 +221,15 @@ doctorAddress| String
 doctorPostcode| Number              
 doctorContactNumber| Number         
 referralAppointmentDay| Number      
-referralAppointmentMonth| Number 
+referralAppointmentMonth| Number
 referralAppointmentYear| Number     
 referralRequestedService| String    
 referralReasonForReferral| String   
 referralUrgent|Boolean false
 referralRuralCode| String  
-referralAppointmentHour| Number 
-referralAppointmentMinute| Number 
-referralAppointmentPeriod| String 
+referralAppointmentHour| Number
+referralAppointmentMinute| Number
+referralAppointmentPeriod| String
 role| String
 createdAt| Date, Date.now
 assignedUserID| ObjectID
@@ -246,30 +252,41 @@ Notable packages, services, tools used
 
 Style Guide
 ===========
-\[... colors/font theme to be used were ...\]  
-
-CSS frawework
+CSS framework
 -------------
-\[ talk about Material UI decision]  
+The decision was made to use Material UI due to the rich features it offers (such as modals, cards, toggling) and our belief that it would enhance the user experience. Material UI allowed us to integrate the design with our React components.
+The look and feel of Material also fits in with our design aesthestic, being clean, minimal and flat.
 
-Color
+Colour
 -----
+Colours selected for our app were based on the customer's existing website.
+From this, we continued the theme with complementary shades of blue, to convey a
+professional and unobtrusive experience.
 
-Item | Color | RGB | HEX  
+Item | Colour | RGB | HEX  
 ---: | -----:| ---:| ---
 Primary 1 | ![Primary](https://github.com/iankhor/files/blob/master/MedReFR/06.%20Styleguide%20-%20Primary%20color%201.png) | (49, 86, 63) | #315685   
 Secondary 1 | ![Secondary 1](https://github.com/iankhor/files/blob/master/MedReFR/07.%20Styleguide%20-%20Secondary%20color%201.png) | (66, 179, 229) | #42B3E5
-Secondary 2 | ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202%20copy.png) | (32, 32, 32) | #202020 
-Font | ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201%20copy.png) | (144,144,144) | #909090 
+Secondary 2 | ![Secondary 2](https://github.com/iankhor/files/blob/master/MedReFR/08.%20Styleguide%20-%20Secondary%20color%202%20copy.png) | (32, 32, 32) | #202020
+Font | ![Font 1](https://github.com/iankhor/files/blob/master/MedReFR/09.%20Styleguide%20-%20Text%20color%201%20copy.png) | (144,144,144) | #909090
 
 Font type
 ----
-\[... insert text here bla bla bla ...\]    
+Google Font Roboto was used for our app. This was in keeping with the existing
+Material theme but also was the perfect choice for a medical app as it is easy
+to read and looks neat and professional without being too bland or serious.
 ![Font type](https://github.com/iankhor/files/blob/master/MedReFR/11.%20Styleguide%20-%20Font.png)
+
+Graphics
+--------
+Images were custom designed and created in house using a combination of Sketch and Photoshop.
+A minimal, flat and casual style was employed so that the user is not made to feel
+intimidated or overwhelmed.
+![Hero Image](https://github.com/iankhor/medrefr/blob/shazza/front-end/src/components/MainPage/heroimage.png)
 
 Code Style
 ----------
-1. Custom methods (non-lifecycle methods) in each React class must begin with an underscore ie : ```_thisMethod(a , b)``` 
+1. Custom methods (non-lifecycle methods) in each React class must begin with an underscore ie : ```_thisMethod(a , b)```
 2. \[ insert more code style \]  
 
 [Return to overview](#overview)
@@ -285,7 +302,7 @@ The following packages are assumed to be installed globally in your local machin
 
 Setup procedure
 ---------------
-Clone a copy of this repositry in your local machine. `git clone https://github.com/iankhor/medrefr.git`
+Clone a copy of this repository in your local machine. `git clone https://github.com/iankhor/medrefr.git`
 
 **Front-end**  
 1. Go into the front-end folder. `cd front-end`  
@@ -300,7 +317,7 @@ Clone a copy of this repositry in your local machine. `git clone https://github.
 2. Make a copy of **.env.example** file and rename it **.env** `cp .env.example .env`  
 3. Start your local mongo database by running `mongod --dbpath ~/__YOUR_MONGODB_PATH___` (or your own mongo database link)  
 4. In the *.env* file, ensure the variable is `MONGODB_URI=mongodb://localhost/__YOUR_MONGODB_NAME___` (or you can alter this based your personal preference)  
-5. Install npm packages by runinng `npm install`  
+5. Install npm packages by running `npm install`  
 6. Start the back-end server by running `nodemon`  
 7. On your web browser, go to `localhost:4000` to see if the MedReFR welcome screen appears.  
 
@@ -334,6 +351,7 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 10. Initialiase a git repositry. `git init`  
 11. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr.git`    
 12. Add a new file called `static.json` to configure a single page application with heroku. 
+
 ```
 {
   "root": "build/",

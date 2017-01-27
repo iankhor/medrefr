@@ -7,7 +7,7 @@ const style = {
 
 const ParallaxTwo = (props) => {
         return(
-          <Parallax bgImage={require('./parallaxtwo.png')} bgWidth="100vw" strength={400}>
+          <Parallax bgImage={require('./parallax.png')} bgWidth="100vw" strength={400}>
             <div className="generic-center" style={style}>
             </div>
           </Parallax>

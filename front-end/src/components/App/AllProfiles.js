@@ -7,7 +7,6 @@ import Profile from './Profile'
 class AllProfiles extends Component {
   constructor(props) {
     super(props)
-    // this._showProfiles = this._showProfiles.bind(this)
     this.state = {
       staffProfiles: null
     }
