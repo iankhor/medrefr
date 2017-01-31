@@ -1,6 +1,9 @@
+Project co-developed with : [Sharon @ https://github.com/Cloudilicious](https://github.com/Cloudilicious)
+
 Overview
 ========
 * [Project brief](#project-brief)
+* [Technology stack](#technology-stack)
 * [Business problem](#business-problem)
 * [Solution](#solution)
 * [User stories](#user-stories)
@@ -13,7 +16,6 @@ Overview
     * [Design](#design)
     * [Build](#build)
     * [Comparison](#concept-design-build-comparison)
-* [Technology stack](#technology-stack)
 * [UX: User flow diagram](#ux-user-flow-diagram)
 * [UX: Referral lifecycle diagram](#ux-referral-lifecycle-diagram)
 * [Front-end: React component hierarchy diagram](#front-end-react-component-hierarchy-diagram)
@@ -36,9 +38,19 @@ Project brief
 =============
 * Design, build, deploy and present an application built for a real world customer
 * Meet with the business owner or organisation manager to find out what challenges they face
-* Find a problem that can be solved with an application
+* Find a problem that can be solved with an application 
 
-\[ ... team members : ian & sharon (include github profile link) \]
+[Return to overview](#overview)
+
+Technology stack
+========
+Front-end:
+* React.js  
+
+Back-end:
+* MongoDB
+* Express.js
+* Node.js 
 
 [Return to overview](#overview)
 
@@ -142,28 +154,20 @@ Concept, Design Build comparison
 
 [Return to overview](#overview)
 
-Technology stack
-========
-Front-end:
-* React.js  
-
-Back-end:
-* MongoDB
-* Express.js
-* Node.js  
-
-[Return to overview](#overview)
-
 UX: User flow diagram
 =====================================
-/[ .. text to explain user flow diagram/]
+Before we begin coding, we planned the user flow in the diagram below. It served as a guide to what pages and elements were needed for 
+the entire app. This has allowed us to code more efficiently by answering the detailed nuances of the user experience. 
+
 ![User flow diagram](https://github.com/iankhor/files/blob/master/MedReFR/15.%20MedReFR%20UX%20-%20User%20Flow%20V1.0.jpg)
 
 [Return to overview](#overview)
 
 UX: Referral lifecycle diagram
 =====================================
-/[ .. text to explain the referral status matrix and lifecycle diagram/]
+As the core piece of the app was the referral, we have drawn the referral lifecycle in the following diagra mto ensure that the business logic is
+correct. 
+
 ![Referral Status Matrix](https://github.com/iankhor/files/blob/master/MedReFR/14.%20Referral%20status%20matrix.png)
 ![Referral Lifecycle Diagram](https://github.com/iankhor/files/blob/master/MedReFR/13.%20Referral%20lifecycle%20diagram.jpg)
 
@@ -171,14 +175,16 @@ UX: Referral lifecycle diagram
 
 Front-end: React component hierarchy diagram
 ===============================================
-/[ .. some explanation of the design ... \]   
+As React is components based, we have mapped our a component hierarchy diagram to guide us through the coding process. This diagram has 
+helped us decide where crucial data should be placed and pass around. Each component followed the single responsibility principle technique.  
+
 ![Component Hierarchy Diagram](https://github.com/iankhor/files/blob/master/MedReFR/12.%20Component%20Hierarchy%20DiagramV1.3.jpg)
 
 [Return to overview](#overview)
 
 Back-end: MongoDB schema design
 ===================================
-/[ .. some explanation of the db design ... \]  
+As for the backed, we have planned the MongoDB schema as follows to serve as a reference when building the backend Node/Express server.
 
 *Profile*  
 
@@ -287,7 +293,6 @@ intimidated or overwhelmed.
 Code Style
 ----------
 1. Custom methods (non-lifecycle methods) in each React class must begin with an underscore ie : ```_thisMethod(a , b)```
-2. \[ insert more code style \]  
 
 [Return to overview](#overview)
 
@@ -323,7 +328,6 @@ Clone a copy of this repository in your local machine. `git clone https://github
 
 Deployment (optional)
 ---------------------
-\[ ... This is done at your own risk etc etc disclaimer ... \]  
 The following steps assumes you have an [Heroku](http://www.heroku.com) account set up.  
 Ensure you are logged into heroku by running `heroku login` in both your front-end and back-end folders.
 
@@ -374,8 +378,7 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 
 ### Project management in Trello
 ================================
-/[ .. bla bla used trello for PM /]  
-/[ .. insert link to trello ... /]  
+We have used Trello as a project management tool and it can be viewed [at https://trello.com/b/K1URwilv/cfa-medrefr](https://trello.com/b/K1URwilv/cfa-medrefr) 
 
 [Return to overview](#overview)
 
