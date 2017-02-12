@@ -344,10 +344,20 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 3. Add/update the **config variables** for `REACT_APP_API_URL` with a value of `https://medrefr-api.herokuapp.com` (or the name of the api server of your choice)  
 4. Under **buildpacks**, add this buildpack link `https://github.com/mars/create-react-app-buildpack.git`   
 5. Lastly, save the setting from step 1 to 4 in your heroku app.  
+<<<<<<< HEAD
 6. On your local machine, go into your front-end folder. `cd front-end`    
 7. Initialiase a git repositry. `git init`  
 8. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr.git`    
 9. Add a new file called `static.json` to configure a single page application with heroku.
+=======
+6. Sign up/Log in with [Auth0](https://www.auth0.com/).
+7. In Auth0, create a client and record the  `client ID` and `domain`
+8. In the local **.env** file, update the `REACT_APP_AUTH_CLIENT_ID` and `REACT_APP_AUTH_DOMAIN_ADDRESS` with `client ID` and `domain` from step 7.
+9. On your local machine, go into your front-end folder. `cd front-end`    
+10. Initialiase a git repositry. `git init`  
+11. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr.git`    
+12. Add a new file called `static.json` to configure a single page application with heroku. 
+>>>>>>> e345b7922e2694a7181116efdf681914835bba74
 ```
 {
   "root": "build/",
@@ -362,8 +372,8 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
   }
 }
 ```  
-10. Run the script `npm run deploy:heroku`. This should take about 1-2 minutes to build and setup on heroku.    
-11. Once the build process has completed, visit `https://medrefr.herokuapp.com/`
+13. Run the script `npm run deploy:heroku`. This should take about 1-2 minutes to build and setup on heroku.    
+14. Once the build process has completed, visit `https://medrefr.herokuapp.com/`
 
 
 [Return to overview](#overview)
