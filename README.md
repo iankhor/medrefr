@@ -31,7 +31,6 @@ Overview
   * [Deployment(optional)](#deployment-optional)
 * [Project management in Trello](#project-management-in-trello)
 * [Outstanding issues](#outstanding-issues)
-* [Final web app link](#final-web-app-link)
 
 
 Project brief
@@ -39,6 +38,8 @@ Project brief
 * Design, build, deploy and present an application built for a real world customer
 * Meet with the business owner or organisation manager to find out what challenges they face
 * Find a problem that can be solved with an application 
+
+The deployed webpage can be found here : [MedReFR (Click here)](https://medrefr.herokuapp.com)
 
 [Return to overview](#overview)
 
@@ -385,11 +386,5 @@ We have used Trello as a project management tool and it can be viewed [at https:
 ### Outstanding issues
 ================================
 See [issues](https://github.com/iankhor/medrefr/issues) for existing issues / bugs
-
-[Return to overview](#overview)
-
-### Final web app link
-================================
-[MedReFR (Click here)](https://medrefr.herokuapp.com)
 
 [Return to overview](#overview)
