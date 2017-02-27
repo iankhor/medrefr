@@ -6,6 +6,8 @@ import { FormsySelect,
 import { MenuItem, 
          RaisedButton } from 'material-ui'
 
+import auth from './../../api/initAuth'
+
 
 const errorMessages = {
     wordsError: "Please only use letters",
@@ -74,11 +76,15 @@ class SignUpForm extends Component {
   }
 
   submitForm = (data) => {
-      alert(JSON.stringify(data,null,4))
+    // alert(JSON.stringify(data,null,4))
+    const { email, password } = data
+    auth.signup(email, password)
+
   }
 
   notifyFormError = (data) => {
       console.error('Form error:', data)
+      
   }
 
 
