@@ -73,9 +73,8 @@ class ReferralDashboard extends Component {
                     <br />
 
                     {this.state.showNewReferralForm ? this._renderNewReferralForm() : null }
-                    {Object.keys(this.props.referrals).map(this._renderReferrals)}
-
-
+                    { console.log('referrals :', this.props.referrals) }
+                    { this.props.referrals ? Object.keys(this.props.referrals).map(this._renderReferrals) : "No referrals" }
 
                 </div> 
         )
