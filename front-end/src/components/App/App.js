@@ -10,7 +10,6 @@ import { createReferral,
 import sampleReferrals from './_sample-referrals.js'
 import sampleProfile from './_sample-profile.js'
 import Header from '../shared/Header'
-import DebugTempLink from '../../utils/DebugTempLink'
 import PageTab from './PageTab'
 
 //theme related material-ui

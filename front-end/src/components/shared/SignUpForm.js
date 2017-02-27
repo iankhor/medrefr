@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import { FormsySelect,
-         FormsyText} from 'formsy-material-ui/lib'
+import { FormsyText } from 'formsy-material-ui/lib'
          
-import { MenuItem, 
-         RaisedButton } from 'material-ui'
+import { RaisedButton } from 'material-ui'
 
 import auth from './../../api/initAuth'
 
 
-const errorMessages = {
-    wordsError: "Please only use letters",
-    numericError: "Please provide a number",
-    urlError: "Please provide a valid URL"
-  }
+// const errorMessages = {
+//     wordsError: "Please only use letters",
+//     numericError: "Please provide a number",
+//     urlError: "Please provide a valid URL"
+//   }
 
   const style = {
       referralOptions :{

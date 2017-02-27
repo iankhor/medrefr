@@ -3,12 +3,13 @@ import ModalDialog from '../App/ModalDialog';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 import auth from './../../api/initAuth'
-import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
-import { IconButton,
-         IconMenu,
-         MenuItem,
-         RaisedButton } from 'material-ui'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
+import { RaisedButton,
+        //  IconButton,
+        //  IconMenu,
+        //  MenuItem,
+        } from 'material-ui'
+// import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 
 const style = {
   margin: 16,
@@ -70,7 +71,7 @@ export default class MainToolbar extends Component {
   render() {
     console.log('isLoggedIn',this.state.isLoggedIn)
 
-    const { loginMode } = this.state
+    // const { loginMode } = this.state
     // const loginMode = this.state.loginMode
 
     return (

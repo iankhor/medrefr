@@ -4,8 +4,6 @@ import React, { Component } from 'react'
 import Header from '../shared/Header'
 import BodyList from './BodyList'
 import Footer from '../shared/Footer'
-import DebugTempLink from '../../utils/DebugTempLink'
-
 
 //Material UI theme
 import { MuiThemeProvider } from 'material-ui/styles'
