@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import {  FormsySelect,
-         FormsyText } from 'formsy-material-ui/lib'
+import { FormsySelect,
+         FormsyText} from 'formsy-material-ui/lib'
          
-import { MenuItem } from 'material-ui'
+import { MenuItem, 
+         RaisedButton } from 'material-ui'
 
 
 const errorMessages = {
@@ -84,84 +85,38 @@ class SignUpForm extends Component {
 
   render(){
       return(
-
-        <Formsy.Form
-            onValid={this.onValid}
-            onInvalid={this.onInvalid}
-            onValidSubmit={this.submitForm}
-            onInvalidSubmit={this.notifyFormError}
-        >
-        <div style={style.referralOptions}>
-
-          <FormsyText
-                      name="email"
-                      required
-                      hintText="Email"
-                      floatingLabelText="Email"
-          />
-          <br />
-          <FormsyText
-                      name="password"
-                      type="password"
-                      required
-                      hintText="Password"
-                      floatingLabelText="Password"
-          />
-          <br />
-        </div>
-        <div style={style.referralOptions}>
-        {/* patient data form below */}
-        <FormsyText
-            name="userSurname"
-            validations="isWords"
-            validationError={errorMessages.wordsError}
-            required
-            hintText="Surname"
-            floatingLabelText="Surname"
-            // defaultValue={this.props.referral.patientSurname}
-        />
-<br />
-        <FormsyText
-            name="usergivenName"
-            validations="isWords"
-            validationError={errorMessages.wordsError}
-            required
-            hintText="Given name"
-            floatingLabelText="Given name"
-            // value={this.props.referral.patientgivenName}
-        />
-      <br />
-    </div>
-    <div>
-        <FormsyText
-            name="providerNumber"
-            hintText="Provider Number"
-            floatingLabelText="Provider Number"
-            // defaultValue={this.props.referral.patientMedicare}
-        />
-      <br />
-        <FormsyText
-            name="ContactNumber"
-            validations="isInt"
-            validationError={errorMessages.wordsError}
-            hintText="Contact number"
-            floatingLabelText="Contact number"
-            // defaultValue={this.props.referral.patientContactNumber}
-        />
-        </div>
         <div>
-        <FormsySelect
-            name="Role"
-            floatingLabelText="Role"
-            // value={this.props.referral.referralStatus}
-        >
-            <MenuItem value={'psychiatrist'} primaryText="Psychiatrist" />
-            <MenuItem value={'generalPractitioner'} primaryText="General Practitioner" />
-        </FormsySelect>
-      </div>
-    <br/>
-        <p>Already have an account? Log in <a onClick={this.props.onYesAccount} href="#">here</a></p>
-        </Formsy.Form>
+            <Formsy.Form
+                onValid={this.onValid}
+                onInvalid={this.onInvalid}
+                onValidSubmit={this.submitForm}
+                onInvalidSubmit={this.notifyFormError}>
+                    <FormsyText
+                        name="email"
+                        required
+                        hintText="Email"
+                        floatingLabelText="Email"
+                    />
+                    <br />
+                    <FormsyText
+                        name="password"
+                        type="password"
+                        required
+                        hintText="Password"
+                        floatingLabelText="Password"
+                    />
+                    <br />
+
+                    <RaisedButton
+                        style={style.submitStyle}
+                        type="submit"
+                        label="Submit"
+                        disabled={!this.state.canSubmit} 
+                    />
+                    <br />
+            </Formsy.Form>
+            <p>Already have an account? Log in <a onClick={this.props.onYesAccount} href="#">here</a></p>
+        </div>
 
       )
   }
