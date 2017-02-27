@@ -6,7 +6,8 @@ import auth from './../../api/initAuth'
 import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
 import { IconButton,
          IconMenu,
-         MenuItem } from 'material-ui'
+         MenuItem,
+         RaisedButton } from 'material-ui'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 
 const style = {
@@ -42,15 +43,10 @@ export default class MainToolbar extends Component {
 
   _renderSignOutButton = () => {
       return(
-          <IconMenu
-            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-            anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-            targetOrigin={{horizontal: 'left', vertical: 'top'}}
-          >
-          <MenuItem primaryText="Home" onTouchTap={ () => {this.context.router.transitionTo('/')} } />
-          <MenuItem primaryText="Referral Dashboard" onTouchTap={ () => {this.context.router.transitionTo('/ReferralDashBoard')} }/>
-          <MenuItem primaryText="Sign out" onTouchTap={ this._handleSignOut }/>
-        </IconMenu>
+        <div>
+          <RaisedButton label="Referral Dashboard" secondary={true} onTouchTap={ () => {this.context.router.transitionTo('/ReferralDashboard')} } />
+          <RaisedButton label="Sign Out" default={true} onTouchTap={ this._handleSignOut }  />
+        </div>
       )
   }
 
@@ -61,7 +57,7 @@ export default class MainToolbar extends Component {
             title={this.state.loginMode ? "Log In" : "Sign Up"}
             onOpen={this.yesAccount}
             isLoggedIn={this.state.isLoggedIn}
-          >
+        >
             {
               this.state.loginMode ?
               <LoginForm onNoAccount={this.noAccount} _setIsLoggedIn={this._setIsLoggedIn} /> :
