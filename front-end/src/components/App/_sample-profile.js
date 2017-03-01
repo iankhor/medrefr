@@ -13,10 +13,10 @@ module.exports = {
       },
 
       gp: {
-            "email"             :  "triage@triage.com",
+            "email"             :  "gp@gp.com",
             "surname"           :  "Khor",
             "giveName"          :  "Ian",
-            "dateOfBirthDay"    :  "26",
+            "dateOfBirthDay"    :  "30",
             "dateOfBirthMonth"  :  "9",
             "dateOfBirthYear"   :  "1983",
             "providerNumber"    :  "123478",
@@ -26,10 +26,10 @@ module.exports = {
       },
 
       psychiatrist: {
-            "email"             :  "triage@triage.com",
+            "email"             :  "psy@psy.com",
             "surname"           :  "Chen",
             "giveName"          :  "Sharon",
-            "dateOfBirthDay"    :  "26",
+            "dateOfBirthDay"    :  "18",
             "dateOfBirthMonth"  :  "9",
             "dateOfBirthYear"   :  "1983",
             "providerNumber"    :  "123478",
