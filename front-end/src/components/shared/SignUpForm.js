@@ -73,10 +73,11 @@ class SignUpForm extends Component {
     // this.setState({canSubmit: true})
   }
 
-  submitForm = (data) => {
+  submitForm = (e, data) => {
     // alert(JSON.stringify(data,null,4))
-    const { email, password } = data
-    auth.signup(email, password)
+    // e.preventDefault()
+    const { email, password, role } = data
+    auth.signup(email, password, role)
 
   }
 
@@ -108,6 +109,15 @@ class SignUpForm extends Component {
                         required
                         hintText="Password"
                         floatingLabelText="Password"
+                    />
+                    <br />
+
+                    <FormsyText
+                        name="role"
+                        type="role"
+                        required
+                        hintText="Role"
+                        floatingLabelText="Role"
                     />
                     <br />
 

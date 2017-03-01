@@ -32,6 +32,10 @@ export default class AuthService extends EventEmitter {
         this.setToken(authResult.accessToken, authResult.idToken)
         console.log('code to redirect to main page')
         // browserHistory.replace('/home')
+
+        console.log('accessToken : ' , authResult.accessToken)
+        this.fetchProfile(authResult.accessToken)
+
       }
     })
   }
@@ -90,6 +94,18 @@ export default class AuthService extends EventEmitter {
     localStorage.setItem('profile', JSON.stringify(profile))
     // Triggers profile_updated event to update the UI
     this.emit('profile_updated', profile)
+  }
+
+  fetchProfile(token_id) {
+
+    //get userinfo by from access token
+    this.auth0.client.userInfo(token_id, (error, profile) => {
+      if (error) {
+        console.log('Error loading the Profile', error)
+      } else {
+        this.setProfile(profile)
+      }
+    })
   }
 
   getProfile() {
