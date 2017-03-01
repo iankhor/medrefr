@@ -1,6 +1,7 @@
 import React from 'react'
 import { Parallax } from 'react-parallax';
 import RaisedButton from 'material-ui/RaisedButton';
+import HeroImg from './../../../assets/img/heroimage.png'
 
 const style = {
     margin: '100px',
@@ -20,7 +21,7 @@ const buttonstyle = {
 
 const Hero = (props) => {
         return(
-          <Parallax bgImage={require('./heroimage.png')} bgHeight="125vh" strength={400}>
+          <Parallax bgImage={ HeroImg } bgHeight="125vh" strength={400}>
             <div style={style}>
                 <h1>MedRefr</h1>
                 <br />
