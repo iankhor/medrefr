@@ -4,12 +4,15 @@ import auth from './../../api/initAuth'
 
 class Profile extends React.Component {
 
+  _getToken = () => {
+    auth.axiosGetToken()
+  }
+
   _getProfile = () => {
-    const token_id = auth.getToken()
-    auth.fetchProfile(token_id)
-    const profile = auth.getProfile()
-    console.log(profile)
-    
+    auth.axiosGetProfile()
+    .then( profile => {
+      console.log('app profile : ', profile)
+    })
   }
 
 
@@ -18,7 +21,8 @@ class Profile extends React.Component {
 
     return(
       <div>
-        <RaisedButton label="Get Profile" default={true} onTouchTap={ this._getProfile }  />
+        <RaisedButton label="Axios Get Token" default={true} onTouchTap={ this._getToken }  />
+        <RaisedButton label="Axios Get Profile" default={true} onTouchTap={ this._getProfile }  />
         <p>
           Surname: {profile.Surname}
         </p>

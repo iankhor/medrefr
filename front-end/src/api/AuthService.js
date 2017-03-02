@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events'
 import { isTokenExpired } from './jwtHelper'
 import auth0 from 'auth0-js'
+import axios from 'axios'
 
 export default class AuthService extends EventEmitter {
   constructor(clientId, domain) {
@@ -33,7 +34,6 @@ export default class AuthService extends EventEmitter {
         console.log('code to redirect to main page')
         // browserHistory.replace('/home')
 
-        console.log('accessToken : ' , authResult.accessToken)
         this.fetchProfile(authResult.accessToken)
 
       }
@@ -119,10 +119,65 @@ export default class AuthService extends EventEmitter {
     return localStorage.getItem('id_token')
   }
 
+  getAccessToken() {
+    // Retrieves the user token from localStorage
+    return localStorage.getItem('access_token')
+  }
+
   logout() {
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token')
     localStorage.removeItem('profile')
   }
+
+
+  axiosGetToken() {
+    const config = {
+                      method:   'post',
+                      url:      'https://' + process.env.REACT_APP_AUTH_DOMAIN_ADDRESS +'/oauth/ro',
+                      headers: { 'Content-Type' : 'application/json'},
+                      data:     {
+                                    client_id:  process.env.REACT_APP_AUTH_CLIENT_ID,
+                                    username:   "test1234@test1234.com",
+                                    password:   "test1234",
+                                    connection: process.env.REACT_APP_AUTH_CONNECTION,
+                                    scope: "openid"
+                                }
+                  }
+
+    axios(config)
+    .then( getToken => {
+      const token = getToken.data
+      // console.log(token)
+      this.setToken(token.access_token, token.id_token)
+    })
+    .catch( (error) => {
+      error.response ? console.log(error.response.data) : console.log('Error', error.message)
+    })
+  }
+
+
+  axiosGetProfile() {
+    const accessToken = this.getAccessToken()
+    const config = {
+                      method:   'get',
+                      url:      'https://' + process.env.REACT_APP_AUTH_DOMAIN_ADDRESS + '/userinfo',
+                      headers: { 'Authorization' : 'Bearer ' + accessToken },
+                  }
+
+    return axios(config)
+    .then( getProfile => {
+      const profile = getProfile.data
+      // console.log('authservice axiosGetProfile',profile)
+      return profile
+    })
+    .catch( (error) => {
+      error.response ? console.log(error.response.data) : console.log('Error', error.message)
+    })
+  }
+
 }
+
+
+
 
