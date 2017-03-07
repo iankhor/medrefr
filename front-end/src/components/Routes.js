@@ -31,7 +31,10 @@ const Routes = (props) => {
       <div>
         <Match exactly pattern="/" component={MainPage} />  
         <Match exactly pattern="/NotLoggedInTemp" component={NotLoggedInTemp} />  
-        <MatchWhenAuthorized exactly pattern="/ReferralDashboard" component={App} /> 
+        <Match exactly pattern="/ReferralDashboard" component={App} />
+
+        {/* Auth disabled temporarily *}
+        {/* <MatchWhenAuthorized exactly pattern="/ReferralDashboard" component={App} /> */}
         <Miss component={NotFound} />  
       </div>
     </BrowserRouter>
