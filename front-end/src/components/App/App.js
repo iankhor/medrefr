@@ -20,7 +20,9 @@ import medrefrTheme from './../styles/Theme'
 class App extends Component {
   constructor() {
     super()
-    this._loadSampleReferral = this._loadSampleReferral.bind(this)
+    this._loadSampleReferralGP = this._loadSampleReferralGP.bind(this)
+    this._loadSampleReferralPsy = this._loadSampleReferralPsy.bind(this)
+    this._loadSampleReferralGP = this._loadSampleReferralGP.bind(this)
     this._loadSampleProfileTriage = this._loadSampleProfileTriage.bind(this)
     this._loadSampleProfileGP1 = this._loadSampleProfileGP1.bind(this)
     this._loadSampleProfileGP2 = this._loadSampleProfileGP2.bind(this)
@@ -83,7 +85,7 @@ class App extends Component {
 
   }
 
-  _loadSampleReferral() {
+  _loadSampleReferralGP() {
     const filteredReferrals = {}
     // this.setState({ referrals: sampleReferrals })
     console.clear()
@@ -99,11 +101,28 @@ class App extends Component {
       }
     }
     )
-    
     console.log('filteredReferrals :' ,filteredReferrals)
     this.setState({ referrals: filteredReferrals })
-    
+  }
 
+  _loadSampleReferralPsy() {
+    const filteredReferrals = {}
+    // this.setState({ referrals: sampleReferrals })
+    console.clear()
+    // console.log('sample Referrals' , sampleReferrals)
+    // console.log('Object key  : ', Object.keys(sampleReferrals))
+    console.log('current Psy id :' , this.state.profile._id)
+
+    Object.keys(sampleReferrals)
+    .map( referralKey => {
+      if (sampleReferrals[referralKey].assignedSpecialist_id === this.state.profile._id) {
+        console.log(sampleReferrals[referralKey])
+        filteredReferrals[referralKey] = sampleReferrals[referralKey]
+      }
+    }
+    )
+    console.log('filteredReferrals :' ,filteredReferrals)
+    this.setState({ referrals: filteredReferrals })
   }
 
   _loadSampleProfileTriage() {
@@ -150,7 +169,8 @@ class App extends Component {
             <button onClick={this._loadSampleProfileGP2}>(Step 1.2) Load sample profile GP 2</button>
             <button onClick={this._loadSampleProfilePsychiatrist1}>(Step 1.3) Load sample profile Psychiatrist 1</button>
             <button onClick={this._loadSampleProfilePsychiatrist2}>(Step 1.4) Load sample profile Psychiatrist 2</button>
-            <button onClick={this._loadSampleReferral}>(Step 2) Load sample referrals</button>
+            <button onClick={this._loadSampleReferralGP}>(Step 2) Load sample referrals for GP</button>
+            <button onClick={this._loadSampleReferralPsy}>(Step 2) Load sample referrals for Psy</button>
 
 
             <PageTab
