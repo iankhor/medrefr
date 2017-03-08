@@ -55,6 +55,7 @@ class ReferralDashboard extends Component {
                 _toggleShowNewReferralForm={this._toggleShowNewReferralForm}
                 action="new"
                 role={this.props.profile.role}
+                profile={ this.props.profile }
             />
         )
     }

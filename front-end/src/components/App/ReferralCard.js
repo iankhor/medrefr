@@ -135,6 +135,7 @@ class ReferralCard extends Component {
                             _toggleShowNewReferralForm={this.props._toggleShowNewReferralForm}
                             action={this.props.action}
                             role={this.props.role}
+                            profile={this.props.profile}
                         />
                     </Paper>
                 </CardText>

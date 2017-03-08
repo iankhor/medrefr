@@ -61,9 +61,7 @@ class App extends Component {
     this.setState( { referrals } )
 
     //send to db
-
     createReferral(referral)
-
   }
 
     _updateReferral(key, referral) {
