@@ -30,7 +30,8 @@ module.exports = {
             "referralAppointmentMinute":  30,
             "referralAppointmentPeriod":  "PM",
             "role":                       "admin",
-            "assignedSpecialist":         "TBA",
+            "assignedSpecialist_id":      "4",
+            "gp_id":                      "3",
             imgProfile:                   'https://openclipart.org/image/2400px/svg_to_png/225296/Red-Heart.png'
       },
 
@@ -65,7 +66,8 @@ module.exports = {
             "referralAppointmentMinute":  30,
             "referralAppointmentPeriod":  "PM",
             "role":                       "admin",
-            "assignedSpecialist":         "TBA",
+            "assignedSpecialist_id":      "5",
+            "gp_id":                      "2",
             imgProfile:                   'http://static8.comicvine.com/uploads/square_medium/11117/111171699/3921775-starlord2014001_dc11-page-001.jpg'
       },
 
@@ -100,7 +102,8 @@ module.exports = {
             "referralAppointmentMinute":  30,
             "referralAppointmentPeriod":  "PM",
             "role":                       "admin",
-            "assignedSpecialist":         "TBA",
+            "assignedSpecialist_id":      "5",
+            "gp_id":                      "3",
             imgProfile:                   'https://hydra-media.cursecdn.com/dota2.gamepedia.com/1/10/Crystal_Maiden.png?version=536fc77ea73fa5f2dc01a0036d199d52'
       },
 
@@ -135,7 +138,8 @@ module.exports = {
             "referralAppointmentMinute":  30,
             "referralAppointmentPeriod":  "PM",
             "role":                       "admin",
-            "assignedSpecialist":         "TBA",
+            "assignedSpecialist_id":      "4",
+            "gp_id":                      "3",
             imgProfile:                   'https://1.bp.blogspot.com/-qMiXPoEfddQ/V0VzoU0t8II/AAAAAAAADuE/jisTGhF6FikhSg-Rw9umzE0GHRc1iAM2QCLcB/s1600/doctor-strange-movie-all-we-need-to-know-about-film.png'
       }
 }
