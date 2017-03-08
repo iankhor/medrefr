@@ -69,7 +69,7 @@ export default class MainToolbar extends Component {
   }
 
   render() {
-    console.log('isLoggedIn',this.state.isLoggedIn)
+    // console.log('isLoggedIn',this.state.isLoggedIn)
 
     // const { loginMode } = this.state
     // const loginMode = this.state.loginMode

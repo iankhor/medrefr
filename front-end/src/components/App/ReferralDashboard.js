@@ -36,7 +36,8 @@ class ReferralDashboard extends Component {
                 _updateReferral={this.props._updateReferral}
                 _addReferral={this.props._addReferral}
                 action="update"
-                role={this.props.profile.role}
+                role={this.props.profile.role} // may not be needed
+                profile={this.props.profile}
             />
         )
     }
@@ -73,7 +74,7 @@ class ReferralDashboard extends Component {
                     <br />
 
                     {this.state.showNewReferralForm ? this._renderNewReferralForm() : null }
-                    { console.log('referrals :', this.props.referrals) }
+                    {/* console.log('referrals :', this.props.referrals) */}
                     { this.props.referrals ? Object.keys(this.props.referrals).map(this._renderReferrals) : "No referrals" }
 
                 </div> 

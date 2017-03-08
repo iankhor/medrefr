@@ -29,7 +29,7 @@ export function updateReferral(referral){
 }
 
 export function fetchAllReferral(){
-    console.log('getting referral from backend')
+    // console.log('getting referral from backend')
     const getAllReferralLink = process.env.REACT_APP_API_URL + '/referral/all'
 
     let ReferralPromise = axios.get(getAllReferralLink)

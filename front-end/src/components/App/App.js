@@ -83,6 +83,10 @@ class App extends Component {
 
   _loadSampleReferral() {
     this.setState({ referrals: sampleReferrals })
+    console.log('Object entries  : ', Object.keys(this.state.referrals))
+       
+
+
   }
 
   _loadSampleProfileTriage() {
