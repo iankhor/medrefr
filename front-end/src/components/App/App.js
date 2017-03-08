@@ -20,7 +20,7 @@ import medrefrTheme from './../styles/Theme'
 class App extends Component {
   constructor() {
     super()
-    this._prepareReferralTest = this._prepareReferralTest.bind(this)
+    this._popupateGPDataInReferral = this._popupateGPDataInReferral.bind(this)
     this._loadSampleReferralGP = this._loadSampleReferralGP.bind(this)
     this._loadSampleReferralPsy = this._loadSampleReferralPsy.bind(this)
     this._loadSampleReferralGP = this._loadSampleReferralGP.bind(this)
@@ -84,15 +84,55 @@ class App extends Component {
 
   }
 
-  _prepareReferralTest(){
+  _popupateGPDataInReferral(){
     //Get all referral / profiles
+    let allReferrals = sampleReferrals
+    let allProfiles = sampleProfile
+
+    console.log('> getting allReferrals : ', allReferrals)
+    console.log('> getting allProfiles : ', allProfiles)
 
     //Get referrals related to current user logged in, call it filteredReferrals
+    let filteredReferrals = {}
 
+    //simulating a user and whitelist certain attributes from profile
+    this.setState( { profile: sampleProfile.gp2 } )
+    console.log('> current user id :',  this.state.profile._id)
+    console.log('> current user full profile :',  this.state.profile)
+
+    //whitelisting profile attributes
+    let { _id, 
+          doctorSurname, 
+          doctorGivenName, 
+          doctorClinic, 
+          doctorAddress, 
+          doctorPostcode } = this.state.profile
+
+    let whitelistProfileToBeInsertedIntoProfile = { _id, 
+                                                    doctorSurname, 
+                                                    doctorGivenName, 
+                                                    doctorClinic, 
+                                                    doctorAddress, 
+                                                    doctorPostcode }
+    console.log('> whitelistProfileToBeInsertedIntoProfile :', 
+                whitelistProfileToBeInsertedIntoProfile)
+
+    Object.keys(sampleReferrals)
+    .map( referralKey => {
+      if (sampleReferrals[referralKey].gp_id === this.state.profile._id) {
+        filteredReferrals[referralKey] = sampleReferrals[referralKey]
+      }
+    })
+
+    console.log('> Filtered referrals :', filteredReferrals)
     //With filteredReferrals, add gp details to referral and call it populatedReferrals
+    Object.keys(filteredReferrals)
+    .map( key => {
+      filteredReferrals[key]['gp_profile'] = "dummy profile"
+    })
 
     //Set state of referrals with populatedReferrals
-
+    this.setState({ referrals: filteredReferrals })
   }
 
   _loadSampleReferralGP() {
@@ -185,7 +225,7 @@ class App extends Component {
             <li><button onClick={this._loadSampleReferralGP}>(Step 2) Load sample referrals for GP</button></li>
             <li><button onClick={this._loadSampleReferralPsy}>(Step 2) Load sample referrals for Psy</button></li>
             <br/>
-            <li><button onClick={this._prepareReferralTest}>(Step X)Prepare Referrals</button></li>
+            <li><button onClick={this._popupateGPDataInReferral}>(Step X)Prepare Referrals</button></li>
           </ul>
 
 
