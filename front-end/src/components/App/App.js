@@ -84,25 +84,25 @@ class App extends Component {
   }
 
   _loadSampleReferral() {
-    this.setState({ referrals: sampleReferrals })
-    console.log('Object key  : ', Object.keys(this.state.referrals))
-    
+    const filteredReferrals = {}
+    // this.setState({ referrals: sampleReferrals })
+    console.clear()
+    // console.log('sample Referrals' , sampleReferrals)
+    // console.log('Object key  : ', Object.keys(sampleReferrals))
     console.log('current GP id :' , this.state.profile._id)
 
-    // Object.keys(this.state.referrals)
-    // .map( referralKey => 
-    //   console.log(this.state.referrals[referralKey])
-    // )
-       
-    Object.keys(this.state.referrals)
+    Object.keys(sampleReferrals)
     .map( referralKey => {
-      if (this.state.referrals[referralKey].gp_id === this.state.profile._id) {
-        console.log(this.state.referrals[referralKey])
+      if (sampleReferrals[referralKey].gp_id === this.state.profile._id) {
+        console.log(sampleReferrals[referralKey])
+        filteredReferrals[referralKey] = sampleReferrals[referralKey]
       }
     }
     )
     
-
+    console.log('filteredReferrals :' ,filteredReferrals)
+    this.setState({ referrals: filteredReferrals })
+    
 
   }
 
@@ -113,22 +113,22 @@ class App extends Component {
 
   _loadSampleProfileGP1() {
     this.setState({ profile: sampleProfile.gp })
-    console.log('gp', this.state.profile)
+    console.log('gp1', this.state.profile)
   }
 
   _loadSampleProfileGP2() {
     this.setState({ profile: sampleProfile.gp2 })
-    console.log('gp', this.state.profile)
+    console.log('gp2', this.state.profile)
   }
 
   _loadSampleProfilePsychiatrist1() {
     this.setState({ profile: sampleProfile.psychiatrist })
-    console.log('psychiatrist', this.state.profile)
+    console.log('psychiatrist1', this.state.profile)
   }
 
   _loadSampleProfilePsychiatrist2() {
     this.setState({ profile: sampleProfile.psychiatrist2 })
-    console.log('psychiatrist', this.state.profile)
+    console.log('psychiatrist2', this.state.profile)
   }
 
 
