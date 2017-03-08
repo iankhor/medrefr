@@ -20,6 +20,7 @@ import medrefrTheme from './../styles/Theme'
 class App extends Component {
   constructor() {
     super()
+    this._prepareReferralTest = this._prepareReferralTest.bind(this)
     this._loadSampleReferralGP = this._loadSampleReferralGP.bind(this)
     this._loadSampleReferralPsy = this._loadSampleReferralPsy.bind(this)
     this._loadSampleReferralGP = this._loadSampleReferralGP.bind(this)
@@ -83,6 +84,17 @@ class App extends Component {
 
   }
 
+  _prepareReferralTest(){
+    //Get all referral / profiles
+
+    //Get referrals related to current user logged in, call it filteredReferrals
+
+    //With filteredReferrals, add gp details to referral and call it populatedReferrals
+
+    //Set state of referrals with populatedReferrals
+
+  }
+
   _loadSampleReferralGP() {
     const filteredReferrals = {}
     // this.setState({ referrals: sampleReferrals })
@@ -100,6 +112,7 @@ class App extends Component {
     }
     )
     console.log('filteredReferrals :' ,filteredReferrals)
+    
     this.setState({ referrals: filteredReferrals })
   }
 
@@ -161,14 +174,19 @@ class App extends Component {
         <div>
             <Header />
 
-            {/* temp temp load static data button */}
-            <button onClick={this._loadSampleProfileTriage}>(Step 1) Load sample profile Triage</button>
-            <button onClick={this._loadSampleProfileGP1}>(Step 1.1) Load sample profile GP 1</button>
-            <button onClick={this._loadSampleProfileGP2}>(Step 1.2) Load sample profile GP 2</button>
-            <button onClick={this._loadSampleProfilePsychiatrist1}>(Step 1.3) Load sample profile Psychiatrist 1</button>
-            <button onClick={this._loadSampleProfilePsychiatrist2}>(Step 1.4) Load sample profile Psychiatrist 2</button>
-            <button onClick={this._loadSampleReferralGP}>(Step 2) Load sample referrals for GP</button>
-            <button onClick={this._loadSampleReferralPsy}>(Step 2) Load sample referrals for Psy</button>
+          {/* temp temp load static data button */}
+          <ul>
+            <li><button onClick={this._loadSampleProfileTriage}>(Step 1.0) Load sample profile Triage</button></li>
+            <li><button onClick={this._loadSampleProfileGP1}>(Step 1.1) Load sample profile GP 1</button></li>
+            <li><button onClick={this._loadSampleProfileGP2}>(Step 1.2) Load sample profile GP 2</button></li>
+            <li><button onClick={this._loadSampleProfilePsychiatrist1}>(Step 1.3) Load sample profile Psychiatrist 1</button></li>
+            <li><button onClick={this._loadSampleProfilePsychiatrist2}>(Step 1.4) Load sample profile Psychiatrist 2</button></li>
+            <br/>
+            <li><button onClick={this._loadSampleReferralGP}>(Step 2) Load sample referrals for GP</button></li>
+            <li><button onClick={this._loadSampleReferralPsy}>(Step 2) Load sample referrals for Psy</button></li>
+            <br/>
+            <li><button onClick={this._prepareReferralTest}>(Step X)Prepare Referrals</button></li>
+          </ul>
 
 
             <PageTab

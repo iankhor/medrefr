@@ -49,7 +49,8 @@ export default class PageTab extends React.Component {
 
 
         </SwipeableViews>
-        <JSONDebugger json={this.props.profile}/>
+        <JSONDebugger json={this.props.profile}></JSONDebugger>
+        <JSONDebugger json={this.props.referrals}></JSONDebugger>
       </div>
     );
   }
