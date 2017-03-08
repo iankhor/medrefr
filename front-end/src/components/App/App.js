@@ -22,8 +22,10 @@ class App extends Component {
     super()
     this._loadSampleReferral = this._loadSampleReferral.bind(this)
     this._loadSampleProfileTriage = this._loadSampleProfileTriage.bind(this)
-    this._loadSampleProfileGP = this._loadSampleProfileGP.bind(this)
-    this._loadSampleProfilePsychiatrist = this._loadSampleProfilePsychiatrist.bind(this)
+    this._loadSampleProfileGP1 = this._loadSampleProfileGP1.bind(this)
+    this._loadSampleProfileGP2 = this._loadSampleProfileGP2.bind(this)
+    this._loadSampleProfilePsychiatrist1 = this._loadSampleProfilePsychiatrist1.bind(this)
+    this._loadSampleProfilePsychiatrist2 = this._loadSampleProfilePsychiatrist2.bind(this)
     this._handleTabChange = this._handleTabChange.bind(this)
     this._addReferral = this._addReferral.bind(this)
     this._updateReferral = this._updateReferral.bind(this)
@@ -83,8 +85,23 @@ class App extends Component {
 
   _loadSampleReferral() {
     this.setState({ referrals: sampleReferrals })
-    console.log('Object entries  : ', Object.keys(this.state.referrals))
+    console.log('Object key  : ', Object.keys(this.state.referrals))
+    
+    console.log('current GP id :' , this.state.profile._id)
+
+    // Object.keys(this.state.referrals)
+    // .map( referralKey => 
+    //   console.log(this.state.referrals[referralKey])
+    // )
        
+    Object.keys(this.state.referrals)
+    .map( referralKey => {
+      if (this.state.referrals[referralKey].gp_id === this.state.profile._id) {
+        console.log(this.state.referrals[referralKey])
+      }
+    }
+    )
+    
 
 
   }
@@ -94,13 +111,23 @@ class App extends Component {
     console.log('triage', this.state.profile)
   }
 
-  _loadSampleProfileGP() {
+  _loadSampleProfileGP1() {
     this.setState({ profile: sampleProfile.gp })
     console.log('gp', this.state.profile)
   }
 
-  _loadSampleProfilePsychiatrist() {
+  _loadSampleProfileGP2() {
+    this.setState({ profile: sampleProfile.gp2 })
+    console.log('gp', this.state.profile)
+  }
+
+  _loadSampleProfilePsychiatrist1() {
     this.setState({ profile: sampleProfile.psychiatrist })
+    console.log('psychiatrist', this.state.profile)
+  }
+
+  _loadSampleProfilePsychiatrist2() {
+    this.setState({ profile: sampleProfile.psychiatrist2 })
     console.log('psychiatrist', this.state.profile)
   }
 
@@ -119,8 +146,10 @@ class App extends Component {
 
             {/* temp temp load static data button */}
             <button onClick={this._loadSampleProfileTriage}>(Step 1) Load sample profile Triage</button>
-            <button onClick={this._loadSampleProfileGP}>(Step 1) Load sample profile GP</button>
-            <button onClick={this._loadSampleProfilePsychiatrist}>(Step 1) Load sample profile Psychiatrist</button>
+            <button onClick={this._loadSampleProfileGP1}>(Step 1.1) Load sample profile GP 1</button>
+            <button onClick={this._loadSampleProfileGP2}>(Step 1.2) Load sample profile GP 2</button>
+            <button onClick={this._loadSampleProfilePsychiatrist1}>(Step 1.3) Load sample profile Psychiatrist 1</button>
+            <button onClick={this._loadSampleProfilePsychiatrist2}>(Step 1.4) Load sample profile Psychiatrist 2</button>
             <button onClick={this._loadSampleReferral}>(Step 2) Load sample referrals</button>
 
 
