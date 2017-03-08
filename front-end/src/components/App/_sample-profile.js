@@ -1,5 +1,6 @@
 module.exports = {
       triage: {
+            "_id"             :  "1",
             "email"             :  "triage@triage.com",
             "surname"           :  "Greg",
             "giveName"          :  "Sam",
@@ -12,7 +13,8 @@ module.exports = {
             "role"              :  "triage"
       },
 
-      gp1: {
+      gp: {
+            "_id"             :  "2",
             "email"             :  "gp@gp.com",
             "surname"           :  "Khor",
             "giveName"          :  "Ian",
@@ -23,9 +25,16 @@ module.exports = {
             "contactNumber"     :  "0000000",
             "primaryPlaceOfPractice" :  "Somewhere",
             "role"              : "gp",
+            "doctorSurname"     : "Arrest",
+            "doctorGivenName"   : "Cardiac",
+            "doctorClinic"      : "Chest Pain Clinic",
+            "doctorAddress"     : "123, Fake street, Melbourne",
+            "doctorPostcode"    : "3000",
+            
       },
 
       gp2: {
+            "_id"             :  "3",
             "email"             :  "gp2@gp2.com",
             "surname"           :  "Loong",
             "giveName"          :  "Michael",
@@ -36,9 +45,15 @@ module.exports = {
             "contactNumber"     :  "0000000",
             "primaryPlaceOfPractice" :  "Somewhere",
             "role"              : "gp",
+            "doctorSurname"     : "Ball",
+            "doctorGivenName"   : "Crystall",
+            "doctorClinic"      : "Magic Clinic",
+            "doctorAddress"     : "123, Real street, Melbourne",
+            "doctorPostcode"    : "3000",
       },
 
-      psychiatrist1: {
+      psychiatrist: {
+            "_id"             :  "4",
             "email"             :  "psy@psy.com",
             "surname"           :  "Chen",
             "giveName"          :  "Sharon",
@@ -48,9 +63,15 @@ module.exports = {
             "providerNumber"    :  "123478",
             "contactNumber"     :  "0000000",
             "primaryPlaceOfPractice" :  "Somewhere",
-            "role"              : "psychiatrist",     
+            "role"              : "psychiatrist",  
+            "doctorSurname"     : "Sam",
+            "doctorGivenName"   : "Greg",
+            "doctorClinic"      : "Archilles Clinic",
+            "doctorAddress"     : "123, Badminton street, Melbourne",
+            "doctorPostcode"    : "3000",   
       },
       psychiatrist2: {
+            "_id"             :  "5",
             "email"             :  "psy2@psy2.com",
             "surname"           :  "Ward",
             "giveName"          :  "Seb",
@@ -60,6 +81,11 @@ module.exports = {
             "providerNumber"    :  "123478",
             "contactNumber"     :  "0000000",
             "primaryPlaceOfPractice" :  "Somewhere",
-            "role"              : "psychiatrist",     
+            "role"              : "psychiatrist", 
+            "doctorSurname"     : "Sara",
+            "doctorGivenName"   : "Ng",
+            "doctorClinic"      : "NG Technology",
+            "doctorAddress"     : "123, Electronics street, Melbourne",
+            "doctorPostcode"    : "3000",    
       }
 }

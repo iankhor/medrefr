@@ -114,10 +114,10 @@ class App extends Component {
             <Header />
 
             {/* temp temp load static data button */}
-            <button onClick={this._loadSampleReferral}>Load sample referrals</button>
-            <button onClick={this._loadSampleProfileTriage}>Load sample profile Triage</button>
-            <button onClick={this._loadSampleProfileGP}>Load sample profile GP</button>
-            <button onClick={this._loadSampleProfilePsychiatrist}>Load sample profile Psychiatrist</button>
+            <button onClick={this._loadSampleProfileTriage}>(Step 1) Load sample profile Triage</button>
+            <button onClick={this._loadSampleProfileGP}>(Step 1) Load sample profile GP</button>
+            <button onClick={this._loadSampleProfilePsychiatrist}>(Step 1) Load sample profile Psychiatrist</button>
+            <button onClick={this._loadSampleReferral}>(Step 2) Load sample referrals</button>
 
 
             <PageTab
