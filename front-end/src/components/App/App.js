@@ -94,21 +94,23 @@ class App extends Component {
       case 'triage':
         console.log('Current user role : triage')
         filteredReferrals = this._prepareReferralData('triage')
-        console.log(filteredReferrals)
+        console.log('Filtered Referrals without GP Profiles', filteredReferrals)
         populatedGPProfileReferrals = this._popupateGPDataInReferral(filteredReferrals)
-        console.log(populatedGPProfileReferrals)
+        console.log('Filtered Referrals WITH GP Profiles', populatedGPProfileReferrals)
         break
       case 'gp':
         console.log('Current user role : gp')
         filteredReferrals = this._prepareReferralData('gp')
-        console.log(filteredReferrals)
+        console.log('Filtered Referrals without GP Profiles', filteredReferrals)
         populatedGPProfileReferrals = this._popupateGPDataInReferral(filteredReferrals)
+        console.log('Filtered Referrals WITH GP Profiles', populatedGPProfileReferrals)
         break
       case 'psychiatrist':
         console.log('Current user role : psychiatrist')
         filteredReferrals = this._prepareReferralData('psychiatrist')
-        console.log(filteredReferrals)
+        console.log('Filtered Referrals without GP Profiles', filteredReferrals)
         populatedGPProfileReferrals = this._popupateGPDataInReferral(filteredReferrals)
+        console.log('Filtered Referrals WITH GP Profiles', populatedGPProfileReferrals)
         break
       default:
         console.log('err not logged in')
@@ -200,8 +202,7 @@ class App extends Component {
     Object.keys(filteredReferrals)
     .map( key => {
       //extract gpProfile from sampleProfiles associated with current referral
-      gpProfile = sampleProfile[filteredReferrals[key].gp_id]
-      console.log()
+      gpProfile = sampleProfile.find( profile => profile._id === filteredReferrals[key].gp_id)
       populatedGPProfileReferrals[key]['gp_profile'] = gpProfile
     })
 
