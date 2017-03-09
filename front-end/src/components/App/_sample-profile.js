@@ -1,5 +1,5 @@
-module.exports = {
-      triage: {
+module.exports = [
+      {
             "_id"             :  "1",
             "email"             :  "triage@triage.com",
             "surname"           :  "Greg",
@@ -13,7 +13,7 @@ module.exports = {
             "role"              :  "triage"
       },
 
-      gp: {
+      {
             "_id"             :  "2",
             "email"             :  "gp@gp.com",
             "surname"           :  "Khor",
@@ -33,7 +33,7 @@ module.exports = {
             
       },
 
-      gp2: {
+      {
             "_id"             :  "3",
             "email"             :  "gp2@gp2.com",
             "surname"           :  "Loong",
@@ -52,7 +52,7 @@ module.exports = {
             "doctorPostcode"    : "3000",
       },
 
-      psychiatrist: {
+      {
             "_id"             :  "4",
             "email"             :  "psy@psy.com",
             "surname"           :  "Chen",
@@ -70,7 +70,7 @@ module.exports = {
             "doctorAddress"     : "123, Badminton street, Melbourne",
             "doctorPostcode"    : "3000",   
       },
-      psychiatrist2: {
+      {
             "_id"             :  "5",
             "email"             :  "psy2@psy2.com",
             "surname"           :  "Ward",
@@ -88,4 +88,4 @@ module.exports = {
             "doctorAddress"     : "123, Electronics street, Melbourne",
             "doctorPostcode"    : "3000",    
       }
-}
+]
