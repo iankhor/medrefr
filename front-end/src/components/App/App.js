@@ -116,53 +116,6 @@ class App extends Component {
         console.log('err not logged in')
     }
 
-    // //Get all referral / profiles
-    // let allReferrals = sampleReferrals
-    // let allProfiles = sampleProfile
-
-    // console.log('> getting allReferrals : ', allReferrals)
-    // console.log('> getting allProfiles : ', allProfiles)
-
-    // //Get referrals related to current user logged in, call it filteredReferrals
-    // let filteredReferrals = {}
-
-    // //simulating a user and whitelist certain attributes from profile
-    // this.setState( { profile: sampleProfile.gp2 } )
-    // console.log('> current user id :',  this.state.profile._id)
-    // console.log('> current user full profile :',  this.state.profile)
-
-    // //whitelisting profile attributes
-    // let { _id, 
-    //       doctorSurname, 
-    //       doctorGivenName, 
-    //       doctorClinic, 
-    //       doctorAddress, 
-    //       doctorPostcode } = this.state.profile
-
-    // let whitelistProfileToBeInsertedIntoProfile = { _id, 
-    //                                                 doctorSurname, 
-    //                                                 doctorGivenName, 
-    //                                                 doctorClinic, 
-    //                                                 doctorAddress, 
-    //                                                 doctorPostcode }
-    // console.log('> whitelistProfileToBeInsertedIntoProfile :', 
-    //             whitelistProfileToBeInsertedIntoProfile)
-
-    // Object.keys(sampleReferrals)
-    // .map( referralKey => {
-    //   if (sampleReferrals[referralKey].gp_id === this.state.profile._id) {
-    //     filteredReferrals[referralKey] = sampleReferrals[referralKey]
-    //   }
-    // })
-
-    // console.log('> Filtered referrals :', filteredReferrals)
-    // //With filteredReferrals, add gp details to referral and call it populatedReferrals
-    // Object.keys(filteredReferrals)
-    // .map( key => {
-    //   filteredReferrals[key]['gp_profile'] = "dummy profile"
-    // })
-
-    // //Set state of referrals with populatedReferrals
     // this.setState({ referrals: filteredReferrals })
   }
 
@@ -197,15 +150,14 @@ class App extends Component {
 
   _popupateGPDataInReferral(filteredReferrals){
     let populatedGPProfileReferrals = filteredReferrals
-    let gpProfile = {}
-    //With filteredReferrals, add gp details to referral and call it populatedReferrals
-    Object.keys(filteredReferrals)
+    // With filteredReferrals, add gp details to referral and call it populatedReferrals
+    Object.keys(populatedGPProfileReferrals)
     .map( key => {
       //extract gpProfile from sampleProfiles associated with current referral
-      gpProfile = sampleProfile.find( profile => profile._id === filteredReferrals[key].gp_id)
-      populatedGPProfileReferrals[key]['gp_profile'] = gpProfile
+      let gpProfile = sampleProfile.find( profile => profile._id === populatedGPProfileReferrals[key].gp_id)
+      let whiteListgpProfile = this._whiteListGPProfile(gpProfile)
+      populatedGPProfileReferrals[key]['gp_profile'] = whiteListgpProfile
     })
-
     return populatedGPProfileReferrals
   }
 
