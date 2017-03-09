@@ -93,15 +93,22 @@ class App extends Component {
     switch(this.state.profile.role) {
       case 'triage':
         console.log('Current user role : triage')
-        console.log('returned filtered referral : ', this._prepareReferralData('triage'))
+        filteredReferrals = this._prepareReferralData('triage')
+        console.log(filteredReferrals)
+        populatedGPProfileReferrals = this._popupateGPDataInReferral(filteredReferrals)
+        console.log(populatedGPProfileReferrals)
         break
       case 'gp':
         console.log('Current user role : gp')
-        console.log('returned filtered referral : ', this._prepareReferralData('gp'))
+        filteredReferrals = this._prepareReferralData('gp')
+        console.log(filteredReferrals)
+        populatedGPProfileReferrals = this._popupateGPDataInReferral(filteredReferrals)
         break
       case 'psychiatrist':
         console.log('Current user role : psychiatrist')
-        console.log('returned filtered referral : ', this._prepareReferralData('psychiatrist'))
+        filteredReferrals = this._prepareReferralData('psychiatrist')
+        console.log(filteredReferrals)
+        populatedGPProfileReferrals = this._popupateGPDataInReferral(filteredReferrals)
         break
       default:
         console.log('err not logged in')
@@ -187,9 +194,18 @@ class App extends Component {
   }
 
   _popupateGPDataInReferral(filteredReferrals){
+    let populatedGPProfileReferrals = filteredReferrals
+    let gpProfile = {}
+    //With filteredReferrals, add gp details to referral and call it populatedReferrals
+    Object.keys(filteredReferrals)
+    .map( key => {
+      //extract gpProfile from sampleProfiles associated with current referral
+      gpProfile = sampleProfile[filteredReferrals[key].gp_id]
+      console.log()
+      populatedGPProfileReferrals[key]['gp_profile'] = gpProfile
+    })
 
-  
-
+    return populatedGPProfileReferrals
   }
 
   _whiteListGPProfile(gpProfile){
@@ -209,8 +225,6 @@ class App extends Component {
             doctorPostcode }
 
   }
-  
-
 
   _loadSampleReferralGP() {
     const filteredReferrals = {}
@@ -254,27 +268,27 @@ class App extends Component {
   }
 
   _loadSampleProfileTriage() {
-    this.setState({ profile: sampleProfile.triage })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '1') })
     console.log('triage', this.state.profile)
   }
 
   _loadSampleProfileGP1() {
-    this.setState({ profile: sampleProfile.gp })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '2') })
     console.log('gp1', this.state.profile)
   }
 
   _loadSampleProfileGP2() {
-    this.setState({ profile: sampleProfile.gp2 })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '3') })
     console.log('gp2', this.state.profile)
   }
 
   _loadSampleProfilePsychiatrist1() {
-    this.setState({ profile: sampleProfile.psychiatrist })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '4') })
     console.log('psychiatrist1', this.state.profile)
   }
 
   _loadSampleProfilePsychiatrist2() {
-    this.setState({ profile: sampleProfile.psychiatrist2 })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '5') })
     console.log('psychiatrist2', this.state.profile)
   }
 
