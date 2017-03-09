@@ -149,14 +149,14 @@ class App extends Component {
   }
 
   _popupateGPDataInReferral(filteredReferrals){
-    let populatedGPProfileReferrals = filteredReferrals
+    let populatedGPProfileReferrals = {}
     // With filteredReferrals, add gp details to referral and call it populatedReferrals
-    Object.keys(populatedGPProfileReferrals)
+    Object.keys(filteredReferrals)
     .map( key => {
       //extract gpProfile from sampleProfiles associated with current referral
-      let gpProfile = sampleProfile.find( profile => profile._id === populatedGPProfileReferrals[key].gp_id)
+      let gpProfile = sampleProfile.find( profile => profile._id === filteredReferrals[key].gp_id)
       let whiteListgpProfile = this._whiteListGPProfile(gpProfile)
-      populatedGPProfileReferrals[key]['gp_profile'] = whiteListgpProfile
+      populatedGPProfileReferrals[key] = Object.assign({}, filteredReferrals[key], { gp_profile: whiteListgpProfile } )
     })
     return populatedGPProfileReferrals
   }
