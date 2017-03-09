@@ -20,7 +20,7 @@ import medrefrTheme from './../styles/Theme'
 class App extends Component {
   constructor() {
     super()
-    this._prepareReferralData = this._prepareReferralData.bind(this)
+    this._fetchRawReferralData = this._fetchRawReferralData.bind(this)
     this._loadReferrals = this._loadReferrals.bind(this)
     this._loadSampleProfileTriage = this._loadSampleProfileTriage.bind(this)
     this._loadSampleProfileGP1 = this._loadSampleProfileGP1.bind(this)
@@ -89,25 +89,24 @@ class App extends Component {
 
     switch(this.state.profile.role) {
       case 'triage':
-        referralsWithoutGPProfiles = this._prepareReferralData('triage')
+        referralsWithoutGPProfiles = this._fetchRawReferralData('triage')
         populatedGPProfileReferrals = this._popupateGPDataInReferral(referralsWithoutGPProfiles)
         break
       case 'gp':
-        referralsWithoutGPProfiles = this._prepareReferralData('gp')
+        referralsWithoutGPProfiles = this._fetchRawReferralData('gp')
         populatedGPProfileReferrals = this._popupateGPDataInReferral(referralsWithoutGPProfiles)
         break
       case 'psychiatrist':
-        referralsWithoutGPProfiles = this._prepareReferralData('psychiatrist')
+        referralsWithoutGPProfiles = this._fetchRawReferralData('psychiatrist')
         populatedGPProfileReferrals = this._popupateGPDataInReferral(referralsWithoutGPProfiles)
         break
       default:
         console.log('err not logged in')
     }
-
     this.setState({ referrals: populatedGPProfileReferrals })
   }
 
-  _prepareReferralData(role) {
+  _fetchRawReferralData(role) {
 
     let filteredReferrals = {}
     switch(role) {
@@ -144,27 +143,26 @@ class App extends Component {
       //extract gpProfile from sampleProfiles associated with current referral
       let gpProfile = sampleProfile.find( profile => profile._id === filteredReferrals[key].gp_id)
       let whiteListgpProfile = this._whiteListGPProfile(gpProfile)
-      populatedGPProfileReferrals[key] = Object.assign({}, filteredReferrals[key], { gp_profile: whiteListgpProfile } )
+      populatedGPProfileReferrals[key] = Object.assign({}, filteredReferrals[key], whiteListgpProfile )
     })
     return populatedGPProfileReferrals
   }
 
   _whiteListGPProfile(gpProfile){
     //whitelisting profile attributes
-    let { _id, 
-          doctorSurname, 
+    let { doctorSurname, 
           doctorGivenName, 
           doctorClinic, 
           doctorAddress, 
-          doctorPostcode } = gpProfile
+          doctorPostcode,
+          doctorContactNumber } = gpProfile
 
-    return{ _id, 
-            doctorSurname, 
+    return{ doctorSurname, 
             doctorGivenName, 
             doctorClinic, 
             doctorAddress, 
-            doctorPostcode }
-
+            doctorPostcode,
+            doctorContactNumber }
   }
 
 
