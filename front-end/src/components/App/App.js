@@ -193,6 +193,20 @@ class App extends Component {
   }
 
   _whiteListGPProfile(gpProfile){
+    //whitelisting profile attributes
+    let { _id, 
+          doctorSurname, 
+          doctorGivenName, 
+          doctorClinic, 
+          doctorAddress, 
+          doctorPostcode } = gpProfile
+
+    return{ _id, 
+            doctorSurname, 
+            doctorGivenName, 
+            doctorClinic, 
+            doctorAddress, 
+            doctorPostcode }
 
   }
   
