@@ -1,8 +1,8 @@
 import React from 'react'
 import auth from './../api/initAuth'
-import { BrowserRouter, 
-         Match, 
-         Miss, 
+import { BrowserRouter,
+         Match,
+         Miss,
          Redirect } from 'react-router'
 
 //Routes
@@ -29,10 +29,10 @@ const Routes = (props) => {
   return (
     <BrowserRouter>
       <div>
-        <Match exactly pattern="/" component={MainPage} />  
-        <Match exactly pattern="/NotLoggedInTemp" component={NotLoggedInTemp} />  
-        <MatchWhenAuthorized exactly pattern="/ReferralDashboard" component={App} /> 
-        <Miss component={NotFound} />  
+        <Match exactly pattern="/" component={MainPage} />
+        <Match exactly pattern="/NotLoggedInTemp" component={NotLoggedInTemp} />
+        <MatchWhenAuthorized exactly pattern="/ReferralDashboard" component={App} />
+        <Miss component={NotFound} />
       </div>
     </BrowserRouter>
   )

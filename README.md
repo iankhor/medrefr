@@ -37,7 +37,7 @@ Project brief
 =============
 * Design, build, deploy and present an application built for a real world customer
 * Meet with the business owner or organisation manager to find out what challenges they face
-* Find a problem that can be solved with an application 
+* Find a problem that can be solved with an application
 
 The deployed webpage can be found here : [MedReFR (Click here)](https://medrefr.herokuapp.com)
 
@@ -51,7 +51,7 @@ Front-end:
 Back-end:
 * MongoDB
 * Express.js
-* Node.js 
+* Node.js
 
 [Return to overview](#overview)
 
@@ -157,8 +157,8 @@ Concept, Design Build comparison
 
 UX: User flow diagram
 =====================================
-Before we begin coding, we planned the user flow in the diagram below. It served as a guide to what pages and elements were needed for 
-the entire app. This has allowed us to code more efficiently by answering the detailed nuances of the user experience. 
+Before we begin coding, we planned the user flow in the diagram below. It served as a guide to what pages and elements were needed for
+the entire app. This has allowed us to code more efficiently by answering the detailed nuances of the user experience.
 
 ![User flow diagram](https://github.com/iankhor/files/blob/master/MedReFR/15.%20MedReFR%20UX%20-%20User%20Flow%20V1.0.jpg)
 
@@ -167,7 +167,7 @@ the entire app. This has allowed us to code more efficiently by answering the de
 UX: Referral lifecycle diagram
 =====================================
 As the core piece of the app was the referral, we have drawn the referral lifecycle in the following diagra mto ensure that the business logic is
-correct. 
+correct.
 
 ![Referral Status Matrix](https://github.com/iankhor/files/blob/master/MedReFR/14.%20Referral%20status%20matrix.png)
 ![Referral Lifecycle Diagram](https://github.com/iankhor/files/blob/master/MedReFR/13.%20Referral%20lifecycle%20diagram.jpg)
@@ -176,7 +176,7 @@ correct.
 
 Front-end: React component hierarchy diagram
 ===============================================
-As React is components based, we have mapped our a component hierarchy diagram to guide us through the coding process. This diagram has 
+As React is components based, we have mapped our a component hierarchy diagram to guide us through the coding process. This diagram has
 helped us decide where crucial data should be placed and pass around. Each component followed the single responsibility principle technique.  
 
 ![Component Hierarchy Diagram](https://github.com/iankhor/files/blob/master/MedReFR/12.%20Component%20Hierarchy%20DiagramV1.3.jpg)
@@ -349,14 +349,24 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 3. Add/update the **config variables** for `REACT_APP_API_URL` with a value of `https://medrefr-api.herokuapp.com` (or the name of the api server of your choice)  
 4. Under **buildpacks**, add this buildpack link `https://github.com/mars/create-react-app-buildpack.git`   
 5. Lastly, save the setting from step 1 to 4 in your heroku app.  
+<<<<<<< HEAD
+<<<<<<< HEAD
+6. On your local machine, go into your front-end folder. `cd front-end`    
+7. Initialiase a git repositry. `git init`  
+8. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr.git`    
+9. Add a new file called `static.json` to configure a single page application with heroku.
+=======
+=======
+>>>>>>> e71b9b537c620d2aabf44017cad4f67c579e2cac
 6. Sign up/Log in with [Auth0](https://www.auth0.com/).
 7. In Auth0, create a client and record the  `client ID` and `domain`
 8. In the local **.env** file, update the `REACT_APP_AUTH_CLIENT_ID` and `REACT_APP_AUTH_DOMAIN_ADDRESS` with `client ID` and `domain` from step 7.
 9. On your local machine, go into your front-end folder. `cd front-end`    
 10. Initialiase a git repositry. `git init`  
 11. Add the heroku git repositry in step 2. `git remote add heroku https://git.heroku.com/medrefr.git`    
-12. Add a new file called `static.json` to configure a single page application with heroku. 
-
+12. Add a new file called `static.json` to configure a single page application with heroku.
+<<<<<<< HEAD
+>>>>>>> e345b7922e2694a7181116efdf681914835bba74
 ```
 {
   "root": "build/",
@@ -379,7 +389,7 @@ Ensure you are logged into heroku by running `heroku login` in both your front-e
 
 ### Project management in Trello
 ================================
-We have used Trello as a project management tool and it can be viewed [at https://trello.com/b/K1URwilv/cfa-medrefr](https://trello.com/b/K1URwilv/cfa-medrefr) 
+We have used Trello as a project management tool and it can be viewed [at https://trello.com/b/K1URwilv/cfa-medrefr](https://trello.com/b/K1URwilv/cfa-medrefr)
 
 [Return to overview](#overview)
 

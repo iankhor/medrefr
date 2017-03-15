@@ -1,14 +1,17 @@
 const mongoose = require('mongoose')
 
 const profileSchema = new mongoose.Schema({
-            Surname:              String,
-            // doctorGivenName:            String,
-            // doctorClinic:               String,
-            // doctorAddress:              String,
-            // doctorPostcode:             Number,
-            // doctorContactNumber:        Number,
-            // role:                       String,
-            createdAt:                  { type: Date, default: Date.now}
+            surname:              String,
+            givenName: String,
+            dateOfBirthDay: Number,
+            dateOfBirthMonth: Number,
+            dateOfBirthYear: Number,
+            providerNumber: String,
+            contactNumber: Number,
+            primaryPlaceOfPractice: String,
+            role: String,
+            subSpecialty: String,
+            userID: ObjectID
 
 })
 
