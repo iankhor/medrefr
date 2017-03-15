@@ -20,6 +20,7 @@ Overview
 * [UX: Referral lifecycle diagram](#ux-referral-lifecycle-diagram)
 * [Front-end: React component hierarchy diagram](#front-end-react-component-hierarchy-diagram)
 * [Back-end: MongoDB schema design](#back-end-mongodb-schema-design)
+* [Back-end: (Proposal) Getting referral data based on user_id & populating GP profile in referral](#back-end-proposal-of-getting-referral-data)
 * [Notable package, services and tools used](#notable-packages-services-tools-used)
 * [Style guide](#style-guide)
   * [Color](#color)
@@ -240,6 +241,14 @@ referralAppointmentPeriod| String
 role| String
 createdAt| Date, Date.now
 assignedUserID| ObjectID
+
+[Return to overview](#overview)
+
+Back-end: Proposal of getting referral data
+====================================================
+
+A draft proposal on how to get data from the backend. 
+![Proposal of getting referral data](https://github.com/iankhor/files/blob/master/MedReFR/16.%20Populate%20and%20Hydrating%20Referral%20Technique%20Proposal.jpg)
 
 [Return to overview](#overview)
 

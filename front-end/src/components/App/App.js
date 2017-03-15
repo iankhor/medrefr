@@ -20,15 +20,14 @@ import medrefrTheme from './../styles/Theme'
 class App extends Component {
   constructor() {
     super()
-    this._popupateGPDataInReferral = this._popupateGPDataInReferral.bind(this)
-    this._loadSampleReferralGP = this._loadSampleReferralGP.bind(this)
-    this._loadSampleReferralPsy = this._loadSampleReferralPsy.bind(this)
-    this._loadSampleReferralGP = this._loadSampleReferralGP.bind(this)
+    this._fetchRawReferralData = this._fetchRawReferralData.bind(this)
+    this._loadReferrals = this._loadReferrals.bind(this)
     this._loadSampleProfileTriage = this._loadSampleProfileTriage.bind(this)
     this._loadSampleProfileGP1 = this._loadSampleProfileGP1.bind(this)
     this._loadSampleProfileGP2 = this._loadSampleProfileGP2.bind(this)
     this._loadSampleProfilePsychiatrist1 = this._loadSampleProfilePsychiatrist1.bind(this)
     this._loadSampleProfilePsychiatrist2 = this._loadSampleProfilePsychiatrist2.bind(this)
+
     this._handleTabChange = this._handleTabChange.bind(this)
     this._addReferral = this._addReferral.bind(this)
     this._updateReferral = this._updateReferral.bind(this)
@@ -84,120 +83,111 @@ class App extends Component {
 
   }
 
-  _popupateGPDataInReferral(){
-    //Get all referral / profiles
-    let allReferrals = sampleReferrals
-    let allProfiles = sampleProfile
+  _loadReferrals(){
 
-    console.log('> getting allReferrals : ', allReferrals)
-    console.log('> getting allProfiles : ', allProfiles)
+    let referralsWithoutGPProfiles, populatedGPProfileReferrals  = {}
 
-    //Get referrals related to current user logged in, call it filteredReferrals
+    switch(this.state.profile.role) {
+      case 'triage':
+        referralsWithoutGPProfiles = this._fetchRawReferralData('triage')
+        populatedGPProfileReferrals = this._popupateGPDataInReferral(referralsWithoutGPProfiles)
+        break
+      case 'gp':
+        referralsWithoutGPProfiles = this._fetchRawReferralData('gp')
+        populatedGPProfileReferrals = this._popupateGPDataInReferral(referralsWithoutGPProfiles)
+        break
+      case 'psychiatrist':
+        referralsWithoutGPProfiles = this._fetchRawReferralData('psychiatrist')
+        populatedGPProfileReferrals = this._popupateGPDataInReferral(referralsWithoutGPProfiles)
+        break
+      default:
+        console.log('err not logged in')
+    }
+    this.setState({ referrals: populatedGPProfileReferrals })
+  }
+
+  _fetchRawReferralData(role) {
+
     let filteredReferrals = {}
+    switch(role) {
+      case 'triage':
+        filteredReferrals = sampleReferrals
+        break
+      case 'gp':
+        Object.keys(sampleReferrals)
+          .map( referralKey => {
+            if (sampleReferrals[referralKey].gp_id === this.state.profile._id) {
+              filteredReferrals[referralKey] = sampleReferrals[referralKey]
+            }
+          })
+        break
+      case 'psychiatrist':
+        Object.keys(sampleReferrals)
+          .map( referralKey => {
+            if (sampleReferrals[referralKey].assignedSpecialist_id === this.state.profile._id) {
+              filteredReferrals[referralKey] = sampleReferrals[referralKey]
+            }
+          })
+        break
+      default:
+      // do nothing
+    }
+    return filteredReferrals
+  }
 
-    //simulating a user and whitelist certain attributes from profile
-    this.setState( { profile: sampleProfile.gp2 } )
-    console.log('> current user id :',  this.state.profile._id)
-    console.log('> current user full profile :',  this.state.profile)
+  _popupateGPDataInReferral(filteredReferrals){
+    let populatedGPProfileReferrals = {}
+    // With filteredReferrals, add gp details to referral and call it populatedReferrals
+    Object.keys(filteredReferrals)
+    .map( key => {
+      //extract gpProfile from sampleProfiles associated with current referral
+      let gpProfile = sampleProfile.find( profile => profile._id === filteredReferrals[key].gp_id)
+      let whiteListgpProfile = this._whiteListGPProfile(gpProfile)
+      populatedGPProfileReferrals[key] = Object.assign({}, filteredReferrals[key], whiteListgpProfile )
+    })
+    return populatedGPProfileReferrals
+  }
 
+  _whiteListGPProfile(gpProfile){
     //whitelisting profile attributes
-    let { _id, 
-          doctorSurname, 
+    let { doctorSurname, 
           doctorGivenName, 
           doctorClinic, 
           doctorAddress, 
-          doctorPostcode } = this.state.profile
+          doctorPostcode,
+          doctorContactNumber } = gpProfile
 
-    let whitelistProfileToBeInsertedIntoProfile = { _id, 
-                                                    doctorSurname, 
-                                                    doctorGivenName, 
-                                                    doctorClinic, 
-                                                    doctorAddress, 
-                                                    doctorPostcode }
-    console.log('> whitelistProfileToBeInsertedIntoProfile :', 
-                whitelistProfileToBeInsertedIntoProfile)
-
-    Object.keys(sampleReferrals)
-    .map( referralKey => {
-      if (sampleReferrals[referralKey].gp_id === this.state.profile._id) {
-        filteredReferrals[referralKey] = sampleReferrals[referralKey]
-      }
-    })
-
-    console.log('> Filtered referrals :', filteredReferrals)
-    //With filteredReferrals, add gp details to referral and call it populatedReferrals
-    Object.keys(filteredReferrals)
-    .map( key => {
-      filteredReferrals[key]['gp_profile'] = "dummy profile"
-    })
-
-    //Set state of referrals with populatedReferrals
-    this.setState({ referrals: filteredReferrals })
+    return{ doctorSurname, 
+            doctorGivenName, 
+            doctorClinic, 
+            doctorAddress, 
+            doctorPostcode,
+            doctorContactNumber }
   }
 
-  _loadSampleReferralGP() {
-    const filteredReferrals = {}
-    // this.setState({ referrals: sampleReferrals })
-    console.clear()
-    // console.log('sample Referrals' , sampleReferrals)
-    // console.log('Object key  : ', Object.keys(sampleReferrals))
-    console.log('current GP id :' , this.state.profile._id)
-
-    Object.keys(sampleReferrals)
-    .map( referralKey => {
-      if (sampleReferrals[referralKey].gp_id === this.state.profile._id) {
-        console.log(sampleReferrals[referralKey])
-        filteredReferrals[referralKey] = sampleReferrals[referralKey]
-      }
-    }
-    )
-    console.log('filteredReferrals :' ,filteredReferrals)
-    
-    this.setState({ referrals: filteredReferrals })
-  }
-
-  _loadSampleReferralPsy() {
-    const filteredReferrals = {}
-    // this.setState({ referrals: sampleReferrals })
-    console.clear()
-    // console.log('sample Referrals' , sampleReferrals)
-    // console.log('Object key  : ', Object.keys(sampleReferrals))
-    console.log('current Psy id :' , this.state.profile._id)
-
-    Object.keys(sampleReferrals)
-    .map( referralKey => {
-      if (sampleReferrals[referralKey].assignedSpecialist_id === this.state.profile._id) {
-        console.log(sampleReferrals[referralKey])
-        filteredReferrals[referralKey] = sampleReferrals[referralKey]
-      }
-    }
-    )
-    console.log('filteredReferrals :' ,filteredReferrals)
-    this.setState({ referrals: filteredReferrals })
-  }
 
   _loadSampleProfileTriage() {
-    this.setState({ profile: sampleProfile.triage })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '1') })
     console.log('triage', this.state.profile)
   }
 
   _loadSampleProfileGP1() {
-    this.setState({ profile: sampleProfile.gp })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '2') })
     console.log('gp1', this.state.profile)
   }
 
   _loadSampleProfileGP2() {
-    this.setState({ profile: sampleProfile.gp2 })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '3') })
     console.log('gp2', this.state.profile)
   }
 
   _loadSampleProfilePsychiatrist1() {
-    this.setState({ profile: sampleProfile.psychiatrist })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '4') })
     console.log('psychiatrist1', this.state.profile)
   }
 
   _loadSampleProfilePsychiatrist2() {
-    this.setState({ profile: sampleProfile.psychiatrist2 })
+    this.setState({ profile: sampleProfile.find( profile => profile._id === '5') })
     console.log('psychiatrist2', this.state.profile)
   }
 
@@ -222,10 +212,7 @@ class App extends Component {
             <li><button onClick={this._loadSampleProfilePsychiatrist1}>(Step 1.3) Load sample profile Psychiatrist 1</button></li>
             <li><button onClick={this._loadSampleProfilePsychiatrist2}>(Step 1.4) Load sample profile Psychiatrist 2</button></li>
             <br/>
-            <li><button onClick={this._loadSampleReferralGP}>(Step 2) Load sample referrals for GP</button></li>
-            <li><button onClick={this._loadSampleReferralPsy}>(Step 2) Load sample referrals for Psy</button></li>
-            <br/>
-            <li><button onClick={this._popupateGPDataInReferral}>(Step X)Prepare Referrals</button></li>
+            <li><button onClick={this._loadReferrals}>(Step X)Prepare Referrals</button></li>
           </ul>
 
 
