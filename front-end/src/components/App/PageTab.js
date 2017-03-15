@@ -45,7 +45,7 @@ export default class PageTab extends React.Component {
           />
 
           {/*dummy data*/}
-          <Profile profile={ { Surname: 'Shazza'} }/>
+          <Profile profile={this.props.profile}/>
 
 
         </SwipeableViews>
