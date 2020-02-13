@@ -18,7 +18,7 @@
     "jsonwebtoken": "^7.2.1",
     "mongodb": "^2.2.21",
     "mongoose": "^4.7.6",
-    "morgan": "~1.7.0",
+    "morgan": "~1.9.1",
     "node-fetch": "^1.6.3",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
