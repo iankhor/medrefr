@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "auth0-js": "^9.12.2",
-    "auth0-lock": "^10.9.2",
+    "auth0-lock": "^11.21.1",
     "axios": "^0.19.2",
     "events": "^1.1.1",
     "formsy-material-ui": "^0.5.3",
