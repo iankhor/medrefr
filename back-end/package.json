@@ -17,7 +17,7 @@
     "express-session": "^1.14.2",
     "jsonwebtoken": "^7.2.1",
     "mongodb": "^2.2.21",
-    "mongoose": "^4.7.6",
+    "mongoose": "^5.8.12",
     "morgan": "~1.7.0",
     "node-fetch": "^1.6.3",
     "passport": "^0.3.2",
